@@ -13,7 +13,7 @@ from app.datasets.features import (
     synthetic_weather,
     weather_features,
 )
-from app.ingest.power import fetch_power_daily_cached
+from app.ingest.power import fetch_power_daily_cached, load_local_power
 from app.knowledge import load_crops, load_soils
 from app.simulation import simulate_crop_season
 
@@ -63,10 +63,19 @@ def _season_start(year: int, season: str) -> dt.date:
 
 
 def _load_weather(
-    site: dict, start: dt.date, end: dt.date, cache_dir: Path, offline: bool
+    site_key: str,
+    site: dict,
+    start: dt.date,
+    end: dt.date,
+    cache_dir: Path,
+    datasets_dir: Path,
+    offline: bool,
 ) -> pd.DataFrame:
     if offline:
         return synthetic_weather(pd.date_range(start, end, freq="D"))
+    local_path = datasets_dir / "power" / f"{site_key}.csv"
+    if local_path.exists():
+        return load_local_power(local_path)
     return fetch_power_daily_cached(site["lat"], site["lon"], start, end, cache_dir)
 
 
@@ -76,6 +85,7 @@ def build_dataset(
     end_year: int,
     cache_dir: Path,
     out_path: Path,
+    datasets_dir: Path = Path("datasets"),
     offline: bool = False,
 ) -> pd.DataFrame:
     crops = load_crops()
@@ -87,7 +97,9 @@ def build_dataset(
     for key in site_keys:
         site = SITES[key]
         soil = soils[site["soil"]]
-        weather = _load_weather(site, fetch_start, fetch_end, cache_dir, offline)
+        weather = _load_weather(
+            key, site, fetch_start, fetch_end, cache_dir, datasets_dir, offline
+        )
         weather = clean_weather(weather)
         if weather.empty:
             continue
@@ -165,6 +177,7 @@ def main() -> None:
     parser.add_argument("--end-year", type=int, default=2022)
     parser.add_argument("--out", default="artifacts/dataset.parquet")
     parser.add_argument("--cache-dir", default="data/cache")
+    parser.add_argument("--datasets-dir", default="datasets")
     parser.add_argument("--offline", action="store_true")
     args = parser.parse_args()
 
@@ -183,6 +196,7 @@ def main() -> None:
         end_year=args.end_year,
         cache_dir=Path(args.cache_dir),
         out_path=Path(args.out),
+        datasets_dir=Path(args.datasets_dir),
         offline=args.offline,
     )
     print(f"Wrote {len(frame)} rows to {args.out}")

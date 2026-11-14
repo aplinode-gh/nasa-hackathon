@@ -61,3 +61,11 @@ def fetch_power_daily_cached(
     frame = fetch_power_daily(lat, lon, start, end)
     frame.to_csv(path)
     return frame
+
+
+def load_local_power(path: Path) -> pd.DataFrame:
+    frame = pd.read_csv(path, dtype={"date": str})
+    frame["date"] = pd.to_datetime(frame["date"], format="%Y%m%d")
+    frame = frame.set_index("date").sort_index()
+    frame.columns = [column.lower() for column in frame.columns]
+    return frame.replace(FILL_VALUE, float("nan"))
