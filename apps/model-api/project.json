@@ -18,6 +18,20 @@
         "command": "pytest",
         "cwd": "apps/model-api"
       }
+    },
+    "dataset": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "python -m app.datasets.build {args}",
+        "cwd": "apps/model-api"
+      }
+    },
+    "train": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "python scripts/train.py {args}",
+        "cwd": "apps/model-api"
+      }
     }
   }
 }
