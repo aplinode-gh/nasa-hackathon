@@ -76,24 +76,18 @@ export default async function Footer({ hrefPrefix = "", locale }: { hrefPrefix?:
   ];
 
   return (
-    <footer className="w-full bg-agro-night px-4 pt-16 pb-8 text-white sm:px-6 lg:px-8">
+    <footer className="w-full border-t border-white/10 bg-agro-night px-4 pb-8 pt-14 text-white sm:px-6 lg:px-8 lg:pt-16">
       <div className="mx-auto max-w-7xl">
-        {/* Top */}
-        <div className="grid gap-12 border-b border-white/10 pb-12 md:grid-cols-2 lg:grid-cols-12">
-          {/* Brand */}
+        <div className="grid gap-10 border-b border-white/10 pb-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-5">
-            <a href={hrefPrefix ? "/" : "#top"} className="inline-flex items-center">
-              <Image
-                src={logo}
-                alt="Agropioo"
-                className="h-14 w-auto sm:h-16"
-              />
+            <a href={hrefPrefix ? "/" : "#top"} className="inline-flex items-center rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-agro-sprout">
+              <Image src={logo} alt="Agropioo" className="h-14 w-auto sm:h-16" />
             </a>
-            <p className="mt-5 max-w-sm leading-relaxed text-white/70">
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-white/70 sm:text-base">
               {t("home.footer.tagline").text}
             </p>
 
-            <div className="mt-6 flex items-center gap-3">
+            <div className="mt-6 flex flex-wrap items-center gap-2.5">
               {socials.map(({ label, href, Icon }) => (
                 <a
                   key={label}
@@ -101,7 +95,7 @@ export default async function Footer({ hrefPrefix = "", locale }: { hrefPrefix?:
                   aria-label={label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/80 transition-all duration-200 hover:-translate-y-0.5 hover:border-transparent hover:bg-agro-canopy hover:text-white"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/12 bg-white/[0.04] text-white/80 transition-colors duration-200 hover:border-agro-canopy/60 hover:bg-agro-canopy hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-agro-sprout"
                 >
                   <Icon />
                 </a>
@@ -109,15 +103,14 @@ export default async function Footer({ hrefPrefix = "", locale }: { hrefPrefix?:
             </div>
           </div>
 
-          {/* Pages */}
           <nav className="lg:col-span-2" aria-label={t("home.footer.pagesNavLabel").text}>
-            <h3 className="eyebrow text-agro-sprout">{t("home.footer.pagesHeading").text}</h3>
-            <ul className="mt-5 space-y-3">
+            <h3 className="text-sm font-semibold tracking-wide text-agro-sprout">{t("home.footer.pagesHeading").text}</h3>
+            <ul className="mt-4 space-y-3">
               {pageLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href.startsWith("#") ? sectionHref(link.href) : link.href}
-                    className="text-sm text-white/70 transition-colors duration-200 hover:text-white"
+                    className="text-sm text-white/70 transition-colors duration-200 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-agro-sprout"
                   >
                     {link.label}
                   </a>
@@ -126,15 +119,14 @@ export default async function Footer({ hrefPrefix = "", locale }: { hrefPrefix?:
             </ul>
           </nav>
 
-          {/* Legal */}
           <nav className="lg:col-span-2" aria-label={t("home.footer.legalNavLabel").text}>
-            <h3 className="eyebrow text-agro-sprout">{t("home.footer.legalHeading").text}</h3>
-            <ul className="mt-5 space-y-3">
+            <h3 className="text-sm font-semibold tracking-wide text-agro-sprout">{t("home.footer.legalHeading").text}</h3>
+            <ul className="mt-4 space-y-3">
               {legalLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-white/70 transition-colors duration-200 hover:text-white"
+                    className="text-sm text-white/70 transition-colors duration-200 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-agro-sprout"
                   >
                     {link.label}
                   </a>
@@ -143,14 +135,13 @@ export default async function Footer({ hrefPrefix = "", locale }: { hrefPrefix?:
             </ul>
           </nav>
 
-          {/* Contact */}
           <div className="lg:col-span-3">
-            <h3 className="eyebrow text-agro-sprout">{t("home.footer.contactHeading").text}</h3>
-            <ul className="mt-5 space-y-3 text-sm text-white/70">
+            <h3 className="text-sm font-semibold tracking-wide text-agro-sprout">{t("home.footer.contactHeading").text}</h3>
+            <ul className="mt-4 space-y-3 text-sm text-white/70">
               <li>
                 <a
                   href="mailto:hello@agropioo.com"
-                  className="transition-colors duration-200 hover:text-white"
+                  className="transition-colors duration-200 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-agro-sprout"
                 >
                   hello@agropioo.com
                 </a>
@@ -161,12 +152,11 @@ export default async function Footer({ hrefPrefix = "", locale }: { hrefPrefix?:
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="flex flex-col items-center justify-between gap-3 pt-8 sm:flex-row">
-          <p className="text-sm text-white/60">
+        <div className="flex flex-col items-start justify-between gap-4 pt-8 sm:flex-row sm:items-center">
+          <p className="text-sm text-white/55">
             {t("home.footer.copyright", { year: String(new Date().getFullYear()) }).text}
           </p>
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-white/50">
+          <p className="text-xs font-medium tracking-[0.12em] text-white/45 uppercase">
             {t("home.footer.motto").text}
           </p>
         </div>

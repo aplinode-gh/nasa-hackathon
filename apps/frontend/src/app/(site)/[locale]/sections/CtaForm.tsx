@@ -14,15 +14,15 @@ export default function CtaForm({ strings }: { strings: CtaFormStrings }) {
   if (submitted) {
     return (
       <div
-        className="mx-auto mt-10 flex max-w-md items-center justify-center gap-3 rounded-xl border border-agro-sprout/40 bg-white/10 px-6 py-5"
+        className="mx-auto mt-8 flex max-w-xl items-center justify-center gap-3 rounded-2xl border border-agro-sprout/35 bg-white/10 px-5 py-4 text-left shadow-sm sm:px-6"
         role="status"
       >
-        <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-agro-sprout text-agro-forest" aria-hidden="true">
-          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+        <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-agro-sprout text-agro-forest" aria-hidden="true">
+          <svg className="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.8}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
           </svg>
         </span>
-        <p className="text-left text-sm leading-relaxed text-white">
+        <p className="text-sm leading-relaxed text-white sm:text-[0.95rem]">
           {strings.success}
         </p>
       </div>
@@ -31,7 +31,7 @@ export default function CtaForm({ strings }: { strings: CtaFormStrings }) {
 
   return (
     <form
-      className="mx-auto mt-10 flex max-w-sm flex-col gap-3 sm:max-w-md sm:flex-row"
+      className="mx-auto mt-8 flex w-full max-w-xl flex-col gap-3 sm:flex-row sm:items-center"
       onSubmit={(e) => {
         e.preventDefault();
         setSubmitted(true);
@@ -45,13 +45,15 @@ export default function CtaForm({ strings }: { strings: CtaFormStrings }) {
         name="email"
         type="email"
         required
+        autoComplete="email"
+        inputMode="email"
         placeholder="you@example.com"
         dir="ltr"
-        className="h-16 w-full flex-1 rounded-lg border border-agro-sprout/50 bg-white py-2 mb-1 px-4 text-base font-medium text-agro-ink shadow-md placeholder:font-normal placeholder:text-agro-cloud focus:border-agro-canopy focus:outline-none focus:ring-2 focus:ring-agro-canopy/20 sm:h-12"
+        className="h-12 w-full min-w-0 flex-1 rounded-xl border border-white/20 bg-white/95 px-4 text-base font-medium text-agro-ink shadow-sm placeholder:font-normal placeholder:text-agro-cloud/90 transition-colors duration-200 focus:border-agro-sprout focus:outline-none focus:ring-2 focus:ring-agro-sprout/30 sm:h-[3.25rem]"
       />
       <button
         type="submit"
-        className="inline-flex h-11 cursor-pointer items-center justify-center self-center rounded-lg bg-white px-8 text-sm font-semibold whitespace-nowrap text-agro-forest shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-agro-mint hover:shadow-lg active:translate-y-0 sm:h-12 sm:self-auto sm:px-7"
+        className="inline-flex h-12 w-full cursor-pointer items-center justify-center rounded-xl bg-white px-7 text-sm font-semibold text-agro-forest shadow-sm transition-colors duration-200 hover:bg-agro-mint focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:h-[3.25rem] sm:w-auto sm:min-w-[11.5rem]"
       >
         {strings.submit}
       </button>
