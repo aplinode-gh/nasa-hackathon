@@ -1,71 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1200" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1125" fill="none">
   <defs>
-    <linearGradient id="bg" x1="120" y1="40" x2="840" y2="1160" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#F0FDF4"/>
-      <stop offset="0.55" stop-color="#E8F5EA"/>
-      <stop offset="1" stop-color="#DCEFE0"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="900" y2="1125" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f6faf4"/>
+      <stop offset="0.55" stop-color="#eef7ef"/>
+      <stop offset="1" stop-color="#e3f0e4"/>
     </linearGradient>
-    <linearGradient id="fA" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#1C6428"/>
-      <stop offset="1" stop-color="#013B1F"/>
+    <linearGradient id="leaf" x1="200" y1="180" x2="760" y2="980" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3f8839"/>
+      <stop offset="1" stop-color="#1c6428"/>
     </linearGradient>
-    <linearGradient id="fB" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#3F8839"/>
-      <stop offset="1" stop-color="#1C6428"/>
-    </linearGradient>
-    <linearGradient id="fC" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#C1D8C1"/>
-      <stop offset="1" stop-color="#8FBF8F"/>
-    </linearGradient>
-    <filter id="s" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="18"/>
-    </filter>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(610 240) rotate(110) scale(420 520)">
+      <stop stop-color="#d4a843" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#d4a843" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <rect width="960" height="1200" fill="url(#bg)"/>
-  <circle cx="760" cy="180" r="180" fill="#D4A843" fill-opacity=".16" filter="url(#s)"/>
-  <circle cx="170" cy="980" r="220" fill="#3F8839" fill-opacity=".10" filter="url(#s)"/>
-  <g transform="translate(80 120)">
-    <path d="M40 220C220 120 420 120 760 220V760C430 860 220 860 40 760V220Z" fill="url(#fA)"/>
-    <path d="M120 290C260 210 420 210 680 290V690C430 770 260 770 120 690V290Z" fill="url(#fB)" opacity=".96"/>
-    <path d="M210 360C320 305 430 305 590 360V620C430 675 320 675 210 620V360Z" fill="url(#fC)" opacity=".92"/>
-    <g stroke="#F0FDF4" stroke-opacity=".22" stroke-width="2">
-      <path d="M90 300C250 215 430 215 710 300"/>
-      <path d="M90 380C250 295 430 295 710 380"/>
-      <path d="M90 460C250 375 430 375 710 460"/>
-      <path d="M90 540C250 455 430 455 710 540"/>
-      <path d="M90 620C250 535 430 535 710 620"/>
-      <path d="M90 700C250 615 430 615 710 700"/>
+  <rect width="900" height="1125" rx="64" fill="url(#bg)"/>
+  <circle cx="690" cy="190" r="240" fill="url(#glow)"/>
+  <circle cx="140" cy="960" r="220" fill="#3f8839" fill-opacity="0.08"/>
+  <g opacity="0.18" stroke="#1c6428">
+    <path d="M-20 760c120-80 250-120 380-120s260 40 380 120 180 120 180 120" />
+    <path d="M-20 840c120-80 250-120 380-120s260 40 380 120 180 120 180 120" />
+    <path d="M-20 920c120-80 250-120 380-120s260 40 380 120 180 120 180 120" />
+  </g>
+  <g transform="translate(170 170)">
+    <rect x="80" y="90" width="400" height="520" rx="48" fill="#ffffff" fill-opacity="0.72" stroke="#c1d8c1"/>
+    <rect x="120" y="150" width="220" height="20" rx="10" fill="#c1d8c1"/>
+    <rect x="120" y="190" width="320" height="12" rx="6" fill="#e8e0d5"/>
+    <rect x="120" y="214" width="280" height="12" rx="6" fill="#e8e0d5"/>
+    <g transform="translate(150 280)">
+      <path d="M130 0c-58 38-90 90-90 146 0 52 28 90 68 110l-26 42h38l22-36c5 .6 10 1 16 1s11-.4 16-1l22 36h38l-26-42c40-20 68-58 68-110C276 90 188 38 130 0Z" fill="url(#leaf)"/>
+      <path d="M130 54c31 23 56 52 56 92 0 36-23 63-56 63s-56-27-56-63c0-40 25-69 56-92Z" fill="#f6faf4"/>
+      <circle cx="130" cy="142" r="20" fill="#ffffff"/>
+      <path d="M52 162h34M174 162h34M130 228v30" stroke="#d4a843" stroke-width="10" stroke-linecap="round"/>
     </g>
-    <g stroke="#013B1F" stroke-opacity=".16" stroke-width="2">
-      <path d="M180 320V720"/>
-      <path d="M280 300V740"/>
-      <path d="M380 292V748"/>
-      <path d="M480 292V748"/>
-      <path d="M580 300V740"/>
-      <path d="M660 320V720"/>
+    <g transform="translate(120 560)">
+      <rect width="150" height="72" rx="18" fill="#f0fdf4" stroke="#c1d8c1"/>
+      <text x="20" y="32" font-family="Arial, sans-serif" font-size="16" fill="#475569">Crop health</text>
+      <text x="20" y="56" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#1c6428">92%</text>
+      <rect x="170" width="150" height="72" rx="18" fill="#f0fdf4" stroke="#c1d8c1"/>
+      <text x="190" y="32" font-family="Arial, sans-serif" font-size="16" fill="#475569">Soil moisture</text>
+      <text x="190" y="56" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#1c6428">65%</text>
     </g>
   </g>
-  <g transform="translate(120 120)">
-    <rect x="430" y="90" rx="18" width="250" height="92" fill="#FFFFFF" fill-opacity=".9" stroke="#C1D8C1"/>
-    <circle cx="468" cy="136" r="18" fill="#EAF7ED"/>
-    <path d="M468 146v-8" stroke="#1C6428" stroke-width="2.4" stroke-linecap="round"/>
-    <path d="M468 141c-4-.7-6.5-3.6-6-7.2 3.4.3 5.7 2.2 6.6 5" fill="#3F8839"/>
-    <path d="M468 138.5c3.5-1.4 6.3-4 6.6-8.5-4 .3-6.4 3.1-7.2 6.2" fill="#1C6428"/>
-    <text x="498" y="128" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#475569">Crop health</text>
-    <text x="498" y="156" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#013B1F">92%</text>
-    <text x="560" y="156" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#1C6428">Excellent</text>
-    <rect x="520" y="640" rx="18" width="230" height="86" fill="#013B1F" fill-opacity=".92" stroke="rgba(193,216,193,0.35)"/>
-    <text x="548" y="676" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#C1D8C1">Advisory signal</text>
-    <text x="548" y="704" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#FFFFFF">Irrigate before 9 AM</text>
-  </g>
-  <g stroke="#1C6428" stroke-opacity=".35" stroke-width="2" stroke-dasharray="6 10">
-    <path d="M230 360C360 500 520 560 730 520"/>
-    <path d="M210 520C360 620 540 690 760 700"/>
-  </g>
-  <g>
-    <circle cx="230" cy="360" r="7" fill="#D4A843"/>
-    <circle cx="470" cy="520" r="7" fill="#FFFFFF" stroke="#1C6428" stroke-width="3"/>
-    <circle cx="730" cy="520" r="7" fill="#D4A843"/>
-    <circle cx="760" cy="700" r="7" fill="#FFFFFF" stroke="#1C6428" stroke-width="3"/>
+  <g transform="translate(520 620)">
+    <rect width="290" height="330" rx="34" fill="#013b1f"/>
+    <rect x="26" y="30" width="120" height="10" rx="5" fill="#c1d8c1" fill-opacity="0.9"/>
+    <rect x="26" y="56" width="190" height="10" rx="5" fill="#c1d8c1" fill-opacity="0.35"/>
+    <rect x="26" y="96" width="238" height="58" rx="16" fill="#ffffff" fill-opacity="0.08"/>
+    <rect x="42" y="112" width="130" height="8" rx="4" fill="#c1d8c1" fill-opacity="0.8"/>
+    <rect x="42" y="130" width="170" height="8" rx="4" fill="#c1d8c1" fill-opacity="0.35"/>
+    <rect x="26" y="168" width="238" height="58" rx="16" fill="#3f8839" fill-opacity="0.35"/>
+    <rect x="42" y="184" width="150" height="8" rx="4" fill="#ffffff" fill-opacity="0.9"/>
+    <rect x="42" y="202" width="120" height="8" rx="4" fill="#ffffff" fill-opacity="0.45"/>
+    <rect x="26" y="250" width="238" height="46" rx="14" fill="#d4a843"/>
+    <text x="70" y="279" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#013b1f">Ask AgroAI</text>
   </g>
 </svg>
