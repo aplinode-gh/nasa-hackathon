@@ -2,12 +2,15 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import xgboost as xgb
 from sklearn.metrics import mean_absolute_error, r2_score
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from app.datasets.schema import FEATURE_COLUMNS, TARGET_COLUMNS
 
