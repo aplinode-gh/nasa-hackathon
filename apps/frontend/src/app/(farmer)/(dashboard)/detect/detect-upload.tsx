@@ -1,0 +1,596 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { compressImageClient } from "@/lib/detect/compress-client";
+import { queuePhotoUpload } from "@/lib/offline/queue-helpers";
+import { formatMessage } from "@/lib/i18n/logic";
+import { FurrowMotif } from "@/components/FurrowMotif";
+import {
+  AlertTriangleIcon,
+  ArrowRightIcon,
+  CameraIcon,
+  CheckIcon,
+  MenuIcon,
+  XIcon,
+} from "@/components/icons";
+import FarmSelector from "./farm-selector";
+import DiagnosisCard from "./diagnosis-card";
+import DetectChat from "./detect-chat";
+import DetectSidebar from "./detect-sidebar";
+import type { DetectBundle } from "./detect-bundle";
+import type { DiagnosisResult, FarmOption, ScanHistoryItem } from "./detect-types";
+import { toDiagnosis } from "./detect-types";
+
+type Stage = "idle" | "analyzing" | "result" | "error" | "chat";
+
+interface DetectUploadProps {
+  bundle: DetectBundle;
+  farms: FarmOption[];
+  initialScans: ScanHistoryItem[];
+  nextCursor: string | null;
+}
+
+const SAMPLE_LEAF_URL = "/assets/sample-leaf.jpg";
+
+export default function DetectUpload({
+  bundle,
+  farms,
+  initialScans,
+  nextCursor,
+}: DetectUploadProps) {
+  const [stage, setStage] = useState<Stage>("idle");
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [fileName, setFileName] = useState("");
+  const [result, setResult] = useState<DiagnosisResult | null>(null);
+  const [viewingScan, setViewingScan] = useState<ScanHistoryItem | null>(null);
+  const [selectedFarm, setSelectedFarm] = useState<FarmOption | null>(() => farms[0] ?? null);
+  const [noFarmsModalOpen, setNoFarmsModalOpen] = useState(() => farms.length === 0);
+  const [saveState, setSaveState] = useState<"idle" | "saved" | "saving">("idle");
+  const [savedFarmName, setSavedFarmName] = useState("");
+  const [analyzingError, setAnalyzingError] = useState<string | null>(null);
+  const [analyzingErrorKind, setAnalyzingErrorKind] = useState<
+    "service" | "nod" | "image"
+  >("service");
+
+  const [chatId, setChatId] = useState<string | null>(null);
+  const [chatMessages, setChatMessages] = useState<
+    { id: string; role: "farmer" | "detect"; content: string }[]
+  >([]);
+
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const [scans, setScans] = useState<ScanHistoryItem[]>(initialScans);
+
+  const objectUrlRef = useRef<string | null>(null);
+  const abortRef = useRef<AbortController | null>(null);
+  const mountedRef = useRef(false);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current);
+      abortRef.current?.abort();
+    };
+  }, []);
+
+  function revokePreview() {
+    if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current);
+    objectUrlRef.current = null;
+  }
+
+  function buildAutoPrompt(diagnosis: DiagnosisResult): string {
+    const { diseaseName, crop } = diagnosis;
+    return `I scanned my ${crop} leaf and the AI detected ${diseaseName}. Why is this happening and what should I do?`;
+  }
+
+  function resetToIdle() {
+    revokePreview();
+    setPreviewUrl(null);
+    setFileName("");
+    setResult(null);
+    setViewingScan(null);
+    setStage("idle");
+    setAnalyzingError(null);
+    setChatId(null);
+    setChatMessages([]);
+    setSidebarOpen(false);
+  }
+
+  function showError(kind: "service" | "nod" | "image", message: string) {
+    setAnalyzingErrorKind(kind);
+    setAnalyzingError(message);
+    setStage("error");
+  }
+
+  async function createChatSession(scanId: string | null): Promise<string> {
+    const res = await fetch("/api/detect/chats", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ scanId }),
+      credentials: "same-origin",
+    });
+    if (!res.ok) throw new Error("Failed to create chat");
+    const data = await res.json();
+    return data.chatId as string;
+  }
+
+  async function loadChatMessages(cId: string) {
+    const res = await fetch(`/api/detect/messages/${cId}`, {
+      credentials: "same-origin",
+    });
+    if (!res.ok) return;
+    const data = await res.json();
+    setChatMessages(data.messages ?? []);
+  }
+
+  async function handleDeleteScan(scanId: string) {
+    const res = await fetch(`/api/detect/scans/${scanId}`, {
+      method: "DELETE",
+      credentials: "same-origin",
+    });
+    if (!res.ok) return;
+    setScans((prev) => prev.filter((s) => s.id !== scanId));
+    if (viewingScan?.id === scanId) {
+      resetToIdle();
+    }
+  }
+
+  async function enterChatMode(scan: DiagnosisResult | ScanHistoryItem) {
+    const diagnosis: DiagnosisResult = "id" in scan && "createdAt" in scan
+      ? toDiagnosis(scan as ScanHistoryItem)
+      : scan as DiagnosisResult;
+    const cId = diagnosis.scanId
+      ? await createChatSession(diagnosis.scanId)
+      : await createChatSession(null);
+    setChatId(cId);
+    setResult(diagnosis);
+    await loadChatMessages(cId);
+    setStage("chat");
+    setSidebarOpen(false);
+  }
+
+  async function runAnalysis(blob: Blob, name: string) {
+    setFileName(name);
+    setResult(null);
+    setViewingScan(null);
+    setStage("analyzing");
+    setAnalyzingError(null);
+    setSaveState("idle");
+
+    const formData = new FormData();
+    formData.append("image", blob, name);
+
+    const controller = new AbortController();
+    abortRef.current = controller;
+
+    try {
+      const res = await fetch("/api/detect", {
+        method: "POST",
+        body: formData,
+        signal: controller.signal,
+        credentials: "same-origin",
+      });
+
+      if (res.status === 401) {
+        window.location.href = "/login";
+        return;
+      }
+      if (res.status === 499) {
+        return;
+      }
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        const msg =
+          data?.error?.message ||
+          (res.status === 503
+            ? bundle.serviceUnavailable
+            : "Service temporarily unavailable. Please try again.");
+        if (res.status === 415 || res.status === 422) {
+          showError("image", bundle.invalidFile);
+        } else if (res.status === 503) {
+          showError("service", msg);
+        } else {
+          showError("service", msg);
+        }
+        return;
+      }
+
+      const data = (await res.json()) as {
+        noDiagnosis?: boolean;
+        scanId?: string | null;
+        diseaseName?: string;
+        confidence?: number;
+        severity?: DiagnosisResult["severity"];
+        crop?: string;
+        causes?: string;
+        steps?: string[];
+        rescanTiming?: string;
+        caution?: string;
+        imageUrl?: string;
+      };
+
+      if (data.noDiagnosis) {
+        showError("nod", bundle.noDiagnosis);
+        return;
+      }
+
+      const diagnosis: DiagnosisResult = {
+        scanId: data.scanId ?? null,
+        diseaseName: data.diseaseName ?? "",
+        confidence: data.confidence ?? 0,
+        severity: data.severity ?? "watch",
+        crop: data.crop ?? "",
+        causes: data.causes ?? "",
+        steps: data.steps ?? [],
+        rescanTiming: data.rescanTiming ?? "",
+        caution: data.caution ?? "",
+        imageUrl: data.imageUrl ?? previewUrl ?? "",
+        saveStatus: "not_saved",
+      };
+
+      setResult(diagnosis);
+      await enterChatMode(diagnosis);
+    } catch (err) {
+      if (err instanceof DOMException && err.name === "AbortError") return;
+      await queuePhotoUpload("/api/detect", blob);
+      showError("service", bundle.serviceUnavailable);
+    } finally {
+      abortRef.current = null;
+    }
+  }
+
+  async function handleFile(file: File) {
+    const mime = file.type || (file.name.split(".").pop() ? `image/${file.name.split(".").pop()}` : "");
+    if (!mime.startsWith("image/")) {
+      showError("image", bundle.invalidFile);
+      return;
+    }
+
+    try {
+      const { blob, previewUrl } = await compressImageClient(file);
+      if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current);
+      objectUrlRef.current = previewUrl;
+      setPreviewUrl(previewUrl);
+      await runAnalysis(blob, file.name);
+    } catch {
+      showError("image", bundle.invalidFile);
+    }
+  }
+
+  async function handleSample() {
+    try {
+      const res = await fetch(SAMPLE_LEAF_URL);
+      if (!res.ok) throw new Error("sample not found");
+      const blob = await res.blob();
+      const file = new File([blob], "sample-leaf.jpg", { type: "image/jpeg" });
+      await handleFile(file);
+    } catch {
+      showError("service", bundle.serviceUnavailable);
+    }
+  }
+
+  async function handleDrop(event: React.DragEvent) {
+    event.preventDefault();
+    const file = event.dataTransfer.files?.[0];
+    if (file) await handleFile(file);
+  }
+
+  function handleDragOver(event: React.DragEvent) {
+    event.preventDefault();
+  }
+
+  async function handleSaveToFarm() {
+    if (!result?.scanId) return;
+    if (farms.length === 0) {
+      setNoFarmsModalOpen(true);
+      return;
+    }
+    const farm = selectedFarm ?? farms[0] ?? null;
+    if (!farm) {
+      setNoFarmsModalOpen(true);
+      return;
+    }
+
+    setSaveState("saving");
+    try {
+      const res = await fetch("/api/detect/save", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ scanId: result.scanId, farmId: farm.id }),
+        credentials: "same-origin",
+      });
+      if (res.ok) {
+        setSaveState("saved");
+        setSavedFarmName(farm.name);
+      } else {
+        setSaveState("idle");
+      }
+    } catch {
+      setSaveState("idle");
+    }
+  }
+
+  const displayedScan: DiagnosisResult | null =
+    viewingScan ? toDiagnosis(viewingScan) : result;
+
+  const buildActionBar = (allowSave: boolean) => (
+    <div className="flex flex-col gap-3 sm:flex-row">
+      {allowSave && farms.length > 0 && selectedFarm && (
+        <button
+          type="button"
+          onClick={handleSaveToFarm}
+          disabled={saveState === "saving"}
+          className="inline-flex min-h-12 flex-1 cursor-pointer items-center justify-center gap-2 rounded-lg bg-agro-wheat text-agro-forest font-semibold shadow-sm transition-colors hover:bg-agro-wheat/90 disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          <CheckIcon size={16} aria-hidden="true" />
+          {saveState === "saved"
+            ? formatMessage(bundle.savedToFarm, { farm: savedFarmName })
+            : bundle.saveToFarm}
+        </button>
+      )}
+      <button
+        type="button"
+        onClick={() => displayedScan && enterChatMode(displayedScan)}
+        className="inline-flex min-h-12 flex-1 cursor-pointer items-center justify-center gap-2 rounded-lg border border-agro-canopy/30 bg-white px-5 text-sm font-semibold text-agro-forest transition-colors hover:border-agro-canopy hover:bg-agro-mint"
+      >
+        {bundle.discussAdvisor}
+        <ArrowRightIcon size={16} />
+      </button>
+      <button
+        type="button"
+        onClick={resetToIdle}
+        className="inline-flex min-h-12 flex-1 cursor-pointer items-center justify-center gap-2 rounded-lg border border-agro-canopy/30 bg-white px-5 text-sm font-semibold text-agro-forest transition-colors hover:border-agro-canopy hover:bg-agro-mint"
+      >
+        <CheckIcon size={16} aria-hidden="true" />
+        {bundle.scanAnother}
+      </button>
+    </div>
+  );
+
+  const diagnosisActions = displayedScan
+    ? buildActionBar(displayedScan.saveStatus !== "saved" && saveState !== "saving")
+    : null;
+
+  /* ── No-farms modal (FR-2.3, E3/E8) ────────────────── */
+  const NoFarmsModal = (
+    <div
+      className={`fixed inset-0 z-40 flex items-end bg-black/30 transition-opacity ${noFarmsModalOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
+      onClick={() => setNoFarmsModalOpen(false)}
+      aria-hidden={!noFarmsModalOpen}
+    >
+      <div
+        className="w-full max-w-md rounded-t-3xl border-t-4 border-agro-sprout bg-white p-6 shadow-xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          type="button"
+          aria-label={bundle.dismiss}
+          onClick={() => setNoFarmsModalOpen(false)}
+          className="float-end inline-flex h-8 w-8 items-center justify-center rounded-lg text-agro-slate hover:bg-agro-mint"
+        >
+          <XIcon size={16} />
+        </button>
+        <h3 className="font-display text-xl font-bold text-agro-forest">
+          {bundle.noFarmsTitle}
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-agro-slate">
+          {bundle.noFarmsBody}
+        </p>
+        <div className="mt-5 flex gap-3">
+          <Link
+            href="/farms/new"
+            className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-lg bg-agro-canopy px-5 text-sm font-semibold text-white"
+            onClick={() => setNoFarmsModalOpen(false)}
+          >
+            {bundle.addFarm}
+          </Link>
+          <button
+            type="button"
+            onClick={() => setNoFarmsModalOpen(false)}
+            className="inline-flex min-h-12 flex-1 cursor-pointer items-center justify-center gap-2 rounded-lg border border-agro-sprout bg-white px-5 text-sm font-semibold text-agro-forest hover:bg-agro-mint"
+          >
+            {bundle.dismiss}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="flex h-full w-full">
+      <DetectSidebar
+        bundle={bundle}
+        scans={scans}
+        onSelectScan={(scan) => enterChatMode(scan)}
+        onDeleteScan={handleDeleteScan}
+        onNewScan={resetToIdle}
+        open={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+      />
+
+      <div className="flex min-w-0 flex-1 flex-col ms-3 lg:ms-4">
+        <div className="flex items-center gap-3 border-b border-agro-sprout px-4 py-2 lg:hidden">
+          <button
+            type="button"
+            onClick={() => setSidebarOpen(true)}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-agro-slate transition-colors hover:bg-agro-mint"
+            aria-label={bundle.sidebar.closeSidebar}
+          >
+            <MenuIcon className="h-5 w-5" />
+          </button>
+          <h1 className="text-sm font-semibold text-agro-ink">{bundle.title}</h1>
+        </div>
+
+        <div className="mx-auto w-full max-w-3xl flex-1">
+          {farms.length > 0 && stage !== "chat" && (
+            <FarmSelector
+              farms={farms}
+              bundle={bundle}
+              selected={selectedFarm}
+              onSelect={setSelectedFarm}
+            />
+          )}
+
+          {stage === "idle" && (
+            <div className="mt-5 flex flex-1 flex-col">
+              <label
+                htmlFor="detect-photo"
+                onDrop={handleDrop}
+                onDragOver={handleDragOver}
+                className="group relative flex min-h-64 flex-1 cursor-pointer flex-col items-center justify-center gap-4 overflow-hidden rounded-3xl border-2 border-dashed border-agro-leaf/50 bg-white p-6 text-center transition-colors hover:border-agro-canopy hover:bg-agro-mint"
+              >
+                <FurrowMotif
+                  tone="ghost"
+                  className="pointer-events-none absolute inset-x-0 bottom-0 w-full text-agro-sprout/40"
+                />
+                <span className="relative inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-agro-mint text-agro-canopy ring-1 ring-agro-sprout transition-all duration-200 group-hover:bg-agro-canopy group-hover:text-white">
+                  <CameraIcon size={28} />
+                </span>
+                <span className="relative my-1 text-xs text-agro-slate">
+                  {bundle.dragDropPrompt}
+                </span>
+                <span className="relative max-w-xs font-display text-xl font-bold leading-snug text-agro-forest">
+                  {bundle.uploadPrompt}
+                </span>
+                <span className="relative inline-flex min-h-11 items-center gap-2 rounded-xl bg-agro-canopy px-5 text-sm font-semibold text-white shadow-sm transition-all duration-200 group-hover:bg-agro-forest group-hover:shadow-md">
+                  <CameraIcon size={16} />
+                  {bundle.takePhoto}
+                </span>
+                <input
+                  id="detect-photo"
+                  type="file"
+                  accept="image/*"
+                  capture="environment"
+                  onChange={(e) => {
+                    const f = e.target.files?.[0];
+                    if (f) handleFile(f);
+                  }}
+                  className="sr-only"
+                />
+              </label>
+
+              <button
+                type="button"
+                onClick={handleSample}
+                className="mt-3 inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-agro-canopy/30 bg-white px-4 text-sm font-semibold text-agro-forest transition-colors hover:border-agro-canopy hover:bg-agro-mint sm:w-auto sm:self-start sm:px-6"
+              >
+                {bundle.sampleScan}
+              </button>
+            </div>
+          )}
+
+          {stage === "analyzing" && (
+            <div
+              className="mt-5 flex flex-1 flex-col items-center justify-center gap-4 rounded-3xl border border-agro-sprout bg-white p-8 text-center"
+              role="status"
+            >
+              {previewUrl ? (
+                <img
+                  src={previewUrl}
+                  alt={`Photo being analyzed: ${fileName}`}
+                  className="h-44 w-full max-w-sm rounded-2xl border border-agro-sprout object-cover"
+                />
+              ) : (
+                <span
+                  className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-agro-mint text-agro-canopy ring-1 ring-agro-sprout"
+                  aria-hidden="true"
+                >
+                  <CameraIcon size={28} />
+                </span>
+              )}
+              <svg
+                className="h-5 w-5 animate-spin text-agro-canopy"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" opacity="0.25" />
+                <path
+                  fill="currentColor"
+                  opacity="0.75"
+                  d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                />
+              </svg>
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-agro-slate">
+                {bundle.readingLeaf}
+              </p>
+            </div>
+          )}
+
+          {stage === "result" && displayedScan && (
+            <DiagnosisCard
+              result={displayedScan}
+              bundle={bundle}
+              actionBar={
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  {viewingScan ? (
+                    <button
+                      type="button"
+                      onClick={resetToIdle}
+                      className="inline-flex min-h-12 flex-1 cursor-pointer items-center justify-center gap-2 rounded-lg border border-agro-canopy/30 bg-white px-5 text-sm font-semibold text-agro-forest hover:border-agro-canopy hover:bg-agro-mint"
+                    >
+                      {bundle.scanAnother}
+                    </button>
+                  ) : (
+                    diagnosisActions
+                  )}
+                </div>
+              }
+            />
+          )}
+
+          {stage === "error" && (
+            <div className="mt-5 flex flex-1 flex-col items-center justify-center gap-4 rounded-3xl border border-agro-sprout bg-white p-8 text-center">
+              <span
+                className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-agro-mint text-agro-canopy ring-1 ring-agro-sprout"
+                aria-hidden="true"
+              >
+                <AlertTriangleIcon size={28} />
+              </span>
+              <p className="max-w-sm text-sm leading-relaxed text-agro-slate">
+                {analyzingError}
+              </p>
+              <div className="flex gap-3">
+                <button
+                  type="button"
+                  onClick={resetToIdle}
+                  className="inline-flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-lg bg-agro-canopy px-5 text-sm font-semibold text-white hover:bg-agro-forest"
+                >
+                  {bundle.retry}
+                </button>
+                {analyzingErrorKind !== "nod" && analyzingErrorKind !== "image" && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (previewUrl) handleSample();
+                    }}
+                    className="inline-flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-lg border border-agro-canopy/30 bg-white px-5 text-sm font-semibold text-agro-forest hover:border-agro-canopy hover:bg-agro-mint"
+                  >
+                    {bundle.sampleScan}
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
+
+          {stage === "chat" && chatId && (
+            <div className="mt-5 flex-1">
+              <DetectChat
+                key={chatId}
+                bundle={bundle}
+                chatId={chatId}
+                initialMessages={chatMessages}
+                initialDraft={result ? buildAutoPrompt(result) : ""}
+                diagnosis={result ?? { scanId: null, diseaseName: "", confidence: 0, severity: "watch", crop: "", causes: "", steps: [], rescanTiming: "", caution: "", imageUrl: "", saveStatus: "not_saved" }}
+                onNewScan={resetToIdle}
+              />
+            </div>
+          )}
+        </div>
+      </div>
+
+      {NoFarmsModal}
+    </div>
+  );
+}
