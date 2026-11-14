@@ -25,12 +25,10 @@ export default async function CapabilityTicker({ locale }: { locale: Locale }) {
   const L = (key: Parameters<typeof t>[0]) => localized(t(key), locale);
 
   const capabilities = [
-    L("home.ticker.cropDoctor"),
     L("home.ticker.mandiPrices"),
     L("home.ticker.weatherAdvisories"),
     L("home.ticker.farmRecords"),
     L("home.ticker.advisoryLanguages"),
-    L("home.ticker.pestAlerts"),
     L("home.ticker.offlineSms"),
   ];
 

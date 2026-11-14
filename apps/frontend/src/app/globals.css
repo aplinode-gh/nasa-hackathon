@@ -1,8 +1,8 @@
-/* Hallmark · macrostructure: Marquee Hero · genre: editorial · theme: custom (brand-locked)
- * nav: N1b contextual scroll-morph · footer: Ft5 statement · enrichment: E5 hand-built SVG
+﻿/* Hallmark Â· macrostructure: Marquee Hero Â· genre: editorial Â· theme: custom (brand-locked)
+ * nav: N1b contextual scroll-morph Â· footer: Ft5 statement Â· enrichment: E5 hand-built SVG
  * pre-emit critique: P5 H5 E5 S4 R4 V4
- * motion: cut (CSS-only, view-timeline reveal as progressive enhancement) · contrast: pass (4.5:1+)
- * states: default/hover/focus/active · signature: furrow contours carrying mono signal labels
+ * motion: cut (CSS-only, view-timeline reveal as progressive enhancement) Â· contrast: pass (4.5:1+)
+ * states: default/hover/focus/active Â· signature: furrow contours carrying mono signal labels
  */
 @import "tailwindcss";
 
@@ -159,7 +159,7 @@ select.focus-ring-none:focus-visible {
      honest without needing per-component conditionals (FR-11). */
   text-transform: none;
 
-  /* Mono digits: Geist Mono lacks Arabic-Indic glyphs (۰–۹); Noto Sans
+  /* Mono digits: Geist Mono lacks Arabic-Indic glyphs (Û°â€“Û¹); Noto Sans
      Arabic fills the gap so FR-19 Eastern digits render consistently. */
   --font-mono: var(--font-geist-mono), "Noto Sans Arabic";
 }
@@ -183,7 +183,7 @@ select.focus-ring-none:focus-visible {
    meaning depends on reading direction (back/forward chevrons, trend arrows,
    progress chevrons). Non-directional glyphs (checkmarks, search, logo,
    numerals, crop-health dots) stay untouched. A mirrored indicator must
-   never imply the opposite meaning — verified per icon in AC-18. */
+   never imply the opposite meaning â€” verified per icon in AC-18. */
 [dir="rtl"] [data-flip-rtl] {
   transform: scaleX(-1);
 }
@@ -202,7 +202,7 @@ select.focus-ring-none:focus-visible {
 /* Overflow hierarchy (FR-19): Arabic-script text is never truncated mid-word
    because breaking cursive joining destroys shaping. Force line-clamp and
    truncate to release their grip on Arabic-script labels so the layout
-   falls back to wrap → reflow → shrink (the first three tiers of FR-19). */
+   falls back to wrap â†’ reflow â†’ shrink (the first three tiers of FR-19). */
 [dir="rtl"] .line-clamp-1,
 [dir="rtl"] .line-clamp-2,
 [dir="rtl"] .line-clamp-3,
@@ -267,14 +267,6 @@ select.focus-ring-none:focus-visible {
 /* Firefox: slightly brighter on hover via color-scheme trick isn't possible,
    but the thin track + green thumb already looks polished. */
 
-/* --- Pest page dropdowns ----------------------------------------------------
- * Consistent green focus + downward-opening selects across pest page.
- */
-.pest-select:focus {
-  border-color: var(--agro-canopy) !important;
-  box-shadow: 0 0 0 2px rgba(28, 100, 40, 0.2) !important;
-}
-
 @keyframes rise-in {
   from {
     opacity: 0;
@@ -328,7 +320,7 @@ select.focus-ring-none:focus-visible {
   animation: marquee var(--marquee-duration, 90s) linear infinite;
 }
 
-/* Scroll-driven reveal — progressive enhancement only.
+/* Scroll-driven reveal â€” progressive enhancement only.
    Browsers without view() timelines (and reduced-motion users) see static content. */
 @supports (animation-timeline: view()) {
   .reveal {

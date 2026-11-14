@@ -5,8 +5,6 @@ import Link from "next/link";
 import { FurrowMotif } from "@/components/FurrowMotif";
 import {
   ArrowRightIcon,
-  BugIcon,
-  CameraIcon,
   ChatIcon,
   CheckIcon,
   ChevronRightIcon,
@@ -25,13 +23,12 @@ import { LatinInline } from "@/components/latin-inline";
 import type { Locale } from "@/lib/i18n/config";
 import type { DashboardBundle } from "./dashboard-bundle";
 import DashboardPricesWidget, { type WidgetCropPrice } from "@/components/prices/dashboard-prices-widget";
-import PestRiskWidget from "@/components/pest/PestRiskWidget";
 
 const CHECKLIST_DISMISS_KEY = "agropioo-checklist-dismissed";
 
 const topAlerts: Array<{
   id: string;
-  kind: "pest" | "weather" | "price";
+  kind: "weather" | "price";
   severity: "critical" | "warning" | "info";
   message: string;
   relativeTime: string;
@@ -95,7 +92,6 @@ const severityChip = {
 } as const;
 
 const alertKindIcon = {
-  pest: BugIcon,
   weather: CloudRainIcon,
   price: TrendingUpIcon,
 } as const;
@@ -103,7 +99,6 @@ const alertKindIcon = {
 const quickActionIcon = {
   clipboard: ClipboardIcon,
   chat: ChatIcon,
-  camera: CameraIcon,
   tag: TagIcon,
   sprout: SproutIcon,
 } as const;
@@ -146,26 +141,18 @@ type DashboardViewProps = {
   totalFarms?: number;
   user?: { fullName: string; email: string };
   widgetPrices?: WidgetCropPrice[];
-  pestRisks?: Array<{
-    id: string;
-    name: string;
-    risk: number;
-    pest: string | null;
-    status: "active" | "monitoring";
-  }>;
 };
 
 const CHECKLIST_ITEMS = [
   { id: "checklist-farm", labelKey: "addFirstFarm", href: "/farms/new" },
   { id: "checklist-advisor", labelKey: "demo.checklistAdvisor", href: "/advisor" },
-  { id: "checklist-detect", labelKey: "demo.checklistDetect", href: "/detect" },
 ] as const;
 
 const QUICK_ACTIONS = [
   { id: "action-record", labelKey: "demo.actionRecord", href: "/records/new", icon: "clipboard" as const },
   { id: "action-advisor", labelKey: "demo.actionAdvisor", href: "/advisor", icon: "chat" as const },
-  { id: "action-scan", labelKey: "demo.actionScan", href: "/detect", icon: "camera" as const },
   { id: "action-prices", labelKey: "demo.actionPrices", href: "/prices", icon: "tag" as const },
+  { id: "action-recommend", labelKey: "demo.actionRecommend", href: "/crops", icon: "sprout" as const },
 ] as const;
 
 export default function DashboardView({
@@ -177,7 +164,6 @@ export default function DashboardView({
   totalFarms,
   user: realUser,
   widgetPrices = [],
-  pestRisks = [],
 }: DashboardViewProps) {
   const isEmpty = variant === "empty";
   const completedCount = isEmpty ? 0 : 1;
@@ -509,53 +495,6 @@ export default function DashboardView({
 
       {/* Mandi prices summary widget */}
       <DashboardPricesWidget prices={widgetPrices} bundle={bundle} />
-
-      {/* Pest risk widget */}
-      <PestRiskWidget
-        title={bundle.pestWidgetTitle}
-        allClear={bundle.pestWidgetAllClear}
-        severityWarning={bundle.severityWatch}
-        severityCritical={bundle.severityCritical}
-        highestRisk={bundle.pestWidgetHighestRisk}
-        monitoring={bundle.pestWidgetMonitoring}
-        farms={pestRisks.map((r) => ({
-          id: r.id,
-          name: r.name,
-          risk: r.risk,
-          pest: r.pest,
-          status: r.status as "active" | "monitoring",
-        }))}
-      />
-
-      {/* Detect CTA — the page's single high-emphasis surface (deep green) */}
-      <Link
-        href="/detect"
-        className="group relative block overflow-hidden rounded-3xl bg-gradient-to-br from-agro-canopy to-agro-forest p-6 text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg sm:p-7"
-      >
-        <FurrowMotif
-          tone="ghost"
-          className="pointer-events-none absolute inset-x-0 -bottom-1 w-full text-agro-sprout/20"
-        />
-        <div className="relative flex items-center gap-4">
-          <div className="min-w-0 flex-1">
-            <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-agro-sprout">
-              {bundle.cropDoctor}
-            </p>
-            <h2 className="display-heading mt-2 max-w-sm font-display text-xl font-bold leading-snug sm:text-2xl">
-              {bundle.detectTitle}
-            </h2>
-            <p className="mt-1.5 max-w-md text-sm leading-relaxed text-white/80">
-              {bundle.detectBody}
-            </p>
-          </div>
-          <span
-            className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/25 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:bg-white/20"
-            aria-hidden="true"
-          >
-            <CameraIcon className="h-6 w-6" />
-          </span>
-        </div>
-      </Link>
 
       {/* Crop recommendation CTA */}
       <Link

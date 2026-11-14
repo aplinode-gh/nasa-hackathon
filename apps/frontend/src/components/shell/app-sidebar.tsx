@@ -5,8 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   BellIcon,
-  BugIcon,
-  CameraIcon,
   ChatIcon,
   GearIcon,
   HomeIcon,
@@ -14,7 +12,6 @@ import {
   LogOutIcon,
   SproutIcon,
   TagIcon,
-  TrendingUpIcon,
   WeatherIcon,
   WheatIcon,
 } from "@/components/icons";
@@ -36,10 +33,7 @@ export default function AppSidebar({ bundle }: AppSidebarProps) {
   const destinations = [
     { href: "/dashboard", label: nav.dashboard, Icon: HomeIcon },
     { href: "/farms", label: nav.farms, Icon: LeafIcon },
-    { href: "/profit-loss", label: nav.profitLoss, Icon: TrendingUpIcon },
     { href: "/advisor", label: nav.advisor, Icon: ChatIcon },
-    { href: "/detect", label: nav.detect, Icon: CameraIcon },
-    { href: "/pest", label: nav.pest, Icon: BugIcon },
     { href: "/crops", label: nav.crops, Icon: WheatIcon },
     { href: "/prices", label: nav.prices, Icon: TagIcon },
     { href: "/weather", label: nav.weather, Icon: WeatherIcon },

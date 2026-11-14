@@ -12,7 +12,7 @@ export default async function NotificationsPage() {
       <PageHeader
         eyebrow="Notifications"
         title="Everything that needs your eye"
-        description="Weather warnings, pest outbreaks, and price moves for your crops — newest first, worst first."
+        description="Weather warnings and price moves for your crops — newest first, worst first."
       />
       <div className="mt-6">
         <NotificationsList />

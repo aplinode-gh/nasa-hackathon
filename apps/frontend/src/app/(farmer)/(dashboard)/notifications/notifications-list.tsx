@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import {
-  BugIcon,
   CloudRainIcon,
   TrendingUpIcon,
   CheckIcon,
@@ -21,8 +20,7 @@ const severityWord = {
   info: "Info",
 } as const;
 
-const kindIcon: Record<AlertKind, typeof BugIcon> = {
-  pest: BugIcon,
+const kindIcon: Record<AlertKind, typeof CloudRainIcon> = {
   weather: CloudRainIcon,
   price: TrendingUpIcon,
 };

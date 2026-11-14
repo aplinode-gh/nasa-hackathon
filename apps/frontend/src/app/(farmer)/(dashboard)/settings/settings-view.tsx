@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import {
-  BugIcon,
   CloudRainIcon,
   GlobeIcon,
   LogOutIcon,
@@ -23,7 +22,6 @@ const languages = [
 export default function SettingsView() {
   const [alertsOn, setAlertsOn] = useState({
     weather: true,
-    pest: true,
     prices: false,
   });
 
@@ -37,12 +35,6 @@ export default function SettingsView() {
       label: "Weather warnings",
       description: "Rain, heat, and frost calls for your farms",
       Icon: CloudRainIcon,
-    },
-    {
-      key: "pest" as const,
-      label: "Pest outbreaks",
-      description: "District-level risk alerts like whitefly weeks",
-      Icon: BugIcon,
     },
     {
       key: "prices" as const,

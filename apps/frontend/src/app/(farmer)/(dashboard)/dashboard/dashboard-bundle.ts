@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Typed translation bundle for the dashboard UI chrome and demo data.
  * Built server-side and passed as props to the client DashboardView.
  */
@@ -28,9 +28,6 @@ export type DashboardBundle = {
   severityWatch: string;
   severityInfo: string;
   quickActionsHeading: string;
-  cropDoctor: string;
-  detectTitle: string;
-  detectBody: string;
   recommendCrops: string;
   recommendCropsBody: string;
   myFarms: string;
@@ -51,10 +48,6 @@ export type DashboardBundle = {
   signOut: string;
   weatherNoLocation: string;
   weatherYourArea: string;
-  pestWidgetTitle: string;
-  pestWidgetAllClear: string;
-  pestWidgetHighestRisk: string;
-  pestWidgetMonitoring: string;
   demo: {
     todayLabel: string;
     location: string;
@@ -83,11 +76,10 @@ export type DashboardBundle = {
     farm3Crops: string;
     farm3Stage: string;
     checklistAdvisor: string;
-    checklistDetect: string;
     actionAdvisor: string;
-    actionScan: string;
     actionPrices: string;
     actionRecord: string;
     actionRecommend: string;
   };
 };
+
