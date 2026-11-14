@@ -1,36 +1,29 @@
-import { requireSessionPage } from "@/lib/auth/guards";
+import { backendFetch } from "@/lib/backend";
 import { getPestBundle } from "@/lib/i18n/server";
-import { queryOne } from "@/lib/db";
 import PestHistoryList from "@/components/pest/PestHistoryList";
 import PageHeader from "@/components/shell/page-header";
 
 export const dynamic = "force-dynamic";
+
+type PestAlert = {
+  id: string;
+  farm_id: string;
+  pest_type: string;
+  risk_score: number;
+  severity: string;
+  recommendation_text: string;
+  created_at: string;
+  read_at: string | null;
+};
 
 export default async function PestHistoryDetailPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  await requireSessionPage();
   const bundle = await getPestBundle();
   const { id } = await params;
-
-  const alert = await queryOne<{
-    id: string;
-    farm_id: string;
-    pest_type: string;
-    risk_score: number;
-    severity: string;
-    recommendation_text: string;
-    created_at: string;
-    read_at: string | null;
-    dismissed_at: string | null;
-  }>(
-    `SELECT id, farm_id, pest_type, risk_score, severity, recommendation_text, created_at, read_at, dismissed_at
-     FROM pest_alerts
-     WHERE id = $1`,
-    [id],
-  );
+  const alert = await backendFetch<PestAlert>(`/api/pest/alerts/${id}`);
 
   return (
     <div className="space-y-6">
@@ -41,7 +34,7 @@ export default async function PestHistoryDetailPage({
         <div className="rounded-2xl border border-agro-sprout bg-white p-5">
           <div className="flex items-start justify-between gap-3">
             <div>
-              <p className={`text-xs font-semibold uppercase tracking-wider ${alert.severity === 'critical' ? 'text-agro-error' : 'text-agro-warning'}`}>
+              <p className={`text-xs font-semibold uppercase tracking-wider ${alert.severity === "critical" ? "text-agro-error" : "text-agro-warning"}`}>
                 {alert.pest_type} — {Math.round(alert.risk_score)}%
               </p>
               <p className="mt-1 text-xs text-agro-slate">

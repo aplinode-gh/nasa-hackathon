@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/shell/page-header";
 import { PlusIcon } from "@/components/icons";
-import { requireSessionPage } from "@/lib/auth/guards";
-import { query } from "@/lib/db";
+import { backendFetch } from "@/lib/backend";
 import SeasonCard from "@/components/profit-loss/season-card";
 
 export const metadata: Metadata = {
@@ -22,44 +21,12 @@ type SeasonRow = {
 };
 
 export default async function ProfitLossPage() {
-  const session = await requireSessionPage();
-  let seasons: SeasonRow[] = [];
-  try {
-    const rows = await query<Record<string, unknown>>(
-      `SELECT s.id, c.name_en as crop_name, f.name as farm_name, s.season, s.year, s.acres, s.status,
-              COALESCE(SUM(e.amount), 0) as total_actual_cost,
-              COALESCE(SUM(pc.total_projected_pkr), 0) as total_projected_cost,
-              COALESCE(s.actual_yield, 0) as actual_yield,
-              COALESCE(s.actual_price, 0) as actual_price
-         FROM seasons s
-         JOIN farms f ON f.id = s.farm_id
-         JOIN crops c ON c.id = s.crop_id
-         LEFT JOIN expenses e ON e.season_id = s.id
-         LEFT JOIN projected_costs pc ON pc.season_id = s.id
-        WHERE s.account_id = $1 AND s.archived_at IS NULL
-        GROUP BY s.id, c.name_en, f.name, s.season, s.year, s.acres, s.status, s.actual_yield, s.actual_price
-        ORDER BY s.created_at DESC`,
-      [session.accountId]
-    );
-    seasons = (rows ?? []).map((r) => {
-      const totalActual = Number(r.total_actual_cost ?? 0);
-      const actualRevenue = Number(r.actual_price ?? 0);
-      const netProfitLoss = actualRevenue - totalActual;
-      const roi = totalActual > 0 ? Math.round(((actualRevenue - totalActual) / totalActual) * 1000) / 10 : null;
-      return {
-        id: String(r.id),
-        crop_name: String(r.crop_name ?? r.crop_id ?? ""),
-        farm_name: String(r.farm_name ?? ""),
-        season: String(r.season ?? ""),
-        year: String(r.year ?? ""),
-        acres: Number(r.acres ?? 0),
-        status: String(r.status ?? "active"),
-        pl: { netProfitLoss, roi },
-      };
-    });
-  } catch (err) {
-    console.error("Error fetching seasons:", err);
-  }
+  const data = await backendFetch<{ seasons: SeasonRow[] }>("/api/profit-loss");
+  const seasons = (data?.seasons ?? []).map((season) => ({
+    ...season,
+    crop_name: season.crop_name ?? "",
+    farm_name: season.farm_name ?? "",
+  }));
 
   return (
     <div className="pt-1">

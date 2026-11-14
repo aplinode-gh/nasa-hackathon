@@ -1,25 +1,22 @@
 import type { Metadata } from "next";
-import { requireSessionPage } from "@/lib/auth/guards";
-import { query } from "@/lib/db";
+import { backendFetch } from "@/lib/backend";
+import { CROPS } from "@/lib/farms/constants";
 import NewSeasonClient from "./new-season-client";
 
 export const metadata: Metadata = {
   title: "New season — Agropioo",
 };
 
-export default async function NewSeasonPage() {
-  const session = await requireSessionPage();
-  const [farms, allCrops] = await Promise.all([
-    query<{ id: string; name: string; crops: string[] }>(
-      `SELECT id, name, crops FROM farms WHERE account_id = $1 AND archived_at IS NULL ORDER BY created_at DESC`,
-      [session.accountId]
-    ),
-    query<{ id: string; name_en: string }>(
-      `SELECT id, name_en FROM crops ORDER BY name_en`
-    ),
-  ]);
+type FarmRow = { id: string; name: string; crops: string[] };
 
-  const farmCrops = Object.fromEntries(farms.map((f) => [f.id, f.crops]));
+function cropLabel(crop: string): string {
+  return crop.replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+export default async function NewSeasonPage() {
+  const farms = (await backendFetch<FarmRow[]>("/api/farms")) ?? [];
+  const allCrops = CROPS.map((crop) => ({ id: crop, name_en: cropLabel(crop) }));
+  const farmCrops = Object.fromEntries(farms.map((farm) => [farm.id, farm.crops ?? []]));
 
   return (
     <NewSeasonClient

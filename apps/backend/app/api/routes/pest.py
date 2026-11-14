@@ -135,6 +135,26 @@ async def list_alerts(request: Request, session: dict = Depends(require_session)
         return error_response("server_error", str(err), 500)
 
 
+@router.get("/alerts/{alert_id}")
+async def get_alert(alert_id: str, session: dict = Depends(require_session)):
+    try:
+        row = await query_one(
+            """
+            SELECT id, farm_id, crop, pest_type, risk_score, severity,
+                   recommendation_text, status, created_at, read_at
+            FROM pest_alerts
+            WHERE id = $1 AND account_id = $2
+            """,
+            alert_id,
+            session["accountId"],
+        )
+        if not row:
+            return error_response("not_found", "Alert not found", 404)
+        return success(to_jsonable(row))
+    except Exception as err:
+        return error_response("server_error", str(err), 500)
+
+
 @router.post("/alerts/{alert_id}/read")
 async def mark_alert_read(alert_id: str, session: dict = Depends(require_session)):
     try:

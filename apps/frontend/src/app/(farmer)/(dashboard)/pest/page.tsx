@@ -1,5 +1,4 @@
-import { query } from "@/lib/db";
-import { requireSessionPage } from "@/lib/auth/guards";
+import { backendFetch } from "@/lib/backend";
 import { getPestBundle } from "@/lib/i18n/server";
 import PestPageClient from "@/components/pest/PestPageClient";
 import Link from "next/link";
@@ -18,13 +17,8 @@ type FarmRow = {
 };
 
 export default async function PestPage() {
-  const session = await requireSessionPage();
   const bundle = await getPestBundle();
-
-  const farms = await query<FarmRow>(
-    `SELECT id, name, district, lat, lng, crops, growth_stages, primary_crop FROM farms WHERE account_id = $1 AND archived_at IS NULL ORDER BY created_at DESC`,
-    [session.accountId],
-  );
+  const farms = (await backendFetch<FarmRow[]>("/api/farms")) ?? [];
 
   if (farms.length === 0) {
     return (

@@ -4,11 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useOfflineStatus } from "@/lib/offline/hooks";
 import {
+  CameraIcon,
   ChatIcon,
   GridIcon,
   HomeIcon,
   LeafIcon,
-  WheatIcon,
 } from "@/components/icons";
 import type { ShellBundle } from "./shell-bundle";
 
@@ -28,7 +28,7 @@ export default function BottomTabBar({ bundle }: BottomTabBarProps) {
     { href: "/dashboard", label: nav.dashboard, Icon: HomeIcon },
     { href: "/farms", label: nav.farms, Icon: LeafIcon },
     { href: "/advisor", label: nav.advisor, Icon: ChatIcon },
-    { href: "/crops", label: nav.crops, Icon: WheatIcon },
+    { href: "/detect", label: nav.detect, Icon: CameraIcon },
     { href: "/more", label: nav.more, Icon: GridIcon },
   ];
 
