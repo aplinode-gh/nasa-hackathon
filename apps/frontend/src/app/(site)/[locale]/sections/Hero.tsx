@@ -15,38 +15,40 @@ export default async function Hero({ locale }: { locale: Locale }) {
       value: formatNumber(92, locale),
       suffix: "%",
       note: L("home.hero.noteExcellent"),
-      position: "left-[2%] top-[18%] sm:left-[6%] lg:left-[7%]",
     },
     {
       label: L("home.hero.readingWeather"),
       value: formatNumber(24, locale),
-      suffix: "Â°C",
+      suffix: "°C",
       note: L("home.hero.noteClearSky"),
-      position: "bottom-[24%] left-0 lg:left-[1%]",
     },
     {
       label: L("home.hero.readingSoil"),
       value: formatNumber(65, locale),
       suffix: "%",
       note: L("home.hero.noteOptimal"),
-      position: "bottom-[8%] right-[4%] sm:right-[22%] lg:right-[28%]",
     },
   ];
 
   return (
     <section
       id="top"
-      className="relative w-full overflow-hidden px-4 pb-20 pt-12 sm:px-6 lg:px-8 lg:pb-28 lg:pt-16"
+      className="relative isolate w-full overflow-hidden bg-gradient-to-b from-white via-agro-mint/35 to-white px-4 pb-16 pt-10 sm:px-6 sm:pb-20 sm:pt-14 lg:px-8 lg:pb-24 lg:pt-20"
     >
-      <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2 lg:gap-8">
-        <div className="flex flex-col items-start text-start">
-          <p className="eyebrow rise flex items-center gap-3 text-agro-canopy">
-            <span className="inline-block h-px w-8 bg-agro-leaf" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(60%_60%_at_20%_10%,rgba(63,136,57,0.12),transparent_60%),radial-gradient(45%_45%_at_85%_20%,rgba(193,216,193,0.45),transparent_70%)]"
+        aria-hidden="true"
+      />
+
+      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16">
+        <div className="flex min-w-0 flex-col items-start text-start">
+          <p className="rise inline-flex items-center gap-2 rounded-full border border-agro-sprout/80 bg-white/80 px-3.5 py-1.5 text-sm font-medium text-agro-canopy shadow-sm backdrop-blur-sm">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-agro-leaf" aria-hidden="true" />
             {L("home.hero.eyebrow")}
           </p>
 
           <h1
-            className="display-heading rise mt-5 font-display text-[2.6rem] font-bold leading-[1.08] tracking-tight text-agro-ink sm:text-6xl lg:text-[4.25rem]"
+            className="display-heading rise mt-6 max-w-3xl font-display text-[2.5rem] font-semibold leading-[1.06] tracking-tight text-agro-ink sm:text-5xl lg:text-[4rem] xl:text-[4.4rem]"
             style={{ "--rise-delay": "0.08s" } as React.CSSProperties}
           >
             {L("home.hero.titleLead")}{" "}
@@ -54,94 +56,97 @@ export default async function Hero({ locale }: { locale: Locale }) {
           </h1>
 
           <p
-            className="rise mt-6 max-w-lg text-lg leading-relaxed text-agro-slate"
+            className="rise mt-6 max-w-xl text-base leading-relaxed text-agro-slate sm:text-lg"
             style={{ "--rise-delay": "0.16s" } as React.CSSProperties}
           >
             {L("home.hero.subtitle")}
           </p>
 
           <div
-            className="rise mt-9 flex flex-wrap items-center gap-4"
+            className="rise mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center"
             style={{ "--rise-delay": "0.24s" } as React.CSSProperties}
           >
             <a
               href="#get-started"
-              className="inline-flex h-12 cursor-pointer items-center justify-center rounded-lg bg-agro-canopy px-7 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-agro-forest hover:shadow-md active:translate-y-0"
+              className="inline-flex h-12 cursor-pointer items-center justify-center rounded-xl bg-agro-canopy px-7 text-sm font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-agro-forest focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-agro-canopy active:bg-agro-forest"
             >
               {L("nav.getEarlyAccess")}
             </a>
             <a
               href="#journey"
-              className="inline-flex h-12 cursor-pointer items-center justify-center rounded-lg border border-agro-sprout bg-white px-7 text-sm font-semibold text-agro-forest shadow-sm transition-all duration-200 hover:border-agro-canopy hover:bg-agro-mint"
+              className="inline-flex h-12 cursor-pointer items-center justify-center rounded-xl border border-agro-sprout bg-white px-7 text-sm font-semibold text-agro-forest shadow-sm transition-colors duration-200 hover:border-agro-canopy hover:bg-agro-mint focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-agro-canopy"
             >
               {L("home.hero.ctaSecondary")}
             </a>
           </div>
 
-          <p
-            className="rise mt-9 flex items-center gap-2.5 text-xs text-agro-slate"
-            style={{ "--rise-delay": "0.32s" } as React.CSSProperties}
+          <div
+            className="rise mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-agro-slate"
+            style={{ "--rise-delay": "0.3s" } as React.CSSProperties}
           >
-            <span className="font-mono tracking-wide">{L("common.builtForPakistan")}</span>
-          </p>
-        </div>
+            <span className="inline-flex items-center gap-2">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-agro-leaf" aria-hidden="true" />
+              {L("common.builtForPakistan")}
+            </span>
+            <span className="hidden h-4 w-px bg-agro-clay sm:inline-block" aria-hidden="true" />
+            <span className="text-agro-slate/90">{L("home.hero.eyebrow")}</span>
+          </div>
 
-        <div className="relative mx-auto w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-none">
-          <div className="relative aspect-square w-full sm:aspect-[4/5] sm:max-h-[520px] lg:max-h-[560px]">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-agro-mint via-agro-mint to-agro-sprout/40 sm:left-0 sm:top-1/2 sm:h-[120%] sm:w-full sm:-translate-y-1/2" />
-
-            <svg
-              className="drift absolute left-[4%] top-[4%] h-[92%] w-[92%] text-agro-leaf/50 sm:hidden"
-              viewBox="0 0 400 400"
-              fill="none"
-              aria-hidden="true"
-            >
-              <circle cx="200" cy="200" r="164" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 10" />
-              <circle cx="200" cy="200" r="136" stroke="currentColor" strokeWidth="1.5" strokeDasharray="8 8" opacity="0.7" />
-              <circle cx="200" cy="18" r="4" fill="var(--color-agro-leaf)" stroke="none" />
-            </svg>
-
-            <svg
-              className="drift absolute left-0 top-1/2 hidden h-[110%] w-full -translate-y-1/2 text-agro-leaf/50 sm:block"
-              viewBox="0 0 400 400"
-              fill="none"
-              aria-hidden="true"
-            >
-              <circle cx="200" cy="200" r="164" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 10" />
-              <circle cx="200" cy="200" r="136" stroke="currentColor" strokeWidth="1.5" strokeDasharray="8 8" opacity="0.7" />
-              <circle cx="200" cy="18" r="4" fill="var(--color-agro-leaf)" stroke="none" />
-            </svg>
-
-            <div className="absolute inset-0 overflow-hidden rounded-full">
-              <Image
-                src="/hero-farmer.png"
-                alt={t("home.hero.imageAlt").text}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-center"
-                priority
-                unoptimized
-              />
-            </div>
-
+          <div
+            className="rise mt-10 grid w-full max-w-xl grid-cols-1 gap-3 sm:grid-cols-3"
+            style={{ "--rise-delay": "0.36s" } as React.CSSProperties}
+          >
             {readings.map((reading, index) => (
               <div
-                key={`${index}`}
-                className={`rise absolute z-10 hidden w-[7rem] rounded-xl border border-agro-clay/70 bg-white/95 p-2.5 shadow-lg backdrop-blur-sm sm:block sm:w-36 sm:p-4 ${reading.position}`}
-                style={{ "--rise-delay": `${0.4 + index * 0.12}s` } as React.CSSProperties}
+                key={index}
+                className="rounded-2xl border border-agro-clay/80 bg-white/90 p-4 shadow-sm backdrop-blur-sm transition-shadow duration-200 hover:shadow-md"
               >
-                <p className="flex items-center gap-1.5 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-agro-canopy">
-                  <span className="h-1.5 w-1.5 rounded-full bg-agro-success" aria-hidden="true" />
-                  {reading.label}
+                <p className="text-xs font-medium text-agro-slate">{reading.label}</p>
+                <p className="mt-2 flex items-baseline gap-1 font-display text-2xl font-semibold tracking-tight text-agro-ink">
+                  <span>{reading.value}</span>
+                  <span className="text-base font-medium text-agro-canopy">{reading.suffix}</span>
                 </p>
-                <p className="mt-1.5 font-mono text-2xl font-bold tracking-tight text-agro-ink sm:text-[1.75rem]">
-                  {reading.value}
-                  {reading.suffix}
-                </p>
-                <p className="text-xs font-medium text-agro-slate">{reading.note}</p>
+                <p className="mt-1 text-xs font-medium text-agro-canopy">{reading.note}</p>
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
+          <div className="relative overflow-hidden rounded-[2rem] border border-agro-clay/70 bg-white shadow-[0_24px_60px_-24px_rgba(1,59,31,0.25)]">
+            <div className="absolute inset-0 bg-gradient-to-br from-agro-mint/70 via-white to-agro-stone/60" aria-hidden="true" />
+            <div className="relative aspect-[4/5] w-full sm:aspect-[5/6] lg:aspect-[4/5]">
+              <Image
+                src="/hero-farmer.svg"
+                alt={t("home.hero.imageAlt").text}
+                fill
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                className="object-cover object-center"
+                priority
+              />
+            </div>
+
+            <div className="pointer-events-none absolute inset-x-4 bottom-4 z-10 hidden rounded-2xl border border-white/70 bg-white/85 p-4 shadow-lg backdrop-blur-md sm:block">
+              <div className="flex items-start justify-between gap-4">
+                <div className="min-w-0">
+                  <p className="text-xs font-medium uppercase tracking-[0.08em] text-agro-slate">
+                    {L("home.hero.readingCrop")}
+                  </p>
+                  <p className="mt-1 font-display text-xl font-semibold text-agro-ink">
+                    {formatNumber(92, locale)}% <span className="text-sm font-medium text-agro-canopy">{L("home.hero.noteExcellent")}</span>
+                  </p>
+                </div>
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-agro-mint text-agro-canopy ring-1 ring-agro-sprout/70">
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="pointer-events-none absolute -right-6 -top-6 hidden h-28 w-28 rounded-full border border-agro-sprout/50 bg-white/50 blur-[1px] lg:block" aria-hidden="true" />
+          <div className="pointer-events-none absolute -bottom-8 -left-4 hidden h-24 w-24 rounded-full bg-agro-sprout/30 blur-2xl lg:block" aria-hidden="true" />
         </div>
       </div>
     </section>
