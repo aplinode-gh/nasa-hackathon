@@ -72,8 +72,12 @@ async def scan_history(request: Request, session: dict = Depends(require_session
         values: list[Any] = [session["accountId"]]
         idx = 2
         if cursor:
+            try:
+                cursor_dt = datetime.fromisoformat(cursor.replace("Z", "+00:00"))
+            except ValueError:
+                return error_response("validation_error", "Invalid cursor", 422)
             conditions.append(f"ds.created_at < ${idx}")
-            values.append(cursor)
+            values.append(cursor_dt)
             idx += 1
 
         rows = await query(

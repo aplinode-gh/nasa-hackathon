@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from datetime import date
 from typing import Any
 
 from fastapi import APIRouter, Depends, Request
@@ -375,7 +376,7 @@ async def create_expense(season_id: str, request: Request, session: dict = Depen
             session["accountId"],
             parsed.category,
             parsed.amount,
-            parsed.date,
+            date.fromisoformat(parsed.date),
             parsed.note,
         )
         if not row:
@@ -419,7 +420,7 @@ async def update_expense(
         idx = 1
         for key, value in payload.items():
             set_clauses.append(f"{key} = ${idx}")
-            values.append(value)
+            values.append(date.fromisoformat(value) if key == "date" else value)
             idx += 1
         values.append(expense_id)
 
