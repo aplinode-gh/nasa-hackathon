@@ -18,15 +18,21 @@ export default async function DetectPage() {
     backendFetch<ScanResponse>("/api/detect/history?limit=20"),
   ]);
 
-  const farms: FarmOption[] = (rawFarms ?? []).map((farm) => ({
-    id: farm.id,
-    name: farm.name,
-    crops: Array.isArray(farm.crops)
-      ? farm.crops.join(", ")
-      : typeof farm.crops === "string"
-        ? farm.crops
-        : String(farm.crops ?? ""),
-  }));
+  const farms: FarmOption[] = (rawFarms ?? []).map((farm) => {
+    let crops = farm.crops;
+    if (typeof crops === "string") {
+      try {
+        crops = JSON.parse(crops);
+      } catch {
+        crops = [];
+      }
+    }
+    return {
+      id: farm.id,
+      name: farm.name,
+      crops: Array.isArray(crops) ? crops.join(", ") : String(crops ?? ""),
+    };
+  });
 
   const initialScans = history?.scans ?? [];
 

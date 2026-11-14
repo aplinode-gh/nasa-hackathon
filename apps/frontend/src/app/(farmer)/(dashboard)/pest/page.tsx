@@ -11,14 +11,46 @@ type FarmRow = {
   district: string;
   lat: number;
   lng: number;
-  crops: string[];
-  growth_stages: Record<string, string>;
+  crops: unknown;
+  growth_stages: unknown;
   primary_crop: string | null;
 };
 
+function parseList(value: unknown): string[] {
+  if (Array.isArray(value)) return value.map(String);
+  if (typeof value === "string") {
+    try {
+      const parsed = JSON.parse(value);
+      return Array.isArray(parsed) ? parsed.map(String) : [];
+    } catch {
+      return [];
+    }
+  }
+  return [];
+}
+
+function parseStages(value: unknown): Record<string, string> {
+  if (value && typeof value === "object" && !Array.isArray(value)) {
+    return Object.fromEntries(Object.entries(value).map(([key, stage]) => [key, String(stage)]));
+  }
+  if (typeof value === "string") {
+    try {
+      return parseStages(JSON.parse(value));
+    } catch {
+      return {};
+    }
+  }
+  return {};
+}
+
 export default async function PestPage() {
   const bundle = await getPestBundle();
-  const farms = (await backendFetch<FarmRow[]>("/api/farms")) ?? [];
+  const rawFarms = (await backendFetch<FarmRow[]>("/api/farms")) ?? [];
+  const farms = rawFarms.map((farm) => ({
+    ...farm,
+    crops: parseList(farm.crops),
+    growth_stages: parseStages(farm.growth_stages),
+  }));
 
   if (farms.length === 0) {
     return (
