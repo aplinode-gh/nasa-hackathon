@@ -1,0 +1,36 @@
+﻿"""Shared HTTP helpers for consistent API responses."""
+
+from typing import Any
+
+from fastapi import Request
+from fastapi.responses import JSONResponse
+
+
+def success(data: Any = None, status_code: int = 200, **extra: Any) -> JSONResponse:
+    """Return a JSON response payload."""
+    if data is None and extra:
+        return JSONResponse(content=extra, status_code=status_code)
+    if isinstance(data, dict):
+        payload = {**data, **extra} if extra else data
+        return JSONResponse(content=payload, status_code=status_code)
+    return JSONResponse(content={"data": data, **extra} if extra else {"data": data}, status_code=status_code)
+
+
+def error_response(code: str, message: str, status_code: int) -> JSONResponse:
+    """Return a standard error response shape."""
+    return JSONResponse(content={"error": {"code": code, "message": message}}, status_code=status_code)
+
+
+def client_ip(request: Request) -> str:
+    """Best-effort client IP extraction for rate-limiting and logging."""
+    forwarded = request.headers.get("x-forwarded-for")
+    if forwarded:
+        first = forwarded.split(",")[0].strip()
+        if first:
+            return first
+    real_ip = request.headers.get("x-real-ip")
+    if real_ip and real_ip.strip():
+        return real_ip.strip()
+    if request.client and request.client.host:
+        return request.client.host
+    return "local"
