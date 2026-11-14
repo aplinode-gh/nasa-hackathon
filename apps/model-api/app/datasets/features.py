@@ -18,6 +18,7 @@ def clean_weather(frame: pd.DataFrame) -> pd.DataFrame:
     for column in WEATHER_COLUMNS:
         if column in clean.columns:
             clean[column] = pd.to_numeric(clean[column], errors="coerce")
+            clean[column] = clean[column].replace(-999.0, np.nan)
     present = [column for column in WEATHER_COLUMNS if column in clean.columns]
     if not present:
         return clean
@@ -111,7 +112,7 @@ def clean_dataset(frame: pd.DataFrame) -> pd.DataFrame:
 def synthetic_weather(index: pd.DatetimeIndex, seed: int = 42) -> pd.DataFrame:
     rng = np.random.default_rng(seed)
     count = len(index)
-    day_of_year = index.dayofyear.to_numpy()
+    day_of_year = index.day_of_year.to_numpy()
     seasonal = 18.0 + 12.0 * np.sin(2.0 * np.pi * (day_of_year - 100) / 365.0)
     tmax = seasonal + 8.0 + rng.normal(0.0, 2.0, count)
     tmin = seasonal - 8.0 + rng.normal(0.0, 2.0, count)

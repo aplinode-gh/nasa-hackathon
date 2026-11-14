@@ -19,10 +19,24 @@
         "cwd": "apps/model-api"
       }
     },
+    "harvest": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "python scripts/harvest_pakistan.py {args}",
+        "cwd": "apps/model-api"
+      }
+    },
     "dataset": {
       "executor": "nx:run-commands",
       "options": {
         "command": "python -m app.datasets.build {args}",
+        "cwd": "apps/model-api"
+      }
+    },
+    "prepare": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "python scripts/prepare_dataset.py {args}",
         "cwd": "apps/model-api"
       }
     },
@@ -31,6 +45,25 @@
       "options": {
         "command": "python scripts/train.py {args}",
         "cwd": "apps/model-api"
+      }
+    },
+    "train-forecast": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "python scripts/train_forecast.py {args}",
+        "cwd": "apps/model-api"
+      }
+    },
+    "pipeline": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "python scripts/harvest_pakistan.py --sites all",
+          "python scripts/prepare_dataset.py --sites all",
+          "python scripts/train_forecast.py"
+        ],
+        "cwd": "apps/model-api",
+        "parallel": false
       }
     }
   }
