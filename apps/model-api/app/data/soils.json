@@ -1,0 +1,56 @@
+{
+  "sandy": {
+    "water_holding_capacity": 0.2,
+    "drainage": 0.9,
+    "erosion_factor": 0.6,
+    "salinity": 0.3
+  },
+  "sandy_loam": {
+    "water_holding_capacity": 0.35,
+    "drainage": 0.75,
+    "erosion_factor": 0.5,
+    "salinity": 0.3
+  },
+  "loamy": {
+    "water_holding_capacity": 0.6,
+    "drainage": 0.55,
+    "erosion_factor": 0.35,
+    "salinity": 0.2
+  },
+  "clay_loam": {
+    "water_holding_capacity": 0.7,
+    "drainage": 0.4,
+    "erosion_factor": 0.4,
+    "salinity": 0.3
+  },
+  "clay": {
+    "water_holding_capacity": 0.8,
+    "drainage": 0.25,
+    "erosion_factor": 0.55,
+    "salinity": 0.35
+  },
+  "silty": {
+    "water_holding_capacity": 0.6,
+    "drainage": 0.45,
+    "erosion_factor": 0.6,
+    "salinity": 0.3
+  },
+  "saline": {
+    "water_holding_capacity": 0.5,
+    "drainage": 0.5,
+    "erosion_factor": 0.4,
+    "salinity": 0.9
+  },
+  "rocky": {
+    "water_holding_capacity": 0.15,
+    "drainage": 0.95,
+    "erosion_factor": 0.8,
+    "salinity": 0.2
+  },
+  "other": {
+    "water_holding_capacity": 0.5,
+    "drainage": 0.5,
+    "erosion_factor": 0.45,
+    "salinity": 0.3
+  }
+}
