@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import json
 from datetime import date, timedelta
 from typing import Any
 
@@ -176,7 +175,3 @@ def stage_merge(existing: Any, crop: str, stage: str) -> dict[str, Any]:
     merged = {str(k): str(v) for k, v in stages.items()}
     merged[crop] = stage
     return merged
-
-
-def stages_to_json(stages: dict[str, Any]) -> str:
-    return json.dumps(stages)

@@ -1,10 +1,11 @@
 # NasaHackathon — Agropioo UI
 
-Static UI for the Agropioo farm-intelligence experience, presented as part of
-the **NASA Space Apps Challenge**. This workspace contains the interface only —
-the original full-stack application's API routes, database, and AI services are
-not included. Screens that normally depend on a backend render with built-in
-empty, fallback, and not-found states.
+Agropioo farm-intelligence interface and API, presented as part of the
+**NASA Space Apps Challenge**. The frontend is a Next.js app that proxies
+`/api` requests to a FastAPI backend; the backend owns the database schema,
+profit/loss calculator, disease detection, and pest forecasting modules.
+Screens still render built-in empty/fallback states when the backend is
+unavailable.
 
 The interface is adapted from the Agropioo platform by Sheikh Mohammad Ahmed
 and Mustafa Shahzad (Aplinode). Run it with:

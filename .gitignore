@@ -64,4 +64,5 @@ out
 apps/backend/.env
 apps/backend/.venv/
 apps/backend/__pycache__/
+apps/backend/uploads/
 **/__pycache__/

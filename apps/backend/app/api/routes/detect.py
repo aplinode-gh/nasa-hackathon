@@ -56,10 +56,6 @@ def _scan_out(row: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def _sql_like_escape(value: str) -> str:
-    return value.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
-
-
 @router.get("/history")
 async def scan_history(request: Request, session: dict = Depends(require_session)):
     try:
