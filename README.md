@@ -1,4 +1,21 @@
-# NasaHackathon
+# NasaHackathon — Agropioo UI
+
+Static UI for the Agropioo farm-intelligence experience, presented as part of
+the **NASA Space Apps Challenge**. This workspace contains the interface only —
+the original full-stack application's API routes, database, and AI services are
+not included. Screens that normally depend on a backend render with built-in
+empty, fallback, and not-found states.
+
+The interface is adapted from the Agropioo platform by Sheikh Mohammad Ahmed
+and Mustafa Shahzad (Aplinode). Run it with:
+
+```sh
+npx nx dev frontend
+```
+
+---
+
+# Nx Workspace
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
