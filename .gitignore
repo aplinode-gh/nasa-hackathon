@@ -51,6 +51,15 @@ out
 # Local tool state
 .commandcode/
 
+# Environment files (secrets)
+.env
+.env.*
+.env.local
+.env.*.local
+*.env
+!.env.example
+!.env.*.example
+
 # Backend env
 apps/backend/.env
 apps/backend/.venv/
