@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 
 import { localized } from "@/lib/i18n/localized";
 import { getDictionary } from "@/lib/i18n/server";
@@ -20,7 +20,7 @@ export default async function Hero({ locale }: { locale: Locale }) {
     {
       label: L("home.hero.readingWeather"),
       value: formatNumber(24, locale),
-      suffix: "°C",
+      suffix: "Â°C",
       note: L("home.hero.noteClearSky"),
       position: "bottom-[24%] left-0 lg:left-[1%]",
     },
@@ -120,6 +120,7 @@ export default async function Hero({ locale }: { locale: Locale }) {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover object-center"
                 priority
+                unoptimized
               />
             </div>
 
