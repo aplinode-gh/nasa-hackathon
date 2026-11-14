@@ -24,42 +24,50 @@ export default async function Problem({ locale }: { locale: Locale }) {
   return (
     <section
       id="why"
-      className="w-full bg-agro-forest px-4 py-20 text-white sm:px-6 lg:px-8 lg:py-28"
+      className="relative w-full overflow-hidden bg-agro-forest px-4 py-20 text-white sm:px-6 lg:px-8 lg:py-28"
     >
-      <div className="mx-auto max-w-7xl">
-        <div className="grid gap-14 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-5">
-            <p className="eyebrow reveal flex items-center gap-3 text-agro-sprout">
-              <span className="inline-block h-px w-8 bg-agro-leaf" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_40%_at_80%_0%,rgba(63,136,57,0.18),transparent_60%)]"
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto max-w-7xl">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="min-w-0 lg:col-span-5">
+            <p className="reveal inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-sm font-medium text-agro-sprout">
               {L("home.problem.eyebrow")}
             </p>
-            <h2 className="display-heading reveal mt-5 font-display text-3xl font-medium leading-[1.15] tracking-tight sm:text-4xl lg:text-[2.9rem]">
+            <h2 className="display-heading reveal mt-6 font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-4xl lg:text-[2.75rem]">
               {L("home.problem.title")}
             </h2>
-            <p className="reveal mt-5 max-w-md leading-relaxed text-agro-sprout/85">
+            <p className="reveal mt-5 max-w-lg text-base leading-relaxed text-agro-sprout/85 sm:text-lg">
               {L("home.problem.subtitle")}
             </p>
+            <div className="reveal mt-8 border-l border-agro-leaf/50 pl-4 sm:pl-5">
+              <p className="max-w-md text-sm leading-relaxed text-agro-sprout/75 sm:text-[0.95rem]">
+                {L("home.problem.kicker")}
+              </p>
+            </div>
           </div>
 
-          <div className="lg:col-span-7">
-            <ul>
+          <div className="min-w-0 lg:col-span-7">
+            <ul className="divide-y divide-white/10 rounded-3xl border border-white/10 bg-white/[0.03]">
               {problems.map((item, index) => (
                 <li
                   key={index}
-                  className="reveal group border-t border-agro-sprout/15 py-7 transition-colors duration-300 first:border-t-0 first:pt-0 hover:bg-white/[0.04] sm:first:pt-7 lg:first:border-t lg:first:pt-7"
+                  className="reveal group p-6 transition-colors duration-200 hover:bg-white/[0.04] sm:p-8"
                 >
-                  <div className="flex gap-6 px-2 sm:gap-8 sm:px-4">
+                  <div className="flex gap-5 sm:gap-7">
                     <span
-                      className="font-mono text-sm font-semibold tracking-widest text-agro-sprout/60 transition-colors duration-300 group-hover:text-white"
+                      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-agro-sprout/30 bg-agro-canopy/30 font-mono text-xs font-semibold tracking-wider text-agro-sprout"
                       aria-hidden="true"
                     >
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <div>
-                      <h3 className="text-xl font-semibold tracking-tight text-white">
+                    <div className="min-w-0">
+                      <h3 className="font-display text-xl font-semibold tracking-tight text-white sm:text-2xl">
                         {item.title}
                       </h3>
-                      <p className="mt-2 max-w-lg leading-relaxed text-agro-sprout/75">
+                      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-agro-sprout/80 sm:text-base">
                         {item.description}
                       </p>
                     </div>
@@ -67,13 +75,6 @@ export default async function Problem({ locale }: { locale: Locale }) {
                 </li>
               ))}
             </ul>
-
-            <div className="reveal mt-8 flex items-center gap-3 px-2 sm:px-4">
-              <span className="hidden h-px flex-1 bg-agro-sprout/15 sm:block" aria-hidden="true" />
-              <p className="font-mono text-xs uppercase leading-relaxed tracking-[0.18em] text-agro-sprout/60">
-                {L("home.problem.kicker")}
-              </p>
-            </div>
           </div>
         </div>
       </div>

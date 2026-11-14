@@ -42,52 +42,59 @@ export default async function Solution({ locale }: { locale: Locale }) {
   return (
     <section
       id="solution"
-      className="w-full border-t border-agro-clay/70 bg-white px-4 py-20 sm:px-6 lg:px-8 lg:py-28"
+      className="w-full border-t border-agro-clay/60 bg-white px-4 py-20 sm:px-6 lg:px-8 lg:py-28"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-7">
-            <p className="eyebrow reveal flex items-center gap-3 text-agro-canopy">
-              <span className="inline-block h-px w-8 bg-agro-leaf" aria-hidden="true" />
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-12">
+          <div className="min-w-0 lg:col-span-7">
+            <p className="reveal inline-flex items-center gap-2 rounded-full border border-agro-sprout/70 bg-agro-mint/60 px-3 py-1 text-sm font-medium text-agro-canopy">
               {L("home.solution.eyebrow")}
             </p>
-            <h2 className="display-heading reveal mt-5 font-display text-3xl font-medium leading-[1.15] tracking-tight text-agro-ink sm:text-4xl lg:text-[2.9rem]">
-              {L("home.solution.titleA")}
-              <br />
-              {L("home.solution.titleB")}
+            <h2 className="display-heading reveal mt-6 max-w-3xl font-display text-3xl font-semibold leading-[1.12] tracking-tight text-agro-ink sm:text-4xl lg:text-[2.75rem]">
+              {L("home.solution.titleA")} {L("home.solution.titleB")}
             </h2>
           </div>
-          <p className="reveal max-w-md leading-relaxed text-agro-slate lg:col-span-4 lg:col-start-9">
+          <p className="reveal max-w-md text-base leading-relaxed text-agro-slate sm:text-lg lg:col-span-5">
             {L("home.solution.subtitle")}
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
           {values.map((item, index) => (
             <article
               key={index}
-              className="reveal group flex flex-col rounded-2xl border border-agro-sprout/80 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-agro-canopy/50 hover:shadow-xl sm:p-8"
+              className="reveal group flex h-full flex-col rounded-3xl border border-agro-clay/80 bg-white p-7 shadow-sm transition-shadow duration-200 hover:shadow-md sm:p-8"
             >
-              <div className="flex items-start justify-between">
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-agro-mint text-agro-canopy ring-1 ring-agro-sprout transition-colors duration-300 group-hover:bg-agro-canopy group-hover:text-white">
+              <div className="flex items-start justify-between gap-4">
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-agro-mint text-agro-canopy ring-1 ring-agro-sprout/70 transition-colors duration-200 group-hover:bg-agro-canopy group-hover:text-white group-hover:ring-agro-canopy">
                   {item.icon}
                 </span>
-                <span className="font-mono text-sm font-semibold tracking-widest text-agro-canopy/40 transition-colors duration-300 group-hover:text-agro-canopy" aria-hidden="true">
+                <span
+                  className="font-mono text-xs font-semibold tracking-[0.18em] text-agro-canopy/50"
+                  aria-hidden="true"
+                >
                   {String(index + 1).padStart(2, "0")}
                 </span>
               </div>
 
-              <h3 className="mt-6 font-display text-2xl font-medium tracking-tight text-agro-ink">
+              <h3 className="mt-6 font-display text-xl font-semibold tracking-tight text-agro-ink sm:text-2xl">
                 {item.question}
               </h3>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-agro-slate sm:text-base">
                 {item.description}
               </p>
 
-              <div className="mt-7">
-                <p className="flex items-start gap-2 rounded-xl bg-agro-mint px-4 py-3 font-mono text-xs leading-relaxed tracking-wide text-agro-forest ring-1 ring-agro-sprout/70">
-                  <span aria-hidden="true">→</span>
-                  {item.answer}
+              <div className="mt-7 border-t border-agro-clay/70 pt-5">
+                <p className="flex items-start gap-3 text-sm leading-relaxed text-agro-forest">
+                  <span
+                    className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-agro-canopy/10 text-agro-canopy"
+                    aria-hidden="true"
+                  >
+                    <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                  <span className="font-medium">{item.answer}</span>
                 </p>
               </div>
             </article>
