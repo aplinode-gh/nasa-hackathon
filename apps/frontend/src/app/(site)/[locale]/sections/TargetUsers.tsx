@@ -35,39 +35,39 @@ export default async function TargetUsers({ locale }: { locale: Locale }) {
   ];
 
   return (
-    <section className="w-full border-t border-agro-clay/70 bg-white px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+    <section className="w-full border-t border-agro-clay/60 bg-agro-stone/20 px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-3">
           {users.map((user, index) => (
             <div
               key={user.title}
-              className="reveal group flex flex-col rounded-xl border border-agro-sprout/60 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-agro-canopy/50 hover:shadow-md sm:p-6"
+              className="reveal group flex h-full flex-col rounded-3xl border border-agro-clay/80 bg-white p-6 shadow-sm transition-shadow duration-200 hover:shadow-md sm:p-7"
             >
-              <div className="flex items-start justify-between">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-agro-mint text-agro-canopy ring-1 ring-agro-sprout transition-colors duration-200 group-hover:bg-agro-canopy group-hover:text-white">
+              <div className="flex items-start justify-between gap-4">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-agro-mint text-agro-canopy ring-1 ring-agro-sprout/70 transition-colors duration-200 group-hover:bg-agro-canopy group-hover:text-white group-hover:ring-agro-canopy">
                   {user.icon}
                 </span>
                 <span
-                  className="font-mono text-xs font-semibold tracking-widest text-agro-canopy/40 transition-colors duration-200 group-hover:text-agro-canopy"
+                  className="font-mono text-xs font-semibold tracking-[0.18em] text-agro-canopy/45"
                   aria-hidden="true"
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>
               </div>
-              <h3 className="mt-4 text-base font-semibold tracking-tight text-agro-ink">
+              <h3 className="mt-5 font-display text-xl font-semibold tracking-tight text-agro-ink">
                 {user.title}
               </h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-agro-slate">
+              <p className="mt-2 text-sm leading-relaxed text-agro-slate sm:text-base">
                 {user.description}
               </p>
             </div>
           ))}
         </div>
 
-        <p className="reveal mt-8 flex items-center justify-center gap-4 text-center font-mono text-xs uppercase tracking-[0.18em] text-agro-canopy">
-          <span className="hidden h-px w-10 bg-agro-clay sm:inline-block" aria-hidden="true" />
-          {t("home.users.tagline").text}
-          <span className="hidden h-px w-10 bg-agro-clay sm:inline-block" aria-hidden="true" />
+        <p className="reveal mx-auto mt-10 flex max-w-3xl items-center justify-center gap-4 text-center text-sm font-medium tracking-wide text-agro-canopy sm:text-base">
+          <span className="hidden h-px flex-1 bg-agro-clay/80 sm:inline-block" aria-hidden="true" />
+          <span>{t("home.users.tagline").text}</span>
+          <span className="hidden h-px flex-1 bg-agro-clay/80 sm:inline-block" aria-hidden="true" />
         </p>
       </div>
     </section>
