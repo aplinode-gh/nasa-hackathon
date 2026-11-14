@@ -1,4 +1,6 @@
 FEATURE_COLUMNS = [
+    "site_lat",
+    "site_lon",
     "soil_water_holding_capacity",
     "soil_drainage",
     "soil_erosion_factor",
