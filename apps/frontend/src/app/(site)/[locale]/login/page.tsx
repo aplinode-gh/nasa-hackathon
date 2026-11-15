@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { LanguageSwitcher } from "@/components/language-switcher";
+import { requireGuestPage } from "@/lib/auth/guards";
 import { getCurrentDictionary } from "@/lib/i18n/server";
 import type { Locale } from "@/lib/i18n/config";
 import LoginForm, { type AuthErrorCopy, type LoginCopy } from "./login-form";
@@ -14,6 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 }
 
 export default async function LoginPage({ params }: { params: Promise<{ locale: Locale }> }) {
+  await requireGuestPage();
   const { t } = await getCurrentDictionary((await params).locale);
   const switcherLabel = t("common.languageSwitcherLabel").text;
 
