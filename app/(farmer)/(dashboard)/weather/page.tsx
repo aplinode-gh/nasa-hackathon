@@ -7,6 +7,7 @@ import { getWeatherBundle } from "@/lib/i18n/server";
 import { getAppLocale, getDictionary } from "@/lib/i18n/server";
 import type { CatalogKey } from "@/catalog";
 import { getForecast, type ForecastHour } from "@/lib/weather/openweather";
+import { compareForecastToClimatology, getFrostClimatology, getPowerClimatology, NASA_POWER_ATTRIBUTION } from "@/lib/weather/nasa-power";
 import { fetchCurrentWeather } from "@/lib/farms/weather";
 import { computeGrowthStage, type GrowthStage, type Severity } from "@/lib/weather/advisory";
 import { generateAIAdviceBatch } from "@/lib/weather/ai-advisory";
@@ -182,10 +183,13 @@ export default async function WeatherPage({
   const t = dict.t;
 
   const today = new Date().toISOString().slice(0, 10);
-  const [currentWeather, forecast] = await Promise.all([
+  const [currentWeather, forecast, nasaClim, frostClim] = await Promise.all([
     fetchCurrentWeather(Number(selected.lat), Number(selected.lng)),
     getForecast(Number(selected.lat), Number(selected.lng)),
+    getPowerClimatology(Number(selected.lat), Number(selected.lng)),
+    getFrostClimatology(Number(selected.lat), Number(selected.lng)),
   ]);
+  const nasaBaseline = forecast && nasaClim ? compareForecastToClimatology(forecast.days, nasaClim) : null;
 
   const staticAlertConditions: AlertCondition[] = forecast ? scanAlertConditions(forecast) : [];
 
@@ -391,6 +395,13 @@ export default async function WeatherPage({
           humidity: t("app.weather.metric.humidity").text,
           wind: t("app.weather.metric.wind").text,
         }}
+        nasaBaseline={nasaBaseline?.label ?? null}
+        nasaAttribution={NASA_POWER_ATTRIBUTION}
+        frostSummary={
+          frostClim
+            ? `Frost has occurred in this area ${frostClim.decemberFrostDays} times in the last 10 Decembers (NASA POWER, T2M_MIN ≤ 2°C).`
+            : null
+        }
       />
 
       {todayAdvice && (

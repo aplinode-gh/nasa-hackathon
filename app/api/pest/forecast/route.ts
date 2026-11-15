@@ -4,6 +4,7 @@ import { requireSessionApi } from "@/lib/auth/guards";
 import { forecastQuerySchema } from "@/lib/validation/pest";
 import { scoreRisk, type PredictionInput } from "@/lib/pest/model";
 import { getForecast, type ForecastDay } from "@/lib/weather/openweather";
+import { getPestBacktestInsight, NASA_POWER_ATTRIBUTION } from "@/lib/weather/nasa-power";
 
 export async function GET(request: Request) {
   const session = await requireSessionApi();
@@ -58,13 +59,18 @@ export async function GET(request: Request) {
       weatherSource,
     };
 
-    const results = await scoreRisk(input);
+    const [results, backtest] = await Promise.all([
+      scoreRisk(input),
+      getPestBacktestInsight(Number(farmRow.lat), Number(farmRow.lng)),
+    ]);
 
     return jsonResponse({
       farm_id: farmRow.id,
       farm_name: farmRow.name,
       crop,
       weather_data_unavailable: weatherSource === "unavailable",
+      nasa_power_attribution: NASA_POWER_ATTRIBUTION,
+      nasa_backtest: backtest,
       days: results.map((r) => ({
         date: r.date,
         risk_score: r.riskScore,

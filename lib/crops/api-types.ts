@@ -14,6 +14,12 @@ export type IrrigationType = "rainfed" | "canal" | "tubewell" | "mixed";
 export type CropCategory = "staple" | "cash" | "pulse" | "vegetable";
 
 export type Confidence = "full" | "degraded" | "missing";
+export type NasaClimateSummary = {
+  rainfallMmMonth: number | null;
+  soilWetnessRoot: number | null;
+  soilWetnessTop: number | null;
+  attribution: string;
+};
 export type RevenueConfidence = "high" | "medium" | "low" | "unreliable";
 export type WaterLevel = "low" | "medium" | "high";
 

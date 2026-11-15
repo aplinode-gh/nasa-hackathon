@@ -81,6 +81,9 @@ export default function WeatherOverview({
             </p>
             <p className="mt-1 text-sm text-agro-slate">{dateTime}</p>
             <p className="mt-1 text-sm font-medium text-agro-ink">{condition || "N/A"}</p>
+            <p className="mt-2 inline-flex items-center rounded-full border border-agro-canopy/30 bg-agro-mint/40 px-2.5 py-1 font-mono text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-agro-canopy sm:ms-auto">
+              Powered by NASA POWER
+            </p>
           </div>
       </div>
     </div>
