@@ -27,7 +27,7 @@
 9. Conclusion
 
 ## Introduction
-This document explains how Agropioo adapts to cultural and regional needs, focusing on:
+This document explains how agropioo adapts to cultural and regional needs, focusing on:
 - Date and time formatting for different regions
 - Number formatting with locale-specific decimal separators and currency symbols
 - Calendar system adaptations
@@ -40,7 +40,7 @@ This document explains how Agropioo adapts to cultural and regional needs, focus
 The implementation is centered around a typed translation catalog that supports multiple Pakistani languages and integrates with Next.js routing and i18n configuration.
 
 ## Project Structure
-Agropioo organizes localization assets under a dedicated catalog module and exposes them through a central index. The site uses Next.js internationalized routing to serve localized pages and components to render language-aware UI.
+agropioo organizes localization assets under a dedicated catalog module and exposes them through a central index. The site uses Next.js internationalized routing to serve localized pages and components to render language-aware UI.
 
 ```mermaid
 graph TB
@@ -256,7 +256,7 @@ Common issues and resolutions:
 - [catalog/en.ts:1-708](file://catalog/en.ts#L1-L708)
 
 ## Conclusion
-Agropioo’s localization strategy centers on a typed, key-driven catalog with robust support for multiple Pakistani languages. The combination of Next.js locale routing, a language switcher, and centralized configuration enables culturally appropriate experiences. To extend further:
+agropioo’s localization strategy centers on a typed, key-driven catalog with robust support for multiple Pakistani languages. The combination of Next.js locale routing, a language switcher, and centralized configuration enables culturally appropriate experiences. To extend further:
 - Add date/time and number formatting per region
 - Implement calendar system adaptations
 - Integrate font loading for diverse scripts

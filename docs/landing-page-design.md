@@ -1,14 +1,14 @@
-# Agropioo Landing Page — Design Notes
+# agropioo Landing Page — Design Notes
 
 ## Direction
 
-A single-page marketing landing for Agropioo that feels **elegant, professional, and exciting** while staying firmly inside the brand's green identity. The page is built in **light mode** so it remains readable outdoors on mobile devices and feels open and optimistic.
+A single-page marketing landing for agropioo that feels **elegant, professional, and exciting** while staying firmly inside the brand's green identity. The page is built in **light mode** so it remains readable outdoors on mobile devices and feels open and optimistic.
 
 ## Design System Anchors
 
 - **Macrostructure:** Marquee Hero → Feature Grid → Farmer Journey → Pakistan-first Statement → Final CTA → Footer
 - **Visual genre:** Organic editorial — clean white space, confident serif display type, rounded cards with subtle botanical curves, restrained green palette.
-- **Signature element:** A large, soft-green hero panel that combines the Agropioo logo with a flowing furrow-curve motif — the moment the page should be remembered by.
+- **Signature element:** A large, soft-green hero panel that combines the agropioo logo with a flowing furrow-curve motif — the moment the page should be remembered by.
 
 ## Color Use
 

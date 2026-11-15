@@ -27,7 +27,7 @@
 10. [Appendices](#appendices)
 
 ## Introduction
-This document explains Agropioo’s session management system built on state-backed JWTs using the jose library. It covers token generation, signing, and validation; secure cookie handling; session context extraction; guard functions for protecting routes and API endpoints; logout flow and session cleanup; and security considerations including expiration, refresh strategies, and protection against common vulnerabilities.
+This document explains agropioo’s session management system built on state-backed JWTs using the jose library. It covers token generation, signing, and validation; secure cookie handling; session context extraction; guard functions for protecting routes and API endpoints; logout flow and session cleanup; and security considerations including expiration, refresh strategies, and protection against common vulnerabilities.
 
 ## Project Structure
 The authentication subsystem is implemented across a small set of focused modules:
@@ -373,7 +373,7 @@ Where to look:
 - [signup route.ts:35-50](file://app/api/auth/signup/route.ts#L35-L50)
 
 ## Conclusion
-Agropioo’s session system combines jose-signed HS256 JWTs with server-side state to provide robust, revocable sessions. Security is enforced through strict cookie flags, precise type checking, and database-backed validity checks. Guards centralize access control in layouts and API choke points, while logout revokes sessions server-side and clears cookies. The design balances usability with strong protections against common threats such as replay, enumeration, and token theft.
+agropioo’s session system combines jose-signed HS256 JWTs with server-side state to provide robust, revocable sessions. Security is enforced through strict cookie flags, precise type checking, and database-backed validity checks. Guards centralize access control in layouts and API choke points, while logout revokes sessions server-side and clears cookies. The design balances usability with strong protections against common threats such as replay, enumeration, and token theft.
 
 [No sources needed since this section summarizes without analyzing specific files]
 

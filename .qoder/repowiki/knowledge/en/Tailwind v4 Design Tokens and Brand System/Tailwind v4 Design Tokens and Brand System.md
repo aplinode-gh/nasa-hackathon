@@ -16,7 +16,7 @@ source_files:
 
 ## What system/approach is used
 
-Agropioo uses **Tailwind CSS v4** (via `@tailwindcss/postcss` in `postcss.config.mjs`) with the new `@import "tailwindcss"` single-import syntax. There is no separate `tailwind.config.js`; all styling configuration lives in a single global stylesheet (`app/globals.css`) using Tailwind v4's `@theme` and `@theme inline` blocks. Components are styled exclusively with utility classes — there is no SCSS, Sass, or component-scoped CSS framework.
+agropioo uses **Tailwind CSS v4** (via `@tailwindcss/postcss` in `postcss.config.mjs`) with the new `@import "tailwindcss"` single-import syntax. There is no separate `tailwind.config.js`; all styling configuration lives in a single global stylesheet (`app/globals.css`) using Tailwind v4's `@theme` and `@theme inline` blocks. Components are styled exclusively with utility classes — there is no SCSS, Sass, or component-scoped CSS framework.
 
 The project also ships a human-readable **Design System Master File** at `design-system/agropioo/MASTER.md` that documents color tokens, typography, spacing, shadows, component specs, style guidelines, anti-patterns, and a pre-delivery checklist. This file acts as the design-spec reference for contributors; it is not consumed by the build but guides implementation.
 

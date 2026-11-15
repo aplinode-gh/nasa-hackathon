@@ -1,8 +1,8 @@
-# Agropioo — Tech Stack
+# agropioo — Tech Stack
 
 ## Project Architecture
 
-Agropioo uses a **full-stack Next.js architecture**. There is **no separate Node.js + Express.js backend**.
+agropioo uses a **full-stack Next.js architecture**. There is **no separate Node.js + Express.js backend**.
 
 Next.js handles:
 

@@ -7,7 +7,7 @@ import FarmRecordItem from "./farm-record-item";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Farm records — Agropioo",
+  title: "Farm records — agropioo",
 };
 
 export default async function FarmRecordsPage({

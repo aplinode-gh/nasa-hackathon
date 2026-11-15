@@ -30,7 +30,7 @@
 9. Conclusion
 
 ## Introduction
-This document explains Agropioo’s marketing site components that showcase the platform’s features and value proposition. It covers the hero, footer, features, journey, and site header components, including their props, events, customization options, accessibility, responsive behavior, and integration with the design system. It also shows how these components compose to build compelling marketing pages.
+This document explains agropioo’s marketing site components that showcase the platform’s features and value proposition. It covers the hero, footer, features, journey, and site header components, including their props, events, customization options, accessibility, responsive behavior, and integration with the design system. It also shows how these components compose to build compelling marketing pages.
 
 ## Project Structure
 The marketing pages are composed from reusable UI components and page-level sections:
@@ -411,6 +411,6 @@ HomeContent --> PageFooter
 - [Design System Master.md:185-216](file://design-system/agropioo/MASTER.md#L185-L216)
 
 ## Conclusion
-Agropioo’s marketing site components form a cohesive, accessible, and responsive experience. The SiteHeader orchestrates navigation and localization; the Hero communicates the core value; Features and Journey illustrate capabilities and workflow; and Footer consolidates links, social presence, and legal information. Together, they create compelling marketing pages aligned with the design system and optimized for performance and accessibility.
+agropioo’s marketing site components form a cohesive, accessible, and responsive experience. The SiteHeader orchestrates navigation and localization; the Hero communicates the core value; Features and Journey illustrate capabilities and workflow; and Footer consolidates links, social presence, and legal information. Together, they create compelling marketing pages aligned with the design system and optimized for performance and accessibility.
 
 [No sources needed since this section summarizes without analyzing specific files]

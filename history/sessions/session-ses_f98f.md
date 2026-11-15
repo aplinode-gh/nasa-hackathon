@@ -36,7 +36,7 @@ Let me start by reading the implementation prompt and the spec.
 <content>
 1: # Implementation Prompt: Farm Profit/Loss Calculator (Feature #7)
 2: 
-3: You are implementing **Feature #7: Farm Profit/Loss Calculator & Forecast** for the Agropioo platform. Read the spec and plan thoroughly before writing any code. Do not skip steps.
+3: You are implementing **Feature #7: Farm Profit/Loss Calculator & Forecast** for the agropioo platform. Read the spec and plan thoroughly before writing any code. Do not skip steps.
 4: 
 5: ## Required Reading (in order)
 6: 
@@ -2258,7 +2258,7 @@ a1a6c0c feat(profit-loss): add implementation prompt for Kilo/developer
 5: import CropsClient from "./crops-client";
 6: 
 7: export const metadata: Metadata = {
-8:   title: "Crop recommendation — Agropioo",
+8:   title: "Crop recommendation — agropioo",
 9: };
 10: 
 11: export default async function CropsPage() {
@@ -2312,7 +2312,7 @@ a1a6c0c feat(profit-loss): add implementation prompt for Kilo/developer
 13: import { computeFarmHealth } from "@/lib/farms/health";
 14: 
 15: export const metadata: Metadata = {
-16:   title: "Farms — Agropioo",
+16:   title: "Farms — agropioo",
 17: };
 18: 
 19: const healthChip = {
@@ -4558,7 +4558,7 @@ At line:4 char:1
 4: import { getFarmsBundle } from "@/lib/i18n/server";
 5: 
 6: export const metadata: Metadata = {
-7:   title: "Add a farm — Agropioo",
+7:   title: "Add a farm — agropioo",
 8: };
 9: 
 10: export default async function NewFarmPage() {
@@ -4607,7 +4607,7 @@ At line:4 char:1
 10: import FarmRecordsSection from "./farm-records-section";
 11: 
 12: export const metadata: Metadata = {
-13:   title: "Farm details — Agropioo",
+13:   title: "Farm details — agropioo",
 14: };
 15: 
 16: const healthChip = {
@@ -4868,7 +4868,7 @@ At line:4 char:20
 16:   WeatherIcon,
 17:   WheatIcon,
 18: } from "@/components/icons";
-19: import logoOnDark from "@/references/Agropioo-logo-footer.png";
+19: import logoOnDark from "@/references/agropioo-logo-footer.png";
 20: import type { ShellBundle } from "./shell-bundle";
 21: 
 22: /* Desktop (≥lg) sidebar for the farmer app: a dark forest ledger rail.
@@ -4903,7 +4903,7 @@ At line:4 char:20
 51:     <aside className="fixed inset-y-0 start-0 z-40 hidden w-64 flex-col justify-between overflow-y-auto bg-agro-forest px-4 py-6 text-white lg:flex">
 52:       <div>
 53:         <Link href="/" className="inline-flex items-center px-2">
-54:           <Image src={logoOnDark} alt="Agropioo" className="h-11 w-auto" />
+54:           <Image src={logoOnDark} alt="agropioo" className="h-11 w-auto" />
 55:         </Link>
 56:         <p className="mt-1 px-2 font-mono text-[0.65rem] uppercase tracking-[0.22em] text-white/50">
 57:           {productOf}
@@ -5118,7 +5118,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(farme
 13: } from "@/components/icons";
 14: 
 15: export const metadata: Metadata = {
-16:   title: "More tools — Agropioo",
+16:   title: "More tools — agropioo",
 17: };
 18: 
 19: const primaryTools = [
@@ -5550,7 +5550,7 @@ Let me create these pages now.
 **Input:**
 ```json
 {
-  "content": "import type { Metadata } from \"next\";\nimport Link from \"next/link\";\nimport PageHeader from \"@/components/shell/page-header\";\nimport { PlusIcon } from \"@/components/icons\";\nimport { requireSessionPage } from \"@/lib/auth/guards\";\nimport { query } from \"@/lib/db\";\n\nexport const metadata: Metadata = {\n  title: \"Profit / Loss — Agropioo\",\n};\n\nexport default async function ProfitLossPage() {\n  const session = await requireSessionPage();\n  let seasons: Array<Record<string, unknown>> = [];\n  try {\n    seasons = await query<Record<string, unknown>>(\n      `SELECT s.*, f.name as farm_name, c.name_en as crop_name\n       FROM seasons s\n       JOIN farms f ON f.id = s.farm_id\n       JOIN crops c ON c.id = s.crop_id\n       WHERE s.account_id = $1 AND s.archived_at IS NULL\n       ORDER BY s.created_at DESC`,\n      [session.accountId]\n    );\n  } catch (err) {\n    console.error(\"Error fetching seasons:\", err);\n  }\n\n  return (\n    <div className=\"pt-1\">\n      <PageHeader\n        eyebrow=\"Financial cockpit\"\n        title=\"Profit / Loss\"\n        description=\"Track your season-level costs, revenue, and profitability.\"\n        action={\n          <Link\n            href=\"/profit-loss/new\"\n            className=\"inline-flex h-11 items-center gap-2 rounded-lg bg-agro-canopy px-4 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-agro-forest hover:shadow-md\"\n          >\n            <PlusIcon className=\"h-4 w-4\" />\n            New season\n          </Link>\n        }\n      />\n\n      {seasons.length === 0 ? (\n        <div className=\"mt-10 rounded-2xl border border-agro-sprout bg-white p-8 text-center\">\n          <p className=\"text-sm text-agro-slate\">No seasons yet. Start your first season to track costs and profits.</p>\n          <Link href=\"/profit-loss/new\" className=\"mt-4 inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-agro-canopy px-5 text-sm font-semibold text-white\">\n            Start a new season\n          </Link>\n        </div>\n      ) : (\n        <ul className=\"mt-6 grid gap-3 sm:gap-4 lg:grid-cols-2\">\n          {seasons.map((season) => (\n            <li key={season.id}>\n              <a\n                href={`/profit-loss/${season.id}`}\n                className=\"group flex h-full flex-col rounded-2xl border border-agro-sprout bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-agro-sprout hover:shadow-md\"\n              >\n                <div className=\"flex items-start justify-between gap-2\">\n                  <span className=\"inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-agro-mint text-agro-canopy transition-colors duration-200 group-hover:bg-agro-canopy group-hover:text-white\">\n                    <svg viewBox=\"0 0 24 24\" className=\"h-4 w-4\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"1.75\" strokeLinecap=\"round\" strokeLinejoin=\"round\" aria-hidden=\"true\">\n                      <path d=\"M12 21v-8\" />\n                      <path d=\"M12 13c-2.4 0-4.2-1.7-4.6-4.3C9.9 9 11.6 10.5 12 13Z\" />\n                      <path d=\"M12 13c2.4 0 4.2-1.7 4.6-4.3C14.1 9 12.4 10.5 12 13Z\" />\n                      <path d=\"M12 9c-2.4 0-4.2-1.7-4.6-4.3C9.9 5 11.6 6.5 12 9Z\" />\n                      <path d=\"M12 9c2.4 0 4.2-1.7 4.6-4.3C14.1 5 12.4 6.5 12 9Z\" />\n                    </svg>\n                  </span>\n                  <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[0.7rem] font-medium ${season.status === 'active' ? 'bg-agro-mint text-agro-canopy' : season.status === 'harvested' ? 'bg-agro-wheat text-agro-forest' : 'bg-agro-stone text-agro-ink'}`}>\n                    {season.status}\n                  </span>\n                </div>\n\n                <h2 className=\"mt-3 line-clamp-2 font-display text-lg font-bold leading-snug text-agro-ink\">\n                  {season.crop_name ?? season.crop_id}\n                </h2>\n                <p className=\"mt-1 flex items-center gap-1.5 text-sm text-agro-slate\">\n                  <svg viewBox=\"0 0 24 24\" className=\"h-4 w-4 shrink-0 text-agro-canopy\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"1.75\" strokeLinecap=\"round\" strokeLinejoin=\"round\" aria-hidden=\"true\">\n                    <path d=\"M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0Z\" />\n                    <circle cx=\"12\" cy=\"10\" r=\"3\" />\n                  </svg>\n                  {season.farm_name ?? season.farm_id}\n                </p>\n\n                <div className=\"mt-3 flex flex-wrap items-center gap-1.5\">\n                  <span className=\"rounded-full bg-agro-mint px-2.5 py-1 font-mono text-[0.7rem] uppercase tracking-wide text-agro-canopy\">\n                    {season.season} {season.year}\n                  </span>\n                  <span className=\"rounded-full border border-agro-sprout bg-white px-2.5 py-1 font-mono text-[0.7rem] uppercase tracking-wide text-agro-slate\">\n                    {season.acres} acres\n                  </span>\n                </div>\n\n                <span className=\"mt-4 inline-flex min-h-11 items-center gap-1 pt-1 text-sm font-semibold text-agro-canopy underline-offset-4 group-hover:underline\">\n                  View details\n                  <svg viewBox=\"0 0 24 24\" className=\"h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"1.75\" strokeLinecap=\"round\" strokeLinejoin=\"round\" aria-hidden=\"true\">\n                    <path d=\"M8.25 4.5l7.5 7.5-7.5 7.5\" />\n                  </svg>\n                </span>\n              </a>\n            </li>\n          ))}\n        </ul>\n      )}\n    </div>\n  );\n}\n",
+  "content": "import type { Metadata } from \"next\";\nimport Link from \"next/link\";\nimport PageHeader from \"@/components/shell/page-header\";\nimport { PlusIcon } from \"@/components/icons\";\nimport { requireSessionPage } from \"@/lib/auth/guards\";\nimport { query } from \"@/lib/db\";\n\nexport const metadata: Metadata = {\n  title: \"Profit / Loss — agropioo\",\n};\n\nexport default async function ProfitLossPage() {\n  const session = await requireSessionPage();\n  let seasons: Array<Record<string, unknown>> = [];\n  try {\n    seasons = await query<Record<string, unknown>>(\n      `SELECT s.*, f.name as farm_name, c.name_en as crop_name\n       FROM seasons s\n       JOIN farms f ON f.id = s.farm_id\n       JOIN crops c ON c.id = s.crop_id\n       WHERE s.account_id = $1 AND s.archived_at IS NULL\n       ORDER BY s.created_at DESC`,\n      [session.accountId]\n    );\n  } catch (err) {\n    console.error(\"Error fetching seasons:\", err);\n  }\n\n  return (\n    <div className=\"pt-1\">\n      <PageHeader\n        eyebrow=\"Financial cockpit\"\n        title=\"Profit / Loss\"\n        description=\"Track your season-level costs, revenue, and profitability.\"\n        action={\n          <Link\n            href=\"/profit-loss/new\"\n            className=\"inline-flex h-11 items-center gap-2 rounded-lg bg-agro-canopy px-4 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-agro-forest hover:shadow-md\"\n          >\n            <PlusIcon className=\"h-4 w-4\" />\n            New season\n          </Link>\n        }\n      />\n\n      {seasons.length === 0 ? (\n        <div className=\"mt-10 rounded-2xl border border-agro-sprout bg-white p-8 text-center\">\n          <p className=\"text-sm text-agro-slate\">No seasons yet. Start your first season to track costs and profits.</p>\n          <Link href=\"/profit-loss/new\" className=\"mt-4 inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-agro-canopy px-5 text-sm font-semibold text-white\">\n            Start a new season\n          </Link>\n        </div>\n      ) : (\n        <ul className=\"mt-6 grid gap-3 sm:gap-4 lg:grid-cols-2\">\n          {seasons.map((season) => (\n            <li key={season.id}>\n              <a\n                href={`/profit-loss/${season.id}`}\n                className=\"group flex h-full flex-col rounded-2xl border border-agro-sprout bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-agro-sprout hover:shadow-md\"\n              >\n                <div className=\"flex items-start justify-between gap-2\">\n                  <span className=\"inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-agro-mint text-agro-canopy transition-colors duration-200 group-hover:bg-agro-canopy group-hover:text-white\">\n                    <svg viewBox=\"0 0 24 24\" className=\"h-4 w-4\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"1.75\" strokeLinecap=\"round\" strokeLinejoin=\"round\" aria-hidden=\"true\">\n                      <path d=\"M12 21v-8\" />\n                      <path d=\"M12 13c-2.4 0-4.2-1.7-4.6-4.3C9.9 9 11.6 10.5 12 13Z\" />\n                      <path d=\"M12 13c2.4 0 4.2-1.7 4.6-4.3C14.1 9 12.4 10.5 12 13Z\" />\n                      <path d=\"M12 9c-2.4 0-4.2-1.7-4.6-4.3C9.9 5 11.6 6.5 12 9Z\" />\n                      <path d=\"M12 9c2.4 0 4.2-1.7 4.6-4.3C14.1 5 12.4 6.5 12 9Z\" />\n                    </svg>\n                  </span>\n                  <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[0.7rem] font-medium ${season.status === 'active' ? 'bg-agro-mint text-agro-canopy' : season.status === 'harvested' ? 'bg-agro-wheat text-agro-forest' : 'bg-agro-stone text-agro-ink'}`}>\n                    {season.status}\n                  </span>\n                </div>\n\n                <h2 className=\"mt-3 line-clamp-2 font-display text-lg font-bold leading-snug text-agro-ink\">\n                  {season.crop_name ?? season.crop_id}\n                </h2>\n                <p className=\"mt-1 flex items-center gap-1.5 text-sm text-agro-slate\">\n                  <svg viewBox=\"0 0 24 24\" className=\"h-4 w-4 shrink-0 text-agro-canopy\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"1.75\" strokeLinecap=\"round\" strokeLinejoin=\"round\" aria-hidden=\"true\">\n                    <path d=\"M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0Z\" />\n                    <circle cx=\"12\" cy=\"10\" r=\"3\" />\n                  </svg>\n                  {season.farm_name ?? season.farm_id}\n                </p>\n\n                <div className=\"mt-3 flex flex-wrap items-center gap-1.5\">\n                  <span className=\"rounded-full bg-agro-mint px-2.5 py-1 font-mono text-[0.7rem] uppercase tracking-wide text-agro-canopy\">\n                    {season.season} {season.year}\n                  </span>\n                  <span className=\"rounded-full border border-agro-sprout bg-white px-2.5 py-1 font-mono text-[0.7rem] uppercase tracking-wide text-agro-slate\">\n                    {season.acres} acres\n                  </span>\n                </div>\n\n                <span className=\"mt-4 inline-flex min-h-11 items-center gap-1 pt-1 text-sm font-semibold text-agro-canopy underline-offset-4 group-hover:underline\">\n                  View details\n                  <svg viewBox=\"0 0 24 24\" className=\"h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"1.75\" strokeLinecap=\"round\" strokeLinejoin=\"round\" aria-hidden=\"true\">\n                    <path d=\"M8.25 4.5l7.5 7.5-7.5 7.5\" />\n                  </svg>\n                </span>\n              </a>\n            </li>\n          ))}\n        </ul>\n      )}\n    </div>\n  );\n}\n",
   "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\app\\(farmer)\\(dashboard)\\profit-loss\\page.tsx"
 }
 ```
@@ -5580,7 +5580,7 @@ Wrote file successfully.
 **Input:**
 ```json
 {
-  "content": "import type { Metadata } from \"next\";\nimport { requireSessionPage } from \"@/lib/auth/guards\";\nimport { query } from \"@/lib/db\";\nimport NewSeasonClient from \"./new-season-client\";\n\nexport const metadata: Metadata = {\n  title: \"New season — Agropioo\",\n};\n\nexport default async function NewSeasonPage() {\n  const session = await requireSessionPage();\n  const [farms, crops] = await Promise.all([\n    query<{ id: string; name: string }>(\n      `SELECT id, name FROM farms WHERE account_id = $1 AND archived_at IS NULL ORDER BY created_at DESC`,\n      [session.accountId]\n    ),\n    query<{ id: string; name_en: string }>(\n      `SELECT id, name_en FROM crops ORDER BY name_en`\n    ),\n  ]);\n\n  return <NewSeasonClient farms={farms} crops={crops} />;\n}\n",
+  "content": "import type { Metadata } from \"next\";\nimport { requireSessionPage } from \"@/lib/auth/guards\";\nimport { query } from \"@/lib/db\";\nimport NewSeasonClient from \"./new-season-client\";\n\nexport const metadata: Metadata = {\n  title: \"New season — agropioo\",\n};\n\nexport default async function NewSeasonPage() {\n  const session = await requireSessionPage();\n  const [farms, crops] = await Promise.all([\n    query<{ id: string; name: string }>(\n      `SELECT id, name FROM farms WHERE account_id = $1 AND archived_at IS NULL ORDER BY created_at DESC`,\n      [session.accountId]\n    ),\n    query<{ id: string; name_en: string }>(\n      `SELECT id, name_en FROM crops ORDER BY name_en`\n    ),\n  ]);\n\n  return <NewSeasonClient farms={farms} crops={crops} />;\n}\n",
   "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\app\\(farmer)\\(dashboard)\\profit-loss\\new\\page.tsx"
 }
 ```
@@ -5628,7 +5628,7 @@ Wrote file successfully.
 **Input:**
 ```json
 {
-  "content": "import type { Metadata } from \"next\";\nimport { notFound } from \"next/navigation\";\nimport { requireSessionPage } from \"@/lib/auth/guards\";\nimport { query } from \"@/lib/db\";\nimport SeasonDetailClient from \"./season-detail-client\";\n\nexport const metadata: Metadata = {\n  title: \"Season details — Agropioo\",\n};\n\nexport default async function SeasonDetailPage({\n  params,\n}: {\n  params: Promise<{ id: string }>;\n}) {\n  const session = await requireSessionPage();\n  const { id } = await params;\n  const season = await query<Record<string, unknown>>(\n    `SELECT * FROM seasons WHERE id = $1 AND account_id = $2`,\n    [id, session.accountId]\n  );\n  const data = season[0] ?? null;\n  if (!data) notFound();\n\n  const farm = await query<Record<string, unknown>>(`SELECT * FROM farms WHERE id = $1`, [data.farm_id]);\n  const crop = await query<Record<string, unknown>>(`SELECT * FROM crops WHERE id = $1`, [data.crop_id]);\n  const expenses = await query<Record<string, unknown>>(\n    `SELECT e.*, pc.per_acre_cost_pkr, pc.total_projected_pkr FROM expenses e LEFT JOIN projected_costs pc ON pc.season_id = e.season_id AND pc.category = e.category WHERE e.season_id = $1 ORDER BY e.date DESC, e.created_at DESC`,\n    [id]\n  );\n  const projectedCosts = await query<Record<string, unknown>>(\n    `SELECT * FROM projected_costs WHERE season_id = $1 ORDER BY category`,\n    [id]\n  );\n\n  const totalProjectedCost = (projectedCosts ?? []).reduce((sum, p) => sum + Number(p.total_projected_pkr), 0);\n  const totalActualCost = (expenses ?? []).reduce((sum, e) => sum + Number(e.amount), 0);\n  const projectedRevenue = (data.expected_yield && data.expected_price) ? Number(data.expected_yield) * Number(data.expected_price) : 0;\n  const actualRevenue = (data.actual_yield && data.actual_price) ? Number(data.actual_yield) * Number(data.actual_price) : 0;\n\n  const pl = {\n    netProfitLoss: actualRevenue - totalActualCost,\n    roi: actualRevenue > 0 || totalActualCost > 0 ? Math.round(((actualRevenue - totalActualCost) / totalActualCost) * 1000) / 10 : null,\n    variance: { absolute: totalActualCost - totalProjectedCost, percentage: totalProjectedCost > 0 ? Math.round(((totalActualCost - totalProjectedCost) / totalProjectedCost) * 1000) / 10 : null },\n    status: (actualRevenue - totalActualCost) > 0 ? \"profit\" : (actualRevenue - totalActualCost) < 0 ? \"loss\" : \"break_even\" as const,\n  };\n\n  const breakEven = (data.expected_price && data.expected_yield && Number(data.expected_price) > 0 && Number(data.expected_yield) > 0)\n    ? { yield: `${Math.round((totalProjectedCost / Number(data.expected_price)) * 100) / 100} units`, price: `PKR ${Math.round((totalProjectedCost / (Number(data.expected_yield) * Number(data.acres))) * 100) / 100} per unit` }\n    : null;\n\n  const enrichedExpenses = (expenses ?? []).map((e) => {\n    const projected = e.total_projected_pkr ? Number(e.total_projected_pkr) : 0;\n    const actual = Number(e.amount);\n    const variance = actual - projected;\n    const variancePct = projected > 0 ? Math.round((variance / projected) * 1000) / 10 : null;\n    return { ...e, variance, variance_percentage: variancePct };\n  });\n\n  return (\n    <SeasonDetailClient\n      season={{\n        ...data,\n        farm_name: farm[0]?.name as string | undefined,\n        crop_name: crop[0]?.name_en as string | undefined,\n        expenses: enrichedExpenses,\n        projected_costs: projectedCosts ?? [],\n        pl,\n        break_even: breakEven,\n        crop_unit: \"Maund\",\n      }}\n      onRefresh={() => window.location.reload()}\n    />\n  );\n}\n",
+  "content": "import type { Metadata } from \"next\";\nimport { notFound } from \"next/navigation\";\nimport { requireSessionPage } from \"@/lib/auth/guards\";\nimport { query } from \"@/lib/db\";\nimport SeasonDetailClient from \"./season-detail-client\";\n\nexport const metadata: Metadata = {\n  title: \"Season details — agropioo\",\n};\n\nexport default async function SeasonDetailPage({\n  params,\n}: {\n  params: Promise<{ id: string }>;\n}) {\n  const session = await requireSessionPage();\n  const { id } = await params;\n  const season = await query<Record<string, unknown>>(\n    `SELECT * FROM seasons WHERE id = $1 AND account_id = $2`,\n    [id, session.accountId]\n  );\n  const data = season[0] ?? null;\n  if (!data) notFound();\n\n  const farm = await query<Record<string, unknown>>(`SELECT * FROM farms WHERE id = $1`, [data.farm_id]);\n  const crop = await query<Record<string, unknown>>(`SELECT * FROM crops WHERE id = $1`, [data.crop_id]);\n  const expenses = await query<Record<string, unknown>>(\n    `SELECT e.*, pc.per_acre_cost_pkr, pc.total_projected_pkr FROM expenses e LEFT JOIN projected_costs pc ON pc.season_id = e.season_id AND pc.category = e.category WHERE e.season_id = $1 ORDER BY e.date DESC, e.created_at DESC`,\n    [id]\n  );\n  const projectedCosts = await query<Record<string, unknown>>(\n    `SELECT * FROM projected_costs WHERE season_id = $1 ORDER BY category`,\n    [id]\n  );\n\n  const totalProjectedCost = (projectedCosts ?? []).reduce((sum, p) => sum + Number(p.total_projected_pkr), 0);\n  const totalActualCost = (expenses ?? []).reduce((sum, e) => sum + Number(e.amount), 0);\n  const projectedRevenue = (data.expected_yield && data.expected_price) ? Number(data.expected_yield) * Number(data.expected_price) : 0;\n  const actualRevenue = (data.actual_yield && data.actual_price) ? Number(data.actual_yield) * Number(data.actual_price) : 0;\n\n  const pl = {\n    netProfitLoss: actualRevenue - totalActualCost,\n    roi: actualRevenue > 0 || totalActualCost > 0 ? Math.round(((actualRevenue - totalActualCost) / totalActualCost) * 1000) / 10 : null,\n    variance: { absolute: totalActualCost - totalProjectedCost, percentage: totalProjectedCost > 0 ? Math.round(((totalActualCost - totalProjectedCost) / totalProjectedCost) * 1000) / 10 : null },\n    status: (actualRevenue - totalActualCost) > 0 ? \"profit\" : (actualRevenue - totalActualCost) < 0 ? \"loss\" : \"break_even\" as const,\n  };\n\n  const breakEven = (data.expected_price && data.expected_yield && Number(data.expected_price) > 0 && Number(data.expected_yield) > 0)\n    ? { yield: `${Math.round((totalProjectedCost / Number(data.expected_price)) * 100) / 100} units`, price: `PKR ${Math.round((totalProjectedCost / (Number(data.expected_yield) * Number(data.acres))) * 100) / 100} per unit` }\n    : null;\n\n  const enrichedExpenses = (expenses ?? []).map((e) => {\n    const projected = e.total_projected_pkr ? Number(e.total_projected_pkr) : 0;\n    const actual = Number(e.amount);\n    const variance = actual - projected;\n    const variancePct = projected > 0 ? Math.round((variance / projected) * 1000) / 10 : null;\n    return { ...e, variance, variance_percentage: variancePct };\n  });\n\n  return (\n    <SeasonDetailClient\n      season={{\n        ...data,\n        farm_name: farm[0]?.name as string | undefined,\n        crop_name: crop[0]?.name_en as string | undefined,\n        expenses: enrichedExpenses,\n        projected_costs: projectedCosts ?? [],\n        pl,\n        break_even: breakEven,\n        crop_unit: \"Maund\",\n      }}\n      onRefresh={() => window.location.reload()}\n    />\n  );\n}\n",
   "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\app\\(farmer)\\(dashboard)\\profit-loss\\[id]\\page.tsx"
 }
 ```
@@ -6456,7 +6456,7 @@ Now let me fix the other files:
 5: import SeasonDetailClient from "./season-detail-client";
 6: 
 7: export const metadata: Metadata = {
-8:   title: "Season details — Agropioo",
+8:   title: "Season details — agropioo",
 9: };
 10: 
 11: export default async function SeasonDetailPage({
@@ -9346,7 +9346,7 @@ Let me also check if there's an existing icon that fits. `TrendingUpIcon` seems 
 <type>file</type>
 <content>
 708:   "app.shell.metadataDescription":
-709:     "Today's advisory, weather, alerts, and every Agropioo tool — built for Pakistan. A product of Aplinode.",
+709:     "Today's advisory, weather, alerts, and every agropioo tool — built for Pakistan. A product of Aplinode.",
 710: 
 711:   /* ── Shell nav ─────────────────────────────────────── */
 712:   "app.shell.nav.dashboard": "Dashboard",
@@ -9366,7 +9366,7 @@ Let me also check if there's an existing icon that fits. `TrendingUpIcon` seems 
 726:   /* ── Dashboard UI chrome ───────────────────────────── */
 727:   "app.dashboard.greeting": "Hello, {name}",
 728:   "app.dashboard.aria.profileMenu": "Profile menu",
-729:   "app.dashboard.welcomeEyebrow": "Welcome to Agropioo",
+729:   "app.dashboard.welcomeEyebrow": "Welcome to agropioo",
 730:   "app.dashboard.welcomeTitle": "Start With Your First Farm.",
 731:   "app.dashboard.welcomeBody":
 732:     "Your crop, your soil, your weather — every advisory will be shaped around them once your farm is in.",
@@ -10354,7 +10354,7 @@ I need to make sure `TrendingUpIcon` is imported in `app-sidebar.tsx`. Let me ch
 16:   WeatherIcon,
 17:   WheatIcon,
 18: } from "@/components/icons";
-19: import logoOnDark from "@/references/Agropioo-logo-footer.png";
+19: import logoOnDark from "@/references/agropioo-logo-footer.png";
 20: import type { ShellBundle } from "./shell-bundle";
 21: 
 22: /* Desktop (≥lg) sidebar for the farmer app: a dark forest ledger rail.
@@ -10427,7 +10427,7 @@ Now I should also add Profit/Loss to the "More" page for mobile access, since th
 13: } from "@/components/icons";
 14: 
 15: export const metadata: Metadata = {
-16:   title: "More tools — Agropioo",
+16:   title: "More tools — agropioo",
 17: };
 18: 
 19: const primaryTools = [
@@ -11071,7 +11071,7 @@ npm notice run next build --webpack
   Creating an optimized production build ...
 ✓ Compiled successfully in 38.0s
   Running TypeScript ...
-lib/i18n/server.ts(156,21): error TS2345: Argument of type '"app.shell.nav.profitLoss"' is not assignable to parameter of type '"nav.whyAgropioo" | "nav.features" | "nav.howItWorks" | "nav.vision" | "nav.signIn" | "nav.signUp" | "nav.getEarlyAccess" | "nav.openMenu" | "nav.closeMenu" | "nav.dashboard" | ... 1410 more ... | "app.crops.rotation.garlic_then_wheat"'.
+lib/i18n/server.ts(156,21): error TS2345: Argument of type '"app.shell.nav.profitLoss"' is not assignable to parameter of type '"nav.whyagropioo" | "nav.features" | "nav.howItWorks" | "nav.vision" | "nav.signIn" | "nav.signUp" | "nav.getEarlyAccess" | "nav.openMenu" | "nav.closeMenu" | "nav.dashboard" | ... 1410 more ... | "app.crops.rotation.garlic_then_wheat"'.
 Failed to type check.
 
 
@@ -11168,7 +11168,7 @@ Actually, looking more carefully at the error message, it lists all the valid ke
   ✓ Compiled successfully in 50s
     Running TypeScript ...
 > lib/i18n/server.ts(156,21): error TS2345: Argument of type '"app.shell.nav.profitLoss"' is not assignable to 
-parameter of type '"nav.whyAgropioo" | "nav.features" | "nav.howItWorks" | "nav.vision" | "nav.signIn" | "nav.signUp" 
+parameter of type '"nav.whyagropioo" | "nav.features" | "nav.howItWorks" | "nav.vision" | "nav.signIn" | "nav.signUp" 
 | "nav.getEarlyAccess" | "nav.openMenu" | "nav.closeMenu" | "nav.dashboard" | ... 1410 more ... | 
 "app.crops.rotation.garlic_then_wheat"'.
   Failed to type check.
@@ -11244,7 +11244,7 @@ The key doesn't exist in `catalog/en.ts`! My earlier edit must have failed or be
 726:   /* ── Dashboard UI chrome ───────────────────────────── */
 727:   "app.dashboard.greeting": "Hello, {name}",
 728:   "app.dashboard.aria.profileMenu": "Profile menu",
-729:   "app.dashboard.welcomeEyebrow": "Welcome to Agropioo",
+729:   "app.dashboard.welcomeEyebrow": "Welcome to agropioo",
 
 (Showing lines 710-729 of 1538. Use offset=730 to continue.)
 </content>
@@ -12499,7 +12499,7 @@ bhai 404
 Page not found
 The page you are looking for does not exist or may have moved.
 
-Back to Agropioo home y araha hai uo p pne bola maine sab imllent kr dia hai tou ohir y kyon aarha ahai isko sahi kro 
+Back to agropioo home y araha hai uo p pne bola maine sab imllent kr dia hai tou ohir y kyon aarha ahai isko sahi kro 
 
 ---
 
@@ -12828,7 +12828,7 @@ Let me check the actual content of the page files to make sure they're valid.
 6: import { query } from "@/lib/db";
 7: 
 8: export const metadata: Metadata = {
-9:   title: "Profit / Loss — Agropioo",
+9:   title: "Profit / Loss — agropioo",
 10: };
 11: 
 12: export default async function ProfitLossPage() {
@@ -12877,7 +12877,7 @@ Let me check the actual content of the page files to make sure they're valid.
 5: import SeasonDetailClient from "./season-detail-client";
 6: 
 7: export const metadata: Metadata = {
-8:   title: "Season details — Agropioo",
+8:   title: "Season details — agropioo",
 9: };
 10: 
 11: export default async function SeasonDetailPage({
@@ -13244,7 +13244,7 @@ Agar phir bhi 404 aaye to browser cache clear karo ya `Ctrl+Shift+R` hard refres
 Page not found
 The page you are looking for does not exist or may have moved.
 
-Back to Agropioo home  bhai abhi bhi yahi aarah ahai Ctrl shorft r bhi kia browser bhi change kia phir hi same issue browser ka issue nhhi hai ap issue resolve kro 
+Back to agropioo home  bhai abhi bhi yahi aarah ahai Ctrl shorft r bhi kia browser bhi change kia phir hi same issue browser ka issue nhhi hai ap issue resolve kro 
 
 ---
 
@@ -13381,7 +13381,7 @@ The user might be using a different URL or the app might be behind a proxy. Let 
 
 Actually, looking at the logs more carefully, the requests are coming through `proxy.ts`. This suggests there might be a proxy configuration. Let me check if there's a middleware or proxy that might be interfering.
 
-Wait - the user is getting a 404 page that says "Back to Agropioo home". This looks like a custom 404 page, not the default Next.js 404. Let me check if there's a custom 404 page or middleware that might be causing this.
+Wait - the user is getting a 404 page that says "Back to agropioo home". This looks like a custom 404 page, not the default Next.js 404. Let me check if there's a custom 404 page or middleware that might be causing this.
 
 Actually, looking at the logs again, the `/profit-loss` route is returning 200 multiple times. So the route IS working. The issue might be:
 1. The user is not logged in and being redirected
@@ -13437,14 +13437,14 @@ _Thinking:_
 
 There's no middleware.ts file. Let me check if there's a proxy.ts or any other routing configuration. The dev server logs show `proxy.ts` which suggests there might be a proxy configuration. Let me check the next.config.ts and look for any proxy settings.
 
-Also, I notice the user's 404 page says "Back to Agropioo home" which suggests there's a custom 404 page. Let me check if there's a custom 404 page that might be catching the route.
+Also, I notice the user's 404 page says "Back to agropioo home" which suggests there's a custom 404 page. Let me check if there's a custom 404 page that might be catching the route.
 
 Actually, looking at the dev server logs again, the `/profit-loss` route is returning 200. So the route IS working on the dev server. The user's 404 might be coming from:
 1. A different environment (production vs dev)
 2. A proxy/load balancer issue
 3. The user not being logged in and getting redirected
 
-Wait, let me re-read the user's message. They said they're getting "404 Page not found" with "Back to Agropioo home" button. This looks like it could be the app's own 404 page, not a Next.js 404.
+Wait, let me re-read the user's message. They said they're getting "404 Page not found" with "Back to agropioo home" button. This looks like it could be the app's own 404 page, not a Next.js 404.
 
 Let me check if there's a custom 404 page or if the `notFound()` function is being called somewhere. Looking at the season detail page code I wrote, I have `if (!data) notFound();` which would trigger a 404.
 
@@ -13853,7 +13853,7 @@ _Thinking:_
 
 No service worker found. Let me check if there's a public/manifest or PWA configuration that might be caching content.
 
-Actually, looking at the conversation again, the user's 404 page says "Back to Agropioo home" which is a button that links to the home page. This looks like it might be the app's custom 404 page, not a Next.js 404.
+Actually, looking at the conversation again, the user's 404 page says "Back to agropioo home" which is a button that links to the home page. This looks like it might be the app's custom 404 page, not a Next.js 404.
 
 Let me check if there's a custom 404 page or if the `notFound()` function from Next.js is being triggered. Looking at the season detail page code, I have `if (!data) notFound();` which would show a 404 if the season doesn't exist or the user doesn't have access.
 
@@ -14001,7 +14001,8 @@ The push was rejected because the remote has commits that I don't have locally. 
 From https://github.com/mustafashahzad845/agropioo-hackathon
  * branch            003-crop-recommendation -> FETCH_HEAD
    30ba9fb..d7d5269  003-crop-recommendation -> origin/003-crop-recommendation
-Rebasing (1/1)Successfully rebased and updated refs/heads/003-crop-recommendation.
+Rebasing (1/1)
+Successfully rebased and updated refs/heads/003-crop-recommendation.
 
 ```
 
@@ -14024,7 +14025,7 @@ Good, the rebase was successful. Now let me push the commit again.
 ```
 
 **Output:**
-```
+```agropioo
 To https://github.com/mustafashahzad845/agropioo-hackathon
    d7d5269..7718d6f  003-crop-recommendation -> 003-crop-recommendation
 
@@ -14103,7 +14104,7 @@ Actually, looking at the error, the Neon MCP tools require project_id for most o
 
 **Input:**
 ```json
-{
+{agropioo
   "query": "agropioo"
 }
 ```
@@ -14112,19 +14113,19 @@ Actually, looking at the error, the Neon MCP tools require project_id for most o
 ```
 [
   {
-    "id": "project:bitter-dream-03311921",
+    "id": "proagropiooter-dream-03311921",
     "title": "Agropioo Hackathon",
     "url": "https://console.neon.tech/app/projects/bitter-dream-03311921",
     "type": "project"
   },
   {
-    "id": "org:org-nameless-bar-34383623",
+    "id": "orgagropiooeless-bar-34383623",
     "title": "Agropioo",
     "url": "https://console.neon.tech/app/org-nameless-bar-34383623/projects",
     "type": "organization"
   },
   {
-    "id": "project:bitter-dream-03311921",
+    "id": "proagropiooter-dream-03311921",
     "title": "Agropioo Hackathon",
     "url": "https://console.neon.tech/app/projects/bitter-dream-03311921",
     "type": "project"
@@ -14171,7 +14172,7 @@ Found the project. Now let me get the project details and apply the migration. T
   "data_transfer_bytes": 566105966,
   "created_at": "2026-08-28T19:55:48Z",
   "updated_at": "2026-09-03T17:30:33Z",
-  "created_by": {
+  "created_byagropioo
     "name": "Agropioo",
     "image": "https://lh3.googleusercontent.com/a/ACg8ocKKvCeLjrAM1MtQZ9_NNckBxOw1O3AJIp-fTFXiIszJ-y048N8=s96-c"
   },
@@ -14191,13 +14192,13 @@ Now I have the project and branch IDs. Let me apply the migration SQL directly t
 
 **Input:**
 ```json
-{
+{agropioo
   "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\db\\migrations\\0014_profit_loss_calculator.sql"
 }
 ```
 
 **Output:**
-```
+```agropioo
 <path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\db\migrations\0014_profit_loss_calculator.sql</path>
 <type>file</type>
 <content>
@@ -14566,7 +14567,7 @@ Let me check the server logs first.
 ```
 
 **Output:**
-```
+```agropioo
 npm notice run agropioo@0.1.0 dev
 npm notice run next dev
 ▲ Next.js 16.3.2 (Turbopack)
@@ -15209,7 +15210,7 @@ Actually, I should just check the server logs again to see the actual error. Let
 ```
 
 **Output:**
-```
+```agropioo
 npm notice run agropioo@0.1.0 dev
 npm notice run next dev
 ▲ Next.js 16.3.2 (Turbopack)
@@ -15297,13 +15298,13 @@ Let me check the `app/api/profit-loss/route.ts` file again to see if there are a
 
 **Input:**
 ```json
-{
+{agropioo
   "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\app\\api\\profit-loss\\route.ts"
 }
 ```
 
 **Output:**
-```
+```agropioo
 <path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\api\profit-loss\route.ts</path>
 <type>file</type>
 <content>
@@ -15527,13 +15528,13 @@ Let me check the `/api/crops` endpoint.
 
 **Input:**
 ```json
-{
+{agropioo
   "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\app\\api\\crops\\route.ts"
 }
 ```
 
 **Output:**
-```
+```agropioo
 <path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\api\crops\route.ts</path>
 <type>file</type>
 <content>

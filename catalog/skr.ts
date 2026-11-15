@@ -1,4 +1,4 @@
-﻿import type { CatalogKey } from "./en.ts";
+import type { CatalogKey } from "./en.ts";
 
 export const skr: Partial<Record<CatalogKey, string>> = {
   "nav.whyAgropioo": "اگروپیو کیوں؟",

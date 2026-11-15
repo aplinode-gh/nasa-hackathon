@@ -33,10 +33,10 @@
 10. Appendices
 
 ## Introduction
-This document provides a comprehensive component library guide for Agropioo’s reusable UI components. It covers shell navigation (sidebar, bottom tab bar, page headers), authentication flows (login shells, OTP verification, stepper progress), and marketing site sections (hero, features, footer). For each component, you will find visual behavior, props/attributes, events, customization options, responsive patterns, accessibility notes, Tailwind CSS integration guidance, and usage examples via code snippet paths.
+This document provides a comprehensive component library guide for agropioo’s reusable UI components. It covers shell navigation (sidebar, bottom tab bar, page headers), authentication flows (login shells, OTP verification, stepper progress), and marketing site sections (hero, features, footer). For each component, you will find visual behavior, props/attributes, events, customization options, responsive patterns, accessibility notes, Tailwind CSS integration guidance, and usage examples via code snippet paths.
 
 ## Project Structure
-Agropioo organizes UI into focused directories:
+agropioo organizes UI into focused directories:
 - Shell components under components/shell provide app chrome for the farmer dashboard.
 - Auth components under components/auth implement shared authentication UX patterns.
 - Marketing site components live both as shared components (components/*) and localized pages under app/(site)/[locale]/sections.
@@ -584,7 +584,7 @@ Common issues and resolutions:
 - [bottom-tab-bar.tsx:26-28](file://components/shell/bottom-tab-bar.tsx#L26-L28)
 
 ## Conclusion
-Agropioo’s component library provides a cohesive, accessible, and responsive UI foundation across shell, authentication, and marketing contexts. By leveraging shared design tokens, consistent patterns, and thoughtful accessibility, teams can compose complex experiences quickly while maintaining brand integrity and performance.
+agropioo’s component library provides a cohesive, accessible, and responsive UI foundation across shell, authentication, and marketing contexts. By leveraging shared design tokens, consistent patterns, and thoughtful accessibility, teams can compose complex experiences quickly while maintaining brand integrity and performance.
 
 [No sources needed since this section summarizes without analyzing specific files]
 

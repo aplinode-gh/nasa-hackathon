@@ -42,6 +42,12 @@ export type ScoreContext = {
   priceByCrop: Record<string, PriceInfo>;
   /** category of the farm's most recent past crop (for rotation fit). */
   lastCropCategory?: CropCategory | null;
+  /** NASA POWER climatology inputs (real rainfall/soil wetness) when available. */
+  nasa?: {
+    rainfallMmMonth: number | null; // PRECTOTCORR mm/day-ish monthly mean
+    soilWetnessRoot: number | null; // GWETROOT 0-1
+    soilWetnessTop: number | null; // GWETTOP 0-1
+  };
 };
 
 const RISK_BASE: Record<"low" | "medium" | "high", number> = {
@@ -76,16 +82,47 @@ function suitabilityScore(crop: CropSummary, ctx: ScoreContext): number {
 }
 
 function weatherFitScore(crop: CropSummary, ctx: ScoreContext): number {
-  if (!ctx.weatherAvailable) return 0.65;
-  const seasonFit: Record<Season, number> = {
-    summer: crop.category === "vegetable" ? 0.8 : 0.72,
-    winter: crop.category === "staple" ? 0.82 : 0.7,
-    autumn: 0.74,
-    spring: 0.76,
-    rainy: crop.waterRequirementLevel === "high" ? 0.85 : 0.68,
-    windy: 0.7,
-  };
-  return clamp01(seasonFit[ctx.season]);
+  if (!ctx.weatherAvailable && !ctx.nasa?.rainfallMmMonth) return 0.65;
+
+  // Season dimension (25): use NASA POWER rainfall climatology when available to judge season fit.
+  const rain = ctx.nasa?.rainfallMmMonth;
+  const need = crop.waterRequirementLevel;
+  let seasonScore = 0.72;
+  if (rain != null && rain >= 0 && rain < 900) {
+    // Compare monthly rainfall (mm/day) to crop water need.
+    const ideal = need === "high" ? 5 : need === "medium" ? 2.5 : 1.2;
+    const diff = Math.abs(rain - ideal);
+    seasonScore = clamp01(1 - diff / 8);
+  } else {
+    const seasonFit: Record<Season, number> = {
+      summer: crop.category === "vegetable" ? 0.8 : 0.72,
+      winter: crop.category === "staple" ? 0.82 : 0.7,
+      autumn: 0.74,
+      spring: 0.76,
+      rainy: need === "high" ? 0.85 : 0.68,
+      windy: 0.7,
+    };
+    seasonScore = seasonFit[ctx.season];
+  }
+
+  // Irrigation/wetness dimension (15): use NASA POWER root-zone soil wetness (GWETROOT).
+  const gwet = ctx.nasa?.soilWetnessRoot ?? ctx.nasa?.soilWetnessTop;
+  let irrigationScore = 0.7;
+  if (gwet != null && gwet >= 0 && gwet <= 1) {
+    const wetNeed = need === "high" ? 0.55 : need === "medium" ? 0.4 : 0.28;
+    if (ctx.irrigation === "rainfed") {
+      irrigationScore = clamp01(1 - Math.abs(gwet - wetNeed));
+    } else if (ctx.irrigation === "canal" || ctx.irrigation === "tubewell" || ctx.irrigation === "mixed") {
+      // irrigation buffers dryness; penalize only extreme mismatch
+      irrigationScore = clamp01(0.75 + (gwet >= wetNeed * 0.6 ? 0.2 : -0.15));
+    }
+  } else {
+    if (need === "high" && ctx.irrigation === "rainfed") irrigationScore = 0.45;
+    else if (need === "low" && ctx.irrigation === "canal") irrigationScore = 0.82;
+  }
+
+  // Blend with Season ~25 and Irrigation ~15 parts (of a 40-like subscale) => 25/40,15/40
+  return clamp01(seasonScore * 0.625 + irrigationScore * 0.375);
 }
 
 function profitabilityScore(crop: CropSummary, ctx: ScoreContext): number {
@@ -137,11 +174,13 @@ export function scoreCrop(crop: CropSummary, ctx: ScoreContext): ScoredCrop {
   const risk = riskScore(crop, ctx);
   const sustainability = sustainabilityScore(crop, ctx);
 
+  const hasWeatherSignals = ctx.weatherAvailable || Boolean(ctx.nasa?.rainfallMmMonth != null || ctx.nasa?.soilWetnessRoot != null);
+
   let wSum = 0;
   let acc = 0;
   wSum += WEIGHTS.suitability;
   acc += WEIGHTS.suitability * suitability;
-  if (ctx.weatherAvailable) {
+  if (hasWeatherSignals) {
     wSum += WEIGHTS.weather;
     acc += WEIGHTS.weather * weatherFit;
   }
@@ -166,7 +205,7 @@ export function scoreCrop(crop: CropSummary, ctx: ScoreContext): ScoredCrop {
   if (crop.category === "vegetable") riskFactors.push("pest_pressure");
   if (crop.waterRequirementLevel === "high" && ctx.irrigation === "rainfed")
     riskFactors.push("water_stress");
-  if (!ctx.weatherAvailable) riskFactors.push("weather");
+  if (!hasWeatherSignals) riskFactors.push("weather");
   if (crop.capitalRequirementPerAcrePkr > 60000) riskFactors.push("input_cost");
 
   const revenueConfidence: RevenueConfidence = !ctx.marketAvailable
@@ -179,6 +218,7 @@ export function scoreCrop(crop: CropSummary, ctx: ScoreContext): ScoredCrop {
 
   const dataSourcesUsed: string[] = [];
   if (ctx.weatherAvailable) dataSourcesUsed.push("weather");
+  if (ctx.nasa?.rainfallMmMonth != null || ctx.nasa?.soilWetnessRoot != null) dataSourcesUsed.push("nasa_power");
   if (ctx.marketAvailable) dataSourcesUsed.push("market");
   dataSourcesUsed.push("soil");
 

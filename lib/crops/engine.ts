@@ -3,6 +3,7 @@ import "server-only";
 import { randomUUID } from "node:crypto";
 import { query, queryOne, withTransaction } from "@/lib/db";
 import { getForecast } from "@/lib/weather/openweather";
+import { getPowerClimatology, monthKeyFromDate } from "@/lib/weather/nasa-power";
 import {
   getCropsBySeasonAndBudget,
   getCompatibilityByCrop,
@@ -198,7 +199,10 @@ export async function recommendCrops(
 
   const resolved = await resolveSoilType(input.soilType, farm.district ?? "");
 
-  const forecast = await getForecast(lat, lng);
+  const [forecast, nasaClim] = await Promise.all([
+    getForecast(lat, lng),
+    getPowerClimatology(lat, lng),
+  ]);
   if (!forecast) throw new WeatherUnavailableError();
   const weatherAvailable = true;
 
@@ -247,6 +251,21 @@ export async function recommendCrops(
     [input.farmId],
   );
 
+  const seasonToMonth: Record<string, string> = {
+    winter: "JAN",
+    spring: "MAR",
+    summer: "JUN",
+    rainy: "JUL",
+    autumn: "OCT",
+    windy: "APR",
+  };
+  const nasaMonth = nasaClim ? (seasonToMonth[input.targetSeason] ?? monthKeyFromDate(new Date().toISOString().slice(0, 10))) : null;
+  const nasaInputs = nasaClim && nasaMonth ? {
+    rainfallMmMonth: nasaClim.PRECTOTCORR[nasaMonth] ?? null,
+    soilWetnessRoot: nasaClim.GWETROOT[nasaMonth] ?? null,
+    soilWetnessTop: nasaClim.GWETTOP[nasaMonth] ?? null,
+  } : undefined;
+
   const ctx: ScoreContext = {
     soilType: resolved.soilType,
     season: input.targetSeason,
@@ -267,6 +286,7 @@ export async function recommendCrops(
       ]),
     ),
     lastCropCategory: pastCrop?.category ?? null,
+    nasa: nasaInputs,
   };
 
   const ranked = rankCandidates(catalogue, ctx, 3);

@@ -70,7 +70,7 @@ Here is the complete inventory of all marketing/landing page files in this proje
 - Root layout for all marketing pages. Sets `<html lang/dir>`, theme color metadata, renders `SuggestionChip` for English-only visitors, and `OfflineProviders`.
 
 **`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\why-agropioo\page.tsx`**
-- "Why Agropioo" landing page. Sections: WhyHero, Origin, Differentiators, Lifecycle, ValueProp, WhoFor, CTA, Footer.
+- "Why agropioo" landing page. Sections: WhyHero, Origin, Differentiators, Lifecycle, ValueProp, WhoFor, CTA, Footer.
 
 **`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\features\page.tsx`**
 - "Features" landing page. Sections: FeaturesHero, IntelligenceSuite, FieldAndMarket, VoiceAccess, ManageGrow, CTA, Footer. References "VoiceAccess" -- voice and AI feature demos.
@@ -98,7 +98,7 @@ Here is the complete inventory of all marketing/landing page files in this proje
 - Dark-background "Why" section listing three farmer problems on dark forest background.
 
 **`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\Solution.tsx`**
-- Three solution cards with icons, each answering a question about what Agropioo does.
+- Three solution cards with icons, each answering a question about what agropioo does.
 
 **`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\CoreFeatures.tsx`**
 - **KEY FILE** -- Four feature cards with demo content:
@@ -179,7 +179,7 @@ Here is the complete inventory of all marketing/landing page files in this proje
 
 ---
 
-## 6. WHY-AGROPIOO PAGE SECTIONS
+## 6. WHY-agropioo PAGE SECTIONS
 
 **`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\why-agropioo\sections\WhyHero.tsx`**
 - Hero with SVG furrow/soil illustration, seedling droplet, circuit traces, "SOIL SIGNAL SEASON DATA" labels.
@@ -211,13 +211,13 @@ Here is the complete inventory of all marketing/landing page files in this proje
 ## 8. NAVIGATION / HEADER COMPONENTS
 
 **`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\SiteHeader.tsx`**
-- **Primary marketing site header** (used on all site pages). Sticky header with logo image, nav links (Why Agropioo, Features, How It Works, Vision), language switcher, Sign In / Sign Up / Get Early Access buttons. Mobile sidebar drawer with same links + session-aware state.
+- **Primary marketing site header** (used on all site pages). Sticky header with logo image, nav links (Why agropioo, Features, How It Works, Vision), language switcher, Sign In / Sign Up / Get Early Access buttons. Mobile sidebar drawer with same links + session-aware state.
 
 **`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\Nav.tsx`**
 - **Legacy/alternate nav** (older version). Fixed header with Logo, Features link, How it works link, Get early access CTA. Mobile hamburger menu.
 
 **`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\Logo.tsx`**
-- Logo component: renders `/logo.png` image + "Agropioo" text in brand font.
+- Logo component: renders `/logo.png` image + "agropioo" text in brand font.
 
 **`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\language-switcher.tsx`**
 - Client-side language switcher dropdown. Lists all 8 locales with native names, persists choice to cookie, triggers full page reload for locale switch.
@@ -1110,7 +1110,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\en
 
   Line 74:   "home.features.advisorBadge": "Roman Urdu",
 
-  Line 75:   "home.features.advisorMockAria": "Example conversation with the Agropioo advisor about yellowing wheat leaves",
+  Line 75:   "home.features.advisorMockAria": "Example conversation with the agropioo advisor about yellowing wheat leaves",
 
   Line 76:   "home.features.advisorUserMsg": "Meri gandum ki pattiyan peeli ho rahi hain — kya karoon?",
 
@@ -1679,7 +1679,7 @@ Let me read the home.features and home.ticker catalog en.ts section fully.
 72:   "home.features.advisorTitle": "AI agriculture advisor",
 73:   "home.features.advisorTopics": "Irrigation · fertiliser · pest & disease · harvest",
 74:   "home.features.advisorBadge": "Roman Urdu",
-75:   "home.features.advisorMockAria": "Example conversation with the Agropioo advisor about yellowing wheat leaves",
+75:   "home.features.advisorMockAria": "Example conversation with the agropioo advisor about yellowing wheat leaves",
 76:   "home.features.advisorUserMsg": "Meri gandum ki pattiyan peeli ho rahi hain — kya karoon?",
 77:   "home.features.advisorReplyTitle": "Peeli pattiyan — do common causes:",
 78:   "home.features.advisorReplyCause1": "Water stress",
@@ -1789,7 +1789,7 @@ Let me read the home.features and home.ticker catalog en.ts section fully.
 182:   "home.users.tagline": "Designed for farmers first — growing with the ecosystem",
 183:   "home.cta.eyebrow": "Early access",
 184:   "home.cta.title": "Bring your farm onto the platform",
-185:   "home.cta.subtitle": "Join the farmers making better decisions with Agropioo — starting in Pakistan, growing worldwide.",
+185:   "home.cta.subtitle": "Join the farmers making better decisions with agropioo — starting in Pakistan, growing worldwide.",
 186:   "home.cta.success": "You're on the list. We'll be in touch when your region opens.",
 187:   "home.cta.emailLabel": "Email address",
 188:   "home.cta.fineprint": "No spam. Unsubscribe anytime.",
@@ -2118,7 +2118,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\ba
 
 
 C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\en.ts:
-  Line 36:   "home.ticker.ariaLabel": "Agropioo platform capabilities",
+  Line 36:   "home.ticker.ariaLabel": "agropioo platform capabilities",
 
   Line 37:   "home.ticker.cropDoctor": "AI crop doctor",
 
@@ -2190,7 +2190,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\pa
 
 
 C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\sd.ts:
-  Line 33:   "home.ticker.ariaLabel": "Agropioo پليٽ فارم جا قابلية",
+  Line 33:   "home.ticker.ariaLabel": "agropioo پليٽ فارم جا قابلية",
 
   Line 34:   "home.ticker.cropDoctor": "AI فصل ڊاڪٽر",
 
@@ -2451,7 +2451,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\en
 
   Line 28:   "home.hero.ctaSecondary": "See how it works",
 
-  Line 29:   "home.hero.imageAlt": "Farmer using Agropioo on a tablet in the field",
+  Line 29:   "home.hero.imageAlt": "Farmer using agropioo on a tablet in the field",
 
   Line 30:   "home.hero.readingCrop": "Crop health",
 
@@ -2465,7 +2465,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\en
 
   Line 35:   "home.hero.noteOptimal": "Optimal",
 
-  Line 36:   "home.ticker.ariaLabel": "Agropioo platform capabilities",
+  Line 36:   "home.ticker.ariaLabel": "agropioo platform capabilities",
 
   Line 37:   "home.ticker.cropDoctor": "AI crop doctor",
 
@@ -3462,7 +3462,7 @@ Let me do these edits one by one with the edit tool. I must have read en.ts alre
 <type>file</type>
 <content>
 20:   "notFound.body": "The page you are looking for does not exist or may have moved.",
-21:   "notFound.backHome": "Back to Agropioo home",
+21:   "notFound.backHome": "Back to agropioo home",
 22:   "common.builtForPakistan": "Built for Pakistan",
 23:   "common.productOfAplinode": "A product of Aplinode",
 24:   "home.hero.eyebrow": "AI-powered farm intelligence platform",
@@ -3470,14 +3470,14 @@ Let me do these edits one by one with the edit tool. I must have read en.ts alre
 26:   "home.hero.titleAccent": "Smarter Farming",
 27:   "home.hero.subtitle": "One platform that unites an AI advisor, satellite monitoring, market prices, and your farm's records — turning data into clear decisions, in the language you speak.",
 28:   "home.hero.ctaSecondary": "See how it works",
-29:   "home.hero.imageAlt": "Farmer using Agropioo on a tablet in the field",
+29:   "home.hero.imageAlt": "Farmer using agropioo on a tablet in the field",
 30:   "home.hero.readingCrop": "Crop health",
 31:   "home.hero.readingWeather": "Weather",
 32:   "home.hero.readingSoil": "Soil moisture",
 33:   "home.hero.noteExcellent": "Excellent",
 34:   "home.hero.noteClearSky": "Clear sky",
 35:   "home.hero.noteOptimal": "Optimal",
-36:   "home.ticker.ariaLabel": "Agropioo platform capabilities",
+36:   "home.ticker.ariaLabel": "agropioo platform capabilities",
 37:   "home.ticker.cropDoctor": "AI crop doctor",
 38:   "home.ticker.mandiPrices": "Mandi price intelligence",
 39:   "home.ticker.weatherAdvisories": "Weather-aware advisories",
@@ -3577,8 +3577,8 @@ Now the advisor card — remove the Roman Urdu badge, remove voice references, m
 ```json
 {
   "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\catalog\\en.ts",
-  "newString": "\"home.features.advisorTopics\": \"Irrigation · fertiliser · pest & disease · harvest\",\n  \"home.features.advisorMockAria\": \"Example conversation with the Agropioo advisor about yellowing wheat leaves\",\n  \"home.features.advisorUserMsg\": \"My wheat leaves are turning yellow — what should I do?\",\n  \"home.features.advisorReplyTitle\": \"Yellowing leaves — two common causes:\",\n  \"home.features.advisorReplyCause1\": \"Water stress\",\n  \"home.features.advisorReplyCause1Rest\": \"— irrigate in the cool hours, before 9 AM.\",\n  \"home.features.advisorReplyCause2\": \"Nitrogen shortage\",\n  \"home.features.advisorReplyCause2Rest\": \"— check the oldest leaves first; feed urea if needed.\",\n  \"home.features.advisorReplyFooter\": \"If you see yellow streaks under the leaves, send a photo — I'll diagnose the disease for you.\",\n  \"home.features.advisorInputPlaceholder\": \"Type your question…\",",
-  "oldString": "\"home.features.advisorTopics\": \"Irrigation · fertiliser · pest & disease · harvest\",\n  \"home.features.advisorBadge\": \"Roman Urdu\",\n  \"home.features.advisorMockAria\": \"Example conversation with the Agropioo advisor about yellowing wheat leaves\",\n  \"home.features.advisorUserMsg\": \"Meri gandum ki pattiyan peeli ho rahi hain — kya karoon?\",\n  \"home.features.advisorReplyTitle\": \"Peeli pattiyan — do common causes:\",\n  \"home.features.advisorReplyCause1\": \"Water stress\",\n  \"home.features.advisorReplyCause1Rest\": \"— irrigate in the cool hours, before 9 AM.\",\n  \"home.features.advisorReplyCause2\": \"Nitrogen shortage\",\n  \"home.features.advisorReplyCause2Rest\": \"— check the oldest leaves first; feed urea if needed.\",\n  \"home.features.advisorReplyFooter\": \"Agar pattiyon ke neeche peeli dhariyan nazar aayein, photo bhejein — main bimari ki tashkhees kar dunga.\",\n  \"home.features.advisorInputPlaceholder\": \"Apna sawal likhein ya bolein…\","
+  "newString": "\"home.features.advisorTopics\": \"Irrigation · fertiliser · pest & disease · harvest\",\n  \"home.features.advisorMockAria\": \"Example conversation with the agropioo advisor about yellowing wheat leaves\",\n  \"home.features.advisorUserMsg\": \"My wheat leaves are turning yellow — what should I do?\",\n  \"home.features.advisorReplyTitle\": \"Yellowing leaves — two common causes:\",\n  \"home.features.advisorReplyCause1\": \"Water stress\",\n  \"home.features.advisorReplyCause1Rest\": \"— irrigate in the cool hours, before 9 AM.\",\n  \"home.features.advisorReplyCause2\": \"Nitrogen shortage\",\n  \"home.features.advisorReplyCause2Rest\": \"— check the oldest leaves first; feed urea if needed.\",\n  \"home.features.advisorReplyFooter\": \"If you see yellow streaks under the leaves, send a photo — I'll diagnose the disease for you.\",\n  \"home.features.advisorInputPlaceholder\": \"Type your question…\",",
+  "oldString": "\"home.features.advisorTopics\": \"Irrigation · fertiliser · pest & disease · harvest\",\n  \"home.features.advisorBadge\": \"Roman Urdu\",\n  \"home.features.advisorMockAria\": \"Example conversation with the agropioo advisor about yellowing wheat leaves\",\n  \"home.features.advisorUserMsg\": \"Meri gandum ki pattiyan peeli ho rahi hain — kya karoon?\",\n  \"home.features.advisorReplyTitle\": \"Peeli pattiyan — do common causes:\",\n  \"home.features.advisorReplyCause1\": \"Water stress\",\n  \"home.features.advisorReplyCause1Rest\": \"— irrigate in the cool hours, before 9 AM.\",\n  \"home.features.advisorReplyCause2\": \"Nitrogen shortage\",\n  \"home.features.advisorReplyCause2Rest\": \"— check the oldest leaves first; feed urea if needed.\",\n  \"home.features.advisorReplyFooter\": \"Agar pattiyon ke neeche peeli dhariyan nazar aayein, photo bhejein — main bimari ki tashkhees kar dunga.\",\n  \"home.features.advisorInputPlaceholder\": \"Apna sawal likhein ya bolein…\","
 }
 ```
 

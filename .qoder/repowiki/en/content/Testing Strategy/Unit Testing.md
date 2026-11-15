@@ -32,10 +32,10 @@
 10. Appendices
 
 ## Introduction
-This document provides comprehensive unit testing guidance for Agropioo’s utility functions and business logic. It covers Vitest configuration, test organization patterns, mocking strategies for external dependencies, and detailed approaches to testing authentication logic, internationalization utilities, validation schemas, and catalog management. It also includes examples for asynchronous operations, error handling, edge cases, and best practices for maintainable tests with proper assertions, test data management, and coverage reporting.
+This document provides comprehensive unit testing guidance for agropioo’s utility functions and business logic. It covers Vitest configuration, test organization patterns, mocking strategies for external dependencies, and detailed approaches to testing authentication logic, internationalization utilities, validation schemas, and catalog management. It also includes examples for asynchronous operations, error handling, edge cases, and best practices for maintainable tests with proper assertions, test data management, and coverage reporting.
 
 ## Project Structure
-Agropioo uses Vitest as the test runner with a Node environment. Tests are colocated next to their source modules under lib/ and catalog/, following a consistent naming convention: <module>.test.ts. The project scripts expose a single command to run all tests.
+agropioo uses Vitest as the test runner with a Node environment. Tests are colocated next to their source modules under lib/ and catalog/, following a consistent naming convention: <module>.test.ts. The project scripts expose a single command to run all tests.
 
 ```mermaid
 graph TB
@@ -364,7 +364,7 @@ Common issues and resolutions:
 - [catalog.test.ts:6-35](file://catalog/catalog.test.ts#L6-L35)
 
 ## Conclusion
-Agropioo’s unit tests demonstrate strong practices:
+agropioo’s unit tests demonstrate strong practices:
 - Deterministic testing of pure logic with injected time.
 - Real cryptographic verification for pass tokens to pin contracts.
 - Isolation of in-memory state with explicit resets.

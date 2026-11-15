@@ -32,7 +32,7 @@
 10. [Appendices](#appendices)
 
 ## Introduction
-This document explains Agropioo’s farmer dashboard overview and navigation system. It covers the main dashboard layout, responsive navigation (desktop sidebar vs mobile bottom tabs), notification system, settings management, widget composition, data aggregation patterns, state management for UI-only demo features, and performance considerations tailored to rural usage patterns. The implementation is a UI-only demo build using typed mock data, with clear boundaries for future backend integration.
+This document explains agropioo’s farmer dashboard overview and navigation system. It covers the main dashboard layout, responsive navigation (desktop sidebar vs mobile bottom tabs), notification system, settings management, widget composition, data aggregation patterns, state management for UI-only demo features, and performance considerations tailored to rural usage patterns. The implementation is a UI-only demo build using typed mock data, with clear boundaries for future backend integration.
 
 ## Project Structure
 The farmer app uses Next.js route groups:
@@ -374,7 +374,7 @@ Common issues and resolutions:
 - [notifications-list.tsx](file://app/(farmer)/(dashboard)/notifications/notifications-list.tsx)
 
 ## Conclusion
-Agropioo’s farmer dashboard delivers a focused, scan-friendly home screen with responsive navigation, clear widget composition, and a robust demo data strategy. The layout separates concerns cleanly between shell, pages, and views, making it straightforward to integrate real APIs, add real-time updates, and extend offline capabilities. The settings and notifications interfaces provide a solid foundation for user preferences and alert management, while adhering to accessibility and mobile-first principles.
+agropioo’s farmer dashboard delivers a focused, scan-friendly home screen with responsive navigation, clear widget composition, and a robust demo data strategy. The layout separates concerns cleanly between shell, pages, and views, making it straightforward to integrate real APIs, add real-time updates, and extend offline capabilities. The settings and notifications interfaces provide a solid foundation for user preferences and alert management, while adhering to accessibility and mobile-first principles.
 
 [No sources needed since this section summarizes without analyzing specific files]
 

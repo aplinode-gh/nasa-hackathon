@@ -5,7 +5,7 @@
 
 ## Goal
 
-Agropioo claims to be Pakistan-first, but today every word of its UI is hardcoded
+agropioo claims to be Pakistan-first, but today every word of its UI is hardcoded
 English. This feature makes the entire public experience work in English plus the seven
 constitutional Pakistani languages — Urdu, Punjabi, Pashto, Sindhi, Saraiki, Balochi,
 Hindko — with correct right-to-left presentation, culturally authentic typography, and a
@@ -99,7 +99,7 @@ to read, navigate, and sign up entirely in Saraiki.
   borders and rounded corners on the logical start/end. Non-directional imagery (logo,
   photos, checkmarks, search icons, numerals) does not mirror.
 - FR-15 Mixed-direction content inside RTL text — prices, phone numbers, Latin tokens
-  like "Agropioo"/"NDVI", dates — renders in correct reading order with adjacent
+  like "agropioo"/"NDVI", dates — renders in correct reading order with adjacent
   punctuation on the correct side, everywhere it appears.
 - FR-16 Free-text inputs (names, farm/chat text) auto-detect typed direction;
   email/password/phone inputs stay left-to-right even on RTL pages.

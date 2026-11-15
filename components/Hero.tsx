@@ -26,7 +26,7 @@ export function Hero() {
             className="rise mt-6 max-w-lg text-lg leading-relaxed text-agro-slate"
             style={{ "--rise-delay": "0.16s" } as React.CSSProperties}
           >
-            Agropioo pairs personalised AI guidance with a lasting record of
+            agropioo pairs personalised AI guidance with a lasting record of
             your farm — tuned to your weather, your soil, and the language you
             think in.
           </p>
@@ -65,7 +65,7 @@ export function Hero() {
           <div className="relative aspect-[5/4] overflow-hidden rounded-[2rem] border border-agro-sprout/70 bg-gradient-to-b from-white via-agro-mint to-agro-mint">
             <Image
               src="/logo.png"
-              alt="Agropioo logo — a green droplet holding a seedling, circuit traces, and furrows"
+              alt="agropioo logo — a green droplet holding a seedling, circuit traces, and furrows"
               width={120}
               height={120}
               className="absolute left-1/2 top-[13%] h-auto w-24 -translate-x-1/2 object-contain sm:w-28"

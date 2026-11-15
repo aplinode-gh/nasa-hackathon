@@ -211,7 +211,7 @@
      import PricesClient from "./prices-client";
 
      export const metadata: Metadata = {
-       title: "Mandi Prices — Agropioo",
+       title: "Mandi Prices — agropioo",
      };
 
      type CropOption = { id: string; name_en: string };
@@ -249,9 +249,9 @@
      import { computeFarmHealth } from "@/lib/farms/health";
 
      export const metadata: Metadata = {
-       title: "Dashboard — Agropioo",
+       title: "Dashboard — agropioo",
        description:
-         "Today's advisory, weather, alerts, and every Agropioo tool — one
+         "Today's advisory, weather, alerts, and every agropioo tool — one
      screen that answers kya karoon aaj?",
      };
 
@@ -487,7 +487,7 @@
          +prices-widget";                                                     
        8  
        9  export const metadata: Metadata = {
-      10    title: "Dashboard — Agropioo",
+      10    title: "Dashboard — agropioo",
       11    description:
 
 

@@ -1,6 +1,6 @@
 # Implementation Prompt: Farm Profit/Loss Calculator (Feature #7)
 
-You are implementing **Feature #7: Farm Profit/Loss Calculator & Forecast** for the Agropioo platform. Read the spec and plan thoroughly before writing any code. Do not skip steps.
+You are implementing **Feature #7: Farm Profit/Loss Calculator & Forecast** for the agropioo platform. Read the spec and plan thoroughly before writing any code. Do not skip steps.
 
 ## Required Reading (in order)
 

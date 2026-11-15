@@ -1,12 +1,12 @@
-# Agropioo — Brand Colors (Developer Reference)
+# agropioo — Brand Colors (Developer Reference)
 
-> A focused, implementation-first reference for the Agropioo color system.
+> A focused, implementation-first reference for the agropioo color system.
 > The full narrative identity lives in [brand-identity.md](./brand-identity.md); the landing direction lives in [landing-page-design.md](./landing-page-design.md).
 > This file is the single source of truth for **tokens, Tailwind class names, and accessible color pairs**.
 
 ## Where the colors come from
 
-Every Agropioo color is extracted from the **Agropioo logo** — a green teardrop holding a sprouting seedling, circuit traces, and curved furrows — and extended into a complete, accessible system. The palette is **green-dominant**: greens own the experience, with earth/gold tones grounding it and a neutral scale for text.
+Every agropioo color is extracted from the **agropioo logo** — a green teardrop holding a sprouting seedling, circuit traces, and curved furrows — and extended into a complete, accessible system. The palette is **green-dominant**: greens own the experience, with earth/gold tones grounding it and a neutral scale for text.
 
 The logo favors light backgrounds, so the product ships in **light mode** by default.
 
@@ -117,4 +117,4 @@ Contrast is verified for the **light mode** the product ships in. Farmers view t
 
 ---
 
-*Derived from the Agropioo logo and [brand-identity.md](./brand-identity.md). Update when the logo or identity evolves.*
+*Derived from the agropioo logo and [brand-identity.md](./brand-identity.md). Update when the logo or identity evolves.*

@@ -3,7 +3,7 @@ import PageHeader from "@/components/shell/page-header";
 import SettingsView from "./settings-view";
 
 export const metadata: Metadata = {
-  title: "Settings — Agropioo",
+  title: "Settings — agropioo",
 };
 
 export default function SettingsPage() {

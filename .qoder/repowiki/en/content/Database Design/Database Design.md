@@ -25,7 +25,7 @@
 10. [Appendices](#appendices)
 
 ## Introduction
-This document describes Agropioo’s PostgreSQL database design as implemented via Supabase migrations. It covers the current schema (translations, users, pass states, verification codes, sessions), field definitions, constraints, indexes, and relationships. It also documents data validation enforced at the database level, migration management with Supabase, data access patterns using a dual client approach, caching considerations, performance techniques, and security measures including row-level security and privacy controls for farmer data. Farm records are currently represented in the UI via demo data; the schema section focuses on the tables that exist in the database.
+This document describes agropioo’s PostgreSQL database design as implemented via Supabase migrations. It covers the current schema (translations, users, pass states, verification codes, sessions), field definitions, constraints, indexes, and relationships. It also documents data validation enforced at the database level, migration management with Supabase, data access patterns using a dual client approach, caching considerations, performance techniques, and security measures including row-level security and privacy controls for farmer data. Farm records are currently represented in the UI via demo data; the schema section focuses on the tables that exist in the database.
 
 ## Project Structure
 The database is version-controlled under Supabase migrations:
@@ -150,7 +150,7 @@ USERS ||--o{ SESSIONS : "referenced by"
 - [0002_auth.sql:7-61](file://supabase/migrations/0002_auth.sql#L7-L61)
 
 ## Architecture Overview
-Agropioo uses a Postgres-only Supabase setup without the hosted Auth system. All authentication flows go through Next.js Route Handlers that call the Supabase client server-side. The dual client pattern provides:
+agropioo uses a Postgres-only Supabase setup without the hosted Auth system. All authentication flows go through Next.js Route Handlers that call the Supabase client server-side. The dual client pattern provides:
 - An anon client for normal operations (with RLS policies where applicable).
 - A service-role admin client for trusted server-side maintenance tasks that bypass RLS.
 
@@ -405,7 +405,7 @@ P["lib/auth/pass.ts"] --> S
 - [0002_auth.sql:19-50](file://supabase/migrations/0002_auth.sql#L19-L50)
 
 ## Conclusion
-Agropioo’s database schema centers on secure, state-backed authentication with clear constraints and indexes to enforce business rules at the database layer. The dual client pattern separates privileged and unprivileged access, while RLS is selectively applied. Future enhancements should include RLS for auth tables, explicit farm records schema, and additional indexes aligned with query patterns. Migration files provide a clear, versioned history of schema changes.
+agropioo’s database schema centers on secure, state-backed authentication with clear constraints and indexes to enforce business rules at the database layer. The dual client pattern separates privileged and unprivileged access, while RLS is selectively applied. Future enhancements should include RLS for auth tables, explicit farm records schema, and additional indexes aligned with query patterns. Migration files provide a clear, versioned history of schema changes.
 
 [No sources needed since this section summarizes without analyzing specific files]
 

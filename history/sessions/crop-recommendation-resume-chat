@@ -401,7 +401,7 @@ Let me read all these files first.
 41: 
 42: ## Theme Compliance
 43: 
-44: **All UI work MUST stay within the Agropioo brand palette:**
+44: **All UI work MUST stay within the agropioo brand palette:**
 45: 
 46: - **Background**: White (`bg-white`) or Agro-paper (`bg-agro-paper`)
 47: - **Primary action**: Agro-canopy (`bg-agro-canopy`) — main buttons, selected states, top pick badge
@@ -1860,7 +1860,7 @@ Let me read all these files in parallel.
 9: }
 10: 
 11: export const metadata: Metadata = {
-12:   title: "Recommendation detail — Agropioo",
+12:   title: "Recommendation detail — agropioo",
 13: };
 14: 
 15: export default async function CropRecommendationDetailPage({ params }: PageProps) {
@@ -5614,7 +5614,7 @@ Let me also check if there's a `model.ts` already or if it needs to be created.
 5: import CropsClient from "./crops-client";
 6: 
 7: export const metadata: Metadata = {
-8:   title: "Crop recommendation — Agropioo",
+8:   title: "Crop recommendation — agropioo",
 9: };
 10: 
 11: export default async function CropsPage() {
@@ -7446,7 +7446,7 @@ Let me check the catalog format to understand how to add translation keys.
 5:  */
 6: 
 7: export const en = {
-8:   "nav.whyAgropioo": "Why Agropioo",
+8:   "nav.whyagropioo": "Why agropioo",
 9:   "nav.features": "Features",
 10:   "nav.howItWorks": "How it works",
 11:   "nav.vision": "Vision",
@@ -7459,7 +7459,7 @@ Let me check the catalog format to understand how to add translation keys.
 18:   "common.languageSwitcherLabel": "Change language",
 19:   "notFound.title": "Page not found",
 20:   "notFound.body": "The page you are looking for does not exist or may have moved.",
-21:   "notFound.backHome": "Back to Agropioo home",
+21:   "notFound.backHome": "Back to agropioo home",
 22:   "common.builtForPakistan": "Built for Pakistan",
 23:   "common.productOfAplinode": "A product of Aplinode",
 24:   "home.hero.eyebrow": "AI-powered farm intelligence platform",
@@ -7467,14 +7467,14 @@ Let me check the catalog format to understand how to add translation keys.
 26:   "home.hero.titleAccent": "Smarter Farming",
 27:   "home.hero.subtitle": "One platform that unites an AI advisor, satellite monitoring, market prices, and your farm's records — turning data into clear decisions, in the language you speak.",
 28:   "home.hero.ctaSecondary": "See how it works",
-29:   "home.hero.imageAlt": "Farmer using Agropioo on a tablet in the field",
+29:   "home.hero.imageAlt": "Farmer using agropioo on a tablet in the field",
 30:   "home.hero.readingCrop": "Crop health",
 31:   "home.hero.readingWeather": "Weather",
 32:   "home.hero.readingSoil": "Soil moisture",
 33:   "home.hero.noteExcellent": "Excellent",
 34:   "home.hero.noteClearSky": "Clear sky",
 35:   "home.hero.noteOptimal": "Optimal",
-36:   "home.ticker.ariaLabel": "Agropioo platform capabilities",
+36:   "home.ticker.ariaLabel": "agropioo platform capabilities",
 37:   "home.ticker.cropDoctor": "AI crop doctor",
 38:   "home.ticker.satelliteNdvi": "Satellite NDVI monitoring",
 39:   "home.ticker.mandiPrices": "Mandi price intelligence",
@@ -7514,7 +7514,7 @@ Let me check the catalog format to understand how to add translation keys.
 73:   "home.features.advisorTitle": "AI agriculture advisor",
 74:   "home.features.advisorTopics": "Irrigation · fertiliser · pest & disease · harvest",
 75:   "home.features.advisorBadge": "Roman Urdu",
-76:   "home.features.advisorMockAria": "Example conversation with the Agropioo advisor about yellowing wheat leaves",
+76:   "home.features.advisorMockAria": "Example conversation with the agropioo advisor about yellowing wheat leaves",
 77:   "home.features.advisorUserMsg": "Meri gandum ki pattiyan peeli ho rahi hain — kya karoon?",
 78:   "home.features.advisorReplyTitle": "Peeli pattiyan — do common causes:",
 79:   "home.features.advisorReplyCause1": "Water stress",
@@ -7624,7 +7624,7 @@ Let me check the catalog format to understand how to add translation keys.
 183:   "home.users.tagline": "Designed for farmers first — growing with the ecosystem",
 184:   "home.cta.eyebrow": "Early access",
 185:   "home.cta.title": "Bring your farm onto the platform",
-186:   "home.cta.subtitle": "Join the farmers making better decisions with Agropioo — starting in Pakistan, growing worldwide.",
+186:   "home.cta.subtitle": "Join the farmers making better decisions with agropioo — starting in Pakistan, growing worldwide.",
 187:   "home.cta.success": "You're on the list. We'll be in touch when your region opens.",
 188:   "home.cta.emailLabel": "Email address",
 189:   "home.cta.fineprint": "No spam. Unsubscribe anytime.",
@@ -7639,19 +7639,19 @@ Let me check the catalog format to understand how to add translation keys.
 198:   "home.footer.disclaimer": "Disclaimer",
 199:   "home.footer.contactHeading": "Get in touch",
 200:   "home.footer.country": "Pakistan",
-201:   "home.footer.copyright": "© {year} Agropioo. All rights reserved.",
+201:   "home.footer.copyright": "© {year} agropioo. All rights reserved.",
 202:   "home.footer.motto": "Built for Pakistan · Ready for the world",
-203:   "hiw.meta.title": "How it works — Agropioo",
+203:   "hiw.meta.title": "How it works — agropioo",
 204:   "hiw.meta.description":
-205:     "From a one-minute farm profile to a season loop that keeps improving: see how Agropioo turns questions, activity, and records into personalised farming guidance.",
+205:     "From a one-minute farm profile to a season loop that keeps improving: see how agropioo turns questions, activity, and records into personalised farming guidance.",
 206:   "hiw.hero.eyebrow": "How it works",
 207:   "hiw.hero.titleA": "Six small steps.",
 208:   "hiw.hero.titleLead": "One",
 209:   "hiw.hero.titleAccent": "smarter season.",
 210:   "hiw.hero.subtitle":
-211:     "Agropioo works the way farming already works — you plant, ask, act, and record. The only difference is that now every step teaches the next one.",
+211:     "agropioo works the way farming already works — you plant, ask, act, and record. The only difference is that now every step teaches the next one.",
 212:   "hiw.hero.browseFeatures": "Browse features",
-213:   "hiw.route.navLabel": "The six steps of the Agropioo season loop",
+213:   "hiw.route.navLabel": "The six steps of the agropioo season loop",
 214:   "hiw.route.stepLabel": "Step {n}: {stop}",
 215:   "hiw.route.stop1": "Add farm",
 216:   "hiw.route.stop2": "Ask",
@@ -7683,7 +7683,7 @@ Let me check the catalog format to understand how to add translation keys.
 242:   "hiw.ask.titleA": "One question in.",
 243:   "hiw.ask.titleB": "Your whole farm answers.",
 244:   "hiw.ask.body":
-245:     "The same question means different things on different farms. So before replying, Agropioo reads the question against everything it already knows about yours.",
+245:     "The same question means different things on different farms. So before replying, agropioo reads the question against everything it already knows about yours.",
 246:   "hiw.ask.pipelineLabel":
 247:     "A farmer question is combined with crop, district, weather and history context to produce a personalised answer",
 248:   "hiw.ask.question": "Ab pani dena chahiye ya thora intezar?",
@@ -7718,7 +7718,7 @@ Let me check the catalog format to understand how to add translation keys.
 277:     "Out it comes as clear steps in your language — on screen, by voice, or over a phone call.",
 278:   "hiw.engine.safetyStrong": "If something looks unsafe,",
 279:   "hiw.engine.safetyRest":
-280:     "Agropioo says wait — a delayed answer beats a wasted spray or a damaged crop.",
+280:     "agropioo says wait — a delayed answer beats a wasted spray or a damaged crop.",
 281:   "hiw.record.recorderHeading": "Log an activity",
 282:   "hiw.record.syncBadge": "Auto-sync on",
 283:   "hiw.record.actionIrrigation": "Irrigation",
@@ -7763,8 +7763,8 @@ Let me check the catalog format to understand how to add translation keys.
 322:   "hiw.loop.centerSeason": "SEASON",
 323:   "hiw.loop.centerLoop": "LOOP",
 324:   "hiw.loop.caption": "Har season, pichle se behtar",
-325:   "feat.meta.title": "Features — Agropioo",
-326:   "feat.meta.description": "Explore every Agropioo capability: AI crop doctor, satellite NDVI monitoring, mandi price prediction, voice advisory in local languages, offline access with SMS alerts, and more.",
+325:   "feat.meta.title": "Features — agropioo",
+326:   "feat.meta.description": "Explore every agropioo capability: AI crop doctor, satellite NDVI monitoring, mandi price prediction, voice advisory in local languages, offline access with SMS alerts, and more.",
 327:   "feat.hero.eyebrow": "Features",
 328:   "feat.hero.titleLead": "Everything your",
 329:   "feat.hero.titleAccent": "season asks for",
@@ -7853,8 +7853,8 @@ Let me check the catalog format to understand how to add translation keys.
 412:   "feat.voice.inputPlaceholder": "Bol kar poochein…",
 413:   "feat.voice.callCode": "F·09 · Call",
 414:   "feat.voice.callTitle": "Dial a toll-free number",
-415:   "feat.voice.callMock": "Toll free call transcript with the Agropioo voice assistant",
-416:   "feat.voice.greetingLine": "Agropioo mein aapka swagat hai",
+415:   "feat.voice.callMock": "Toll free call transcript with the agropioo voice assistant",
+416:   "feat.voice.greetingLine": "agropioo mein aapka swagat hai",
 417:   "feat.voice.heardLine": "Awaaz samajh li — jawab tayar hai",
 418:   "feat.voice.callEnded": "Call ended · summary saved",
 419:   "feat.voice.anyPhone": "Works on any phone · no internet",
@@ -7906,12 +7906,12 @@ Let me check the catalog format to understand how to add translation keys.
 465:   "feat.manage.threadMeta": "Multan · 12 replies · 34 upvotes",
 466:   "feat.manage.expertBadge": "Expert verified answer",
 467:   "feat.manage.threadAnswer": "Neem oil spray, shaam ko — do baar, 5 din ke gap par.",
-468:   "vp.meta.title": "Vision — Agropioo",
-469:   "vp.meta.description": "Agropioo's vision: intelligent agricultural guidance in every farmer's pocket — starting with Pakistan, built on five beliefs, three horizons, and promises that never bend.",
+468:   "vp.meta.title": "Vision — agropioo",
+469:   "vp.meta.description": "agropioo's vision: intelligent agricultural guidance in every farmer's pocket — starting with Pakistan, built on five beliefs, three horizons, and promises that never bend.",
 470:   "vp.hero.eyebrow": "Our vision",
 471:   "vp.hero.titleLead": "A trusted advisor in",
 472:   "vp.hero.titleAccent": "every farmer's pocket.",
-473:   "vp.hero.sub": "Intelligent guidance should not depend on wealth, literacy, or language. Agropioo exists so that any farmer — on any phone, in any village — farms with the same confidence as an expert standing beside them.",
+473:   "vp.hero.sub": "Intelligent guidance should not depend on wealth, literacy, or language. agropioo exists so that any farmer — on any phone, in any village — farms with the same confidence as an expert standing beside them.",
 474:   "vp.hero.tagStart": "Start where the need is greatest",
 475:   "vp.hero.tagThen": "Then earn the world",
 476:   "vp.hero.ctaLink": "See what we built",
@@ -7978,13 +7978,13 @@ Let me check the catalog format to understand how to add translation keys.
 537:   "vp.principles.c6Desc": "Motion and layout that feel organic — growth, never machinery.",
 538:   "vp.principles.motto": "Soil and signal — growing together",
 539: 
-540:   // --- Why Agropioo page (wy.*) ---
-541:   "wy.meta.title": "Why Agropioo — AI-Powered Farm Intelligence",
-542:   "wy.meta.description": "Farming decisions are too important for guesswork. See why Agropioo unites an AI advisor, farm records, weather-aware guidance, and local languages on one Pakistan-first platform.",
-543:   "wy.hero.eyebrow": "Why Agropioo",
+540:   // --- Why agropioo page (wy.*) ---
+541:   "wy.meta.title": "Why agropioo — AI-Powered Farm Intelligence",
+542:   "wy.meta.description": "Farming decisions are too important for guesswork. See why agropioo unites an AI advisor, farm records, weather-aware guidance, and local languages on one Pakistan-first platform.",
+543:   "wy.hero.eyebrow": "Why agropioo",
 544:   "wy.hero.titleLead": "Where soil meets",
 545:   "wy.hero.titleAccent": "signal",
-546:   "wy.hero.sub": "Farming decisions are too important for guesswork. Agropioo puts an AI advisor, your farm's records, weather-aware guidance, and your own language into one platform — so every choice is grounded in your land's reality.",
+546:   "wy.hero.sub": "Farming decisions are too important for guesswork. agropioo puts an AI advisor, your farm's records, weather-aware guidance, and your own language into one platform — so every choice is grounded in your land's reality.",
 547:   "wy.hero.ctaPrimary": "Get early access",
 548:   "wy.hero.ctaSecondary": "Explore the platform",
 549:   "wy.hero.tagStart": "Built for Pakistan",
@@ -7992,7 +7992,7 @@ Let me check the catalog format to understand how to add translation keys.
 551:   "wy.hero.svgLabel": "Stylised furrow curves rolling across a field",
 552:   "wy.origin.eyebrow": "Why we built this",
 553:   "wy.origin.heading": "High-stakes decisions shouldn't rest on guesswork",
-554:   "wy.origin.sub": "Agropioo began with a simple observation: a farmer's season is decided by a handful of choices, and every one of those choices deserves real intelligence behind it.",
+554:   "wy.origin.sub": "agropioo began with a simple observation: a farmer's season is decided by a handful of choices, and every one of those choices deserves real intelligence behind it.",
 555:   "wy.origin.g1Title": "Timing is guessed",
 556:   "wy.origin.g1Desc": "Irrigation, fertiliser, planting, harvest — the moments that decide a season are still chosen by habit and hope.",
 557:   "wy.origin.g2Title": "History disappears",
@@ -8003,7 +8003,7 @@ Let me check the catalog format to understand how to add translation keys.
 562:   "wy.diff.eyebrow": "What makes it different",
 563:   "wy.diff.heading1": "Not another advice app.",
 564:   "wy.diff.heading2": "A farm intelligence platform.",
-565:   "wy.diff.sub": "Most tools answer questions. Agropioo learns your farm — and gets more useful with every activity you record.",
+565:   "wy.diff.sub": "Most tools answer questions. agropioo learns your farm — and gets more useful with every activity you record.",
 566:   "wy.diff.personalTitle": "Personalised, not generic",
 567:   "wy.diff.personalDesc": "Recommendations are built from your crop, your location, live weather, and your farm's own history — never one-size-fits-all advice.",
 568:   "wy.diff.chip1": "Your crop",
@@ -8041,7 +8041,7 @@ Let me check the catalog format to understand how to add translation keys.
 600:   "wy.value.eyebrow": "The promise",
 601:   "wy.value.heading1": "What to do. When to do it.",
 602:   "wy.value.heading2": "And what has been done.",
-603:   "wy.value.sub": "Every feature of Agropioo serves one of these three answers — that's how a season of decisions turns into a season of confidence.",
+603:   "wy.value.sub": "Every feature of agropioo serves one of these three answers — that's how a season of decisions turns into a season of confidence.",
 604:   "wy.value.p1Heading": "What to do",
 605:   "wy.value.p1Desc": "Clear, specific recommendations for your crop and conditions — not generic tips.",
 606:   "wy.value.p2Heading": "When to do it",
@@ -8079,12 +8079,12 @@ Let me check the catalog format to understand how to add translation keys.
 638:   "auth.err.serverError": "Something went wrong on our side. Please try again.",
 639:   "auth.err.invalidCredentials": "Invalid email or password.",
 640: 
-641:   "li.meta.title": "Sign in — Agropioo",
+641:   "li.meta.title": "Sign in — agropioo",
 642:   "li.meta.description":
-643:     "Sign in to Agropioo, the AI-powered farm intelligence platform. Your advisor, records, and advisories — waiting where you left them.",
+643:     "Sign in to agropioo, the AI-powered farm intelligence platform. Your advisor, records, and advisories — waiting where you left them.",
 644:   "li.brand.headingA": "Your Farm's Intelligence,",
 645:   "li.brand.headingB": "Waiting Where You Left It.",
-646:   "li.demo.aria": "Preview of an Agropioo advisor conversation",
+646:   "li.demo.aria": "Preview of an agropioo advisor conversation",
 647:   "li.demo.user": "Meri gandum ki pattiyan peeli ho rahi hain — kya karoon?",
 648:   "li.demo.advisorLabel": "Do causes:",
 649:   "li.demo.advisorBody": "water stress ya nitrogen ki kami. Pehle subah cool hours mein pani dein.",
@@ -8101,9 +8101,9 @@ Let me check the catalog format to understand how to add translation keys.
 660:   "li.noAccountEnd": ".",
 661:   "li.createAccount": "create your account",
 662: 
-663:   "su.meta.title": "Create account — Agropioo",
+663:   "su.meta.title": "Create account — agropioo",
 664:   "su.meta.description":
-665:     "Create your Agropioo account: a personalised AI advisor, weather-aware guidance, and farm records that sharpen every season. Built for Pakistan.",
+665:     "Create your agropioo account: a personalised AI advisor, weather-aware guidance, and farm records that sharpen every season. Built for Pakistan.",
 666:   "su.brand.headingA": "Start Your Season",
 667:   "su.brand.headingB": "With Intelligence.",
 668:   "su.profile.aria": "Preview of the farm profile created after sign up",
@@ -8118,7 +8118,7 @@ Let me check the catalog format to understand how to add translation keys.
 677:   "su.included2": "Weather-aware guidance for your district",
 678:   "su.included3": "Farm records that sharpen every season",
 679:   "su.eyebrow": "Create account",
-680:   "su.heading": "Bring Your Farm To Agropioo",
+680:   "su.heading": "Bring Your Farm To agropioo",
 681:   "su.sub": "One account for your advisor, records, and every advisory this season.",
 682:   "su.registered.title": "This email is already registered.",
 683:   "su.registered.body":
@@ -8145,9 +8145,9 @@ Let me check the catalog format to understand how to add translation keys.
 704:   "su.submit": "Create my account",
 705:   "su.submitting": "Creating account…",
 706:   "su.haveAccount": "Already have an account?",
-707:   "app.shell.metadataTitle": "Agropioo — AI-Powered Farm Intelligence Platform",
+707:   "app.shell.metadataTitle": "agropioo — AI-Powered Farm Intelligence Platform",
 708:   "app.shell.metadataDescription":
-709:     "Today's advisory, weather, alerts, and every Agropioo tool — built for Pakistan. A product of Aplinode.",
+709:     "Today's advisory, weather, alerts, and every agropioo tool — built for Pakistan. A product of Aplinode.",
 710: 
 711:   /* ── Shell nav ─────────────────────────────────────── */
 712:   "app.shell.nav.dashboard": "Dashboard",
@@ -8167,7 +8167,7 @@ Let me check the catalog format to understand how to add translation keys.
 726:   /* ── Dashboard UI chrome ───────────────────────────── */
 727:   "app.dashboard.greeting": "Hello, {name}",
 728:   "app.dashboard.aria.profileMenu": "Profile menu",
-729:   "app.dashboard.welcomeEyebrow": "Welcome to Agropioo",
+729:   "app.dashboard.welcomeEyebrow": "Welcome to agropioo",
 730:   "app.dashboard.welcomeTitle": "Start With Your First Farm.",
 731:   "app.dashboard.welcomeBody":
 732:     "Your crop, your soil, your weather — every advisory will be shaped around them once your farm is in.",
@@ -10506,7 +10506,7 @@ Now I need to update the detail page to pass `initialRequest` to CropsClient. Le
 9: }
 10: 
 11: export const metadata: Metadata = {
-12:   title: "Recommendation detail — Agropioo",
+12:   title: "Recommendation detail — agropioo",
 13: };
 14: 
 15: export default async function CropRecommendationDetailPage({ params }: PageProps) {

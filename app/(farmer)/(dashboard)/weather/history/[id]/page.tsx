@@ -8,7 +8,7 @@ import { getWeatherBundle } from "@/lib/i18n/server";
 import type { GrowthStage, Severity } from "@/lib/weather/advisory";
 import WeatherAcknowledge from "@/components/weather/WeatherAcknowledge";
 
-export const metadata: Metadata = { title: "Advisory detail — Agropioo" };
+export const metadata: Metadata = { title: "Advisory detail — agropioo" };
 
 export default async function AdvisoryDetailPage({
   params,

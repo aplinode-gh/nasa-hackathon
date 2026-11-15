@@ -27,7 +27,7 @@
 10. [Appendices](#appendices)
 
 ## Introduction
-This document provides detailed, code-backed documentation for Agropioo’s shared UI components that power reusable user experiences across the application. It focuses on:
+This document provides detailed, code-backed documentation for agropioo’s shared UI components that power reusable user experiences across the application. It focuses on:
 - SuggestionChip: a one-time, dismissible language suggestion chip for first-time visitors.
 - Icons system: a consistent SVG icon library with sizing and accessibility attributes.
 - PakistanFirst: a messaging section showcasing national pride and cultural adaptation.
@@ -55,7 +55,7 @@ FEAT["Features"]
 FTR["Footer"]
 end
 subgraph "Design System"
-DS["Agropioo Design Tokens"]
+DS["agropioo Design Tokens"]
 end
 LYT --> SC
 HERO --> FM
@@ -378,7 +378,7 @@ end
 - EarlyAccessForm depends on icons for visual feedback.
 - Hero composes FurrowMotif for decorative visuals.
 - Features and Footer reference PakistanFirst indirectly through navigation and content organization.
-- All components adhere to the Agropioo design system tokens for consistency.
+- All components adhere to the agropioo design system tokens for consistency.
 
 ```mermaid
 graph LR
@@ -445,7 +445,7 @@ EAF --> DS
 - [icons.tsx:1-358](file://components/icons.tsx#L1-L358)
 
 ## Conclusion
-Agropioo’s shared UI components provide a cohesive, accessible, and performant foundation for building localized, culturally adapted experiences. The SuggestionChip streamlines onboarding for new visitors, the Icons system ensures consistent visual language, PakistanFirst reinforces brand identity, FurrowMotif adds thematic depth, and EarlyAccessForm captures interest with clear feedback. Together, they align with the Agropioo design system to deliver a unified product experience.
+agropioo’s shared UI components provide a cohesive, accessible, and performant foundation for building localized, culturally adapted experiences. The SuggestionChip streamlines onboarding for new visitors, the Icons system ensures consistent visual language, PakistanFirst reinforces brand identity, FurrowMotif adds thematic depth, and EarlyAccessForm captures interest with clear feedback. Together, they align with the agropioo design system to deliver a unified product experience.
 
 [No sources needed since this section summarizes without analyzing specific files]
 

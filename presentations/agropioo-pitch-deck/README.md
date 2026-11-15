@@ -1,4 +1,4 @@
-# Agropioo Pitch Deck
+# agropioo Pitch Deck
 
 Hackathon pitch deck (14 slides, 16:9) generated programmatically with
 [PptxGenJS](https://pptxgenjs.org). Brand-faithful: colors come only from
@@ -16,12 +16,12 @@ npm install pptxgenjs
 node build.js
 ```
 
-`build.js` reads logos from `./assets/` and writes `Agropioo-Pitch-Deck.pptx`
+`build.js` reads logos from `./assets/` and writes `agropioo-Pitch-Deck.pptx`
 into this folder. Convert to PDF/thumbnails with LibreOffice + poppler:
 
 ```bash
-soffice --headless --convert-to pdf Agropioo-Pitch-Deck.pptx --outdir .
-pdftoppm -jpeg -r 110 Agropioo-Pitch-Deck.pdf slide
+soffice --headless --convert-to pdf agropioo-Pitch-Deck.pptx --outdir .
+pdftoppm -jpeg -r 110 agropioo-Pitch-Deck.pdf slide
 ```
 
 ## Content notes

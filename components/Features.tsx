@@ -42,7 +42,7 @@ export function Features() {
       <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
         <div className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-agro-canopy">
-            What Agropioo does
+            What agropioo does
           </p>
           <h2 className="display-heading mt-3 font-display text-[clamp(1.9rem,4vw,2.75rem)] font-semibold leading-[1.12] text-agro-forest">
             An advisor that knows your farm.

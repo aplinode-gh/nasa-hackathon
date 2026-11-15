@@ -1,20 +1,26 @@
 import { Agent } from "@openai/agents";
 import { getWeather } from "../tools/weather";
+import { createGetNasaClimateTool } from "../tools/nasa-climate";
 import { advisorModel } from "../model";
 
-export function createWeatherAgent() {
+export function createWeatherAgent(accountId: string) {
+  const getNasaClimate = createGetNasaClimateTool(accountId);
+
   return new Agent({
     name: "Weather Advisor",
     model: advisorModel(),
-    handoffDescription: "Handles questions about weather forecasts, rain predictions, temperature, humidity, and spray window advice for any location in Pakistan.",
+    handoffDescription: "Handles questions about weather forecasts, rain predictions, temperature, humidity, spray window advice, and NASA POWER climate normals/drought signals for the farmer's farms or locations in Pakistan.",
     instructions: `You are a weather specialist for Pakistani farmers. You help with:
 - Current weather conditions for any district or farm location in Pakistan
 - Rain predictions and their impact on farming activities
 - Spray window recommendations (when it's safe to apply pesticides/fertilizers)
 - Temperature alerts (heat stress, frost warnings)
 - Humidity-based disease risk assessment
+- NASA POWER climate normals and drought/wet-year signals for a specific farm
 
-You have access to live weather data via coordinates (lat/lng). Use the farmer's farm coordinates or district location to fetch weather.
+You have access to live weather data via coordinates (lat/lng) and NASA POWER agroclimatology via farm ID.
+- Use get_weather for current conditions (lat/lng).
+- Use get_nasa_climate(farmId) when the farmer asks about drought, "is this a drought year for my farm?", rainfall normals/trends, long-term climate, or soil wetness climatology for their farm. Always cite the real NASA POWER numbers returned by the tool.
 
 ## Farming-action focus — Always answer: "What should I DO based on this weather?"
 Every weather response must include at least one specific farming action:
@@ -66,6 +72,6 @@ Provide clear YES/NO guidance for common farming decisions:
 - NEVER switch languages mid-sentence. Every response must be entirely in one language.
 - Only exception: technical terms with no local equivalent (pH, NPK, DAP, GPS) may stay as-is.
 - Before sending, verify: "Is this entirely in one language?" Fix any mixing.`,
-    tools: [getWeather],
+    tools: [getWeather, getNasaClimate],
   });
 }

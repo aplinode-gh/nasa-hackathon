@@ -31,10 +31,10 @@
 10. [Appendices](#appendices)
 
 ## Introduction
-This document explains Agropioo’s internationalization system that supports eight languages: English, Urdu, Punjabi (Shahmukhi), Pashto, Sindhi, Saraiki, Balochi, and Hindko. It covers locale detection, dynamic font loading for right-to-left scripts, translation catalog management with live database overlays, a localized component wrapper, language switching behavior, and cultural adaptation patterns such as numeral formatting and bidi-safe rendering. It also provides guidelines for adding new languages, managing translations, and handling RTL text rendering safely.
+This document explains agropioo’s internationalization system that supports eight languages: English, Urdu, Punjabi (Shahmukhi), Pashto, Sindhi, Saraiki, Balochi, and Hindko. It covers locale detection, dynamic font loading for right-to-left scripts, translation catalog management with live database overlays, a localized component wrapper, language switching behavior, and cultural adaptation patterns such as numeral formatting and bidi-safe rendering. It also provides guidelines for adding new languages, managing translations, and handling RTL text rendering safely.
 
 ## Project Structure
-Agropioo implements i18n across configuration, runtime logic, server-side dictionary loading, client components, and a typed translation catalog synchronized into a database.
+agropioo implements i18n across configuration, runtime logic, server-side dictionary loading, client components, and a typed translation catalog synchronized into a database.
 
 ```mermaid
 graph TB
@@ -361,7 +361,7 @@ Format["format.ts"] --> Server
 - [spec.md:149-168](file://specs/language-compatibility/spec.md#L149-L168)
 
 ## Conclusion
-Agropioo’s i18n system provides robust multi-language support with strong RTL handling, dynamic font loading, and a live translation pipeline. The design separates concerns cleanly: configuration defines locale identity, logic handles path and string operations, the server merges build-time and database content, and client components render localized content safely. Following the provided guidelines ensures scalable addition of new languages, consistent cultural adaptation, and high performance even with large catalogs.
+agropioo’s i18n system provides robust multi-language support with strong RTL handling, dynamic font loading, and a live translation pipeline. The design separates concerns cleanly: configuration defines locale identity, logic handles path and string operations, the server merges build-time and database content, and client components render localized content safely. Following the provided guidelines ensures scalable addition of new languages, consistent cultural adaptation, and high performance even with large catalogs.
 
 [No sources needed since this section summarizes without analyzing specific files]
 

@@ -30,7 +30,7 @@
 9. Conclusion
 
 ## Introduction
-This document explains the Agropioo system design patterns implemented with Next.js App Router. It focuses on:
+This document explains the agropioo system design patterns implemented with Next.js App Router. It focuses on:
 - Route groups that separate the marketing site from the farmer application
 - A repository-style database abstraction via a dual Supabase client pattern for security isolation
 - A guard pattern for authentication checks at both page layouts and API routes
@@ -40,7 +40,7 @@ This document explains the Agropioo system design patterns implemented with Next
 The goal is to make the architecture accessible to readers with limited technical knowledge while providing code-level references for implementation details.
 
 ## Project Structure
-Agropioo uses Next.js App Router route groups to isolate concerns:
+agropioo uses Next.js App Router route groups to isolate concerns:
 - Marketing site under app/(site)/[locale] with dynamic locales and content fetched server-side
 - Farmer application under app/(farmer) with protected dashboard and feature pages
 - API endpoints under app/api for authentication and health checks
@@ -398,6 +398,6 @@ Common issues and how to address them:
 - [route.ts (signup):27-50](file://app/api/auth/signup/route.ts#L27-L50)
 
 ## Conclusion
-Agropioo’s architecture leverages Next.js App Router route groups to cleanly separate marketing and farmer experiences. The dual Supabase client pattern enforces security isolation between anonymous and privileged operations. Guards provide a single, reliable choke point for authentication across pages and APIs. Server-side rendering strategies ensure timely content delivery, while standardized client-server communication improves reliability and maintainability. These patterns collectively deliver a secure, scalable, and developer-friendly platform aligned with the project’s goals.
+agropioo’s architecture leverages Next.js App Router route groups to cleanly separate marketing and farmer experiences. The dual Supabase client pattern enforces security isolation between anonymous and privileged operations. Guards provide a single, reliable choke point for authentication across pages and APIs. Server-side rendering strategies ensure timely content delivery, while standardized client-server communication improves reliability and maintainability. These patterns collectively deliver a secure, scalable, and developer-friendly platform aligned with the project’s goals.
 
 [No sources needed since this section summarizes without analyzing specific files]

@@ -12,8 +12,8 @@ const F = { serif: "Playfair Display", body: "DM Sans", mono: "Geist Mono" };
 
 const pptx = new pptxgen();
 pptx.layout = "LAYOUT_16x9";
-pptx.author = "Agropioo";
-pptx.title = "Agropioo — AI Agriculture Advisor for Pakistan";
+pptx.author = "agropioo";
+pptx.title = "agropioo — AI Agriculture Advisor for Pakistan";
 
 const W = 10, H = 5.625;
 const A = require("path").join(__dirname, "assets");
@@ -71,7 +71,7 @@ function accentBar(s, x, y, w, color = "canopy") {
 function footer(s, idx, dark = false) {
   const c = dark ? "sprout" : "cloud";
   furrow(s, dark);
-  s.addText("Agropioo  ·  Built for Pakistan", { x: 0.5, y: H - 0.5, w: 4, h: 0.3, fontFace: F.mono, fontSize: 8, color: C[c], charSpacing: 1 });
+  s.addText("agropioo  ·  Built for Pakistan", { x: 0.5, y: H - 0.5, w: 4, h: 0.3, fontFace: F.mono, fontSize: 8, color: C[c], charSpacing: 1 });
   s.addText(String(idx).padStart(2, "0"), { x: W - 1.0, y: H - 0.5, w: 0.6, h: 0.3, fontFace: F.mono, fontSize: 9, color: C[c], align: "right" });
 }
 
@@ -418,6 +418,6 @@ footer(s, 14);
 
 
 // ── Write PPTX ─────────────────────────────────────────────────────────
-pptx.writeFile({ fileName: require("path").join(__dirname, "Agropioo-Pitch-Deck.pptx") })
+pptx.writeFile({ fileName: require("path").join(__dirname, "agropioo-Pitch-Deck.pptx") })
   .then(() => console.log("DECK SAVED"))
   .catch((e) => { console.error("SAVE ERR", e); process.exit(1); });

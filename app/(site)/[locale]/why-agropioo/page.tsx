@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   };
 }
 
-export default async function WhyAgropiooPage({ params }: { params: Promise<{ locale: Locale }> }) {
+export default async function WhyagropiooPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale, t } = await getCurrentDictionary((await params).locale);
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden">

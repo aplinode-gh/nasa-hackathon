@@ -357,7 +357,7 @@ Now integrate the handoff agent into the triage:
 25: 
 26:   const cropCalendar = getCropCalendar(ctx.currentMonth, ctx.currentSeason);
 27: 
-28:   const baseInstructions = `You are Agropioo Advisor — a trusted farming companion for Pakistani farmers.
+28:   const baseInstructions = `You are agropioo Advisor — a trusted farming companion for Pakistani farmers.
 29: 
 30: ## Your personality
 31: - Warm and encouraging in greetings and transitions — you genuinely care about the farmer's success
@@ -2757,19 +2757,19 @@ Let me try searching for the project by a different query.
 [
   {
     "id": "project:bitter-dream-03311921",
-    "title": "Agropioo Hackathon",
+    "title": "agropioo Hackathon",
     "url": "https://console.neon.tech/app/projects/bitter-dream-03311921",
     "type": "project"
   },
   {
     "id": "org:org-nameless-bar-34383623",
-    "title": "Agropioo",
+    "title": "agropioo",
     "url": "https://console.neon.tech/app/org-nameless-bar-34383623/projects",
     "type": "organization"
   },
   {
     "id": "project:bitter-dream-03311921",
-    "title": "Agropioo Hackathon",
+    "title": "agropioo Hackathon",
     "url": "https://console.neon.tech/app/projects/bitter-dream-03311921",
     "type": "project"
   }
@@ -2817,7 +2817,7 @@ Found it. The project ID is `bitter-dream-03311921`. Let me list the branches to
     "created_at": "2026-08-28T19:55:48Z",
     "updated_at": "2026-09-02T15:54:05Z",
     "created_by": {
-      "name": "Agropioo",
+      "name": "agropioo",
       "image": "https://lh3.googleusercontent.com/a/ACg8ocKKvCeLjrAM1MtQZ9_NNckBxOw1O3AJIp-fTFXiIszJ-y048N8=s96-c"
     },
     "init_source": "parent-data"
@@ -4205,7 +4205,7 @@ _Thinking:_
 Let me carefully analyze the conversation to create a comprehensive summary.
 
 ## Objective
-- Improve the AI chat advisor agent in the Agropioo hackathon project — enhance response quality, add guardrails, expand knowledge base, and harden security/data isolation.
+- Improve the AI chat advisor agent in the agropioo hackathon project — enhance response quality, add guardrails, expand knowledge base, and harden security/data isolation.
 
 ## Important Details
 - Project: `C:\Users\dell\Music\hackathons\agropioo-hackathon` — Next.js app using OpenAI Agents SDK

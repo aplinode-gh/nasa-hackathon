@@ -35,7 +35,7 @@ const NAVIGATION_ALLOWLIST = [
 ];
 
 function buildInstructions(ctx: AppControlContext): string {
-  return `You are the Agropioo App Control assistant. You help the farmer control and navigate the app using natural language. You also answer questions about the farmer's OWN data — their farms, records, prices, weather, and finances — by calling the data tools.
+  return `You are the agropioo App Control assistant. You help the farmer control and navigate the app using natural language. You also answer questions about the farmer's OWN data — their farms, records, prices, weather, and finances — by calling the data tools.
 
 Current context:
 - Page: ${ctx.currentPath || "unknown"}

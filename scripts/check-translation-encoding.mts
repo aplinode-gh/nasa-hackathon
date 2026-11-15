@@ -3,7 +3,7 @@ import { query } from "../lib/db.ts";
 const rows = await query<{ key: string; locale: string; value: string; hex: string }>(
   `SELECT key, locale, value, encode(value::bytea, 'hex') AS hex
    FROM translations
-   WHERE locale = 'ur' AND key IN ('nav.whyAgropioo', 'nav.signIn', 'hero.title')
+   WHERE locale = 'ur' AND key IN ('nav.whyagropioo', 'nav.signIn', 'hero.title')
    LIMIT 6`
 );
 

@@ -9,7 +9,7 @@
 
 ## Goal
 
-Every user of Agropioo — a visitor on the public site, someone signing up, or a
+Every user of agropioo — a visitor on the public site, someone signing up, or a
 farmer inside the logged-in app — can read, navigate, and act in any of the eight
 constitutional languages (English plus Urdu, Punjabi–Shahmukhi, Pashto, Sindhi,
 Saraiki, Balochi, Hindko), with correct right-to-left presentation, culturally
@@ -107,7 +107,7 @@ advisor reply.
   directional icons); non-directional imagery (logo, photos, checkmarks, search,
   numerals, crop-health dots) does not. *(L14)*
 - FR-19 [S] Mixed-direction content inside RTL — prices, phones, Latin tokens
-  ("Agropioo", "NDVI"), dates — reads correctly with adjacent punctuation on the
+  ("agropioo", "NDVI"), dates — reads correctly with adjacent punctuation on the
   right side. *(L15)*
 - FR-20 [S] Free-text inputs auto-detect typed direction; email/password/phone stay
   LTR even on RTL pages. *(L16)*

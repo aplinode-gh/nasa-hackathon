@@ -11,7 +11,7 @@
 - [CLAUDE.md](file://CLAUDE.md)
 - [specs/authentication/spec.md](file://specs/authentication/spec.md)
 - [catalog/catalog.test.ts](file://catalog/catalog.test.ts)
-- [docs/Agropioo_Tech_Stack.md](file://docs/Agropioo_Tech_Stack.md)
+- [docs/agropioo_Tech_Stack.md](file://docs/agropioo_Tech_Stack.md)
 - [docs/brand-identity.md](file://docs/brand-identity.md)
 </cite>
 
@@ -28,10 +28,10 @@
 10. Appendices
 
 ## Introduction
-This guide explains how to contribute effectively to Agropioo, a Next.js-based application built for Pakistani farmers. It covers development workflow, branch and commit conventions, code style with ESLint, TypeScript best practices, React component patterns, spec-driven development, documentation standards, testing requirements, environment setup, debugging, performance profiling, contribution types, community guidelines, and cultural sensitivity.
+This guide explains how to contribute effectively to agropioo, a Next.js-based application built for Pakistani farmers. It covers development workflow, branch and commit conventions, code style with ESLint, TypeScript best practices, React component patterns, spec-driven development, documentation standards, testing requirements, environment setup, debugging, performance profiling, contribution types, community guidelines, and cultural sensitivity.
 
 ## Project Structure
-Agropioo is a full-stack Next.js application with:
+agropioo is a full-stack Next.js application with:
 - Frontend and server logic in the app directory
 - API endpoints as Route Handlers under app/api
 - Shared components in components
@@ -83,7 +83,7 @@ Key responsibilities:
 - [CLAUDE.md:1-2](file://CLAUDE.md#L1-L2)
 
 ## Architecture Overview
-Agropioo uses a single Next.js application for both frontend and backend. Route Handlers implement the API layer. Supabase PostgreSQL is used only as the database. Authentication, validation, and email flows run server-side.
+agropioo uses a single Next.js application for both frontend and backend. Route Handlers implement the API layer. Supabase PostgreSQL is used only as the database. Authentication, validation, and email flows run server-side.
 
 ```mermaid
 sequenceDiagram
@@ -102,11 +102,11 @@ Handler-->>Client : JSON response or redirect
 ```
 
 **Diagram sources**
-- [docs/Agropioo_Tech_Stack.md:20-117](file://docs/Agropioo_Tech_Stack.md#L20-L117)
-- [docs/Agropioo_Tech_Stack.md:120-234](file://docs/Agropioo_Tech_Stack.md#L120-L234)
+- [docs/agropioo_Tech_Stack.md:20-117](file://docs/agropioo_Tech_Stack.md#L20-L117)
+- [docs/agropioo_Tech_Stack.md:120-234](file://docs/agropioo_Tech_Stack.md#L120-L234)
 
 **Section sources**
-- [docs/Agropioo_Tech_Stack.md:1-365](file://docs/Agropioo_Tech_Stack.md#L1-L365)
+- [docs/agropioo_Tech_Stack.md:1-365](file://docs/agropioo_Tech_Stack.md#L1-L365)
 
 ## Detailed Component Analysis
 
@@ -156,11 +156,11 @@ UI-->>U : Next step (verify, dashboard, etc.)
 
 **Diagram sources**
 - [specs/authentication/spec.md:1-137](file://specs/authentication/spec.md#L1-L137)
-- [docs/Agropioo_Tech_Stack.md:151-234](file://docs/Agropioo_Tech_Stack.md#L151-L234)
+- [docs/agropioo_Tech_Stack.md:151-234](file://docs/agropioo_Tech_Stack.md#L151-L234)
 
 **Section sources**
 - [specs/authentication/spec.md:1-137](file://specs/authentication/spec.md#L1-L137)
-- [docs/Agropioo_Tech_Stack.md:151-234](file://docs/Agropioo_Tech_Stack.md#L151-L234)
+- [docs/agropioo_Tech_Stack.md:151-234](file://docs/agropioo_Tech_Stack.md#L151-L234)
 
 ### Testing Patterns
 - Unit and integration tests live under lib and catalog directories.
@@ -207,7 +207,7 @@ Practical steps:
 - [AGENTS.md:104-138](file://AGENTS.md#L104-L138)
 
 ## Dependency Analysis
-Agropioo’s dependency model emphasizes reuse and approval for new packages. The allowed libraries are fixed unless explicitly approved.
+agropioo’s dependency model emphasizes reuse and approval for new packages. The allowed libraries are fixed unless explicitly approved.
 
 ```mermaid
 graph LR
@@ -256,7 +256,7 @@ Operational checks:
 - [AGENTS.md:95-103](file://AGENTS.md#L95-L103)
 
 ## Conclusion
-Contributing to Agropioo means following a disciplined, spec-first approach with strong code quality, security, and accessibility standards. By adhering to the workflow, style guides, and testing policies outlined here, contributors help deliver reliable, farmer-centric features that respect local languages and contexts.
+Contributing to agropioo means following a disciplined, spec-first approach with strong code quality, security, and accessibility standards. By adhering to the workflow, style guides, and testing policies outlined here, contributors help deliver reliable, farmer-centric features that respect local languages and contexts.
 
 [No sources needed since this section summarizes without analyzing specific files]
 
@@ -277,7 +277,7 @@ Commands:
 **Section sources**
 - [README.md:3-19](file://README.md#L3-L19)
 - [package.json:5-12](file://package.json#L5-L12)
-- [docs/Agropioo_Tech_Stack.md:267-287](file://docs/Agropioo_Tech_Stack.md#L267-L287)
+- [docs/agropioo_Tech_Stack.md:267-287](file://docs/agropioo_Tech_Stack.md#L267-L287)
 
 ### Branch Management and Pull Requests
 - Hybrid branching: small fixes may go directly to main; multi-file features use feature branches and pull requests.
@@ -349,7 +349,7 @@ Commands:
 - [docs/brand-identity.md:10-24](file://docs/brand-identity.md#L10-L24)
 
 ### Cultural Sensitivity and Mission
-- Agropioo serves Pakistani farmers with practical, timely advice in their language and context.
+- agropioo serves Pakistani farmers with practical, timely advice in their language and context.
 - Design for mobile outdoors, high contrast, and large touch targets.
 - Avoid fabricated metrics or testimonials; maintain honesty and trust.
 

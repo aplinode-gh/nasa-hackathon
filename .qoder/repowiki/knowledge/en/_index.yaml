@@ -6,8 +6,8 @@ nodes_managed: true
 exported_at: "2026-08-25T17:12:55Z"
 modules:
     "":
-        dir_name: Agropioo Monorepo Root
-        title: Agropioo Monorepo Root
+        dir_name: agropioo Monorepo Root
+        title: agropioo Monorepo Root
         scope:
             - README.md
             - AGENTS.md
@@ -33,8 +33,8 @@ modules:
         depends_on: []
         related_to: []
     app:
-        dir_name: Agropioo Next.js App (Farmer Dashboard, Marketing Site & API)
-        title: Agropioo Next.js App (Farmer Dashboard, Marketing Site & API)
+        dir_name: agropioo Next.js App (Farmer Dashboard, Marketing Site & API)
+        title: agropioo Next.js App (Farmer Dashboard, Marketing Site & API)
         scope:
             - app/
             - components/
@@ -80,8 +80,8 @@ modules:
             - path: app/shared_components
             - path: catalog
     app/shared_components:
-        dir_name: Agropioo Shared UI Components
-        title: Agropioo Shared UI Components
+        dir_name: agropioo Shared UI Components
+        title: agropioo Shared UI Components
         scope:
             - components/
         source_files: []
@@ -91,8 +91,8 @@ modules:
             - path: app/farmer_dashboard
             - path: app/marketing_site
     catalog:
-        dir_name: Multilingual Translation Catalog (Agropioo i18n)
-        title: Multilingual Translation Catalog (Agropioo i18n)
+        dir_name: Multilingual Translation Catalog (agropioo i18n)
+        title: Multilingual Translation Catalog (agropioo i18n)
         scope:
             - catalog/
         source_files: []

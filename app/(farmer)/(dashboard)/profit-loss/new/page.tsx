@@ -4,7 +4,7 @@ import { query } from "@/lib/db";
 import NewSeasonClient from "./new-season-client";
 
 export const metadata: Metadata = {
-  title: "New season — Agropioo",
+  title: "New season — agropioo",
 };
 
 export default async function NewSeasonPage() {

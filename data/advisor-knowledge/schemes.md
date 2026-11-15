@@ -293,4 +293,4 @@ The Punjab Agriculture Department runs multiple subsidy and support programs bey
 
 ---
 
-*Disclaimer: This document is compiled from publicly available government announcements and reports as of 2024–2025. Program details, subsidy amounts, eligibility criteria, and implementing agencies are subject to change without notice. This guide is intended as general information only and does not constitute official government advice. Always verify current program details with the relevant implementing agency before making decisions. Agropioo is not responsible for any actions taken based solely on this information.*
+*Disclaimer: This document is compiled from publicly available government announcements and reports as of 2024–2025. Program details, subsidy amounts, eligibility criteria, and implementing agencies are subject to change without notice. This guide is intended as general information only and does not constitute official government advice. Always verify current program details with the relevant implementing agency before making decisions. agropioo is not responsible for any actions taken based solely on this information.*

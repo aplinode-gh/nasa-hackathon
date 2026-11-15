@@ -238,7 +238,7 @@ export async function runAlertScan(
 
     let sentVia = ["in_app"] as string[];
     if (accountEmail) {
-      const subject = `Agropioo weather alert — ${condition.type.replace(/_/g, " ")}`;
+      const subject = `agropioo weather alert — ${condition.type.replace(/_/g, " ")}`;
       const ok = await sendAlertEmail(accountEmail, subject, recommendation);
       if (ok) {
         sentVia = ["in_app", "email"];

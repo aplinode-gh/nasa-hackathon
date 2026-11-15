@@ -26,10 +26,10 @@
 10. Appendices
 
 ## Introduction
-This document explains how to set up the environment for Agropioo across local development, staging, and production. It covers required environment variables (Supabase credentials, SMTP/email settings, JWT secret), environment differences, variable precedence, security best practices, CORS considerations, error handling patterns, and step-by-step setup instructions.
+This document explains how to set up the environment for agropioo across local development, staging, and production. It covers required environment variables (Supabase credentials, SMTP/email settings, JWT secret), environment differences, variable precedence, security best practices, CORS considerations, error handling patterns, and step-by-step setup instructions.
 
 ## Project Structure
-Agropioo is a Next.js application that uses:
+agropioo is a Next.js application that uses:
 - Supabase for database and authentication integration
 - Nodemailer for sending verification/reset emails via SMTP
 - jose for signing short-lived access passes (JWTs) used by cookies
@@ -229,7 +229,7 @@ Where to check:
 - [lib/auth/pass.ts:64-70](file://lib/auth/pass.ts#L64-L70)
 
 ## Conclusion
-Properly configuring environment variables is essential for Agropioo’s operation. Follow the steps below to set up each environment securely and consistently. Use separate files per environment, enforce strict variable presence, and apply production-grade security flags.
+Properly configuring environment variables is essential for agropioo’s operation. Follow the steps below to set up each environment securely and consistently. Use separate files per environment, enforce strict variable presence, and apply production-grade security flags.
 
 ## Appendices
 

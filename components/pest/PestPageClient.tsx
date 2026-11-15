@@ -28,6 +28,8 @@ type ForecastResponse = {
   farm_name: string;
   crop: string;
   weather_data_unavailable: boolean;
+  nasa_power_attribution?: string;
+  nasa_backtest?: { text: string; month: string; humidityThreshold: number; yearsMatched: number; yearsTotal: number } | null;
   days: DayForecast[];
 };
 
@@ -234,7 +236,7 @@ export default function PestPageClient({ bundle, farms }: PestPageClientProps) {
       {/* 7-Day forecast cards */}
       {!loading && forecast && (
         <div>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-2 flex-wrap">
             <h2 className="text-base font-semibold text-agro-forest">
               7-Day Pest Risk Forecast{forecast.crop ? ` — ${forecast.crop}` : ""}
             </h2>
@@ -242,6 +244,21 @@ export default function PestPageClient({ bundle, farms }: PestPageClientProps) {
               {forecast.weather_data_unavailable ? bundle.source.demo : bundle.source.live}
             </span>
           </div>
+
+          {forecast.nasa_backtest?.text && (
+            <div className="mt-3 rounded-2xl border border-agro-canopy/20 bg-agro-mint/30 p-4">
+              <div className="flex items-center justify-between gap-2 flex-wrap">
+                <p className="text-sm font-semibold text-agro-forest">NASA POWER pest backtest</p>
+                {forecast.nasa_power_attribution && (
+                  <span className="inline-flex items-center rounded-full border border-agro-canopy/30 bg-white px-2.5 py-1 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-agro-canopy">
+                    {forecast.nasa_power_attribution}
+                  </span>
+                )}
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-agro-ink">{forecast.nasa_backtest.text}</p>
+            </div>
+          )}
+
           <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
             {forecast.days.map((day, i) => (
               <DayCard key={day.date} day={day} index={i} />

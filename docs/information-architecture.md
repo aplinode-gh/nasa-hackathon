@@ -1,6 +1,6 @@
-# Agropioo — Information Architecture
+# agropioo — Information Architecture
 
-> Roles, pages, and API routes for the full product. Aligned with `Agropioo_Project_Documentation.md` (Pakistan-first AI agriculture platform) and `Agropioo Tech Stack.md` (Next.js 16 + Neon Lakebase Postgres).
+> Roles, pages, and API routes for the full product. Aligned with `agropioo_Project_Documentation.md` (Pakistan-first AI agriculture platform) and `agropioo Tech Stack.md` (Next.js 16 + Neon Lakebase Postgres).
 
 ---
 

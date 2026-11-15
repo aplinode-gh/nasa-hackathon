@@ -1,6 +1,6 @@
 # Implementation Prompt: Mandi Price Tracker & Predictor (Feature #002)
 
-You are implementing **Feature #002: Mandi Price Tracker & Predictor** for the Agropioo platform. Read the spec and plan thoroughly before writing any code. Do not skip steps.
+You are implementing **Feature #002: Mandi Price Tracker & Predictor** for the agropioo platform. Read the spec and plan thoroughly before writing any code. Do not skip steps.
 
 ## Required Reading (in order)
 

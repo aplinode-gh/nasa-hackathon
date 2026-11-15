@@ -18,7 +18,7 @@ import {
   WeatherIcon,
   WheatIcon,
 } from "@/components/icons";
-import logoOnDark from "@/references/Agropioo-logo-footer.png";
+import logoOnDark from "@/references/agropioo-logo-footer.png";
 import type { ShellBundle } from "./shell-bundle";
 
 /* Desktop (≥lg) sidebar for the farmer app: a dark forest ledger rail.
@@ -56,7 +56,7 @@ export default function AppSidebar({ bundle }: AppSidebarProps) {
       {/* Fixed top — logo + brand */}
       <div className="shrink-0">
         <Link href="/" className="inline-flex items-center px-2">
-          <Image src={logoOnDark} alt="Agropioo" className="h-11 w-auto" />
+          <Image src={logoOnDark} alt="agropioo" className="h-11 w-auto" />
         </Link>
         <p className="mt-1 px-2 font-mono text-[0.65rem] uppercase tracking-[0.22em] text-white/50">
           {productOf}

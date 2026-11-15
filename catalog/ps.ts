@@ -1,4 +1,4 @@
-﻿import type { CatalogKey } from "./en.ts";
+import type { CatalogKey } from "./en.ts";
 
 /** Pashto (پښتو) — AI-translated. RTL language. */
 export const ps: Partial<Record<CatalogKey, string>> = {

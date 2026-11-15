@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Agropioo — Farm Intelligence",
-    short_name: "Agropioo",
+    name: "agropioo — Farm Intelligence",
+    short_name: "agropioo",
     description:
       "AI-powered farm intelligence for Pakistani farmers: weather, records, disease detection, and market prices — offline capable.",
     start_url: "/",

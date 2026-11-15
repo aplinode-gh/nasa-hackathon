@@ -26,10 +26,10 @@
 10. Appendices
 
 ## Introduction
-This document provides a comprehensive deployment strategy for Agropioo, a Next.js application with server-side API routes and Supabase-backed data services. It covers recommended Vercel deployment, Docker containerization, and traditional hosting options. It also details CI/CD setup with GitHub Actions, automated testing, environment-specific configuration, database migrations, asset optimization, scaling considerations for Pakistani farmers under varying network conditions, CDN configuration, performance monitoring, rollback strategies, health checks, and production troubleshooting procedures.
+This document provides a comprehensive deployment strategy for agropioo, a Next.js application with server-side API routes and Supabase-backed data services. It covers recommended Vercel deployment, Docker containerization, and traditional hosting options. It also details CI/CD setup with GitHub Actions, automated testing, environment-specific configuration, database migrations, asset optimization, scaling considerations for Pakistani farmers under varying network conditions, CDN configuration, performance monitoring, rollback strategies, health checks, and production troubleshooting procedures.
 
 ## Project Structure
-Agropioo is a Next.js App Router project with:
+agropioo is a Next.js App Router project with:
 - Serverless API routes under app/api (e.g., authentication and health endpoints)
 - Supabase client initialization and admin client usage
 - Nodemailer-based email delivery via SMTP
@@ -300,7 +300,7 @@ API --> MAILER
 - [lib/mailer.ts:13-39](file://lib/mailer.ts#L13-L39)
 
 ## Conclusion
-Agropioo’s deployment strategy leverages Next.js serverless functions, Supabase for data, and SMTP for communications. Vercel is the recommended platform for streamlined deployment and CDN integration. Robust CI/CD pipelines should automate testing, building, migrating, and deploying with health checks and rollback capabilities. Optimizations for low-bandwidth environments and careful environment configuration ensure reliable operation for Pakistani farmers.
+agropioo’s deployment strategy leverages Next.js serverless functions, Supabase for data, and SMTP for communications. Vercel is the recommended platform for streamlined deployment and CDN integration. Robust CI/CD pipelines should automate testing, building, migrating, and deploying with health checks and rollback capabilities. Optimizations for low-bandwidth environments and careful environment configuration ensure reliable operation for Pakistani farmers.
 
 ## Appendices
 

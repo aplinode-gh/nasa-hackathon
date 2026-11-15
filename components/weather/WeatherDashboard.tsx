@@ -29,6 +29,9 @@ type WeatherDashboardProps = {
     humidity: string;
     wind: string;
   };
+  nasaBaseline?: string | null;
+  nasaAttribution?: string | null;
+  frostSummary?: string | null;
 };
 
 export default function WeatherDashboard({
@@ -42,6 +45,9 @@ export default function WeatherDashboard({
   selectedDay,
   metricLabels,
   overviewLabels,
+  nasaBaseline,
+  nasaAttribution,
+  frostSummary,
 }: WeatherDashboardProps) {
   const [metric, setMetric] = useState<Metric>("temperature");
   const [activeDay, setActiveDay] = useState(selectedDay);
@@ -62,6 +68,21 @@ export default function WeatherDashboard({
         dateTime={dateTime}
         labels={overviewLabels}
       />
+
+      {(nasaBaseline || frostSummary || nasaAttribution) && (
+        <section className="rounded-2xl border border-agro-sprout bg-agro-mint/30 p-4 sm:p-5">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h3 className="text-sm font-semibold text-agro-forest">NASA climate context</h3>
+            {nasaAttribution && (
+              <span className="inline-flex items-center rounded-full border border-agro-canopy/30 bg-white px-2.5 py-1 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-agro-canopy">
+                {nasaAttribution}
+              </span>
+            )}
+          </div>
+          {nasaBaseline && <p className="mt-2 text-sm leading-relaxed text-agro-ink">{nasaBaseline}</p>}
+          {frostSummary && <p className="mt-2 text-sm leading-relaxed text-agro-slate">{frostSummary}</p>}
+        </section>
+      )}
 
       <WeatherMetricTabs active={metric} onChange={setMetric} labels={metricLabels} />
 

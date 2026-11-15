@@ -6,7 +6,7 @@ import SatelliteView from "./satellite-view";
 import type { FarmOption } from "./satellite-types";
 
 export const metadata: Metadata = {
-  title: "Field monitoring — Agropioo",
+  title: "Field monitoring — agropioo",
 };
 
 export default async function SatellitePage() {

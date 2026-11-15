@@ -4,14 +4,14 @@
 **Spec File**: `specs/offline-pwa/spec.md`  
 **Research**: [`research.md`](research.md)  
 **Status**: Draft  
-**Input**: Feature #14 from `docs/Agropioo_features.md` + founder interview 2026-09-03  
+**Input**: Feature #14 from `docs/agropioo_features.md` + founder interview 2026-09-03  
 **Note**: SMS alerts (Twilio) are deferred to a separate `specs/sms-alerts/` ticket — see Out of Scope. When SMS ships, the `users.phone` column will need to be re-added via a fresh migration (it was dropped in migration 0017 along with the signup phone field per FR1.1; see `specs/authentication/spec.md`).
 
 ---
 
 ## Goal
 
-Rural Pakistan farmers lose connectivity daily in fields where 4G is spotty. Agropioo must work offline so a farmer can view weather advisories, crop guides, price data, and farm records without a signal, record observations and take photos that queue locally, and have everything sync automatically when the network returns — turning dead zones into productive time instead of dead time.
+Rural Pakistan farmers lose connectivity daily in fields where 4G is spotty. agropioo must work offline so a farmer can view weather advisories, crop guides, price data, and farm records without a signal, record observations and take photos that queue locally, and have everything sync automatically when the network returns — turning dead zones into productive time instead of dead time.
 
 ---
 

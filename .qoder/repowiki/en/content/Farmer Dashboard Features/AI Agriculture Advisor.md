@@ -26,7 +26,7 @@
 10. Appendices
 
 ## Introduction
-This document explains the AI Agriculture Advisor feature for Agropioo. It covers the natural language Q&A interface, context-aware recommendation engine design, multi-language support for farming queries, chat message handling, integration points with AI services, conversation state management, response streaming strategy, prompt engineering guidance, error handling and fallbacks, performance optimization, message caching, and accessibility for farmers with varying literacy levels.
+This document explains the AI Agriculture Advisor feature for agropioo. It covers the natural language Q&A interface, context-aware recommendation engine design, multi-language support for farming queries, chat message handling, integration points with AI services, conversation state management, response streaming strategy, prompt engineering guidance, error handling and fallbacks, performance optimization, message caching, and accessibility for farmers with varying literacy levels.
 
 The current implementation is a UI-only demo that simulates advisor responses using keyword-matched canned replies. The architecture is designed to be extended into a real AI-powered system while preserving farmer context (crop, location, weather, history) and delivering localized, accessible experiences.
 

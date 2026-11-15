@@ -123,7 +123,7 @@ export default function LoginForm({ copy }: { copy: LoginCopy }) {
         </svg>
         <div className="relative">
           <Link href={prefix ? prefix : "/"} className="inline-flex items-center">
-            <Image src={logoOnDark} alt="Agropioo" className="h-14 w-auto" />
+            <Image src={logoOnDark} alt="agropioo" className="h-14 w-auto" />
           </Link>
           <p className="mt-2 font-mono text-xs uppercase tracking-[0.22em] text-agro-sprout/80">
             {copy.productOf}
@@ -164,7 +164,7 @@ export default function LoginForm({ copy }: { copy: LoginCopy }) {
         {/* Compact brand header for mobile */}
         <div className="flex items-center justify-between lg:hidden">
           <Link href={prefix ? prefix : "/"} className="inline-flex items-center">
-            <Image src={logoOnLight} alt="Agropioo" className="h-12 w-auto" />
+            <Image src={logoOnLight} alt="agropioo" className="h-12 w-auto" />
           </Link>
         </div>
 

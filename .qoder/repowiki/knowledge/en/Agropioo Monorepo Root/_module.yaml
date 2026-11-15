@@ -1,6 +1,6 @@
 schema_version: 1
 module_path: ""
-title: Agropioo Monorepo Root
+title: agropioo Monorepo Root
 scope:
     - README.md
     - AGENTS.md
