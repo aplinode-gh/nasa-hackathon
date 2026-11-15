@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
@@ -11,7 +12,14 @@ import xgboost as xgb
 
 from app.datasets.signals import INDICATOR_COLUMNS, SEASON_FEATURE_COLUMNS
 
-ARTIFACT_DIR = Path(__file__).resolve().parents[1] / "artifacts"
+# MODEL_STORE_DIR lets a deployment point at a packaged bundle with the same
+# clean/ and models/ layout as the local artifacts directory.
+_STORE_OVERRIDE = os.getenv("MODEL_STORE_DIR")
+ARTIFACT_DIR = (
+    Path(_STORE_OVERRIDE).expanduser().resolve()
+    if _STORE_OVERRIDE
+    else Path(__file__).resolve().parents[1] / "artifacts"
+)
 CLEAN_DIR = ARTIFACT_DIR / "clean"
 MODEL_DIR = ARTIFACT_DIR / "models"
 
@@ -68,23 +76,21 @@ def _read_json(path: Path, default):
 
 @lru_cache
 def _load_state() -> dict:
-    training_path = CLEAN_DIR / "training_table.parquet"
-    seasonal_path = CLEAN_DIR / "seasonal_features.parquet"
+    observed_path = CLEAN_DIR / "seasonal_features.parquet"
     metrics_path = MODEL_DIR / "metrics.json"
-    if not training_path.exists() or not metrics_path.exists():
+    if not observed_path.exists() or not metrics_path.exists():
         raise ModelNotTrained(
             "Model artifacts are missing. Run scripts/prepare_dataset.py then "
-            "scripts/train_forecast.py."
+            "scripts/train_forecast.py, or point MODEL_STORE_DIR at a "
+            "packaged bundle built by scripts/package_models.py."
         )
 
     metrics = _read_json(metrics_path, {})
+    # seasonal_features keeps the newest observed season, which has no
+    # next-season label yet. It is the right base for a live forecast.
+    observed = pd.read_parquet(observed_path)
     return {
-        "table": pd.read_parquet(training_path),
-        # seasonal_features keeps the newest observed season, which has no
-        # next-season label yet. It is the right base for a live forecast.
-        "observed": pd.read_parquet(seasonal_path)
-        if seasonal_path.exists()
-        else pd.read_parquet(training_path),
+        "observed": observed,
         "trends": pd.read_csv(CLEAN_DIR / "long_term_trends.csv")
         if (CLEAN_DIR / "long_term_trends.csv").exists()
         else pd.DataFrame(),
@@ -92,6 +98,7 @@ def _load_state() -> dict:
         "seasons": metrics.get("seasons", ["annual", "kharif", "rabi"]),
         "targets": metrics.get("targets", {}),
         "calibration": _read_json(MODEL_DIR / "calibration.json", {}),
+        "feature_columns": _feature_columns(observed),
     }
 
 
@@ -117,6 +124,21 @@ def _design_row(row: pd.Series, features: list[str], seasons: list[str]) -> np.n
     return np.concatenate([numeric, lat, lon, one_hot]).reshape(1, -1)
 
 
+@lru_cache
+def _load_model(target: str, alpha: float) -> xgb.XGBRegressor:
+    """Load and cache a trained quantile model.
+
+    Loading 21 XGBoost files per request costs seconds, so each model is read
+    once per process and reused.
+    """
+    path = MODEL_DIR / f"{target}_q{int(alpha * 100)}.json"
+    if not path.exists():
+        raise ModelNotTrained(f"Missing model file: {path.name}")
+    model = xgb.XGBRegressor()
+    model.load_model(path)
+    return model
+
+
 def _quantile_prediction(
     target: str,
     matrix: np.ndarray,
@@ -125,13 +147,11 @@ def _quantile_prediction(
     outputs: dict[str, float | str | None] = {}
     values: dict[str, float] = {}
 
-    for alpha, key in ((0.1, "p10"), (0.5, "p50"), (0.9, "p90")):
-        path = MODEL_DIR / f"{target}_q{int(alpha * 100)}.json"
-        if not path.exists():
-            return {"p10": None, "p50": None, "p90": None}
-        model = xgb.XGBRegressor()
-        model.load_model(path)
-        values[key] = float(model.predict(matrix)[0])
+    try:
+        for alpha, key in ((0.1, "p10"), (0.5, "p50"), (0.9, "p90")):
+            values[key] = float(_load_model(target, alpha).predict(matrix)[0])
+    except ModelNotTrained:
+        return {"p10": None, "p50": None, "p90": None}
 
     radius = float(calibration.get(target, 0.0) or 0.0)
     if radius > 0:
@@ -175,7 +195,7 @@ def forecast(site: str, season: str) -> ForecastResult:
     state = _load_state()
     row = _row_for(site, season)
 
-    design_features = _feature_columns(state["table"])
+    design_features = state["feature_columns"]
     matrix = _design_row(row, design_features, state["seasons"])
 
     predictions: dict[str, dict[str, float | str | None]] = {}

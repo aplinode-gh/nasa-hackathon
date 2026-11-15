@@ -65,6 +65,13 @@
         "cwd": "apps/model-api",
         "parallel": false
       }
+    },
+    "package-models": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "python scripts/package_models.py --out model_store --force",
+        "cwd": "apps/model-api"
+      }
     }
   }
 }

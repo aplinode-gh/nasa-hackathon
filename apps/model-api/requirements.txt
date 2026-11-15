@@ -1,0 +1,9 @@
+# Runtime dependencies for the inference container.
+# The service never trains or harvests, so scikit-learn, requests and test
+# tooling are intentionally omitted.
+fastapi>=0.115
+uvicorn>=0.30
+numpy>=1.26
+pandas>=2.2
+pyarrow>=15.0
+xgboost>=2.0

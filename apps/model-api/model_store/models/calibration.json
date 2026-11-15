@@ -1,0 +1,9 @@
+{
+  "target_next_tmean_c": 0.191536,
+  "target_next_heat_days_35": -0.182327,
+  "target_next_precip_total_mm": 0.851992,
+  "target_next_soil_moisture": 8.6e-05,
+  "target_next_frost_days": -0.034674,
+  "target_next_extreme_rain_days": -0.001739,
+  "target_next_vegetation_stress": 0.022417
+}
