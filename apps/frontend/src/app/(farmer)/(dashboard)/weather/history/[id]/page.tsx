@@ -21,11 +21,8 @@ export default async function AdvisoryDetailPage({
 
   let advisory: any = null;
   try {
-    const res = await backendFetch(`/api/weather/history/${encodeURIComponent(id)}`);
-    if (res.ok) {
-      const data = await res.json();
-      advisory = data?.advisory ?? null;
-    }
+    const data = await backendFetch<{ advisory?: any }>(`/api/weather/history/${encodeURIComponent(id)}`);
+    advisory = data?.advisory ?? null;
   } catch {
     advisory = null;
   }

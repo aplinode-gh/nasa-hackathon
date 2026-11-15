@@ -25,11 +25,8 @@ export default async function WeatherHistoryPage({
 
   let farmList: FarmRow[] = [];
   try {
-    const farmsRes = await backendFetch("/api/farms");
-    if (farmsRes.ok) {
-      const data = await farmsRes.json();
-      farmList = (Array.isArray(data) ? data : data?.farms ?? []) as FarmRow[];
-    }
+    const data = await backendFetch<any>("/api/farms");
+    farmList = (Array.isArray(data) ? data : data?.farms ?? []) as FarmRow[];
   } catch {
     farmList = [];
   }
@@ -67,14 +64,11 @@ export default async function WeatherHistoryPage({
   let rows: HistoryItem[] = [];
   let nextCursor: string | null = null;
   try {
-    const res = await backendFetch(
+    const data = await backendFetch<{ items?: HistoryItem[]; next_cursor?: string | null }>(
       `/api/weather/history?farm_id=${encodeURIComponent(String(selected.id))}&limit=20`,
     );
-    if (res.ok) {
-      const data = await res.json();
-      rows = (data?.items ?? []) as HistoryItem[];
-      nextCursor = data?.next_cursor ?? null;
-    }
+    rows = (data?.items ?? []) as HistoryItem[];
+    nextCursor = data?.next_cursor ?? null;
   } catch {
     rows = [];
   }

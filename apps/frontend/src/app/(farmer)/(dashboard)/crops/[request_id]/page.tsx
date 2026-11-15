@@ -22,12 +22,11 @@ export default async function CropRecommendationDetailPage({ params }: PageProps
   let recommendations: Array<any> = [];
 
   try {
-    const res = await backendFetch(`/api/crops/${encodeURIComponent(request_id)}`);
-    if (res.ok) {
-      const data = await res.json();
-      request = data?.request ?? null;
-      recommendations = data?.recommendations ?? [];
-    }
+    const data = await backendFetch<{ request?: Record<string, unknown>; recommendations?: any[] }>(
+      `/api/crops/${encodeURIComponent(request_id)}`,
+    );
+    request = data?.request ?? null;
+    recommendations = data?.recommendations ?? [];
   } catch {
     // best-effort render; client shows not-found state
   }
