@@ -23,7 +23,7 @@
 9. [Conclusion](#conclusion)
 
 ## Introduction
-This document explains Agropioo’s shell components that provide the application layout and navigation structure for the farmer app. It covers:
+This document explains agro ai’s shell components that provide the application layout and navigation structure for the farmer app. It covers:
 - App Sidebar: desktop navigation rail with menu items, active state, and branding.
 - Bottom Tab Bar: mobile navigation bar with five tabs, active state, and safe-area support.
 - Page Header: consistent title area with eyebrow label, optional description, and action slot.
@@ -331,7 +331,7 @@ Common issues and resolutions:
 - [app-sidebar.tsx:49-79](file://components/shell/app-sidebar.tsx#L49-L79)
 
 ## Conclusion
-Agropioo’s shell components deliver a consistent, accessible, and responsive application layout:
+agro ai’s shell components deliver a consistent, accessible, and responsive application layout:
 - AppSidebar provides desktop navigation with clear active states and branding.
 - BottomTabBar offers mobile navigation optimized for touch and outdoor readability.
 - PageHeader standardizes page titles and actions across the app.

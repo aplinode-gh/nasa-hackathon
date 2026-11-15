@@ -10,7 +10,7 @@ import { computeFarmHealth } from "@/lib/farms/health";
 import FarmRecordsSection from "./farm-records-section";
 
 export const metadata: Metadata = {
-  title: "Farm details — Agropioo",
+  title: "Farm details — agro ai",
 };
 
 const healthChip = {

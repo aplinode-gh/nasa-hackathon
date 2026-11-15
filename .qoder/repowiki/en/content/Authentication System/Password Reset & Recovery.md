@@ -31,7 +31,7 @@
 9. Conclusion
 
 ## Introduction
-This document explains Agropioo’s password reset and recovery system end-to-end: initiating a reset, generating and delivering a verification code, securely handling temporary tokens, verifying the code, and completing the password update. It covers the three API endpoints used by the client, the security measures that protect the flow (temporary tokens, code expiration, rate limiting), and how to implement the user interface for each step. Error handling guidance is included for invalid codes, expired tokens, and network failures.
+This document explains agro ai’s password reset and recovery system end-to-end: initiating a reset, generating and delivering a verification code, securely handling temporary tokens, verifying the code, and completing the password update. It covers the three API endpoints used by the client, the security measures that protect the flow (temporary tokens, code expiration, rate limiting), and how to implement the user interface for each step. Error handling guidance is included for invalid codes, expired tokens, and network failures.
 
 ## Project Structure
 The password recovery feature spans Next.js App Router pages and Route Handlers, with shared libraries for token management, code issuance, validation, and rate limiting.
@@ -413,4 +413,4 @@ Common issues and resolutions:
 - [verify-screen.tsx:36-57](file://app/(farmer)/verify/verify-screen.tsx#L36-L57)
 
 ## Conclusion
-Agropioo’s password reset and recovery system combines secure temporary tokens, hashed verification codes with short lifetimes, robust rate limiting, and strict server-side gating to provide a safe and user-friendly recovery experience. The three-step flow is clearly separated into initiation, verification, and password update, with consistent error handling and neutral messaging to prevent information leakage. Implementations on the client side follow predictable patterns for form submission, redirection, and error display, ensuring a smooth user journey.
+agro ai’s password reset and recovery system combines secure temporary tokens, hashed verification codes with short lifetimes, robust rate limiting, and strict server-side gating to provide a safe and user-friendly recovery experience. The three-step flow is clearly separated into initiation, verification, and password update, with consistent error handling and neutral messaging to prevent information leakage. Implementations on the client side follow predictable patterns for form submission, redirection, and error display, ensuring a smooth user journey.

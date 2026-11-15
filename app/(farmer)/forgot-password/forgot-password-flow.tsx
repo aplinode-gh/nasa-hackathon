@@ -195,7 +195,7 @@ export default function ForgotPasswordFlow() {
               Check Your Inbox
             </h1>
             <p className="mt-3 leading-relaxed text-agro-slate">
-              If that email has an Agropioo account, a 6-digit code is on its way
+              If that email has an agro ai account, a 6-digit code is on its way
               to <strong className="font-semibold text-agro-ink">{submittedEmail}</strong>.
             </p>
             <p className="mt-2 font-mono text-xs uppercase tracking-[0.18em] text-agro-cloud">

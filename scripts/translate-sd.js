@@ -14,8 +14,8 @@ const replacements = [
   ],
   // app.shell.metadataDescription - uses ' and —
   [
-    "\"app.shell.metadataDescription\": \"Today's advisory, weather, alerts, and every Agropioo tool — built for Pakistan. A product of Aplinode.\",",
-    "\"app.shell.metadataDescription\": \"اڄ جا مشورا، موسم، Alerts، ۽ ھر Agropioo ٽول — پاکستان لاءِ ٺھائي. Aplinode جو product.\","
+    "\"app.shell.metadataDescription\": \"Today's advisory, weather, alerts, and every agro ai tool — built for Pakistan. A product of Aplinode.\",",
+    "\"app.shell.metadataDescription\": \"اڄ جا مشورا، موسم، Alerts، ۽ ھر agro ai ٽول — پاکستان لاءِ ٺھائي. Aplinode جو product.\","
   ],
   // app.dashboard.weatherUnavailable - uses \u2019 and \u2014
   [

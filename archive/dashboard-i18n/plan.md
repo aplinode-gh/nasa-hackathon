@@ -27,7 +27,7 @@ English fallback. Client views receive typed prop bundles from thin server shell
 **D7 — Auth-adjacent fixes riding along.**
 - Site-group login/signup cross-links point to **bare** `/forgot-password` `/reset-password` `/verify` (they're app surfaces under `(farmer)`; kills the `/ur/forgot-password` 404 family).
 - Signup success redirects to `/onboarding`; existing-user login keeps PR #16's `/dashboard`.
-- Onboarding rebuilt: registry-driven 8-language grid, pre-selected from cookie, `localStorage["agropioo-language"]` deleted.
+- Onboarding rebuilt: registry-driven 8-language grid, pre-selected from cookie, `localStorage["agro ai-language"]` deleted.
 - Settings language list derived from registry (no "Soon" flags, no invented codes).
 - Every app surface owns a locale-aware `generateMetadata` title.
 

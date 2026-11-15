@@ -25,9 +25,9 @@ const translations = [
   ['"auth.err.invalidCredentials": "Invalid email or password."', '"auth.err.invalidCredentials": "galat اي ميل يا پاسورڊ."'],
 
   // ==================== LOGIN ====================
-  ['"li.title": "Sign in to Agropioo"', '"li.title": "Agropioo ۾ سائن ان"'],
+  ['"li.title": "Sign in to agro ai"', '"li.title": "agro ai ۾ سائن ان"'],
   ['"li.heading": "Welcome back"', '"li.heading": "خوش آمدید"'],
-  ['"li.demo.aria": "Preview of an Agropioo advisor conversation"', '"li.demo.aria": "Agropioo مشاور ڳالهابين جو предварител"'],
+  ['"li.demo.aria": "Preview of an agro ai advisor conversation"', '"li.demo.aria": "agro ai مشاور ڳالهابين جو предварител"'],
   ['"li.demo.user": "Meri gandum ki pattiyan peeli ho rahi hain — kya karoon?"', '"li.demo.user": "Meri gandum ki pattiyan peeli ho rahi hain — kya karoon?"'],
   ['"li.demo.advisorLabel": "Do causes:"', '"li.demo.advisorLabel": "Do causes:"'],
   ['"li.demo.advisorBody": "water stress ya nitrogen ki kami. Pehle subah cool hours mein pani dein."', '"li.demo.advisorBody": "water stress ya nitrogen ki kami. Pehle subah cool hours mein pani dein."'],
@@ -35,7 +35,7 @@ const translations = [
   ['"li.point2": "Satellite crop health monitoring"', '"li.point2": "سیلیٽ ٻج جي صحت جي نگراني"'],
   ['"li.point3": "Digital records for every season"', '"li.point3": "هر موسم لاءِ ڊجٽل رڪارڊ"'],
   ['"li.eyebrow": "Sign in"', '"li.eyebrow": "سائن ان"'],
-  ['"li.titleTag": "Sign in — Agropioo"', '"li.titleTag": "سائن ان — Agropioo"'],
+  ['"li.titleTag": "Sign in — agro ai"', '"li.titleTag": "سائن ان — agro ai"'],
   ['"li.sub": "Sign in to reach your farm\'s advisor, records, and advisories."', '"li.sub": "فارم جي مشاور، رڪارڊ، ۽ مشورا تي پهونچڻ لاءِ سائن ان ڪريو."'],
   ['"li.emailPlaceholder": "you@example.com"', '"li.emailPlaceholder": "you@example.com"'],
   ['"li.passwordPlaceholder": "Your password"', '"li.passwordPlaceholder": "توھان جو پاسورڊ"'],
@@ -45,7 +45,7 @@ const translations = [
   ['"li.createAccount": "create your account"', '"li.createAccount": "پنھن جو اکائونٹ ٺھائيو"'],
 
   // ==================== SIGNUP ====================
-  ['"su.title": "Create your Agropioo account"', '"su.title": "Agropioo اکائونٹ ٺھائيو"'],
+  ['"su.title": "Create your agro ai account"', '"su.title": "agro ai اکائونٹ ٺھائيو"'],
   ['"su.heading": "Start farming smarter"', '"su.heading": "سمارٽ فارمنگ شروع ڪريو"'],
   ['"su.profile.aria": "Preview of the farm profile created after sign up"', '"su.profile.aria": "سائن اپ کان پاڻ ٺھائي وئي فارم پروفائل جو предварител"'],
   ['"su.profile.badge": "Farm profile · ready in a minute"', '"su.profile.badge": "فارم پروفائل · ھڪ منشن ۾ تيار"'],
@@ -59,7 +59,7 @@ const translations = [
   ['"su.included2": "Weather-aware guidance for your district"', '"su.included2": "توھان جي ضلع لاءِ موسم ڄاڻي تي راهائتي"'],
   ['"su.included3": "Farm records that sharpen every season"', '"su.included3": "فارم رڪارڊ جن جو هر موسم وڌي ٿو"'],
   ['"su.eyebrow": "Create account"', '"su.eyebrow": "اکائونٹ ٺھائيو"'],
-  ['"su.titleTag": "Create account — Agropioo"', '"su.titleTag": "اکائونٹ ٺھائيو — Agropioo"'],
+  ['"su.titleTag": "Create account — agro ai"', '"su.titleTag": "اکائونٹ ٺھائيو — agro ai"'],
   ['"su.sub": "One account for your advisor, records, and every advisory this season."', '"su.sub": "توھان جي مشاور، رڪارڊ، ۽ ھن موسم جي ھر مشورو لاءِ هڪ اکائونٹ."'],
   ['"su.registered.title": "This email is already registered."', '"su.registered.title": "ھن اي ميل تي اڳhed registered آهي."'],
   ['"su.registered.reset": "Reset password"', '"su.registered.reset": "پاسورڊ ريسٽ"'],

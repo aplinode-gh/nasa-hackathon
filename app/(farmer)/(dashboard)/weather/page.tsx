@@ -19,7 +19,7 @@ import WeatherDashboard from "@/components/weather/WeatherDashboard";
 import { CROPS } from "@/lib/farms/constants";
 import { scanAlertConditions, scanDailyAlertConditions, type AlertCondition } from "@/lib/weather/alerts";
 
-export const metadata: Metadata = { title: "Weather ΓÇö Agropioo" };
+export const metadata: Metadata = { title: "Weather ΓÇö agro ai" };
 
 type FarmRow = {
   id: string;

@@ -5,7 +5,7 @@ import { query } from "@/lib/db";
 import CropsClient from "./crops-client";
 
 export const metadata: Metadata = {
-  title: "Crop recommendation — Agropioo",
+  title: "Crop recommendation — agro ai",
 };
 
 export default async function CropsPage() {

@@ -21,7 +21,7 @@ export default function OnboardingPage() {
   const proceed = () => {
     if (selectedLanguage) {
       // Store selected language in localStorage for persistence
-      localStorage.setItem("agropioo-language", selectedLanguage.code);
+      localStorage.setItem("agro ai-language", selectedLanguage.code);
     }
     router.replace("/dashboard");
   };
@@ -30,7 +30,7 @@ export default function OnboardingPage() {
     <div className="min-h-dvh flex items-center justify-center bg-agro-forest text-white p-4 sm:p-8">
       <div className="bg-white/10 rounded-3xl p-6 max-w-md w-full text-center sm:p-10 lg:p-12">
         <h2 className="display-heading font-display text-3xl font-bold text-agro-forest mb-6">
-          Welcome to Agropioo
+          Welcome to agro ai
         </h2>
         <p className="text-agro-slate text-lg mb-8">
           Select your preferred language to get started.

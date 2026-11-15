@@ -31,7 +31,7 @@
 10. [Appendices](#appendices)
 
 ## Introduction
-This document explains Agropioo’s user registration and email verification system end-to-end. It covers the signup flow, form validation, creation of users in Supabase, generation and delivery of 6-digit verification codes via Nodemailer, code verification completion, code lifecycle and expiration handling, resend functionality, API endpoints, request/response schemas, error handling patterns, security considerations (including rate limiting), and guidance for implementing the React Hook Form + Zod-based signup UI with proper state management and user feedback.
+This document explains agro ai’s user registration and email verification system end-to-end. It covers the signup flow, form validation, creation of users in Supabase, generation and delivery of 6-digit verification codes via Nodemailer, code verification completion, code lifecycle and expiration handling, resend functionality, API endpoints, request/response schemas, error handling patterns, security considerations (including rate limiting), and guidance for implementing the React Hook Form + Zod-based signup UI with proper state management and user feedback.
 
 ## Project Structure
 The registration and verification features are implemented as:
@@ -423,7 +423,7 @@ Operational tips:
 - [0002_auth.sql:1-61](file://supabase/migrations/0002_auth.sql#L1-L61)
 
 ## Conclusion
-Agropioo’s registration and verification system combines robust server-side validation, secure code handling, JWT-backed passes, and strict rate limiting to provide a safe and user-friendly signup experience. The design emphasizes neutral error messaging, idempotent verification, and clear code lifecycles. Frontend integration leverages shared schemas for consistency and offers smooth transitions between signup, verification, and post-verification states.
+agro ai’s registration and verification system combines robust server-side validation, secure code handling, JWT-backed passes, and strict rate limiting to provide a safe and user-friendly signup experience. The design emphasizes neutral error messaging, idempotent verification, and clear code lifecycles. Frontend integration leverages shared schemas for consistency and offers smooth transitions between signup, verification, and post-verification states.
 
 [No sources needed since this section summarizes without analyzing specific files]
 

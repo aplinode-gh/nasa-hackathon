@@ -2,7 +2,7 @@
 
 ## Goal
 
-Give farmers a conversational interface that lets them control the entire Agropioo app through natural text chat. Instead of navigating menus and filling forms manually, a farmer types what they want to do — "log my irrigation expense of 2000 rupees" or "show me my tomato prices" — and the chat agent executes the action, confirms the result, and navigates them to the relevant page. The chat is a universal remote for the app.
+Give farmers a conversational interface that lets them control the entire agro ai app through natural text chat. Instead of navigating menus and filling forms manually, a farmer types what they want to do — "log my irrigation expense of 2000 rupees" or "show me my tomato prices" — and the chat agent executes the action, confirms the result, and navigates them to the relevant page. The chat is a universal remote for the app.
 
 ## User Scenarios
 
@@ -163,7 +163,7 @@ The floating bubble pulse animation respects the user's `prefers-reduced-motion`
 - Offline mode for the chat (requires network for agent processing).
 - Agent customization or personality settings.
 - Bulk actions or batch processing (one action per message).
-- Integration with external apps or services beyond the existing Agropioo route handlers.
+- Integration with external apps or services beyond the existing agro ai route handlers.
 - Direct creation of scheduled reminders or notifications (deferred to existing or future scheduling infrastructure).
 
 ## Acceptance Criteria

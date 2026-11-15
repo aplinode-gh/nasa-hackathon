@@ -2,7 +2,7 @@
 
 /** Pashto (پښتو) — AI-translated. RTL language. */
 export const ps: Partial<Record<CatalogKey, string>> = {
-  "nav.whyAgropioo": "اګروپیو طور ته ایاست؟",
+  "nav.whyagro ai": "اګروپیو طور ته ایاست؟",
   "nav.features": "ځانګړتیاوې",
   "nav.howItWorks": "دا څنګه کارووي",
   "nav.vision": "موږ سره ویسون",

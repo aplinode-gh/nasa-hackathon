@@ -24,7 +24,7 @@ const t = {};
 // All keys get translated - this covers every single key from en.ts
 
 // nav.*
-t['nav.whyAgropioo'] = 'آئيگروپيو ڇو؟';
+t['nav.whyagro ai'] = 'آئيگروپيو ڇو؟';
 t['nav.features'] = 'خصوصيات';
 t['nav.howItWorks'] = 'هوندي ڪيئن ڪم ڪري ٿو';
 t['nav.vision'] = 'ويژن';

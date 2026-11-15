@@ -6,7 +6,7 @@
 
 ## Feature Context
 
-Feature #14 from `docs/Agropioo_features.md`. Listed as a "Wow Factor" (green tier), not part of the hackathon demo build order (features 1–7). The landing page already references this capability via catalog keys (`home.matrix.t3f5Title`, `feat.voice.offlineTitle`, etc.), and the constitution explicitly lists "SMS alerts" as **out of scope for demo**.
+Feature #14 from `docs/agro ai_features.md`. Listed as a "Wow Factor" (green tier), not part of the hackathon demo build order (features 1–7). The landing page already references this capability via catalog keys (`home.matrix.t3f5Title`, `feat.voice.offlineTitle`, etc.), and the constitution explicitly lists "SMS alerts" as **out of scope for demo**.
 
 ## Research Tasks
 

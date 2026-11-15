@@ -31,10 +31,10 @@
 10. Appendices
 
 ## Introduction
-This document provides integration testing guidance for Agropioo’s API routes and database interactions, focusing on authentication flows, database queries, and external service integrations (email). It outlines mock strategies for the Supabase client and email services, demonstrates end-to-end user workflows, error scenarios, and concurrent operations, and offers guidelines for test databases, data management, cleanup, async patterns, transaction handling, and performance considerations.
+This document provides integration testing guidance for agro ai’s API routes and database interactions, focusing on authentication flows, database queries, and external service integrations (email). It outlines mock strategies for the Supabase client and email services, demonstrates end-to-end user workflows, error scenarios, and concurrent operations, and offers guidelines for test databases, data management, cleanup, async patterns, transaction handling, and performance considerations.
 
 ## Project Structure
-Agropioo exposes Next.js Route Handlers under app/api for authentication:
+agro ai exposes Next.js Route Handlers under app/api for authentication:
 - POST /api/auth/signup
 - POST /api/auth/login
 - POST /api/auth/forgot-password
@@ -356,7 +356,7 @@ Common issues and resolutions:
 - [route.ts:83-101](file://app/api/auth/signup/route.ts#L83-L101)
 
 ## Conclusion
-Agropioo’s authentication system combines robust validation, rate limiting, secure pass tokens, and reliable email delivery. Integration tests should focus on end-to-end flows across routes, database state changes, and external service behaviors using mocks. Emphasize deterministic assertions, isolation, and coverage of error paths and concurrency scenarios.
+agro ai’s authentication system combines robust validation, rate limiting, secure pass tokens, and reliable email delivery. Integration tests should focus on end-to-end flows across routes, database state changes, and external service behaviors using mocks. Emphasize deterministic assertions, isolation, and coverage of error paths and concurrency scenarios.
 
 [No sources needed since this section summarizes without analyzing specific files]
 

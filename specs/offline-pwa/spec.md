@@ -4,14 +4,14 @@
 **Spec File**: `specs/offline-pwa/spec.md`  
 **Research**: [`research.md`](research.md)  
 **Status**: Draft  
-**Input**: Feature #14 from `docs/Agropioo_features.md` + founder interview 2026-09-03  
+**Input**: Feature #14 from `docs/agro ai_features.md` + founder interview 2026-09-03  
 **Note**: SMS alerts (Twilio) are deferred to a separate `specs/sms-alerts/` ticket — see Out of Scope. When SMS ships, the `users.phone` column will need to be re-added via a fresh migration (it was dropped in migration 0017 along with the signup phone field per FR1.1; see `specs/authentication/spec.md`).
 
 ---
 
 ## Goal
 
-Rural Pakistan farmers lose connectivity daily in fields where 4G is spotty. Agropioo must work offline so a farmer can view weather advisories, crop guides, price data, and farm records without a signal, record observations and take photos that queue locally, and have everything sync automatically when the network returns — turning dead zones into productive time instead of dead time.
+Rural Pakistan farmers lose connectivity daily in fields where 4G is spotty. agro ai must work offline so a farmer can view weather advisories, crop guides, price data, and farm records without a signal, record observations and take photos that queue locally, and have everything sync automatically when the network returns — turning dead zones into productive time instead of dead time.
 
 ---
 
@@ -46,7 +46,7 @@ Rural Pakistan farmers lose connectivity daily in fields where 4G is spotty. Agr
 
 - **FR-5**: Static marketing pages (crop guides, scheme/feature pages under `/[locale]/features/*`, `/[locale]/how-it-works`, etc.) must be cached at service worker install time so they load instantly offline.
 
-- **FR-6**: An IndexedDB local database (`agropioo_offline`, version 1) must store queued write operations across three object stores: `writes` (keyPath `uuid`), `photos` (pending image blobs), and `meta` (app settings + cache version). Schema migration uses an additive-only `onupgradeneeded` version switch: future versions only add new stores or keys, never alter existing entry shapes. Each queue entry must carry a client-generated UUID, the target endpoint, the HTTP method, a serialized JSON body, the entity type (`record`, `photo`, `farm_edit`, `pnl` — `pnl` reserved for the future Profit/Loss feature #7, not yet producing entries), an optional `depends_on` UUID (the client UUID of another queue entry this entry depends on — e.g. a record depending on a photo upload), a status field (`pending`, `syncing`, `failed`, `synced`, `discarded`), a retry count, and a timestamp.
+- **FR-6**: An IndexedDB local database (`agro ai_offline`, version 1) must store queued write operations across three object stores: `writes` (keyPath `uuid`), `photos` (pending image blobs), and `meta` (app settings + cache version). Schema migration uses an additive-only `onupgradeneeded` version switch: future versions only add new stores or keys, never alter existing entry shapes. Each queue entry must carry a client-generated UUID, the target endpoint, the HTTP method, a serialized JSON body, the entity type (`record`, `photo`, `farm_edit`, `pnl` — `pnl` reserved for the future Profit/Loss feature #7, not yet producing entries), an optional `depends_on` UUID (the client UUID of another queue entry this entry depends on — e.g. a record depending on a photo upload), a status field (`pending`, `syncing`, `failed`, `synced`, `discarded`), a retry count, and a timestamp.
 
 - **FR-7**: When the farmer submits a new farm record while the app is offline (the built-in `useOffline()` hook from `next/offline` returns `true` **or** the API call fails with a network/timeout error — `useOffline` does not monitor Route Handler `fetch()` writes, so the network-error fallback is still required), the write must be saved to the IndexedDB queue as `pending` and displayed in the UI immediately (optimistic rendering). The queued record body carries a client-generated `client_uuid`. `POST /api/records` stores it (new `client_uuid` column — see migration `0015_add_client_uuid_to_records.sql`) and echoes it in the 201 response. On sync success, the client matches its optimistic entry by `client_uuid`, marks the entry `synced`/`discarded`, and the server-confirmed record (with its real `id`) takes the optimistic entry's place in the merged list — no duplicate, no flicker.
 
@@ -153,7 +153,7 @@ Rural Pakistan farmers lose connectivity daily in fields where 4G is spotty. Agr
 
 ## Internal artifacts (new, no new deps)
 
-- `lib/offline/idb.ts` — promise wrapper around native IndexedDB; manages `agropioo_offline` DB (stores `writes`, `photos`, `meta`).
+- `lib/offline/idb.ts` — promise wrapper around native IndexedDB; manages `agro ai_offline` DB (stores `writes`, `photos`, `meta`).
 - `lib/offline/queue.ts` — enqueue / drain / retry logic; reads offline state from `lib/offline/status.ts` (which is fed by the `useOffline()` hook + `online`/`focus` events) and implements exponential backoff (FR-12); enforces the 200-pending hard cap (EC-2); handles photo→record `imageUrl` backfill via `depends_on` on replay (FR-8).
 - **lib/offline/status.ts** — readable store emitting network + sync status for the shell indicator (FR-13). A tiny `"use client"` provider component at the app-shell root calls the `useOffline()` hook and writes its boolean into this store; the queue and the indicator read from it. Also subscribes to `online`/`visibilitychange` events.
 - `app/manifest.ts` — Next.js built-in web app manifest (FR-1); brand-palette icons, `display="standalone"`.

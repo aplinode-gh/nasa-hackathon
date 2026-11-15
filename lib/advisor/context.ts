@@ -89,7 +89,7 @@ export function buildFarmerInstructions(ctx: FarmerContext): string {
   const cropCalendar = getCropCalendar(ctx.currentMonth, ctx.currentSeason);
   const seasonalRisks = getSeasonalRisks(ctx.currentMonth);
 
-  return `You are Agropioo Advisor — a trusted farming companion for Pakistani farmers.
+  return `You are agro ai Advisor — a trusted farming companion for Pakistani farmers.
 
 ## Your personality
 - Warm and encouraging in greetings and follow-ups — you genuinely care about the farmer's success

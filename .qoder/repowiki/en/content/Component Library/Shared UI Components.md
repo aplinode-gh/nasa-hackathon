@@ -10,7 +10,7 @@
 - [Hero.tsx](file://components/Hero.tsx)
 - [Features.tsx](file://components/Features.tsx)
 - [Footer.tsx](file://components/Footer.tsx)
-- [MASTER.md](file://design-system/agropioo/MASTER.md)
+- [MASTER.md](file://design-system/agro ai/MASTER.md)
 - [layout.tsx](file://app/(site)/[locale]/layout.tsx)
 </cite>
 
@@ -27,7 +27,7 @@
 10. [Appendices](#appendices)
 
 ## Introduction
-This document provides detailed, code-backed documentation for Agropioo’s shared UI components that power reusable user experiences across the application. It focuses on:
+This document provides detailed, code-backed documentation for agro ai’s shared UI components that power reusable user experiences across the application. It focuses on:
 - SuggestionChip: a one-time, dismissible language suggestion chip for first-time visitors.
 - Icons system: a consistent SVG icon library with sizing and accessibility attributes.
 - PakistanFirst: a messaging section showcasing national pride and cultural adaptation.
@@ -55,7 +55,7 @@ FEAT["Features"]
 FTR["Footer"]
 end
 subgraph "Design System"
-DS["Agropioo Design Tokens"]
+DS["agro ai Design Tokens"]
 end
 LYT --> SC
 HERO --> FM
@@ -72,11 +72,11 @@ FM --> DS
 - [Hero.tsx:1-80](file://components/Hero.tsx#L1-L80)
 - [Features.tsx:1-155](file://components/Features.tsx#L1-L155)
 - [Footer.tsx:1-54](file://components/Footer.tsx#L1-L54)
-- [MASTER.md:15-73](file://design-system/agropioo/MASTER.md#L15-L73)
+- [MASTER.md:15-73](file://design-system/agro ai/MASTER.md#L15-L73)
 
 **Section sources**
 - [layout.tsx:66-87](file://app/(site)/[locale]/layout.tsx#L66-L87)
-- [MASTER.md:15-73](file://design-system/agropioo/MASTER.md#L15-L73)
+- [MASTER.md:15-73](file://design-system/agro ai/MASTER.md#L15-L73)
 
 ## Core Components
 - SuggestionChip: A fixed bottom banner shown once to English-only visitors without a stored language choice; supports accept (redirect to Urdu) and dismiss actions.
@@ -378,7 +378,7 @@ end
 - EarlyAccessForm depends on icons for visual feedback.
 - Hero composes FurrowMotif for decorative visuals.
 - Features and Footer reference PakistanFirst indirectly through navigation and content organization.
-- All components adhere to the Agropioo design system tokens for consistency.
+- All components adhere to the agro ai design system tokens for consistency.
 
 ```mermaid
 graph LR
@@ -399,7 +399,7 @@ EAF --> DS
 - [Hero.tsx:1-80](file://components/Hero.tsx#L1-L80)
 - [Features.tsx:1-155](file://components/Features.tsx#L1-L155)
 - [Footer.tsx:1-54](file://components/Footer.tsx#L1-L54)
-- [MASTER.md:15-73](file://design-system/agropioo/MASTER.md#L15-L73)
+- [MASTER.md:15-73](file://design-system/agro ai/MASTER.md#L15-L73)
 
 **Section sources**
 - [suggestion-chip.tsx:1-106](file://components/suggestion-chip.tsx#L1-L106)
@@ -407,7 +407,7 @@ EAF --> DS
 - [Hero.tsx:1-80](file://components/Hero.tsx#L1-L80)
 - [Features.tsx:1-155](file://components/Features.tsx#L1-L155)
 - [Footer.tsx:1-54](file://components/Footer.tsx#L1-L54)
-- [MASTER.md:15-73](file://design-system/agropioo/MASTER.md#L15-L73)
+- [MASTER.md:15-73](file://design-system/agro ai/MASTER.md#L15-L73)
 
 ## Performance Considerations
 - SuggestionChip:
@@ -445,7 +445,7 @@ EAF --> DS
 - [icons.tsx:1-358](file://components/icons.tsx#L1-L358)
 
 ## Conclusion
-Agropioo’s shared UI components provide a cohesive, accessible, and performant foundation for building localized, culturally adapted experiences. The SuggestionChip streamlines onboarding for new visitors, the Icons system ensures consistent visual language, PakistanFirst reinforces brand identity, FurrowMotif adds thematic depth, and EarlyAccessForm captures interest with clear feedback. Together, they align with the Agropioo design system to deliver a unified product experience.
+agro ai’s shared UI components provide a cohesive, accessible, and performant foundation for building localized, culturally adapted experiences. The SuggestionChip streamlines onboarding for new visitors, the Icons system ensures consistent visual language, PakistanFirst reinforces brand identity, FurrowMotif adds thematic depth, and EarlyAccessForm captures interest with clear feedback. Together, they align with the agro ai design system to deliver a unified product experience.
 
 [No sources needed since this section summarizes without analyzing specific files]
 
@@ -489,5 +489,5 @@ Agropioo’s shared UI components provide a cohesive, accessible, and performant
 - Adhering to anti-patterns ensures consistent, accessible, and performant UI.
 
 **Section sources**
-- [MASTER.md:15-73](file://design-system/agropioo/MASTER.md#L15-L73)
-- [MASTER.md:165-216](file://design-system/agropioo/MASTER.md#L165-L216)
+- [MASTER.md:15-73](file://design-system/agro ai/MASTER.md#L15-L73)
+- [MASTER.md:165-216](file://design-system/agro ai/MASTER.md#L165-L216)

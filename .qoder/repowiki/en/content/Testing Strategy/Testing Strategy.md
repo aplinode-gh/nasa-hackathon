@@ -30,10 +30,10 @@
 9. Conclusion
 
 ## Introduction
-This document defines Agropioo’s testing strategy using Vitest. It covers unit tests for utility functions, component-level strategies for React components, and integration approaches for API routes. It also documents test organization, mocking strategies for external dependencies (Supabase, email services), test data management, guidelines for maintainable tests, coverage targets, asynchronous testing patterns, examples for authentication flows, form validation, and internationalization. Finally, it outlines continuous integration setup, reporting, debugging techniques, and performance/load testing considerations for production readiness.
+This document defines agro ai’s testing strategy using Vitest. It covers unit tests for utility functions, component-level strategies for React components, and integration approaches for API routes. It also documents test organization, mocking strategies for external dependencies (Supabase, email services), test data management, guidelines for maintainable tests, coverage targets, asynchronous testing patterns, examples for authentication flows, form validation, and internationalization. Finally, it outlines continuous integration setup, reporting, debugging techniques, and performance/load testing considerations for production readiness.
 
 ## Project Structure
-Agropioo uses a Node-based Vitest configuration that targets pure logic modules under lib and catalog. Tests are colocated with their source files using the .test.ts suffix and discovered via include patterns. The project scripts expose a single test command to run all suites deterministically.
+agro ai uses a Node-based Vitest configuration that targets pure logic modules under lib and catalog. Tests are colocated with their source files using the .test.ts suffix and discovered via include patterns. The project scripts expose a single test command to run all suites deterministically.
 
 ```mermaid
 graph TB
@@ -333,6 +333,6 @@ Disc --> CatTests["catalog/**/*.test.ts"]
 - [lib/validation/auth.test.ts:43-50](file://lib/validation/auth.test.ts#L43-L50)
 
 ## Conclusion
-Agropioo’s testing strategy centers on deterministic, fast, and reliable unit tests for core logic, robust token contract verification, and comprehensive i18n/catalog integrity checks. By isolating side effects, injecting time, and enforcing schema consistency, the suite ensures correctness across authentication, validation, and localization features. Extending these patterns to component and API route tests will further strengthen confidence in production readiness.
+agro ai’s testing strategy centers on deterministic, fast, and reliable unit tests for core logic, robust token contract verification, and comprehensive i18n/catalog integrity checks. By isolating side effects, injecting time, and enforcing schema consistency, the suite ensures correctness across authentication, validation, and localization features. Extending these patterns to component and API route tests will further strengthen confidence in production readiness.
 
 [No sources needed since this section summarizes without analyzing specific files]

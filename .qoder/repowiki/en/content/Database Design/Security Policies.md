@@ -30,10 +30,10 @@
 10. [Appendices](#appendices)
 
 ## Introduction
-This document describes the database security posture for Agropioo, focusing on row-level security (RLS), access control, data isolation, encryption of sensitive data, session management, and protection against common vulnerabilities. It also clarifies the current RLS status as disabled per migration comments, outlines planned security implementations, and provides compliance-oriented guidance for farmer data privacy. Finally, it includes guidelines for secure database queries, parameterized statements, and input validation at the database level.
+This document describes the database security posture for agro ai, focusing on row-level security (RLS), access control, data isolation, encryption of sensitive data, session management, and protection against common vulnerabilities. It also clarifies the current RLS status as disabled per migration comments, outlines planned security implementations, and provides compliance-oriented guidance for farmer data privacy. Finally, it includes guidelines for secure database queries, parameterized statements, and input validation at the database level.
 
 ## Project Structure
-Agropioo uses Supabase (PostgreSQL) with a custom authentication flow implemented via Next.js Route Handlers. The authentication schema defines users, sessions, pass states, and verification codes. Authentication logic is centralized in libraries that handle JWT passes, rate limiting, input validation, and HTTP helpers. Migrations define the database schema and include explicit notes about RLS being disabled at this stage.
+agro ai uses Supabase (PostgreSQL) with a custom authentication flow implemented via Next.js Route Handlers. The authentication schema defines users, sessions, pass states, and verification codes. Authentication logic is centralized in libraries that handle JWT passes, rate limiting, input validation, and HTTP helpers. Migrations define the database schema and include explicit notes about RLS being disabled at this stage.
 
 ```mermaid
 graph TB
@@ -351,7 +351,7 @@ Actionable steps:
 - [rate-limit.ts:12-25](file://lib/auth/rate-limit.ts#L12-L25)
 
 ## Conclusion
-Agropioo’s current security model relies on application-layer controls: state-backed JWT passes, secure cookies, robust input validation, rate limiting, and hashed secrets. RLS is intentionally disabled at this stage, with all access mediated by Route Handlers. To strengthen farmer data privacy and compliance, enable RLS to enforce tenant isolation at the database level, continue using parameterized queries, and maintain strict input validation. The existing design already mitigates many common threats; future work should focus on database-enforced policies and scalable rate limiting.
+agro ai’s current security model relies on application-layer controls: state-backed JWT passes, secure cookies, robust input validation, rate limiting, and hashed secrets. RLS is intentionally disabled at this stage, with all access mediated by Route Handlers. To strengthen farmer data privacy and compliance, enable RLS to enforce tenant isolation at the database level, continue using parameterized queries, and maintain strict input validation. The existing design already mitigates many common threats; future work should focus on database-enforced policies and scalable rate limiting.
 
 [No sources needed since this section summarizes without analyzing specific files]
 

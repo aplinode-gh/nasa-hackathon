@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "@/references/Agropioo-logo-footer.png";
+import logo from "@/references/agro ai-logo-footer.png";
 import { getDictionary } from "@/lib/i18n/server";
 import type { Locale } from "@/lib/i18n/config";
 
@@ -61,7 +61,7 @@ export default async function Footer({ hrefPrefix = "", locale }: { hrefPrefix?:
   const sectionHref = (anchor: string) => `${hrefPrefix}${anchor}`;
 
   const pageLinks = [
-    { label: t("nav.whyAgropioo").text, href: "/why-agropioo" },
+    { label: t("nav.whyagro ai").text, href: "/why-agro ai" },
     { label: t("nav.features").text, href: "/features" },
     { label: t("nav.howItWorks").text, href: "/how-it-works" },
     { label: t("nav.vision").text, href: "/vision" },
@@ -85,7 +85,7 @@ export default async function Footer({ hrefPrefix = "", locale }: { hrefPrefix?:
             <a href={hrefPrefix ? "/" : "#top"} className="inline-flex items-center">
               <Image
                 src={logo}
-                alt="Agropioo"
+                alt="agro ai"
                 className="h-14 w-auto sm:h-16"
               />
             </a>
@@ -149,10 +149,10 @@ export default async function Footer({ hrefPrefix = "", locale }: { hrefPrefix?:
             <ul className="mt-5 space-y-3 text-sm text-white/70">
               <li>
                 <a
-                  href="mailto:hello@agropioo.com"
+                  href="mailto:hello@agro ai.com"
                   className="transition-colors duration-200 hover:text-white"
                 >
-                  hello@agropioo.com
+                  hello@agro ai.com
                 </a>
               </li>
               <li>{t("home.footer.country").text}</li>

@@ -2,7 +2,7 @@
 
 ## Goal
 
-Build a floating conversational interface that lets farmers control the entire Agropioo app through natural text chat with image attachments, interactive response cards, and human-in-the-loop confirmation for write actions.
+Build a floating conversational interface that lets farmers control the entire agro ai app through natural text chat with image attachments, interactive response cards, and human-in-the-loop confirmation for write actions.
 
 ## Key Decisions (locked)
 

@@ -1,8 +1,8 @@
-# Agropioo — Tech Stack
+# agro ai — Tech Stack
 
 ## Project Architecture
 
-Agropioo uses a **full-stack Next.js architecture**. There is **no separate Node.js + Express.js backend**.
+agro ai uses a **full-stack Next.js architecture**. There is **no separate Node.js + Express.js backend**.
 
 Next.js handles:
 
@@ -73,7 +73,7 @@ Next.js Application
 
 Handles:
 
-- Marketing pages (landing, features, how-it-works, why-agropioo, vision)
+- Marketing pages (landing, features, how-it-works, why-agro ai, vision)
 - Authentication pages (signup, login, forgot-password, reset-password, OTP verification)
 - Farmer dashboard with farm cards, weather widget, price widget, pest risk
 - Farm management with Leaflet interactive map drawing

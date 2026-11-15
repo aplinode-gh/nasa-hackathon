@@ -2,7 +2,7 @@ import type { CatalogKey } from "./en.ts";
 
 /** Hindko (ہندکو) — based on Urdu reference. RTL language. */
 export const hno: Partial<Record<CatalogKey, string>> = {
-  "nav.whyAgropioo": "اگروپیو کیوں؟",
+  "nav.whyagro ai": "اگروپیو کیوں؟",
   "nav.features": "خصوصیات",
   "nav.howItWorks": "یہ کیسے کام کرتا ہے",
   "nav.vision": "ہمارا وژن",

@@ -26,7 +26,7 @@
 10. [Troubleshooting](#troubleshooting)
 
 ## Introduction
-This document describes the Agropioo signup endpoint (POST /api/auth/signup). It covers input validation with Zod, password hashing with bcrypt, duplicate email handling, user creation in the database, automatic verification code generation, email delivery behavior, and how clients should proceed to verification.
+This document describes the agro ai signup endpoint (POST /api/auth/signup). It covers input validation with Zod, password hashing with bcrypt, duplicate email handling, user creation in the database, automatic verification code generation, email delivery behavior, and how clients should proceed to verification.
 
 ## Endpoint Overview
 - Method: POST

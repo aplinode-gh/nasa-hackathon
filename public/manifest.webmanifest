@@ -1,6 +1,6 @@
 {
-  "name": "Agropioo — AI-Powered Farm Intelligence",
-  "short_name": "Agropioo",
+  "name": "agro ai — AI-Powered Farm Intelligence",
+  "short_name": "agro ai",
   "description": "AI advisor, market prices, and digital farm records for Pakistani farmers.",
   "start_url": "/?source=pwa",
   "display": "standalone",

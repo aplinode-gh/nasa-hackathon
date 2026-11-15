@@ -3,8 +3,8 @@
 <cite>
 **Referenced Files in This Document**
 - [README.md](file://README.md)
-- [Agropioo_Project_Documentation.md](file://docs/Agropioo_Project_Documentation.md)
-- [Agropioo_features.md](file://docs/Agropioo_features.md)
+- [agro ai_Project_Documentation.md](file://docs/agro ai_Project_Documentation.md)
+- [agro ai_features.md](file://docs/agro ai_features.md)
 - [page.tsx](file://app/(site)/[locale]/page.tsx)
 - [home-content.tsx](file://app/(site)/[locale]/home-content.tsx)
 - [CoreFeatures.tsx](file://app/(site)/[locale]/sections/CoreFeatures.tsx)
@@ -31,7 +31,7 @@
 9. Conclusion
 
 ## Introduction
-Agropioo is an AI-powered smart agriculture platform built for Pakistan’s farming community. It serves as a dual-purpose application: a marketing website that explains the product and a secure, authenticated farmer dashboard where daily operations are managed. The platform combines AI advisory services, digital farm management, weather intelligence, and market price monitoring to help farmers make informed decisions across the crop lifecycle.
+agro ai is an AI-powered smart agriculture platform built for Pakistan’s farming community. It serves as a dual-purpose application: a marketing website that explains the product and a secure, authenticated farmer dashboard where daily operations are managed. The platform combines AI advisory services, digital farm management, weather intelligence, and market price monitoring to help farmers make informed decisions across the crop lifecycle.
 
 Key value propositions:
 - AI advisory: Ask questions about crops, pests, irrigation, fertilization, and harvest timing; receive personalized guidance grounded in farm context and local conditions.
@@ -51,20 +51,20 @@ Practical examples for daily use:
 - Plan around weather: Use spray windows and 5-day outlook to schedule fieldwork.
 
 **Section sources**
-- [Agropioo_Project_Documentation.md:3-12](file://docs/Agropioo_Project_Documentation.md#L3-L12)
-- [Agropioo_Project_Documentation.md:25-66](file://docs/Agropioo_Project_Documentation.md#L25-L66)
-- [Agropioo_Project_Documentation.md:85-108](file://docs/Agropioo_Project_Documentation.md#L85-L108)
-- [Agropioo_Project_Documentation.md:120-144](file://docs/Agropioo_Project_Documentation.md#L120-L144)
+- [agro ai_Project_Documentation.md:3-12](file://docs/agro ai_Project_Documentation.md#L3-L12)
+- [agro ai_Project_Documentation.md:25-66](file://docs/agro ai_Project_Documentation.md#L25-L66)
+- [agro ai_Project_Documentation.md:85-108](file://docs/agro ai_Project_Documentation.md#L85-L108)
+- [agro ai_Project_Documentation.md:120-144](file://docs/agro ai_Project_Documentation.md#L120-L144)
 - [config.ts:1-137](file://lib/i18n/config.ts#L1-L137)
 - [index.ts:1-41](file://catalog/index.ts#L1-L41)
 
 ## Project Structure
-Agropioo is a Next.js application with two primary surfaces:
+agro ai is a Next.js application with two primary surfaces:
 - Marketing site under app/(site)/[locale] with localized pages and sections.
 - Farmer dashboard under app/(farmer)/(dashboard) requiring authentication and providing tools like advisor, weather, prices, farms, and records.
 
 High-level organization:
-- app/(site): Public marketing pages (hero, features, how it works, vision, why Agropioo).
+- app/(site): Public marketing pages (hero, features, how it works, vision, why agro ai).
 - app/(farmer): Authenticated farmer workspace with sidebar and mobile tab navigation.
 - components: Shared UI elements including shell layout, auth flows, and language switcher.
 - lib/i18n and catalog: Centralized localization configuration and translation catalogs for eight languages.
@@ -114,7 +114,7 @@ I --> D
 - [prices/page.tsx:1-185](file://app/(farmer)/(dashboard)/prices/page.tsx#L1-L185)
 
 ## Architecture Overview
-Agropioo uses a Next.js App Router structure with route groups:
+agro ai uses a Next.js App Router structure with route groups:
 - Public marketing site under (site) with locale-aware routing.
 - Protected farmer dashboard under (farmer) guarded by session checks.
 - Shared components and i18n utilities used across both surfaces.
@@ -145,7 +145,7 @@ end
 ## Detailed Component Analysis
 
 ### Localization System
-Agropioo centralizes language configuration and catalogs:
+agro ai centralizes language configuration and catalogs:
 - Locale registry defines codes, URL slugs, HTML lang tags, text direction, and display names.
 - Catalog exports typed translation keys and per-locale strings.
 - Language switcher navigates to the selected locale and persists user choice via cookie.
@@ -346,6 +346,6 @@ DLayout["app/(farmer)/(dashboard)/layout.tsx"] --> DPages["Advisor / Weather / P
 - [prices/page.tsx:1-185](file://app/(farmer)/(dashboard)/prices/page.tsx#L1-L185)
 
 ## Conclusion
-Agropioo brings AI-powered advisory, digital farm records, weather intelligence, and market price monitoring into one accessible platform for Pakistan’s farming community. With multi-language support across eight languages and a clear separation between marketing and authenticated dashboards, it bridges the gap between information and action for farmers. As integrations mature, the platform will evolve from demo experiences to fully connected services that help farmers plan, record, advise, and decide with confidence.
+agro ai brings AI-powered advisory, digital farm records, weather intelligence, and market price monitoring into one accessible platform for Pakistan’s farming community. With multi-language support across eight languages and a clear separation between marketing and authenticated dashboards, it bridges the gap between information and action for farmers. As integrations mature, the platform will evolve from demo experiences to fully connected services that help farmers plan, record, advise, and decide with confidence.
 
 [No sources needed since this section summarizes without analyzing specific files]

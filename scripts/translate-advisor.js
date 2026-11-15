@@ -22,7 +22,7 @@ const translations = [
   ['"app.advisor.chat.placeholder": "Ask about your crops, weather, prices…"', '"app.advisor.chat.placeholder": "ٻج، موسم، قيمت جي باري ۾ پڇو..."'],
   ['"app.advisor.chat.send": "Send"', '"app.advisor.chat.send": "ڇڏيو"'],
   ['"app.advisor.chat.thinking": "Thinking…"', '"app.advisor.chat.thinking": "سوچ ڪري..."'],
-  ['"app.advisor.chat.openingGreeting": "Assalam-o-Alaikum! I\'m your Agropioo farming advisor. Ask me anything about your crops, weather, mandi prices, or government schemes."', '"app.advisor.chat.openingGreeting": "سلام عليڪم! مون توھان جو Agropioo ڪسان مشاور آهي. ٻج، موسم، منڊي قيمت، يا حڪومتي منصوبن جي باري ۾ پڇو."'],
+  ['"app.advisor.chat.openingGreeting": "Assalam-o-Alaikum! I\'m your agro ai farming advisor. Ask me anything about your crops, weather, mandi prices, or government schemes."', '"app.advisor.chat.openingGreeting": "سلام عليڪم! مون توھان جو agro ai ڪسان مشاور آهي. ٻج، موسم، منڊي قيمت، يا حڪومتي منصوبن جي باري ۾ پڇو."'],
   ['"app.advisor.chat.photoRedirect": "Photo detection lives on the Detect page — tap Scan Crop to identify diseases from photos."', '"app.advisor.chat.photoRedirect": "فوٹو پڇو پڇو صفحے تي آهي — فوٹون کان بيماري پڌران لاءِ ٻج اسڪين ٽيپ ڪريو."'],
   ['"app.advisor.chat.nonFarmingRedirect": "I\'m here to help with farming questions. How can I assist with your crops or farm?"', '"app.advisor.chat.nonFarmingRedirect": "مون ڪسان جي سوالن ۾ مدد لاءِ آهييو آهي. ٻج يا فارم ۾ مدد ڪيئن ڪري سڪندس؟"'],
   ['"app.advisor.chat.tryAsking": "Try asking"', '"app.advisor.chat.tryAsking": "ڇڏي وڃو"'],

@@ -35,7 +35,7 @@
 9. Conclusion
 
 ## Introduction
-This document explains Agropioo’s farmer dashboard features with a focus on:
+This document explains agro ai’s farmer dashboard features with a focus on:
 - Weather intelligence with hyperlocal forecasts and agricultural alerts
 - Market price monitoring with trend analysis and best market recommendations
 - Digital farm records management with activity logging and historical tracking
@@ -352,6 +352,6 @@ Farms --> Forms["Forms"]
 - [advisor-chat.tsx:46-63](file://app/(farmer)/(dashboard)/advisor/advisor-chat.tsx#L46-L63)
 
 ## Conclusion
-Agropioo’s farmer dashboard delivers a focused, mobile-first experience for daily farming tasks. It combines actionable weather insights, market price signals, structured farm records, and an AI advisor chat—all built with accessible, responsive UI and clear extension points for real-time data and offline support. The codebase uses typed demo data and client components to keep the UI fast and maintainable while preparing for backend integrations.
+agro ai’s farmer dashboard delivers a focused, mobile-first experience for daily farming tasks. It combines actionable weather insights, market price signals, structured farm records, and an AI advisor chat—all built with accessible, responsive UI and clear extension points for real-time data and offline support. The codebase uses typed demo data and client components to keep the UI fast and maintainable while preparing for backend integrations.
 
 [No sources needed since this section summarizes without analyzing specific files]

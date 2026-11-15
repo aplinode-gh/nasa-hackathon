@@ -21,7 +21,7 @@ enEntries.forEach(m => { enMap[m[1]] = m[2]; });
 const translations = {
   sd: {
     // Navigation
-    "nav.whyAgropioo": "آئيگروپيو ڇو",
+    "nav.whyagro ai": "آئيگروپيو ڇو",
     "nav.features": "خصوصيات",
     "nav.howItWorks": "هوندي ڪيئن ڪم ڪري ٿو",
     "nav.vision": "ويژن",

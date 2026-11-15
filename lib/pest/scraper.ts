@@ -55,7 +55,7 @@ async function fetchWithTimeout(url: string): Promise<Response | null> {
     const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
     const res = await fetch(url, {
       signal: controller.signal,
-      headers: { "user-agent": "Agropioo-PestScraper/1.0" },
+      headers: { "user-agent": "agro ai-PestScraper/1.0" },
       cache: "no-store",
     });
     clearTimeout(timer);

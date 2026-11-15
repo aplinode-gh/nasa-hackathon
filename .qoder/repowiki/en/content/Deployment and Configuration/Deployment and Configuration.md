@@ -28,10 +28,10 @@
 10. Appendices
 
 ## Introduction
-This document provides comprehensive deployment and configuration guidance for Agropioo, a Next.js application that integrates Supabase for data and authentication, Nodemailer for email delivery, and Tailwind CSS for styling. It covers environment configuration (Supabase credentials, email service, production variables), build optimization, asset bundling, performance tuning via Next.js configuration, and deployment strategies for Vercel, Docker, and traditional hosting. It also documents PostCSS/Tailwind setup, ESLint configuration, environment-specific behavior, monitoring, troubleshooting, security hardening (CORS, HTTPS), and scaling considerations for serving Pakistani farmers under varying network conditions.
+This document provides comprehensive deployment and configuration guidance for agro ai, a Next.js application that integrates Supabase for data and authentication, Nodemailer for email delivery, and Tailwind CSS for styling. It covers environment configuration (Supabase credentials, email service, production variables), build optimization, asset bundling, performance tuning via Next.js configuration, and deployment strategies for Vercel, Docker, and traditional hosting. It also documents PostCSS/Tailwind setup, ESLint configuration, environment-specific behavior, monitoring, troubleshooting, security hardening (CORS, HTTPS), and scaling considerations for serving Pakistani farmers under varying network conditions.
 
 ## Project Structure
-Agropioo is a Next.js App Router project with:
+agro ai is a Next.js App Router project with:
 - API routes under app/api for authentication and health checks
 - Server-side libraries for Supabase client and email transport
 - PostCSS configured for Tailwind CSS v4
@@ -283,7 +283,7 @@ Monitoring recommendations:
 - [app/api/health/route.ts:1-18](file://app/api/health/route.ts#L1-L18)
 
 ## Conclusion
-Agropioo is a secure, scalable Next.js application integrated with Supabase and Nodemailer. Proper environment configuration, robust authentication flows, and thoughtful performance optimizations ensure reliable operation for diverse network conditions. Follow the deployment strategies and security practices outlined here to deliver a resilient experience to Pakistani farmers.
+agro ai is a secure, scalable Next.js application integrated with Supabase and Nodemailer. Proper environment configuration, robust authentication flows, and thoughtful performance optimizations ensure reliable operation for diverse network conditions. Follow the deployment strategies and security practices outlined here to deliver a resilient experience to Pakistani farmers.
 
 [No sources needed since this section summarizes without analyzing specific files]
 

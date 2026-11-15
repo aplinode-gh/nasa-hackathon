@@ -28,7 +28,7 @@
 9. [Conclusion](#conclusion)
 
 ## Introduction
-This document provides comprehensive API documentation for the Agropioo forgot password endpoint POST /api/auth/forgot-password. It explains the password reset initiation flow, including email validation, user lookup, verification code generation and delivery, response schemas, security considerations to prevent enumeration attacks, and integration with the broader password recovery workflow (verification and final password update). Examples cover successful initiation, non-existent user handling, and error responses.
+This document provides comprehensive API documentation for the agro ai forgot password endpoint POST /api/auth/forgot-password. It explains the password reset initiation flow, including email validation, user lookup, verification code generation and delivery, response schemas, security considerations to prevent enumeration attacks, and integration with the broader password recovery workflow (verification and final password update). Examples cover successful initiation, non-existent user handling, and error responses.
 
 ## Project Structure
 The forgot password feature is implemented as a Next.js Route Handler under app/api/auth/forgot-password/route.ts. It integrates with shared authentication utilities for validation, rate limiting, pass issuance, code generation/delivery, and HTTP helpers. The broader recovery flow includes:

@@ -15,7 +15,7 @@
 - [Page Footer.tsx](file://app/(site)/[locale]/sections/Footer.tsx)
 - [Core Features.tsx](file://app/(site)/[locale]/sections/CoreFeatures.tsx)
 - [Farmer Journey.tsx](file://app/(site)/[locale]/sections/FarmerJourney.tsx)
-- [Design System Master.md](file://design-system/agropioo/MASTER.md)
+- [Design System Master.md](file://design-system/agro ai/MASTER.md)
 </cite>
 
 ## Table of Contents
@@ -30,7 +30,7 @@
 9. Conclusion
 
 ## Introduction
-This document explains Agropioo’s marketing site components that showcase the platform’s features and value proposition. It covers the hero, footer, features, journey, and site header components, including their props, events, customization options, accessibility, responsive behavior, and integration with the design system. It also shows how these components compose to build compelling marketing pages.
+This document explains agro ai’s marketing site components that showcase the platform’s features and value proposition. It covers the hero, footer, features, journey, and site header components, including their props, events, customization options, accessibility, responsive behavior, and integration with the design system. It also shows how these components compose to build compelling marketing pages.
 
 ## Project Structure
 The marketing pages are composed from reusable UI components and page-level sections:
@@ -380,7 +380,7 @@ HomeContent --> PageFooter
 - [HomeContent.tsx:1-37](file://app/(site)/[locale]/home-content.tsx#L1-L37)
 
 **Section sources**
-- [Design System Master.md:15-216](file://design-system/agropioo/MASTER.md#L15-L216)
+- [Design System Master.md:15-216](file://design-system/agro ai/MASTER.md#L15-L216)
 
 ## Performance Considerations
 - Use Next.js Image with priority for above-the-fold assets to improve perceived performance.
@@ -408,9 +408,9 @@ HomeContent --> PageFooter
 - [SiteHeader.tsx:43-62](file://components/SiteHeader.tsx#L43-L62)
 - [SiteHeader.tsx:133-158](file://components/SiteHeader.tsx#L133-L158)
 - [language-switcher.tsx:39-56](file://components/language-switcher.tsx#L39-L56)
-- [Design System Master.md:185-216](file://design-system/agropioo/MASTER.md#L185-L216)
+- [Design System Master.md:185-216](file://design-system/agro ai/MASTER.md#L185-L216)
 
 ## Conclusion
-Agropioo’s marketing site components form a cohesive, accessible, and responsive experience. The SiteHeader orchestrates navigation and localization; the Hero communicates the core value; Features and Journey illustrate capabilities and workflow; and Footer consolidates links, social presence, and legal information. Together, they create compelling marketing pages aligned with the design system and optimized for performance and accessibility.
+agro ai’s marketing site components form a cohesive, accessible, and responsive experience. The SiteHeader orchestrates navigation and localization; the Hero communicates the core value; Features and Journey illustrate capabilities and workflow; and Footer consolidates links, social presence, and legal information. Together, they create compelling marketing pages aligned with the design system and optimized for performance and accessibility.
 
 [No sources needed since this section summarizes without analyzing specific files]

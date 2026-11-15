@@ -40,7 +40,7 @@ Post-retrieval chunk expansion (fetching neighboring chunks) is valuable for far
 
 ### 1.3 Vector Database Selection
 
-For the Agropioo stack (Neon Lakebase Postgres), **pgvector is the natural fit**:
+For the agro ai stack (Neon Lakebase Postgres), **pgvector is the natural fit**:
 
 | Option | Pros | Cons | Verdict |
 |---|---|---|---|
@@ -647,11 +647,11 @@ addTraceProcessor(new ConsoleSpanExporter());
 | **Tracing** | Built-in, zero-config | Requires LangSmith (paid) |
 | **Token efficiency** | Handoffs use LLM to decide routing | LangGraph deterministic routing (cheaper) |
 | **TypeScript maturity** | Rapidly maturing, well-maintained | Mature but complex |
-| **Suitability for Agropioo** | **Excellent** — lightweight, fast to build | Overkill for the use case |
+| **Suitability for agro ai** | **Excellent** — lightweight, fast to build | Overkill for the use case |
 
 **Verdict:** The OpenAI Agents SDK is the right choice. It is lightweight enough for the project's "reuse before adding" principle, handoffs naturally handle query routing, tool integration with Zod is type-safe, and the Next.js Route Handler pattern is officially supported. LangChain adds complexity without proportional benefit for this use case.
 
-### 5.11 Recommended Architecture for Agropioo Advisor
+### 5.11 Recommended Architecture for agro ai Advisor
 
 ```
 ┌──────────────────────────────────────────────────────┐
@@ -733,7 +733,7 @@ Source: [Wiley](https://onlinelibrary.wiley.com/doi/full/10.1002/eng2.70342)
 
 ---
 
-## 7. Recommendations for Agropioo Advisor (Demo Scope)
+## 7. Recommendations for agro ai Advisor (Demo Scope)
 
 ### 7.1 Minimum Viable Advisor
 

@@ -1140,7 +1140,7 @@ export async function getAppControlBundle(): Promise<AppControlBundle> {
 /** Flat prop bundle for the client SiteHeader (functions can't cross the RSC boundary). */
 export function siteHeaderStrings(t: Translator) {
   return {
-    whyAgropioo: t("nav.whyAgropioo").text,
+    whyagro ai: t("nav.whyagro ai").text,
     features: t("nav.features").text,
     howItWorks: t("nav.howItWorks").text,
     vision: t("nav.vision").text,

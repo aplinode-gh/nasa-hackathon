@@ -6,7 +6,7 @@
 
 ## Goal
 
-Let a farmer create an account, prove they own their email with a simple code, and get back into their account alone if they forget their password — on a phone, without help, without leaking whether an email is registered, and without anyone reaching a protected screen or API they haven't earned entry into. The farmer's data lives only in Agropioo's own database tables, and every door is guarded by a signed pass the server issued itself.
+Let a farmer create an account, prove they own their email with a simple code, and get back into their account alone if they forget their password — on a phone, without help, without leaking whether an email is registered, and without anyone reaching a protected screen or API they haven't earned entry into. The farmer's data lives only in agro ai's own database tables, and every door is guarded by a signed pass the server issued itself.
 
 ## User scenarios
 

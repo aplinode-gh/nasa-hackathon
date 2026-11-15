@@ -31,14 +31,14 @@
 10. [Appendices](#appendices)
 
 ## Introduction
-This document describes the Agropioo system architecture, a Next.js application that serves two distinct experiences:
+This document describes the agro ai system architecture, a Next.js application that serves two distinct experiences:
 - A marketing site with multi-language support under route groups for localized URLs.
 - A farmer application protected by server-side authentication and session management.
 
 The system uses JWT-based sessions stored as httpOnly cookies, backed by Supabase Postgres tables for mutable state (sessions, pass states, verification codes). It employs a dual Supabase client pattern to isolate anonymous API access from privileged maintenance tasks. Internationalization is centralized through a locale registry and a typed translation catalog synced into the database so content can be updated without redeployments.
 
 ## Project Structure
-Agropioo organizes routes using Next.js App Router:
+agro ai organizes routes using Next.js App Router:
 - Marketing site lives under app/(site)/[locale], enabling per-locale layouts, fonts, and metadata.
 - Farmer application lives under app/(farmer), with its own root layout and English-only at launch.
 - API endpoints are implemented as Route Handlers under app/api, including authentication flows and health checks.
@@ -298,7 +298,7 @@ Common issues and diagnostics:
 - [app/api/auth/signup/route.ts:1-119](file://app/api/auth/signup/route.ts#L1-L119)
 
 ## Conclusion
-Agropioo’s architecture separates marketing and farmer experiences via Next.js route groups, secures the farmer app with state-backed JWT sessions, and supports rich internationalization for Pakistani farmers. The dual Supabase client pattern ensures security isolation between anonymous operations and privileged maintenance tasks. With careful attention to performance, security, and scalability, the system is well-positioned to serve a growing user base across multiple languages and regions.
+agro ai’s architecture separates marketing and farmer experiences via Next.js route groups, secures the farmer app with state-backed JWT sessions, and supports rich internationalization for Pakistani farmers. The dual Supabase client pattern ensures security isolation between anonymous operations and privileged maintenance tasks. With careful attention to performance, security, and scalability, the system is well-positioned to serve a growing user base across multiple languages and regions.
 
 [No sources needed since this section summarizes without analyzing specific files]
 

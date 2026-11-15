@@ -32,7 +32,7 @@
 9. Conclusion
 
 ## Introduction
-This document provides comprehensive API documentation for Agropioo’s authentication endpoints. It covers:
+This document provides comprehensive API documentation for agro ai’s authentication endpoints. It covers:
 - Login (POST /api/auth/login): password-only sign-in, email verification gating, JWT session pass issuance, and rate limiting.
 - Logout (POST /api/auth/logout): server-side session revocation and cookie clearing.
 - Signup (POST /api/auth/signup): user registration with bcrypt hashing, duplicate handling, and email verification initiation.
@@ -506,7 +506,7 @@ Error response shape
 - [logic.ts:52-69](file://lib/auth/logic.ts#L52-L69)
 
 ## Conclusion
-Agropioo’s authentication endpoints implement a secure, robust flow centered around:
+agro ai’s authentication endpoints implement a secure, robust flow centered around:
 - Strict input validation with Zod
 - Secure password hashing with bcrypt
 - Signed JWT passes in httpOnly cookies with server-side state enforcement

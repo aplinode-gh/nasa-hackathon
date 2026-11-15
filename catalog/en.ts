@@ -5,7 +5,7 @@
  */
 
 export const en = {
-  "nav.whyAgropioo": "Why Agropioo",
+  "nav.whyagro ai": "Why agro ai",
   "nav.features": "Features",
   "nav.howItWorks": "How it works",
   "nav.vision": "Vision",
@@ -18,7 +18,7 @@ export const en = {
   "common.languageSwitcherLabel": "Change language",
   "notFound.title": "Page not found",
   "notFound.body": "The page you are looking for does not exist or may have moved.",
-  "notFound.backHome": "Back to Agropioo home",
+  "notFound.backHome": "Back to agro ai home",
   "common.builtForPakistan": "Built for Pakistan",
   "common.productOfAplinode": "Built for Pakistan",
   "home.hero.eyebrow": "AI-powered farm intelligence platform",
@@ -26,14 +26,14 @@ export const en = {
   "home.hero.titleAccent": "Smarter Farming",
   "home.hero.subtitle": "One platform that unites an AI crop advisor, disease detection, mandi prices, and weather and pest alerts — turning your farm's records into clear decisions, in the language you speak.",
   "home.hero.ctaSecondary": "See how it works",
-  "home.hero.imageAlt": "Farmer using Agropioo on a tablet in the field",
+  "home.hero.imageAlt": "Farmer using agro ai on a tablet in the field",
   "home.hero.readingCrop": "Crop health",
   "home.hero.readingWeather": "Weather",
   "home.hero.readingSoil": "Soil moisture",
   "home.hero.noteExcellent": "Excellent",
   "home.hero.noteClearSky": "Clear sky",
   "home.hero.noteOptimal": "Optimal",
-  "home.ticker.ariaLabel": "Agropioo platform capabilities",
+  "home.ticker.ariaLabel": "agro ai platform capabilities",
   "home.ticker.cropDoctor": "AI crop doctor",
   "home.ticker.mandiPrices": "Mandi price intelligence",
   "home.ticker.weatherAdvisories": "Weather-aware advisories",
@@ -74,7 +74,7 @@ export const en = {
   "home.features.advisorModule": "Module 01 · Advisor",
   "home.features.advisorTitle": "AI agriculture advisor",
   "home.features.advisorTopics": "Irrigation · fertiliser · pest & disease · harvest",
-  "home.features.advisorMockAria": "Example conversation with the Agropioo advisor about yellowing wheat leaves",
+  "home.features.advisorMockAria": "Example conversation with the agro ai advisor about yellowing wheat leaves",
   "home.features.advisorUserMsg": "My wheat leaves are turning yellow — what should I do?",
   "home.features.advisorReplyTitle": "Yellowing leaves — two common causes:",
   "home.features.advisorReplyCause1": "Water stress",
@@ -184,7 +184,7 @@ export const en = {
   "home.users.tagline": "Designed for farmers first — growing with the ecosystem",
   "home.cta.eyebrow": "Early access",
   "home.cta.title": "Bring your farm onto the platform",
-  "home.cta.subtitle": "Join the farmers making better decisions with Agropioo — starting in Pakistan, growing worldwide.",
+  "home.cta.subtitle": "Join the farmers making better decisions with agro ai — starting in Pakistan, growing worldwide.",
   "home.cta.success": "You're on the list. We'll be in touch when your region opens.",
   "home.cta.emailLabel": "Email address",
   "home.cta.fineprint": "No spam. Unsubscribe anytime.",
@@ -199,19 +199,19 @@ export const en = {
   "home.footer.disclaimer": "Disclaimer",
   "home.footer.contactHeading": "Get in touch",
   "home.footer.country": "Pakistan",
-  "home.footer.copyright": "© {year} Agropioo. All rights reserved.",
+  "home.footer.copyright": "© {year} agro ai. All rights reserved.",
   "home.footer.motto": "Built for Pakistan · Ready for the world",
-  "hiw.meta.title": "How it works — Agropioo",
+  "hiw.meta.title": "How it works — agro ai",
   "hiw.meta.description":
-    "From a one-minute farm profile to a season loop that keeps improving: see how Agropioo turns questions, activity, and records into personalised farming guidance.",
+    "From a one-minute farm profile to a season loop that keeps improving: see how agro ai turns questions, activity, and records into personalised farming guidance.",
   "hiw.hero.eyebrow": "How it works",
   "hiw.hero.titleA": "Six small steps.",
   "hiw.hero.titleLead": "One",
   "hiw.hero.titleAccent": "smarter season.",
   "hiw.hero.subtitle":
-    "Agropioo works the way farming already works — you plant, ask, act, and record. The only difference is that now every step teaches the next one.",
+    "agro ai works the way farming already works — you plant, ask, act, and record. The only difference is that now every step teaches the next one.",
   "hiw.hero.browseFeatures": "Browse features",
-  "hiw.route.navLabel": "The six steps of the Agropioo season loop",
+  "hiw.route.navLabel": "The six steps of the agro ai season loop",
   "hiw.route.stepLabel": "Step {n}: {stop}",
   "hiw.route.stop1": "Add farm",
   "hiw.route.stop2": "Ask",
@@ -243,7 +243,7 @@ export const en = {
   "hiw.ask.titleA": "One question in.",
   "hiw.ask.titleB": "Your whole farm answers.",
   "hiw.ask.body":
-    "The same question means different things on different farms. So before replying, Agropioo reads the question against everything it already knows about yours.",
+    "The same question means different things on different farms. So before replying, agro ai reads the question against everything it already knows about yours.",
   "hiw.ask.pipelineLabel":
     "A farmer question is combined with crop, district, weather and history context to produce a personalised answer",
   "hiw.ask.question": "Ab pani dena chahiye ya thora intezar?",
@@ -278,7 +278,7 @@ export const en = {
     "Out it comes as clear steps in your language — on screen, by voice, or over a phone call.",
   "hiw.engine.safetyStrong": "If something looks unsafe,",
   "hiw.engine.safetyRest":
-    "Agropioo says wait — a delayed answer beats a wasted spray or a damaged crop.",
+    "agro ai says wait — a delayed answer beats a wasted spray or a damaged crop.",
   "hiw.record.recorderHeading": "Log an activity",
   "hiw.record.syncBadge": "Auto-sync on",
   "hiw.record.actionIrrigation": "Irrigation",
@@ -323,8 +323,8 @@ export const en = {
   "hiw.loop.centerSeason": "SEASON",
   "hiw.loop.centerLoop": "LOOP",
   "hiw.loop.caption": "Har season, pichle se behtar",
-  "feat.meta.title": "Features — Agropioo",
-  "feat.meta.description": "Explore every Agropioo capability: AI crop doctor, satellite NDVI monitoring, mandi price prediction, voice advisory in local languages, offline access with SMS alerts, and more.",
+  "feat.meta.title": "Features — agro ai",
+  "feat.meta.description": "Explore every agro ai capability: AI crop doctor, satellite NDVI monitoring, mandi price prediction, voice advisory in local languages, offline access with SMS alerts, and more.",
   "feat.hero.eyebrow": "Features",
   "feat.hero.titleLead": "Everything your",
   "feat.hero.titleAccent": "season asks for",
@@ -413,8 +413,8 @@ export const en = {
   "feat.voice.inputPlaceholder": "Bol kar poochein…",
   "feat.voice.callCode": "F·09 · Call",
   "feat.voice.callTitle": "Dial a toll-free number",
-  "feat.voice.callMock": "Toll free call transcript with the Agropioo voice assistant",
-  "feat.voice.greetingLine": "Agropioo mein aapka swagat hai",
+  "feat.voice.callMock": "Toll free call transcript with the agro ai voice assistant",
+  "feat.voice.greetingLine": "agro ai mein aapka swagat hai",
   "feat.voice.heardLine": "Awaaz samajh li — jawab tayar hai",
   "feat.voice.callEnded": "Call ended · summary saved",
   "feat.voice.anyPhone": "Works on any phone · no internet",
@@ -466,12 +466,12 @@ export const en = {
   "feat.manage.threadMeta": "Multan · 12 replies · 34 upvotes",
   "feat.manage.expertBadge": "Expert verified answer",
   "feat.manage.threadAnswer": "Neem oil spray, shaam ko — do baar, 5 din ke gap par.",
-  "vp.meta.title": "Vision — Agropioo",
-  "vp.meta.description": "Agropioo's vision: intelligent agricultural guidance in every farmer's pocket — starting with Pakistan, built on five beliefs, three horizons, and promises that never bend.",
+  "vp.meta.title": "Vision — agro ai",
+  "vp.meta.description": "agro ai's vision: intelligent agricultural guidance in every farmer's pocket — starting with Pakistan, built on five beliefs, three horizons, and promises that never bend.",
   "vp.hero.eyebrow": "Our vision",
   "vp.hero.titleLead": "A trusted advisor in",
   "vp.hero.titleAccent": "every farmer's pocket.",
-  "vp.hero.sub": "Intelligent guidance should not depend on wealth, literacy, or language. Agropioo exists so that any farmer — on any phone, in any village — farms with the same confidence as an expert standing beside them.",
+  "vp.hero.sub": "Intelligent guidance should not depend on wealth, literacy, or language. agro ai exists so that any farmer — on any phone, in any village — farms with the same confidence as an expert standing beside them.",
   "vp.hero.tagStart": "Start where the need is greatest",
   "vp.hero.tagThen": "Then earn the world",
   "vp.hero.ctaLink": "See what we built",
@@ -538,13 +538,13 @@ export const en = {
   "vp.principles.c6Desc": "Motion and layout that feel organic — growth, never machinery.",
   "vp.principles.motto": "Soil and signal — growing together",
 
-  // --- Why Agropioo page (wy.*) ---
-  "wy.meta.title": "Why Agropioo — AI-Powered Farm Intelligence",
-  "wy.meta.description": "Farming decisions are too important for guesswork. See why Agropioo unites an AI advisor, farm records, weather-aware guidance, and local languages on one Pakistan-first platform.",
-  "wy.hero.eyebrow": "Why Agropioo",
+  // --- Why agro ai page (wy.*) ---
+  "wy.meta.title": "Why agro ai — AI-Powered Farm Intelligence",
+  "wy.meta.description": "Farming decisions are too important for guesswork. See why agro ai unites an AI advisor, farm records, weather-aware guidance, and local languages on one Pakistan-first platform.",
+  "wy.hero.eyebrow": "Why agro ai",
   "wy.hero.titleLead": "Where soil meets",
   "wy.hero.titleAccent": "signal",
-  "wy.hero.sub": "Farming decisions are too important for guesswork. Agropioo puts an AI advisor, your farm's records, weather-aware guidance, and your own language into one platform — so every choice is grounded in your land's reality.",
+  "wy.hero.sub": "Farming decisions are too important for guesswork. agro ai puts an AI advisor, your farm's records, weather-aware guidance, and your own language into one platform — so every choice is grounded in your land's reality.",
   "wy.hero.ctaPrimary": "Get early access",
   "wy.hero.ctaSecondary": "Explore the platform",
   "wy.hero.tagStart": "Built for Pakistan",
@@ -552,7 +552,7 @@ export const en = {
   "wy.hero.svgLabel": "Stylised furrow curves rolling across a field",
   "wy.origin.eyebrow": "Why we built this",
   "wy.origin.heading": "High-stakes decisions shouldn't rest on guesswork",
-  "wy.origin.sub": "Agropioo began with a simple observation: a farmer's season is decided by a handful of choices, and every one of those choices deserves real intelligence behind it.",
+  "wy.origin.sub": "agro ai began with a simple observation: a farmer's season is decided by a handful of choices, and every one of those choices deserves real intelligence behind it.",
   "wy.origin.g1Title": "Timing is guessed",
   "wy.origin.g1Desc": "Irrigation, fertiliser, planting, harvest — the moments that decide a season are still chosen by habit and hope.",
   "wy.origin.g2Title": "History disappears",
@@ -563,7 +563,7 @@ export const en = {
   "wy.diff.eyebrow": "What makes it different",
   "wy.diff.heading1": "Not another advice app.",
   "wy.diff.heading2": "A farm intelligence platform.",
-  "wy.diff.sub": "Most tools answer questions. Agropioo learns your farm — and gets more useful with every activity you record.",
+  "wy.diff.sub": "Most tools answer questions. agro ai learns your farm — and gets more useful with every activity you record.",
   "wy.diff.personalTitle": "Personalised, not generic",
   "wy.diff.personalDesc": "Recommendations are built from your crop, your location, live weather, and your farm's own history — never one-size-fits-all advice.",
   "wy.diff.chip1": "Your crop",
@@ -601,7 +601,7 @@ export const en = {
   "wy.value.eyebrow": "The promise",
   "wy.value.heading1": "What to do. When to do it.",
   "wy.value.heading2": "And what has been done.",
-  "wy.value.sub": "Every feature of Agropioo serves one of these three answers — that's how a season of decisions turns into a season of confidence.",
+  "wy.value.sub": "Every feature of agro ai serves one of these three answers — that's how a season of decisions turns into a season of confidence.",
   "wy.value.p1Heading": "What to do",
   "wy.value.p1Desc": "Clear, specific recommendations for your crop and conditions — not generic tips.",
   "wy.value.p2Heading": "When to do it",
@@ -638,12 +638,12 @@ export const en = {
   "auth.err.serverError": "Something went wrong on our side. Please try again.",
   "auth.err.invalidCredentials": "Invalid email or password.",
 
-  "li.meta.title": "Sign in — Agropioo",
+  "li.meta.title": "Sign in — agro ai",
   "li.meta.description":
-    "Sign in to Agropioo, the AI-powered farm intelligence platform. Your advisor, records, and advisories — waiting where you left them.",
+    "Sign in to agro ai, the AI-powered farm intelligence platform. Your advisor, records, and advisories — waiting where you left them.",
   "li.brand.headingA": "Your Farm's Intelligence,",
   "li.brand.headingB": "Waiting Where You Left It.",
-  "li.demo.aria": "Preview of an Agropioo advisor conversation",
+  "li.demo.aria": "Preview of an agro ai advisor conversation",
   "li.demo.user": "Meri gandum ki pattiyan peeli ho rahi hain — kya karoon?",
   "li.demo.advisorLabel": "Do causes:",
   "li.demo.advisorBody": "water stress ya nitrogen ki kami. Pehle subah cool hours mein pani dein.",
@@ -660,9 +660,9 @@ export const en = {
   "li.noAccountEnd": ".",
   "li.createAccount": "create your account",
 
-  "su.meta.title": "Create account — Agropioo",
+  "su.meta.title": "Create account — agro ai",
   "su.meta.description":
-    "Create your Agropioo account: a personalised AI advisor, weather-aware guidance, and farm records that sharpen every season. Built for Pakistan.",
+    "Create your agro ai account: a personalised AI advisor, weather-aware guidance, and farm records that sharpen every season. Built for Pakistan.",
   "su.brand.headingA": "Start Your Season",
   "su.brand.headingB": "With Intelligence.",
   "su.profile.aria": "Preview of the farm profile created after sign up",
@@ -677,7 +677,7 @@ export const en = {
   "su.included2": "Weather-aware guidance for your district",
   "su.included3": "Farm records that sharpen every season",
   "su.eyebrow": "Create account",
-  "su.heading": "Bring Your Farm To Agropioo",
+  "su.heading": "Bring Your Farm To agro ai",
   "su.sub": "One account for your advisor, records, and every advisory this season.",
   "su.registered.title": "This email is already registered.",
   "su.registered.body":
@@ -700,9 +700,9 @@ export const en = {
   "su.submit": "Create my account",
   "su.submitting": "Creating account…",
   "su.haveAccount": "Already have an account?",
-  "app.shell.metadataTitle": "Agropioo — AI-Powered Farm Intelligence Platform",
+  "app.shell.metadataTitle": "agro ai — AI-Powered Farm Intelligence Platform",
   "app.shell.metadataDescription":
-    "Today's advisory, weather, alerts, and every Agropioo tool — built for Pakistan.",
+    "Today's advisory, weather, alerts, and every agro ai tool — built for Pakistan.",
 
   /* ── Shell nav ─────────────────────────────────────── */
   "app.shell.nav.dashboard": "Dashboard",
@@ -724,7 +724,7 @@ export const en = {
   /* ── Dashboard UI chrome ───────────────────────────── */
   "app.dashboard.greeting": "Hello, {name}",
   "app.dashboard.aria.profileMenu": "Profile menu",
-  "app.dashboard.welcomeEyebrow": "Welcome to Agropioo",
+  "app.dashboard.welcomeEyebrow": "Welcome to agro ai",
   "app.dashboard.welcomeTitle": "Start With Your First Farm.",
   "app.dashboard.welcomeBody":
     "Your crop, your soil, your weather — every advisory will be shaped around them once your farm is in.",
@@ -856,7 +856,7 @@ export const en = {
   "app.farms.crops.rice": "Rice",
 
   /* ── Farms list ─────────────────────────────────────── */
-  "app.farms.list.pageTitle": "Farms \u2014 Agropioo",
+  "app.farms.list.pageTitle": "Farms \u2014 agro ai",
   "app.farms.list.heading": "All your farms, one list",
   "app.farms.list.description":
     "Every farm with its crops, growth stage, and health at a glance. Tap a farm for its full story.",
@@ -866,10 +866,10 @@ export const en = {
   "app.farms.list.emptyHeading": "No farms yet",
 
   /* ── Farms new ──────────────────────────────────────── */
-  "app.farms.new.pageTitle": "Add a farm \u2014 Agropioo",
+  "app.farms.new.pageTitle": "Add a farm \u2014 agro ai",
   "app.farms.new.heading": "Add a farm",
   "app.farms.new.description":
-    "Tell Agropioo about your land \u2014 location, crop, and size \u2014 so every advisory is shaped around it.",
+    "Tell agro ai about your land \u2014 location, crop, and size \u2014 so every advisory is shaped around it.",
   "app.farms.new.fields.name": "Farm name",
   "app.farms.new.placeholders.name": "e.g. Khalilpur Farm",
   "app.farms.new.fields.district": "District / City",
@@ -899,7 +899,7 @@ export const en = {
   "app.farms.new.errors.acresRequired": "Enter the area in acres.",
 
   /* ── Farm detail ────────────────────────────────────── */
-  "app.farms.detail.pageTitle": "Farm details \u2014 Agropioo",
+  "app.farms.detail.pageTitle": "Farm details \u2014 agro ai",
   "app.farms.detail.heroEyebrow": "Farm details",
   "app.farms.detail.goodHealth": "Good health",
   "app.farms.detail.needsWatching": "Needs watching",
@@ -923,7 +923,7 @@ export const en = {
   "app.records.noRecordsFound": "No records found for this filter.",
 
   /* ── Records list ───────────────────────────────────── */
-  "app.records.farmRecords.pageTitle": "Farm records \u2014 Agropioo",
+  "app.records.farmRecords.pageTitle": "Farm records \u2014 agro ai",
   "app.records.farmRecords.heading": "The farm\u2019s memory",
   "app.records.farmRecords.description":
     "Every irrigation, spray, and treatment written down \u2014 so decisions next week don\u2019t rely on memory.",
@@ -931,7 +931,7 @@ export const en = {
     "DEMO \u00b7 sample entries only \u2014 saving new ones isn\u2019t wired yet",
 
   /* ── Records new ────────────────────────────────────── */
-  "app.records.new.pageTitle": "New record \u2014 Agropioo",
+  "app.records.new.pageTitle": "New record \u2014 agro ai",
   "app.records.new.heading": "Log what happened in the field",
   "app.records.new.description":
     "Irrigation, fertilizer, pesticide, disease, and harvest entries \u2014 your farm\u2019s memory, one line at a time.",
@@ -970,7 +970,7 @@ export const en = {
   "app.advisor.chat.placeholder": "Ask about your crops, weather, prices…",
   "app.advisor.chat.send": "Send",
   "app.advisor.chat.thinking": "Thinking…",
-  "app.advisor.chat.openingGreeting": "Assalam-o-Alaikum! I'm your Agropioo farming advisor. Ask me anything about your crops, weather, mandi prices, or government schemes.",
+  "app.advisor.chat.openingGreeting": "Assalam-o-Alaikum! I'm your agro ai farming advisor. Ask me anything about your crops, weather, mandi prices, or government schemes.",
   "app.advisor.chat.photoRedirect": "Photo detection lives on the Detect page — tap Scan Crop to identify diseases from photos.",
   "app.advisor.chat.nonFarmingRedirect": "I'm here to help with farming questions. How can I assist with your crops or farm?",
   "app.advisor.chat.tryAsking": "Try asking",
@@ -1624,11 +1624,11 @@ export const en = {
   "offline.home": "Go to home",
   "offline.installTitle": "Add to Home Screen",
   "offline.installBody":
-    "Install Agropioo for faster loading and full offline access to your farms and records.",
+    "Install agro ai for faster loading and full offline access to your farms and records.",
   "offline.installAction": "Add to Home Screen",
   "offline.dismiss": "Dismiss",
   "offline.iosPrompt":
-    "Add Agropioo to your Home Screen for offline access. Tap the Share button, then \"Add to Home Screen\".",
+    "Add agro ai to your Home Screen for offline access. Tap the Share button, then \"Add to Home Screen\".",
 
   "app.pest.eyebrow": "Pest prediction",
   "app.pest.pageTitle": "Pest outbreak prediction",

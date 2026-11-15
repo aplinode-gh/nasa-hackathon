@@ -1,7 +1,7 @@
 import sharp from "sharp";
 
-const src = "references/Agropioo-logo-withoutbg-text.png";
-const dst = "references/Agropioo-logo-footer.png";
+const src = "references/agro ai-logo-withoutbg-text.png";
+const dst = "references/agro ai-logo-footer.png";
 
 const { data, info } = await sharp(src)
   .ensureAlpha()

@@ -27,7 +27,7 @@ declare const self: ServiceWorkerGlobalScope & {
 const PRECACHE_MANIFEST: Array<string | { url: string; revision: string | null }> =
   (self.__WB_MANIFEST as unknown as Array<string | { url: string; revision: string | null }>) ?? [];
 
-const PRECACHE_CACHE = "agropioo-precache-v1";
+const PRECACHE_CACHE = "agro ai-precache-v1";
 const NAV_FALLBACK = "/offline";
 
 self.addEventListener("install", (event) => {
@@ -56,7 +56,7 @@ self.addEventListener("activate", (event) => {
       const keys = await caches.keys();
       await Promise.all(
         keys
-          .filter((k) => k.startsWith("agropioo-precache-") && k !== PRECACHE_CACHE)
+          .filter((k) => k.startsWith("agro ai-precache-") && k !== PRECACHE_CACHE)
           .map((k) => caches.delete(k)),
       );
       await self.clients.claim();

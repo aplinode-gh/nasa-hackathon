@@ -24,7 +24,7 @@
 10. Appendices
 
 ## Introduction
-This document provides comprehensive API documentation for the Agropioo logout endpoint POST /api/auth/logout. It explains how the endpoint terminates a session by invalidating the server-side session record, clearing cookies, and ensuring complete session termination within the pass-based authentication system. It also covers request/response schemas, security considerations, client-side cleanup requirements, and error handling scenarios.
+This document provides comprehensive API documentation for the agro ai logout endpoint POST /api/auth/logout. It explains how the endpoint terminates a session by invalidating the server-side session record, clearing cookies, and ensuring complete session termination within the pass-based authentication system. It also covers request/response schemas, security considerations, client-side cleanup requirements, and error handling scenarios.
 
 ## Project Structure
 The logout endpoint is implemented as a Next.js Route Handler under app/api/auth/logout. It integrates with:

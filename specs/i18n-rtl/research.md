@@ -90,7 +90,7 @@ Key machinery facts for translation work:
 | # | Defect | Status |
 |---|---|---|
 | 1 | Dashboard language dropdown 404s (`/ur/dashboard` doesn't exist) | **RESOLVED** — app-mode switcher (same-path cookie reload) |
-| 2 | `/onboarding` unreachable (post-login redirect → `/dashboard`); wrong codes (`sk`/`hi`), Gurmukhi Punjabi, misspelled native names, third persistence mechanism (`localStorage["agropioo-language"]`), never applies the choice, ignores signup-language pre-selection | STILL PRESENT (verified: `sk`/`hi` codes + localStorage) |
+| 2 | `/onboarding` unreachable (post-login redirect → `/dashboard`); wrong codes (`sk`/`hi`), Gurmukhi Punjabi, misspelled native names, third persistence mechanism (`localStorage["agro ai-language"]`), never applies the choice, ignores signup-language pre-selection | STILL PRESENT (verified: `sk`/`hi` codes + localStorage) |
 | 3 | Settings language list stale: marks ur/pa/ps/sd "Soon", omits skr/bal/hno | STILL PRESENT (verified) |
 | 4 | Localized logins link `/ur/forgot-password` etc. → lands in site catch-all → localized 404 | STILL PRESENT — plan D7 fixes via bare cross-links (see conflict C2) |
 | 5 | login-form Urdu eyebrows with `tracking-*` letter-spacing | STILL PRESENT — T3 |

@@ -26,7 +26,7 @@
      specs/002-mandi-price-tracker/checklists/quality-gate.md pass
 
  ▪ Bash(ls 
-   /home/sheikh-mohammad/Documents/hackathons/agropioo/components/prices/)
+   /home/sheikh-mohammad/Documents/hackathons/agro ai/components/prices/)
    └ global-mandi-search.tsx
      mandi-price-card.tsx
      market-comparison-table.tsx
@@ -35,7 +35,7 @@
      price-history-chart.tsx
      recommendation-badge.tsx
 
- ▪ Bash(cat /home/sheikh-mohammad/Documents/hackathons/agropioo/app/\(farmer\)
+ ▪ Bash(cat /home/sheikh-mohammad/Documents/hackathons/agro ai/app/\(farmer\)
    /\(dashboard\)/dashboard/dashboard-bundle.ts | tail -20)
    └ quickActionsHeading: string;
        cropDoctor: string;
@@ -59,7 +59,7 @@
      };
 
  ▪ Bash(grep -n "pricesWidget\|user_crop" 
-   /home/sheikh-mohammad/Documents/hackathons/agropioo/lib/i18n/server.ts)
+   /home/sheikh-mohammad/Documents/hackathons/agro ai/lib/i18n/server.ts)
    └ 200:    pricesWidgetTitle: t("app.dashboard.pricesWidgetTitle").text,
      201:    pricesWidgetView: t("app.dashboard.pricesWidgetView").text,
      202:    pricesWidgetPerMaund:
@@ -67,7 +67,7 @@
      203:    pricesWidgetNoTracked:
      t("app.dashboard.pricesWidgetNoTracked").text,
 
- ▪ Bash(cat /home/sheikh-mohammad/Documents/hackathons/agropioo/components/pri
+ ▪ Bash(cat /home/sheikh-mohammad/Documents/hackathons/agro ai/components/pri
    ces/mandi-price-card.tsx)
    └ "use client";
 
@@ -192,16 +192,16 @@
      }
 
  ▪ Bash(grep -n "user_crop_preferences\|mandi_prices" /home/sheikh-mohammad/Do
-   cuments/hackathons/agropioo/app/\(farmer\)/\(dashboard\)/prices/page.tsx | 
+   cuments/hackathons/agro ai/app/\(farmer\)/\(dashboard\)/prices/page.tsx | 
    head -20)
    └ (no output)
 
  ▪ Bash(grep -n "user_crop_preferences\|mandi_prices\|getUserId\|session" 
-   /home/sheikh-mohammad/Documents/hackathons/agropioo/app/\(farmer\)/\(dashbo
+   /home/sheikh-mohammad/Documents/hackathons/agro ai/app/\(farmer\)/\(dashbo
    ard\)/prices/page.tsx | head -30)
    └ (no output)
 
- ▪ Bash(head -80 /home/sheikh-mohammad/Documents/hackathons/agropioo/app/\(far
+ ▪ Bash(head -80 /home/sheikh-mohammad/Documents/hackathons/agro ai/app/\(far
    mer\)/\(dashboard\)/prices/page.tsx)
    └ import type { Metadata } from "next";
      import { requireSessionPage } from "@/lib/auth/guards";
@@ -211,7 +211,7 @@
      import PricesClient from "./prices-client";
 
      export const metadata: Metadata = {
-       title: "Mandi Prices — Agropioo",
+       title: "Mandi Prices — agro ai",
      };
 
      type CropOption = { id: string; name_en: string };
@@ -239,7 +239,7 @@
        );
      }
 
- ▪ Bash(cat /home/sheikh-mohammad/Documents/hackathons/agropioo/app/\(farmer\)
+ ▪ Bash(cat /home/sheikh-mohammad/Documents/hackathons/agro ai/app/\(farmer\)
    /\(dashboard\)/dashboard/page.tsx)
    └ import type { Metadata } from "next";
      import { getAppLocale, getDashboardBundle } from "@/lib/i18n/server";
@@ -249,9 +249,9 @@
      import { computeFarmHealth } from "@/lib/farms/health";
 
      export const metadata: Metadata = {
-       title: "Dashboard — Agropioo",
+       title: "Dashboard — agro ai",
        description:
-         "Today's advisory, weather, alerts, and every Agropioo tool — one
+         "Today's advisory, weather, alerts, and every agro ai tool — one
      screen that answers kya karoon aaj?",
      };
 
@@ -319,7 +319,7 @@
    price data and render sparklines as inline SVG.
 
  ▪ Bash(grep -n "TrendingUpIcon\|TrendingDownIcon\|ArrowRightIcon" 
-   /home/sheikh-mohammad/Documents/hackathons/agropioo/components/icons.tsx | 
+   /home/sheikh-mohammad/Documents/hackathons/agro ai/components/icons.tsx | 
    head -10)
    └ 71:export function ArrowRightIcon(props: IconProps) {
      266:export function TrendingUpIcon(props: IconProps) {
@@ -487,7 +487,7 @@
          +prices-widget";                                                     
        8  
        9  export const metadata: Metadata = {
-      10    title: "Dashboard — Agropioo",
+      10    title: "Dashboard — agro ai",
       11    description:
 
 
@@ -594,7 +594,7 @@
       27 +import DashboardPricesWidget, { type WidgetCropPrice } from "@/compo
          +nents/prices/dashboard-prices-widget";                              
       28  
-      29  const CHECKLIST_DISMISS_KEY = "agropioo-checklist-dismissed";
+      29  const CHECKLIST_DISMISS_KEY = "agro ai-checklist-dismissed";
       30  
       31  const topAlerts: Array<{
 
@@ -656,7 +656,7 @@
 
  ▪ Now let's verify the build compiles cleanly:
 
- x Bash(cd /home/sheikh-mohammad/Documents/hackathons/agropioo && npx tsc 
+ x Bash(cd /home/sheikh-mohammad/Documents/hackathons/agro ai && npx tsc 
    --noEmit 2>&1 | head -50)
    └ Error: Auto mode could not determine whether Bash is safe right now,
      because the classifier is temporarily unavailable. This is not a judgement
@@ -669,13 +669,13 @@
 
  > continue                                                                     
 
- ▪ Bash(cd /home/sheikh-mohammad/Documents/hackathons/agropioo && npx tsc 
+ ▪ Bash(cd /home/sheikh-mohammad/Documents/hackathons/agro ai && npx tsc 
    --noEmit 2>&1 | head -60)
    └ (no output)
 
  ▪ Type check passes. Now run lint:
 
- ▪ Bash(cd /home/sheikh-mohammad/Documents/hackathons/agropioo && npm run lint
+ ▪ Bash(cd /home/sheikh-mohammad/Documents/hackathons/agro ai && npm run lint
     2>&1 | tail -30)
    └ 49:24  warning  Compilation Skipped: Use of incompatible library
 
@@ -684,7 +684,7 @@
      this component/hook. However, you may see issues if values from this API
      are passed to other components/hooks that are memoized.
 
-     /home/sheikh-mohammad/Documents/hackathons/agropioo/app/(farmer)/(dashboar
+     /home/sheikh-mohammad/Documents/hackathons/agro ai/app/(farmer)/(dashboar
      d)/records/new/record-form.tsx:49:24
        47 |   });
        48 |
@@ -695,7 +695,7 @@
      │   51 |
      │   52 |   useEffect(() => {  react-hooks/incompatible-library
 
-     /home/sheikh-mohammad/Documents/hackathons/agropioo/app/(site)/[locale]/si
+     /home/sheikh-mohammad/Documents/hackathons/agro ai/app/(site)/[locale]/si
      gnup/signup-form.tsx
        125:20  warning  Compilation Skipped: Use of incompatible library
 
@@ -704,7 +704,7 @@
      this component/hook. However, you may see issues if values from this API
      are passed to other components/hooks that are memoized.
 
-     /home/sheikh-mohammad/Documents/hackathons/agropioo/app/(site)/[locale]/si
+     /home/sheikh-mohammad/Documents/hackathons/agro ai/app/(site)/[locale]/si
      gnup/signup-form.tsx:125:20
        123 |   });
        124 |
@@ -724,11 +724,11 @@
 
  ▪ Now T034 — the offline price caching hook:
 
- ▪ Bash(ls /home/sheikh-mohammad/Documents/hackathons/agropioo/hooks/ 
+ ▪ Bash(ls /home/sheikh-mohammad/Documents/hackathons/agro ai/hooks/ 
    2>/dev/null || echo "no hooks dir")
    └ no hooks dir
 
- ▪ Bash(cat /home/sheikh-mohammad/Documents/hackathons/agropioo/app/\(farmer\)
+ ▪ Bash(cat /home/sheikh-mohammad/Documents/hackathons/agro ai/app/\(farmer\)
    /\(dashboard\)/prices/prices-client.tsx | head -60)
    └ "use client";
 
@@ -801,7 +801,7 @@
        async function loadPrices(params: { crop_id?: string; query?: string })
      {
 
- ▪ Bash(mkdir -p /home/sheikh-mohammad/Documents/hackathons/agropioo/hooks)
+ ▪ Bash(mkdir -p /home/sheikh-mohammad/Documents/hackathons/agro ai/hooks)
    └ (no output)
 
  ▪ Write(/home/.../use-offline-prices.ts)
@@ -811,7 +811,7 @@
        2 
        3 import { useEffect, useCallback } from "react";
        4 
-       5 const STORAGE_PREFIX = "agropioo:prices:";
+       5 const STORAGE_PREFIX = "agro ai:prices:";
        6 const TTL_MS = 6 * 60 * 60 * 1000; // 6 hours
        7 
        8 type CacheEntry<T> = {
@@ -901,7 +901,7 @@
  ▪ Now T035 — nightly prediction cron route:
 
  ▪ Bash(cat 
-   /home/sheikh-mohammad/Documents/hackathons/agropioo/lib/prices/forecast.ts 
+   /home/sheikh-mohammad/Documents/hackathons/agro ai/lib/prices/forecast.ts 
    | head -40)
    └ /**
      - Statistical price forecasting engine for the Mandi Price Tracker.
@@ -944,17 +944,17 @@
      - Returns level, trend, and forecast for the next horizon steps.
       */
 
- ▪ Bash(ls /home/sheikh-mohammad/Documents/hackathons/agropioo/app/api/cron/ 
+ ▪ Bash(ls /home/sheikh-mohammad/Documents/hackathons/agro ai/app/api/cron/ 
    2>/dev/null || echo "no cron dir")
    └ no cron dir
 
  ▪ Bash(grep -n "^export function\|^export async function" 
-   /home/sheikh-mohammad/Documents/hackathons/agropioo/lib/prices/forecast.ts)
+   /home/sheikh-mohammad/Documents/hackathons/agro ai/lib/prices/forecast.ts)
    └ 74:export function forecastPrices(
      164:export function recommendationFromForecast(
 
  ▪ Bash(sed -n '74,100p' 
-   /home/sheikh-mohammad/Documents/hackathons/agropioo/lib/prices/forecast.ts)
+   /home/sheikh-mohammad/Documents/hackathons/agro ai/lib/prices/forecast.ts)
    └ export function forecastPrices(
        historicalPrices: { date: string; modal_price: number }[],
        horizon = 14
@@ -984,19 +984,19 @@
        const lastDate = sorted.length > 0 ? new Date(sorted[sorted.length -
      1].date) : new Date();
 
- ▪ Bash(mkdir -p /home/sheikh-mohammad/Documents/hackathons/agropioo/app/api/c
+ ▪ Bash(mkdir -p /home/sheikh-mohammad/Documents/hackathons/agro ai/app/api/c
    ron/predict-prices)
    └ (no output)
 
  ▪ Bash(grep -n "CRON_SECRET" /home/sheikh-mohammad/Documents/hackathons/agrop
    ioo/app/api/satellite/cron/refresh/route.ts 2>/dev/null | head -5 || grep 
    -rn "CRON_SECRET" 
-   /home/sheikh-mohammad/Documents/hackathons/agropioo/app/api/ 2>/dev/null | 
+   /home/sheikh-mohammad/Documents/hackathons/agro ai/app/api/ 2>/dev/null | 
    head -5)
    └ (no output)
 
  ▪ Bash(grep -rn "CRON_SECRET\|x-cron-secret" 
-   /home/sheikh-mohammad/Documents/hackathons/agropioo/ --include="*.ts" 
+   /home/sheikh-mohammad/Documents/hackathons/agro ai/ --include="*.ts" 
    --include="*.tsx" | grep -v "node_modules\|\.env\|example" | head -10)
    └ (no output)
 
@@ -1110,14 +1110,14 @@
     actual table name:
 
  ▪ Bash(grep -rn "price_predictions\|CREATE TABLE.*predict" 
-   /home/sheikh-mohammad/Documents/hackathons/agropioo/db/ 2>/dev/null | head 
+   /home/sheikh-mohammad/Documents/hackathons/agro ai/db/ 2>/dev/null | head 
    -10)
-   └ /home/sheikh-mohammad/Documents/hackathons/agropioo/db/migrations/0008_man
+   └ /home/sheikh-mohammad/Documents/hackathons/agro ai/db/migrations/0008_man
      di_prices.sql:57:create table if not exists public.price_predictions (
-     /home/sheikh-mohammad/Documents/hackathons/agropioo/db/migrations/0008_man
+     /home/sheikh-mohammad/Documents/hackathons/agro ai/db/migrations/0008_man
      di_prices.sql:70:create index if not exists
      idx_price_predictions_crop_mandi_calculated
-     /home/sheikh-mohammad/Documents/hackathons/agropioo/db/migrations/0008_man
+     /home/sheikh-mohammad/Documents/hackathons/agro ai/db/migrations/0008_man
      di_prices.sql:71:  on public.price_predictions (crop_id, mandi_id,
      calculated_at desc);
 

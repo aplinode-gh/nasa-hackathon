@@ -7,7 +7,7 @@ Removed sections: N/A
 Templates requiring updates: ✅ aligned (plan-template.md, spec-template.md, tasks-template.md already compatible)
 Follow-up TODOs: None
 -->
-# Agropioo Constitution
+# agro ai Constitution
 
 ## Table of Contents
 

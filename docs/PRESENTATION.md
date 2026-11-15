@@ -1,4 +1,4 @@
-# Agropioo — AI-Powered Smart Agriculture Platform
+# agro ai — AI-Powered Smart Agriculture Platform
 
 ### AI Hackathon Pakistan 2026 | Team Submission
 ### Built by: Sheikh Mohammad Ahmed (Team Lead) & Mustafa Shahzad (Co-Creator) | Aplinode
@@ -38,9 +38,9 @@ Farmers sell at mandis (wholesale markets) without knowing real prices. A wheat 
 
 ---
 
-## 2. Our Solution — Agropioo
+## 2. Our Solution — agro ai
 
-**Agropioo** is a **Pakistan-first, AI-powered smart agriculture platform** that gives every farmer a personal AI advisor, digital farm records, real-time market intelligence, and disease diagnosis — in their own language.
+**agro ai** is a **Pakistan-first, AI-powered smart agriculture platform** that gives every farmer a personal AI advisor, digital farm records, real-time market intelligence, and disease diagnosis — in their own language.
 
 > "What to do, when to do it" — in the language you speak.
 
@@ -48,7 +48,7 @@ Farmers sell at mandis (wholesale markets) without knowing real prices. A wheat 
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    AGROPIOO PLATFORM                     │
+│                    agro ai PLATFORM                     │
 ├──────────────────┬──────────────────┬───────────────────┤
 │   AI ADVISOR     │  FARM INTELLIGENCE│  MARKET ACCESS    │
 │                  │                   │                   │
@@ -89,7 +89,7 @@ Farmers sell at mandis (wholesale markets) without knowing real prices. A wheat 
 
 ### 4.1 AI Agriculture Advisor (Multi-Agent System)
 
-**The brain of Agropioo.** Not a simple chatbot — a multi-agent AI system with 8 specialized agents that collaborate to answer any farming question.
+**The brain of agro ai.** Not a simple chatbot — a multi-agent AI system with 8 specialized agents that collaborate to answer any farming question.
 
 ```
                     Farmer asks a question
@@ -274,8 +274,8 @@ Farmer uploads photo
 
 ### 4.13 Marketing Site
 
-- **Landing page** with Agropioo brand story
-- **Why Agropioo** page — problem deep-dive
+- **Landing page** with agro ai brand story
+- **Why agro ai** page — problem deep-dive
 - **How It Works** page — step-by-step platform walkthrough
 - **Vision** page — roadmap and impact goals
 - **Early access signup** with email verification
@@ -286,7 +286,7 @@ Farmer uploads photo
 
 ### 5.1 Multi-Agent AI Architecture
 
-Unlike simple chatbots, Agropioo uses a **collaborative multi-agent system** where specialized AI agents work together. The orchestrator routes questions to the right expert, and agents can hand off to each other. This gives deeper, more accurate answers than a single general-purpose AI.
+Unlike simple chatbots, agro ai uses a **collaborative multi-agent system** where specialized AI agents work together. The orchestrator routes questions to the right expert, and agents can hand off to each other. This gives deeper, more accurate answers than a single general-purpose AI.
 
 ### 5.2 RAG with Domain-Specific Knowledge
 
@@ -294,11 +294,11 @@ The AI doesn't hallucinate farming advice. It retrieves from **21 curated knowle
 
 ### 5.3 Language-First, Not Language-Added
 
-Most platforms add Urdu as an afterthought. Agropioo was **built language-first** — the architecture assumes 8 languages from day one, with database-stored translations, RTL layouts, and Nastaliq typography as first-class features, not patches.
+Most platforms add Urdu as an afterthought. agro ai was **built language-first** — the architecture assumes 8 languages from day one, with database-stored translations, RTL layouts, and Nastaliq typography as first-class features, not patches.
 
 ### 5.4 Offline-First for Real Connectivity
 
-Farmers in rural Sindh or Balochistan have 2G connections that drop constantly. Agropioo's PWA with IndexedDB queue means **the app works in airplane mode** — records queue locally and sync when signal returns. No data loss.
+Farmers in rural Sindh or Balochistan have 2G connections that drop constantly. agro ai's PWA with IndexedDB queue means **the app works in airplane mode** — records queue locally and sync when signal returns. No data loss.
 
 ### 5.5 Crop-Level Price Prediction with SELL/HOLD
 
@@ -306,7 +306,7 @@ Not just showing prices — **telling farmers what to do with them**. The 14-day
 
 ### 5.6 Growth-Stage-Aware Weather Advisories
 
-Generic weather apps say "rain tomorrow." Agropioo says "rain tomorrow — but your wheat is at tillering stage, so delay irrigation by 2 days." **Context-aware advice is the difference between information and intelligence.**
+Generic weather apps say "rain tomorrow." agro ai says "rain tomorrow — but your wheat is at tillering stage, so delay irrigation by 2 days." **Context-aware advice is the difference between information and intelligence.**
 
 ---
 
@@ -522,13 +522,13 @@ The app includes **built-in demo modes**:
 | **Freemium AI Advisor** | Basic questions free, deep analysis premium (Rs. 99/month) |
 | **B2B Agri-Tech** | Seed/fertilizer companies access anonymized farmer data for R&D |
 | **Insurance Integration** | Digital records enable crop insurance (commission-based) |
-| **Mandi Commission** | Market linkage: farmer sells through Agropioo → small commission |
+| **Mandi Commission** | Market linkage: farmer sells through agro ai → small commission |
 
 ---
 
 ## 11. What Makes This Different
 
-| Feature | Agropioo | Competitors |
+| Feature | agro ai | Competitors |
 |---------|----------|------------|
 | Languages | 8 (Urdu, Punjabi, Pashto, Sindhi, Saraiki, Balochi, Hindko, English) | 1-2 max |
 | AI Architecture | Multi-agent with RAG + domain knowledge | Simple chatbot or rule-based |
@@ -615,7 +615,7 @@ Every feature follows: **Constitution → Research → Specify → Clarify → B
 ## Appendix A: File Structure Overview
 
 ```
-agropioo-hackathon/
+agro ai-hackathon/
 ├── app/
 │   ├── (farmer)/          # Farmer app routes
 │   │   ├── (dashboard)/   # Dashboard, farms, advisor, detect, weather, prices, etc.
@@ -678,6 +678,6 @@ agropioo-hackathon/
 
 ---
 
-**Agropioo** — Because every farmer deserves a smart advisor, in their own language, for free.
+**agro ai** — Because every farmer deserves a smart advisor, in their own language, for free.
 
 *Built with ❤ for Pakistan's 40 million farming families.*

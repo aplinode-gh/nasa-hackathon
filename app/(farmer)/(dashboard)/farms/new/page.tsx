@@ -4,7 +4,7 @@ import NewFarmForm from "./farm-form";
 import { getFarmsBundle } from "@/lib/i18n/server";
 
 export const metadata: Metadata = {
-  title: "Add a farm — Agropioo",
+  title: "Add a farm — agro ai",
 };
 
 export default async function NewFarmPage() {

@@ -1,6 +1,6 @@
 const fs = require('fs');
-const en = fs.readFileSync('C:/Users/dell/Music/hackathons/agropioo-hackathon/catalog/en.ts','utf8');
-const sd = fs.readFileSync('C:/Users/dell/Music/hackathons/agropioo-hackathon/catalog/sd.ts','utf8');
+const en = fs.readFileSync('C:/Users/dell/Music/hackathons/agro ai-hackathon/catalog/en.ts','utf8');
+const sd = fs.readFileSync('C:/Users/dell/Music/hackathons/agro ai-hackathon/catalog/sd.ts','utf8');
 const enKeys = new Set();
 const sdKeys = new Set();
 en.replace(/"([^"]+)":/g, (m, k) => { if(!k.startsWith('//')) enKeys.add(k); });

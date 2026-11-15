@@ -1,15 +1,15 @@
-# Agropioo — Project Documentation
+# agro ai — Project Documentation
 
 ## Project Overview
 
-**Project Name:** Agropioo  
+**Project Name:** agro ai  
 **Category:** Smart Agriculture  
 **Initial Market:** Pakistan  
 
 **Built by:** Sheikh Mohammad Ahmed (Team Lead) & Mustafa Shahzad (Co-Creator) · Aplinode  
 **Hackathon:** AI Hackathon Pakistan 2026  
 
-Agropioo is an AI-powered smart agriculture platform designed initially for Pakistan to help farmers make informed decisions throughout the complete crop lifecycle. It combines a multi-agent AI Agriculture Advisor, digital farm records, weather-aware recommendations, crop disease detection, mandi price tracking, crop recommendations, pest outbreak predictions, profit/loss tracking, and full local-language accessibility.
+agro ai is an AI-powered smart agriculture platform designed initially for Pakistan to help farmers make informed decisions throughout the complete crop lifecycle. It combines a multi-agent AI Agriculture Advisor, digital farm records, weather-aware recommendations, crop disease detection, mandi price tracking, crop recommendations, pest outbreak predictions, profit/loss tracking, and full local-language accessibility.
 
 The long-term vision is to scale globally by adapting the platform to local crops, climates, agricultural practices, and languages.
 
@@ -21,7 +21,7 @@ Important farm history may also be lost because activities are recorded informal
 
 ## 2. Proposed Solution
 
-Agropioo provides a central digital platform where farmers can maintain farm information and receive personalised AI-powered agricultural guidance. The platform combines:
+agro ai provides a central digital platform where farmers can maintain farm information and receive personalised AI-powered agricultural guidance. The platform combines:
 
 - A **multi-agent AI Advisor** with 8 specialized agents that understand crop, location, weather, and farm history
 - **Digital farm records** for structured tracking of all farming activities
@@ -70,7 +70,7 @@ The advisor uses 8 specialized AI agents orchestrated via OpenAI Agents SDK:
 
 ### 3.2 Digital Farm Records
 
-Agropioo maintains a structured history for each farm.
+agro ai maintains a structured history for each farm.
 
 **7 record types:**
 
@@ -236,7 +236,7 @@ The product can be refined through real farmer feedback and local use cases befo
 
 ## 6. Global Expansion Vision
 
-Agropioo is designed to become a globally adaptable platform by supporting:
+agro ai is designed to become a globally adaptable platform by supporting:
 
 - Additional countries and regions
 - Local languages and RTL layouts
@@ -261,7 +261,7 @@ Future partners within the wider agricultural ecosystem.
 
 ## 8. Key Value Proposition
 
-Agropioo brings personalised AI guidance and organised farm intelligence into one accessible platform.
+agro ai brings personalised AI guidance and organised farm intelligence into one accessible platform.
 
 It helps farmers:
 
@@ -275,9 +275,9 @@ It helps farmers:
 
 ## 9. Product Vision
 
-The vision of Agropioo is to make intelligent agricultural guidance accessible to farmers regardless of their technical background or language.
+The vision of agro ai is to make intelligent agricultural guidance accessible to farmers regardless of their technical background or language.
 
-Starting with Pakistan and expanding globally, Agropioo aims to become a trusted AI-powered farming platform that helps farmers:
+Starting with Pakistan and expanding globally, agro ai aims to become a trusted AI-powered farming platform that helps farmers:
 
 - Make better decisions
 - Improve productivity
@@ -325,7 +325,7 @@ The farmer creates a season, logs expenses, and monitors break-even analysis and
 
 ### Step 10 — Build History
 
-Agropioo stores all farm data for future recommendations and tracking, improving advice quality over time.
+agro ai stores all farm data for future recommendations and tracking, improving advice quality over time.
 
 ## 11. Technical Architecture
 
@@ -363,7 +363,7 @@ Planned future expansion includes:
 
 ## Product Summary
 
-Agropioo is a Pakistan-first AI-powered smart agriculture platform that combines a multi-agent AI advisor, digital farm records, crop disease detection, mandi price tracking with predictions, weather advisories, crop recommendations, pest predictions, profit/loss tracking, and offline-first PWA support.
+agro ai is a Pakistan-first AI-powered smart agriculture platform that combines a multi-agent AI advisor, digital farm records, crop disease detection, mandi price tracking with predictions, weather advisories, crop recommendations, pest predictions, profit/loss tracking, and offline-first PWA support.
 
 Its core experience connects the farmer's **farm information, crop, location, weather, market prices, agricultural history, and questions** with practical AI-powered recommendations.
 

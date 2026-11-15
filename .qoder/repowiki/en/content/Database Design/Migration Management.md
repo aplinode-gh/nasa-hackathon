@@ -24,10 +24,10 @@
 10. [Appendices](#appendices)
 
 ## Introduction
-This document explains how Supabase migrations are managed in Agropioo, focusing on the migration file naming convention, version control strategy for schema changes, and deployment procedures. It also covers how migrations are applied to the Supabase PostgreSQL database, rollback strategies for failed migrations, and best practices for maintaining backward compatibility. Examples include creating new migrations, handling schema evolution, managing database state across environments, testing strategies, and debugging techniques for schema changes.
+This document explains how Supabase migrations are managed in agro ai, focusing on the migration file naming convention, version control strategy for schema changes, and deployment procedures. It also covers how migrations are applied to the Supabase PostgreSQL database, rollback strategies for failed migrations, and best practices for maintaining backward compatibility. Examples include creating new migrations, handling schema evolution, managing database state across environments, testing strategies, and debugging techniques for schema changes.
 
 ## Project Structure
-Agropioo stores all database schema changes as SQL migration files under a single directory. The project enforces that schema changes live in this directory and are applied in order. A shared client module provides both anon and service-role access to the database, while scripts use the service role for privileged operations like syncing translation data.
+agro ai stores all database schema changes as SQL migration files under a single directory. The project enforces that schema changes live in this directory and are applied in order. A shared client module provides both anon and service-role access to the database, while scripts use the service role for privileged operations like syncing translation data.
 
 ```mermaid
 graph TB
@@ -282,7 +282,7 @@ Diagnostic steps:
 - [sync-translations.mts:22-30](file://scripts/sync-translations.mts#L22-L30)
 
 ## Conclusion
-Agropioo’s migration management relies on ordered, versioned SQL files under supabase/migrations, applied to Supabase PostgreSQL. The shared client module enforces secure access boundaries, while scripts use the service role for privileged tasks. Following the outlined conventions, rollback strategies, and compatibility practices ensures reliable schema evolution across environments. Testing and debugging techniques help maintain confidence in deployments and facilitate quick resolution of issues.
+agro ai’s migration management relies on ordered, versioned SQL files under supabase/migrations, applied to Supabase PostgreSQL. The shared client module enforces secure access boundaries, while scripts use the service role for privileged tasks. Following the outlined conventions, rollback strategies, and compatibility practices ensures reliable schema evolution across environments. Testing and debugging techniques help maintain confidence in deployments and facilitate quick resolution of issues.
 
 ## Appendices
 

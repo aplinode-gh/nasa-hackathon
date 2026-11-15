@@ -7,7 +7,7 @@ import { cookies } from "next/headers";
 import PricesClient from "./prices-client";
 
 export const metadata: Metadata = {
-  title: "Mandi Prices — Agropioo",
+  title: "Mandi Prices — agro ai",
 };
 
 type CropOption = { id: string; name_en: string };

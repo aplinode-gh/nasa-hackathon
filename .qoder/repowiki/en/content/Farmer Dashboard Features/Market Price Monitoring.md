@@ -22,7 +22,7 @@
 9. Conclusion
 
 ## Introduction
-This document explains Agropioo’s market price monitoring system as implemented in the current codebase. It covers the commodity price tracking interface, trend visualization, best-market recommendation logic, and how real-time updates and alerts are structured. It also documents demo data structures, price categorization signals, user preference toggles for price alerts, and provides guidance for integrating external market data APIs, implementing price alert systems, and optimizing data loading for slow connections.
+This document explains agro ai’s market price monitoring system as implemented in the current codebase. It covers the commodity price tracking interface, trend visualization, best-market recommendation logic, and how real-time updates and alerts are structured. It also documents demo data structures, price categorization signals, user preference toggles for price alerts, and provides guidance for integrating external market data APIs, implementing price alert systems, and optimizing data loading for slow connections.
 
 ## Project Structure
 The market price feature is centered around a dashboard page that renders today’s mandi prices, weekly direction indicators, and simple “hold or sell” signals with a seven-session trend chart per crop. Supporting screens include notifications (where price alerts appear) and settings (where users toggle price-related alerts).
@@ -322,4 +322,4 @@ H --> N
 - [page.tsx:13-30](file://app/(farmer)/(dashboard)/prices/page.tsx#L13-L30)
 
 ## Conclusion
-Agropioo’s market price monitoring system currently provides a clear, demo-driven interface for tracking mandi prices, visualizing short-term trends, and surfacing actionable signals. The architecture is set up to integrate live data via standardized HTTP helpers, with user preferences for alerts already present. Extending to real-time updates, larger historical datasets, and offline access will enhance usability for farmers relying on timely market information.
+agro ai’s market price monitoring system currently provides a clear, demo-driven interface for tracking mandi prices, visualizing short-term trends, and surfacing actionable signals. The architecture is set up to integrate live data via standardized HTTP helpers, with user preferences for alerts already present. Extending to real-time updates, larger historical datasets, and offline access will enhance usability for farmers relying on timely market information.

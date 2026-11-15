@@ -4,7 +4,7 @@ let sd = fs.readFileSync('catalog/sd.ts', 'utf8');
 const translations = [
   ['"app.dashboard.greeting": "Hello, {name}"', '"app.dashboard.greeting": "سلام، {name}"'],
   ['"app.dashboard.aria.profileMenu": "Profile menu"', '"app.dashboard.aria.profileMenu": "پروفائل مينيو"'],
-  ['"app.dashboard.welcomeEyebrow": "Welcome to Agropioo"', '"app.dashboard.welcomeEyebrow": "Agropioo ۾ خوش آمدید"'],
+  ['"app.dashboard.welcomeEyebrow": "Welcome to agro ai"', '"app.dashboard.welcomeEyebrow": "agro ai ۾ خوش آمدید"'],
   ['"app.dashboard.welcomeTitle": "Start With Your First Farm."', '"app.dashboard.welcomeTitle": "پنھن پہلي فارم سان شروع ڪريو."'],
   ['"app.dashboard.addFirstFarm": "Add your first farm"', '"app.dashboard.addFirstFarm": "پنھن پہلي فارم شامل ڪريو"'],
   ['"app.dashboard.badge.today": "Today"', '"app.dashboard.badge.today": "اڄ"'],

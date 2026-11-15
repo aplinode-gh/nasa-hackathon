@@ -31,7 +31,7 @@ export function Nav() {
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
         <a
           href="#top"
-          aria-label="Agropioo — back to top"
+          aria-label="agro ai — back to top"
           className="whitespace-nowrap"
         >
           <Logo />

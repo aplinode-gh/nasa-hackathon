@@ -1,6 +1,6 @@
-# Agropioo — Information Architecture
+# agro ai — Information Architecture
 
-> Roles, pages, and API routes for the full product. Aligned with `Agropioo_Project_Documentation.md` (Pakistan-first AI agriculture platform) and `Agropioo Tech Stack.md` (Next.js 16 + Neon Lakebase Postgres).
+> Roles, pages, and API routes for the full product. Aligned with `agro ai_Project_Documentation.md` (Pakistan-first AI agriculture platform) and `agro ai Tech Stack.md` (Next.js 16 + Neon Lakebase Postgres).
 
 ---
 
@@ -24,7 +24,7 @@ No expert role. No community feature.
 | `/[locale]` | Landing page with hero, features, solution, problem, farmer journey, CTA | Built |
 | `/[locale]/features` | Feature showcase page | Built |
 | `/[locale]/how-it-works` | Multi-section how-it-works page | Built |
-| `/[locale]/why-agropioo` | Product story page | Built |
+| `/[locale]/why-agro ai` | Product story page | Built |
 | `/[locale]/vision` | Vision and mission page | Built |
 | `/[locale]/offline` | Offline fallback page | Built |
 

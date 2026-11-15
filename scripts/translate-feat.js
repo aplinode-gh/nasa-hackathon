@@ -53,7 +53,7 @@ const translations = [
   ['"feat.voice.speakTitle": "Speak your question"', '"feat.voice.speakTitle": "سوال بوليو"'],
   ['"feat.voice.callCode": "F·09 · Call"', '"feat.voice.callCode": "F·09 · ڪال"'],
   ['"feat.voice.callTitle": "Dial a toll-free number"', '"feat.voice.callTitle": "TOLL FREE نمبر ڊائل ڪريو"'],
-  ['"feat.voice.greetingLine": "Agropioo mein aapka swagat hai"', '"feat.voice.greetingLine": "Agropioo ۾ توھان جي استقبال آهي"'],
+  ['"feat.voice.greetingLine": "agro ai mein aapka swagat hai"', '"feat.voice.greetingLine": "agro ai ۾ توھان جي استقبال آهي"'],
   ['"feat.voice.heardLine": "Awaaz samajh li — jawab tayar hai"', '"feat.voice.heardLine": "آواز سمجھي — جواب تيار آهي"'],
   ['"feat.voice.callEnded": "Call ended · summary saved"', '"feat.voice.callEnded": "ڪال ختم · خلاصه بچائي وئو"'],
   ['"feat.voice.anyPhone": "Works on any phone · no internet"', '"feat.voice.anyPhone": "ڪنھن بھي ٿائيفون تي ڪم ڪري ٿو · انٽرنيٽ نه"'],

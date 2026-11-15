@@ -15,9 +15,9 @@ type PestRiskRow = {
 };
 
 export const metadata: Metadata = {
-  title: "Dashboard — Agropioo",
+  title: "Dashboard — agro ai",
   description:
-    "Today's advisory, weather, alerts, and every Agropioo tool — one screen that answers kya karoon aaj?",
+    "Today's advisory, weather, alerts, and every agro ai tool — one screen that answers kya karoon aaj?",
 };
 
 export default async function DashboardPage({

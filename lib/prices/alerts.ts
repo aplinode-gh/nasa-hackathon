@@ -57,7 +57,7 @@ export async function sendPriceAlertEmail(
   trigger: PriceTrigger
 ): Promise<void> {
   const trans = getTransporter();
-  const from = process.env.SMTP_FROM ?? "AgriPioo Notifications <no-reply@agropioo.pk>";
+  const from = process.env.SMTP_FROM ?? "AgriPioo Notifications <no-reply@agro ai.pk>";
   const link = alertDeepLink(trigger.crop_id, trigger.mandi_id);
   const price = Number(trigger.modal_price).toLocaleString("en-PK");
   const target = Number(alert.target_price_pkr).toLocaleString("en-PK");
