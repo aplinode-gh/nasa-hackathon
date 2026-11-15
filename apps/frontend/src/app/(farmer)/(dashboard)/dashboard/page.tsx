@@ -35,10 +35,9 @@ export default async function DashboardPage({
 
   let allFarms: Array<Record<string, any>> = [];
   try {
-    const farmsRes = await backendFetch("/api/farms");
-    if (farmsRes.ok) {
-      const data = await farmsRes.json();
-      allFarms = Array.isArray(data) ? data : data?.farms ?? [];
+    const farmsRes = await backendFetch<any[] | { farms?: any[] }>("/api/farms");
+    if (farmsRes) {
+      allFarms = Array.isArray(farmsRes) ? farmsRes : farmsRes?.farms ?? [];
     }
   } catch (err) {
     console.error("Error fetching farms for dashboard:", err);
@@ -53,21 +52,19 @@ export default async function DashboardPage({
   let widgetPrices: WidgetCropPrice[] = [];
   try {
     const [favRes, optionsRes] = await Promise.all([
-      backendFetch("/api/favourites"),
-      backendFetch("/api/prices/options"),
+      backendFetch<{ favourites?: Array<{ crop_id: string }> }>("/api/favourites"),
+      backendFetch<{ crops?: Array<Record<string, any>> }>("/api/prices/options"),
     ]);
 
     let cropIds: string[] = [];
-    if (favRes.ok) {
-      const favData = await favRes.json();
-      const favs = (favData?.favourites ?? []) as Array<{ crop_id: string }>;
+    if (favRes) {
+      const favs = (favRes.favourites ?? []) as Array<{ crop_id: string }>;
       cropIds = favs.slice(0, 3).map((f) => f.crop_id);
     }
 
     let crops: Array<Record<string, any>> = [];
-    if (optionsRes.ok) {
-      const opt = await optionsRes.json();
-      crops = (opt?.crops ?? []) as Array<Record<string, any>>;
+    if (optionsRes) {
+      crops = (optionsRes.crops ?? []) as Array<Record<string, any>>;
     }
 
     if (cropIds.length === 0) {
@@ -84,10 +81,11 @@ export default async function DashboardPage({
 
         let sparkline: number[] = [];
         try {
-          const pricesRes = await backendFetch(`/api/prices?crop_id=${encodeURIComponent(cropId)}`);
-          if (pricesRes.ok) {
-            const p = await pricesRes.json();
-            const rows = Array.isArray(p?.prices) ? p.prices : [];
+          const p = await backendFetch<{ prices?: any[] }>(
+            `/api/prices?crop_id=${encodeURIComponent(cropId)}`,
+          );
+          if (p) {
+            const rows = Array.isArray(p.prices) ? p.prices : [];
             sparkline = rows
               .slice(0, 7)
               .map((r: any) => Number(r.modal_price ?? 0))

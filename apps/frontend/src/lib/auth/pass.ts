@@ -94,9 +94,9 @@ export async function readValidPass(
 ): Promise<VerifiedPass | null> {
   try {
     if (kind === "session") {
-      const res = await backendFetch("/api/auth/session");
-      if (!res.ok) return null;
-      const data = (await res.json()) as { session?: { accountId?: string; email?: string } };
+      const data = await backendFetch<{ session?: { accountId?: string; email?: string } }>(
+        "/api/auth/session",
+      );
       if (!data?.session?.accountId || !data?.session?.email) return null;
       return {
         kind: "session",
@@ -113,13 +113,11 @@ export async function readValidPass(
       };
     }
 
-    const res = await backendFetch(`/api/auth/pass/${kind}`);
-    if (!res.ok) return null;
-    const data = (await res.json()) as {
+    const data = await backendFetch<{
       valid?: boolean;
       claims?: { sub?: string | null; email?: string | null; typ?: string; jti?: string | null };
       row?: { stage?: "pending" | "code_verified" | null; account_id?: string | null; email?: string | null };
-    };
+    }>(`/api/auth/pass/${kind}`);
     if (!data?.valid || !data.claims?.email) return null;
 
     const claims: PassClaims = {

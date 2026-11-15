@@ -8,7 +8,7 @@ import { useSearchParams } from "next/navigation";
 import type { PricesBundle } from "../prices-bundle";
 
 type CropOption = { id: string; name_en: string };
-type MandiOption = { id: string; name_en: string; district: string };
+type MandiOption = { id: string; name_en: string; district?: string };
 
 const adminSchema = z.object({
   crop_id: z.string().min(1, "Crop is required"),
@@ -123,7 +123,8 @@ export default function AdminForm({ bundle, crops, mandis }: AdminFormProps) {
           <option value="">Select mandi</option>
           {mandis.map((mandi) => (
             <option key={mandi.id} value={mandi.id}>
-              {mandi.name_en} — {mandi.district}
+              {mandi.name_en}
+              {mandi.district ? ` — ${mandi.district}` : ""}
             </option>
           ))}
         </select>
