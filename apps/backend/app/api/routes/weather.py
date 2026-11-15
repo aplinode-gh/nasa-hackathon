@@ -261,6 +261,40 @@ async def get_weather_history(request: Request, session: dict = Depends(require_
         return error_response("server_error", msg, 500)
 
 
+@router.get("/history/{advisory_id}")
+async def get_weather_advisory(advisory_id: str, session: dict = Depends(require_session)):
+    try:
+        row = await query_one(
+            """
+            SELECT id, farm_id, advisory_date, growth_stage, advice_key, advice_text,
+                   severity, acknowledged, acted_upon
+            FROM weather_advisories
+            WHERE id = $1 AND account_id = $2
+            """,
+            advisory_id,
+            session["accountId"],
+        )
+        if not row:
+            return error_response("not_found", "Advisory not found", 404)
+        return success(
+            {
+                "advisory": {
+                    "id": row.get("id"),
+                    "farm_id": row.get("farm_id"),
+                    "advisory_date": row.get("advisory_date"),
+                    "growth_stage": row.get("growth_stage"),
+                    "advice_key": row.get("advice_key"),
+                    "advice_text": row.get("advice_text"),
+                    "severity": row.get("severity"),
+                    "acknowledged": row.get("acknowledged"),
+                    "acted_upon": row.get("acted_upon"),
+                }
+            }
+        )
+    except Exception as err:
+        return error_response("server_error", str(err), 500)
+
+
 @router.post("/history/{advisory_id}/acknowledge")
 async def acknowledge_weather(advisory_id: str, request: Request, session: dict = Depends(require_session)):
     try:
