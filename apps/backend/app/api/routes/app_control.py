@@ -26,8 +26,8 @@ from app.services.app_control import (
     load_conversation_history,
     normalize_output,
 )
-from app.services.ai.agent import stream_agent
 from app.services.ai.guardrails import sanitize_input
+from app.services.ai.sdk_runtime import stream_sdk_agent
 from app.services.app_control_agent import build_app_control_agent
 
 router = APIRouter(prefix="/app-control", tags=["app-control"])
@@ -265,7 +265,6 @@ async def app_control_chat(request: Request, session: dict = Depends(require_ses
         current_path, page_state = _parse_page_context(request)
         history_text = await load_conversation_history(conversation_id)
         agent = build_app_control_agent(session["accountId"], current_path, page_state)
-        agents = {"AppControl": agent}
         now = datetime.now(timezone.utc)
 
         async def event_stream() -> AsyncIterator[bytes]:
@@ -310,7 +309,7 @@ async def app_control_chat(request: Request, session: dict = Depends(require_ses
                 opening = json.dumps({"type": "conversation", "id": conversation_id})
                 yield f"data: {opening}\n\n".encode("utf-8")
 
-                async for event in stream_agent(agents, "AppControl", message, history_text):
+                async for event in stream_sdk_agent(agent, message, history=history_text, feature="app_control"):
                     event_type = event.get("type")
                     if event_type == "text":
                         accumulated += str(event.get("delta") or "")

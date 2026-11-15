@@ -1,12 +1,14 @@
-"""App-control agent definition."""
+"""App-control agent definition (OpenAI Agents SDK)."""
 
 from __future__ import annotations
 
 import json
 from typing import Any
 
-from app.services.ai.agent import AgentDef
+from agents import Agent
+
 from app.services.ai.llm import get_llm_config
+from app.services.ai.sdk_tools import to_sdk_tools
 from app.services.app_control_tools import NAVIGATION_ALLOWLIST, build_app_control_tools
 
 
@@ -15,14 +17,14 @@ def build_app_control_agent(
     current_path: str,
     page_state: dict[str, Any],
     language: str = "en",
-) -> AgentDef:
+) -> Agent[Any]:
     tools = build_app_control_tools(account_id)
     instructions = f"""You are the Agropioo App Control assistant. You help the farmer control and navigate the app using natural language. You also answer questions about the farmer's OWN data — farms, records, prices, weather, and finances — by calling the data tools.
 
 Current context:
 - Page: {current_path or "unknown"}
 - Language: {language}
-- Page state: {json.dumps(page_state)}
+- Page state: {json.dumps(page_state, default=str)}
 
 Navigation rules:
 - You may ONLY navigate to: {", ".join(NAVIGATION_ALLOWLIST)}
@@ -56,11 +58,11 @@ Language rules:
 Guidelines:
 - Use tools for all data queries.
 - For multi-step tasks, break them into individual tool calls and explain each step.
-- For detailed crop or disease advice, call handoff_to_advisor.
+- For detailed crop or disease advice, suggest opening the Advisor chat (/advisor).
 """
-    return AgentDef(
+    return Agent(
         name="AppControl",
         instructions=instructions,
-        tools=list(tools.values()),
+        tools=to_sdk_tools(list(tools.values())),
         model=get_llm_config("app_control").model,
     )
