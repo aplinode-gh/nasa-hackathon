@@ -4,18 +4,26 @@
  * navigation fallback to /offline while avoiding Serwist runtime init issues.
  */
 
-/// <reference lib="webworker" />
-declare const self: ServiceWorkerGlobalScope & {
-  __WB_MANIFEST: Array<string | { url: string; revision: string | null }>;
+export {};
+
+type PrecacheEntry = string | { url: string; revision: string | null };
+
+type SwSelf = {
+  __WB_MANIFEST?: PrecacheEntry[];
+  location: { origin: string };
+  skipWaiting: () => Promise<void> | void;
+  clients: { claim: () => Promise<void> | void };
+  addEventListener: (type: string, listener: (event: any) => void) => void;
 };
 
-const PRECACHE_MANIFEST: Array<string | { url: string; revision: string | null }> =
-  (self.__WB_MANIFEST as unknown as Array<string | { url: string; revision: string | null }>) ?? [];
+const sw = self as unknown as SwSelf;
+
+const PRECACHE_MANIFEST: PrecacheEntry[] = sw.__WB_MANIFEST ?? [];
 
 const PRECACHE_CACHE = "agroai-precache-v1";
 const NAV_FALLBACK = "/offline";
 
-self.addEventListener("install", (event) => {
+sw.addEventListener("install", (event: any) => {
   event.waitUntil(
     (async () => {
       const cache = await caches.open(PRECACHE_CACHE);
@@ -30,12 +38,12 @@ self.addEventListener("install", (event) => {
           }
         }),
       );
-      await self.skipWaiting();
+      await sw.skipWaiting();
     })(),
   );
 });
 
-self.addEventListener("activate", (event) => {
+sw.addEventListener("activate", (event: any) => {
   event.waitUntil(
     (async () => {
       const keys = await caches.keys();
@@ -44,16 +52,16 @@ self.addEventListener("activate", (event) => {
           .filter((k) => k.startsWith("agroai-precache-") && k !== PRECACHE_CACHE)
           .map((k) => caches.delete(k)),
       );
-      await self.clients.claim();
+      await sw.clients.claim();
     })(),
   );
 });
 
-self.addEventListener("fetch", (event) => {
-  const req = event.request;
-  if (req.method !== "GET") return;
+sw.addEventListener("fetch", (event: any) => {
+  const req: Request = event.request;
+  if (!req || req.method !== "GET") return;
   const url = new URL(req.url);
-  if (url.origin !== self.location.origin) return;
+  if (url.origin !== sw.location.origin) return;
 
   event.respondWith(
     (async () => {

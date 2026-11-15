@@ -9,7 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import type { z } from "zod";
 import { signupSchema } from "@/lib/validation/auth";
 import { splitLocalePrefix } from "@/lib/i18n/logic";
-import logoOnDark from "@/references/AgroAI-logo-footer.png";
+import logoOnDark from "@/references/Agropioo-logo-footer.png";
 import logoOnLight from "@/references/AgroAI-logo-withoutbg-text.png";
 
 export type SignupErrorCopy = {

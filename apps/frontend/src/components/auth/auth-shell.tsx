@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { FurrowMotif } from "@/components/FurrowMotif";
-import logoOnDark from "@/references/AgroAI-logo-footer.png";
+import logoOnDark from "@/references/Agropioo-logo-footer.png";
 import logoOnLight from "@/references/AgroAI-logo-withoutbg-text.png";
 
 type AuthShellProps = {
