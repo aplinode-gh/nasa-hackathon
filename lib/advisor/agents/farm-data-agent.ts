@@ -6,14 +6,23 @@ import { searchKnowledgeBase } from "../tools/knowledge-base";
 import { advisorModel } from "../model";
 
 export function createFarmDataAgent(accountId: string) {
-  const { getMyFarms, getMyRecords, getFarmDetails, checkSoilCropFit, getMyWeatherRecords, getMyFarmWeather } = createFarmDataTools(accountId);
+  const {
+    getMyFarms,
+    getMyRecords,
+    getFarmDetails,
+    checkSoilCropFit,
+    getMyWeatherRecords,
+    getMyFarmWeather,
+    getNasaClimate,
+    getIrrigationMoistureInsights,
+  } = createFarmDataTools(accountId);
   const { getMySeasons, getSeasonExpenses, getProfitLossSummary } = createProfitLossTools(accountId);
   const { getMyCropRecommendations, getFarmPlan } = createCropRecommendationTools(accountId);
 
   return new Agent({
     name: "Farm Data Advisor",
     model: advisorModel(),
-    handoffDescription: "Handles questions about the farmer's own farms, farm records, planting history, crop status, past activities, cost summaries, soil conditions, crop-soil suitability, weather at their farms, and overdue actions.",
+    handoffDescription: "Handles questions about the farmer's own farms, farm records, planting history, crop status, past activities, cost summaries, soil conditions, crop-soil suitability, weather at their farms, NASA POWER climate/drought context for their farms, irrigation timing vs soil moisture insights, and overdue actions.",
     instructions: `You are a farm management specialist who helps the farmer understand their own farming data. You have access to:
 - The farmer's registered farms (name, location, district, size, crop types, growth stage, coordinates)
 - Detailed farm profiles (soil type, irrigation method, sowing date, crop details with yield/duration/cost)
@@ -21,6 +30,8 @@ export function createFarmDataAgent(accountId: string) {
 - The farmer's activity records (sowing, irrigation, fertilizer, pesticide, disease observations, harvests) with costs
 - Weather data recorded at the time of each farming activity
 - Live current weather for the farmer's farm locations (auto-fetched using farm coordinates)
+- NASA POWER agroclimatology and recent rainfall/soil-wetness context for the farmer's farms (real satellite/reanalysis-derived numbers)
+- Irrigation-vs-soil-moisture insights comparing logged irrigation events against NASA POWER daily soil wetness (GWETROOT/GWETTOP)
 - The farmer's farming seasons (crop, farm, acres, status, expected/actual yield and price)
 - Season expenses with projected cost comparisons (CACP baseline vs actual spending)
 - Profit/loss summaries per season (investment, revenue, net profit/loss, ROI, break-even analysis)
@@ -50,11 +61,13 @@ When the farmer asks what to plant, which crop is best, or about their recommend
 - Explain the scores: suitability (how well the crop fits their soil), profitability (expected revenue), risk factors
 - Compare alternatives if multiple recommendations exist
 
-## Weather integration
+## Weather and NASA climate integration
 - Use get_my_farm_weather to show current live weather at the farmer's farms
 - Use get_my_weather_records to show historical weather conditions from past activities
-- Connect weather data to farming decisions: "It's 38°C at your Sahiwal farm — heat stress risk for your cotton at flowering"
-- Compare current weather to past conditions: "Last time it was this humid at your farm, you had leaf curl virus issues"
+- Use get_nasa_climate(farmId) when the farmer asks if this is a drought year, wants rainfall/climate normals, or needs NASA POWER numbers for their farm. Quote the real numbers from the tool (e.g. recent vs normal rainfall %, soil wetness, temperature normals) and explain what they mean for the farm.
+- Use get_irrigation_moisture_insights to compare logged irrigation events against NASA POWER daily soil wetness and surface actionable insights (e.g. "You irrigated on a day when soil moisture was already high") with dates and values.
+- Connect weather/climate data to farming decisions: "It's 38°C at your Sahiwal farm — heat stress risk for your cotton at flowering"
+- Compare current/recent conditions to normals or past conditions when relevant
 
 ## Soil and crop advice
 - When the farmer asks about what to plant, use check_soil_crop_fit to compare crops for their soil
@@ -94,6 +107,21 @@ Always use the farmer's actual data from the tools — never fabricate farm reco
 - NEVER switch languages mid-sentence. Every response must be entirely in one language.
 - Only exception: technical terms with no local equivalent (pH, NPK, DAP, GPS) may stay as-is.
 - Before sending, verify: "Is this entirely in one language?" Fix any mixing.`,
-    tools: [getMyFarms, getMyRecords, getFarmDetails, checkSoilCropFit, getMyWeatherRecords, getMyFarmWeather, getMySeasons, getSeasonExpenses, getProfitLossSummary, getMyCropRecommendations, getFarmPlan, searchKnowledgeBase],
+    tools: [
+      getMyFarms,
+      getMyRecords,
+      getFarmDetails,
+      checkSoilCropFit,
+      getMyWeatherRecords,
+      getMyFarmWeather,
+      getNasaClimate,
+      getIrrigationMoistureInsights,
+      getMySeasons,
+      getSeasonExpenses,
+      getProfitLossSummary,
+      getMyCropRecommendations,
+      getFarmPlan,
+      searchKnowledgeBase,
+    ],
   });
 }

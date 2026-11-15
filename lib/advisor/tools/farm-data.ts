@@ -2,6 +2,8 @@ import { tool } from "@openai/agents";
 import { z } from "zod";
 import { query, queryOne } from "@/lib/db";
 import { fetchCurrentWeather } from "@/lib/farms/weather";
+import { getPowerDaily, NASA_POWER_ATTRIBUTION } from "@/lib/weather/nasa-power";
+import { createGetNasaClimateTool } from "./nasa-climate";
 
 type FarmRow = {
   id: string;
@@ -413,5 +415,121 @@ Growth stages: ${stage}`;
     },
   });
 
-  return { getMyFarms, getMyRecords, getFarmDetails, checkSoilCropFit, getMyWeatherRecords, getMyFarmWeather };
+  const getIrrigationMoistureInsights = tool({
+    name: "get_irrigation_moisture_insights",
+    description:
+      "Compare the farmer's logged irrigation events against NASA POWER daily soil wetness (GWETROOT/GWETTOP) for the same dates and farm location. Use this to find insights like irrigating when soil moisture was already high. Requires irrigation records with dates; uses stored farm coordinates.",
+    parameters: z.object({
+      farmId: z.string().optional().describe("Specific farm ID to analyze, or omit to analyze recent irrigation across farms"),
+      days: z.number().optional().describe("How many past days of irrigation records to analyze (default 90)"),
+    }),
+    async execute({ farmId, days }) {
+      const lookbackDays = days ?? 90;
+      const conditions: string[] = ["r.account_id = $1", "r.type = 'irrigation'", "r.event_date >= current_date - $2::int"];
+      const params: (string | number)[] = [accountId, lookbackDays];
+      let paramIdx = 3;
+
+      if (farmId) {
+        const farmOwner = await query<{ id: string }>(
+          `SELECT id FROM farms WHERE id = $1 AND account_id = $2 AND archived_at IS NULL`,
+          [farmId, accountId]
+        );
+        if (farmOwner.length === 0) {
+          return "Farm not found or does not belong to you.";
+        }
+        conditions.push(`r.farm_id = $${paramIdx++}`);
+        params.push(farmId);
+      }
+
+      const rows = await query<{
+        farm_id: string;
+        farm_name: string;
+        lat: number;
+        lng: number;
+        event_date: string;
+        title: string | null;
+        note: string | null;
+      }>(
+        `SELECT r.farm_id, f.name AS farm_name, f.lat, f.lng, r.event_date::text AS event_date, r.title, r.note
+         FROM records r
+         JOIN farms f ON f.id = r.farm_id AND f.account_id = $1
+         WHERE ${conditions.join(" AND ")}
+         ORDER BY r.event_date DESC
+         LIMIT 30`,
+        params
+      );
+
+      if (rows.length === 0) {
+        return `No irrigation records found in the last ${lookbackDays} days${farmId ? " for this farm" : ""}. Log irrigation activities to get NASA POWER soil-moisture insights.`;
+      }
+
+      const byFarm = new Map<string, typeof rows>();
+      for (const r of rows) {
+        const arr = byFarm.get(r.farm_id) ?? [];
+        arr.push(r);
+        byFarm.set(r.farm_id, arr);
+      }
+
+      const insights: string[] = [];
+      const highMoistureEvents: string[] = [];
+      const details: string[] = [];
+
+      for (const [fid, events] of byFarm) {
+        const lat = Number(events[0].lat);
+        const lng = Number(events[0].lng);
+        const dates = events.map((e) => e.event_date.replaceAll("-", "")).sort();
+        const start = dates[0];
+        const end = dates[dates.length - 1];
+        const daily = await getPowerDaily(lat, lng, start, end, "GWETROOT,GWETTOP,PRECTOTCORR");
+        const byDate = new Map<string, { gwetroot?: number; gwettop?: number; precip?: number }>();
+        for (const d of daily ?? []) {
+          byDate.set(d.date, { gwetroot: (d as any).GWETROOT, gwettop: (d as any).GWETTOP, precip: d.PRECTOTCORR });
+        }
+
+        for (const ev of events) {
+          const key = ev.event_date.replaceAll("-", "");
+          const m = byDate.get(key);
+          const root = m?.gwetroot;
+          const top = m?.gwettop;
+          const rootValid = root != null && root !== -999;
+          const topValid = top != null && top !== -999;
+          const effective = rootValid ? root! : topValid ? top! : null;
+          if (effective == null) continue;
+
+          const moistureLabel = effective >= 0.6 ? "high" : effective >= 0.4 ? "moderate" : "low";
+          const line = `- ${ev.event_date} • ${ev.farm_name}: root-zone soil wetness ${rootValid ? root!.toFixed(2) : "n/a"}, surface ${topValid ? top!.toFixed(2) : "n/a"} (0–1), moisture ${moistureLabel}${ev.title ? ` — ${ev.title}` : ""}`;
+          details.push(line);
+
+          if (effective >= 0.55) {
+            highMoistureEvents.push(
+              `You irrigated ${ev.farm_name} on ${ev.event_date} when NASA POWER soil moisture was already ${moistureLabel} (GWETROOT ${rootValid ? root!.toFixed(2) : "n/a"}, GWETTOP ${topValid ? top!.toFixed(2) : "n/a"}). Consider checking field conditions before irrigating on similar days to save water and reduce waterlogging risk.`
+            );
+          }
+        }
+      }
+
+      if (details.length === 0) {
+        return `Irrigation records were found, but NASA POWER daily soil wetness data was unavailable for those dates/locations. (${NASA_POWER_ATTRIBUTION})`;
+      }
+
+      if (highMoistureEvents.length > 0) {
+        insights.push("Potential water-saving insights:");
+        insights.push(...highMoistureEvents.map((x) => `• ${x}`));
+        insights.push("");
+      } else {
+        insights.push("No clear cases found where irrigation was logged on days with already-high NASA POWER soil wetness in the analyzed period.");
+        insights.push("");
+      }
+
+      insights.push(`Analyzed irrigation events (${NASA_POWER_ATTRIBUTION}, GWETROOT/GWETTOP 0=dry to 1=saturated):`);
+      insights.push(...details.slice(0, 20));
+      if (details.length > 20) insights.push(`- ...and ${details.length - 20} more events`);
+
+      return insights.join("\n");
+    },
+  });
+
+  const getNasaClimate = createGetNasaClimateTool(accountId);
+
+  return { getMyFarms, getMyRecords, getFarmDetails, checkSoilCropFit, getMyWeatherRecords, getMyFarmWeather, getNasaClimate, getIrrigationMoistureInsights };
 }
