@@ -125,6 +125,12 @@ def _resolve_path() -> Path:
     override = os.getenv("VISION_MODEL_DIR")
     if override:
         return Path(override).expanduser().resolve()
+    # Prefer the deployed inference bundle (container ships model_store/, not artifacts/).
+    store = os.getenv("MODEL_STORE_DIR")
+    if store:
+        candidate = Path(store).expanduser().resolve() / "vision"
+        if (candidate / "disease_model.joblib").exists():
+            return candidate
     return VISION_DIR
 
 
