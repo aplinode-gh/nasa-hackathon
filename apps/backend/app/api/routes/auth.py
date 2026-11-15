@@ -308,3 +308,32 @@ async def reset_password(payload: ResetPasswordRequest, request: Request, respon
         return success({"ok": True})
     except Exception:
         return error_response("server_error", COPY["SERVER_ERROR"], 500)
+
+
+@router.get("/session")
+async def session(request: Request):
+    try:
+        pass_data = await read_valid_pass(request, "session")
+        if not pass_data:
+            return error_response("unauthorized", COPY["UNAUTHORIZED_GENERIC"], 401)
+
+        claims = pass_data["claims"]
+        user = await query_one(
+            "SELECT id, email, full_name, email_verified, created_at FROM users WHERE id = $1",
+            claims.sub,
+        )
+        if not user:
+            return error_response("unauthorized", COPY["UNAUTHORIZED_GENERIC"], 401)
+
+        return success(
+            {
+                "session": {
+                    "accountId": str(user.get("id") or claims.sub),
+                    "email": user.get("email") or claims.email,
+                    "fullName": user.get("full_name"),
+                    "emailVerified": bool(user.get("email_verified")),
+                }
+            }
+        )
+    except Exception:
+        return error_response("server_error", COPY["SERVER_ERROR"], 500)
