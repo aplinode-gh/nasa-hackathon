@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getCropsBundle } from "@/lib/i18n/server";
 import { requireSessionPage } from "@/lib/auth/guards";
-import { query, queryOne } from "@/lib/db";
+import { backendFetch } from "@/lib/backend";
 import CropsClient from "../crops-client";
 
 interface PageProps {
@@ -13,31 +14,19 @@ export const metadata: Metadata = {
 };
 
 export default async function CropRecommendationDetailPage({ params }: PageProps) {
-  const session = await requireSessionPage();
+  await requireSessionPage();
   const bundle = await getCropsBundle();
   const { request_id } = await params;
 
   let request: Record<string, unknown> | null = null;
-  let recommendations: Array<Record<string, unknown>> = [];
+  let recommendations: Array<any> = [];
+
   try {
-    const requestRow = await queryOne<Record<string, unknown>>(
-      `SELECT * FROM crop_recommendation_requests WHERE id = $1 AND account_id = $2`,
-      [request_id, session.accountId]
-    );
-    if (requestRow) {
-      request = requestRow;
-      const recs = await query<Record<string, unknown>>(
-        `SELECT r.*, c.id AS crop_id, c.name_en, c.name_key, c.category,
-                c.typical_yield_per_acre_kg, c.growing_duration_days, c.season_windows,
-                c.water_requirement_level, c.labour_cost_level,
-                c.capital_requirement_per_acre_pkr, c.market_risk_baseline
-         FROM crop_recommendations r
-         JOIN crops c ON c.id = r.crop_id
-         WHERE r.request_id = $1
-         ORDER BY r.rank ASC`,
-        [request_id]
-      );
-      recommendations = recs;
+    const res = await backendFetch(`/api/crops/${encodeURIComponent(request_id)}`);
+    if (res.ok) {
+      const data = await res.json();
+      request = data?.request ?? null;
+      recommendations = data?.recommendations ?? [];
     }
   } catch {
     // best-effort render; client shows not-found state
@@ -51,54 +40,20 @@ export default async function CropRecommendationDetailPage({ params }: PageProps
     );
   }
 
-  const mappedRecommendations = recommendations.map((rec) => ({
-    id: rec.id as string,
-    rank: rec.rank as number,
-    crop: {
-      id: rec.crop_id as string,
-      nameEn: rec.name_en as string,
-      category: rec.category as string,
-      typicalYieldPerAcreKg: Number(rec.typical_yield_per_acre_kg),
-      growingDurationDays: Number(rec.growing_duration_days),
-      waterRequirementLevel: rec.water_requirement_level as string,
-      labourCostLevel: rec.labour_cost_level as string,
-      capitalRequirementPerAcrePkr: Number(rec.capital_requirement_per_acre_pkr),
-      marketRiskBaseline: rec.market_risk_baseline as string,
-    },
-    expectedRevenuePerAcrePkr: Number(rec.expected_revenue_per_acre_pkr),
-    revenueConfidence: rec.revenue_confidence as string,
-    reasonKey: rec.reason_key as string,
-    riskFactors: (rec.risk_factors as string[]) ?? [],
-    waterRequirementLevel: rec.water_requirement_level as string,
-    scores: rec.scores as {
-      suitability: number;
-      weatherFit: number;
-      profitability: number;
-      risk: number;
-      sustainability: number;
-      final: number;
-    },
-    dataSourcesUsed: (rec.data_sources_used as string[]) ?? [],
-    dataFreshnessSeconds: rec.data_fresheness_seconds as number,
-  }));
-
-  const initialRequestData = request
-    ? {
-        soilType: request.soil_type as string,
-        targetSeason: request.target_season as string,
-      }
-    : undefined;
+  const initialRequestData = {
+    soilType: String(request.soil_type ?? ""),
+    targetSeason: String(request.target_season ?? ""),
+  };
 
   return (
     <div className="space-y-6 pt-1">
       <div className="flex items-center gap-2">
-        <button
-          type="button"
-          onClick={() => history.back()}
+        <Link
+          href="/crops"
           className="inline-flex min-h-11 items-center gap-1 rounded-md text-sm font-semibold text-agro-canopy underline-offset-4 hover:underline"
         >
           ← {bundle.detail.back}
-        </button>
+        </Link>
       </div>
 
       <div className="rounded-2xl border border-agro-sprout bg-white p-5 sm:p-6">
@@ -106,15 +61,15 @@ export default async function CropRecommendationDetailPage({ params }: PageProps
         <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <div>
             <p className="font-mono text-xs uppercase tracking-wide text-agro-slate">Season</p>
-            <p className="mt-1 text-sm font-medium text-agro-ink">{String(request.target_season)}</p>
+            <p className="mt-1 text-sm font-medium text-agro-ink">{String(request.target_season ?? "")}</p>
           </div>
           <div>
             <p className="font-mono text-xs uppercase tracking-wide text-agro-slate">Year</p>
-            <p className="mt-1 text-sm font-medium text-agro-ink">{String(request.target_year)}</p>
+            <p className="mt-1 text-sm font-medium text-agro-ink">{String(request.target_year ?? "")}</p>
           </div>
           <div>
             <p className="font-mono text-xs uppercase tracking-wide text-agro-slate">Soil</p>
-            <p className="mt-1 text-sm font-medium text-agro-ink">{String(request.soil_type)}</p>
+            <p className="mt-1 text-sm font-medium text-agro-ink">{String(request.soil_type ?? "")}</p>
           </div>
         </div>
       </div>
@@ -122,7 +77,7 @@ export default async function CropRecommendationDetailPage({ params }: PageProps
       <CropsClient
         bundle={bundle}
         farms={[]}
-        initialRecommendations={mappedRecommendations}
+        initialRecommendations={recommendations}
         initialRequest={initialRequestData}
       />
     </div>

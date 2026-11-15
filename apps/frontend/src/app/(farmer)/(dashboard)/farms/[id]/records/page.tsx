@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/shell/page-header";
 import { getFarmsBundle } from "@/lib/i18n/server";
 import { requireSessionPage } from "@/lib/auth/guards";
-import { query } from "@/lib/db";
+import { backendFetch } from "@/lib/backend";
 import FarmRecordItem from "./farm-record-item";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Farm records — Agropioo",
+  title: "Farm records — AgroAI",
 };
 
 export default async function FarmRecordsPage({
@@ -15,20 +15,14 @@ export default async function FarmRecordsPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const session = await requireSessionPage();
+  await requireSessionPage();
   const { id } = await params;
   let records: Array<Record<string, unknown>> = [];
   try {
-    const farmRows = await query<{ id: string }>(
-      `SELECT id FROM farms WHERE id = $1 AND account_id = $2 AND archived_at IS NULL`,
-      [id, session.accountId]
-    );
-
-    if (farmRows.length > 0) {
-      records = await query<Record<string, unknown>>(
-        `SELECT * FROM records WHERE farm_id = $1 ORDER BY event_date DESC, created_at DESC`,
-        [id]
-      );
+    const res = await backendFetch(`/api/farms/${encodeURIComponent(id)}/records?limit=100`);
+    if (res.ok) {
+      const data = await res.json();
+      records = Array.isArray(data) ? data : data?.records ?? [];
     }
   } catch (err) {
     console.error("Error fetching farm records:", err);
@@ -42,8 +36,8 @@ export default async function FarmRecordsPage({
     pesticide: bundle.records.types.pesticide,
     disease: bundle.records.types.disease,
     harvest: bundle.records.types.harvest,
-    sowing: 'Sowing',
-    planting: 'Planting',
+    sowing: "Sowing",
+    planting: "Planting",
   };
 
   return (
@@ -70,11 +64,11 @@ export default async function FarmRecordsPage({
         <ol className="mt-6 space-y-3">
           {records.map((record, index) => (
             <FarmRecordItem
-              key={record.id as string}
+              key={String(record.id ?? index)}
               record={record}
               index={index}
               total={records.length}
-              typeLabel={recordTypeLabel[record.type as string] || String(record.type)}
+              typeLabel={recordTypeLabel[String(record.type)] || String(record.type ?? "")}
             />
           ))}
         </ol>

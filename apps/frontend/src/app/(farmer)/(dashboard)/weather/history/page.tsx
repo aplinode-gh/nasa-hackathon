@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/shell/page-header";
 import { requireSessionPage } from "@/lib/auth/guards";
-import { query } from "@/lib/db";
+import { backendFetch } from "@/lib/backend";
 import { getWeatherBundle } from "@/lib/i18n/server";
 import { type GrowthStage, type Severity } from "@/lib/weather/advisory";
 import FarmSelector from "@/components/weather/FarmSelector";
 import HistoryList, { type HistoryItem } from "@/components/weather/HistoryList";
 
-export const metadata: Metadata = { title: "Advisory history — Agropioo" };
+export const metadata: Metadata = { title: "Advisory history — AgroAI" };
 
-type FarmRow = { id: string; name: string; primary_crop: string | null; crops: string[]; location: string; district: string };
+type FarmRow = { id: string; name: string; primary_crop: string | null; crops: string[] | string; location: string; district: string };
 
 function capitalize(value: string): string {
-  return value.charAt(0).toUpperCase() + value.slice(1);
+  return value ? value.charAt(0).toUpperCase() + value.slice(1) : "";
 }
 
 export default async function WeatherHistoryPage({
@@ -20,19 +20,23 @@ export default async function WeatherHistoryPage({
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  const session = await requireSessionPage();
+  await requireSessionPage();
   const bundle = await getWeatherBundle();
 
-  const farms = await query<FarmRow>(
-    `SELECT id, name, primary_crop, crops, location, district FROM farms
-     WHERE account_id = $1 AND archived_at IS NULL ORDER BY created_at DESC`,
-    [session.accountId],
-  );
-  const farmList = farms ?? [];
+  let farmList: FarmRow[] = [];
+  try {
+    const farmsRes = await backendFetch("/api/farms");
+    if (farmsRes.ok) {
+      const data = await farmsRes.json();
+      farmList = (Array.isArray(data) ? data : data?.farms ?? []) as FarmRow[];
+    }
+  } catch {
+    farmList = [];
+  }
 
   const params = await searchParams;
   const requested = typeof params.farm === "string" ? params.farm : null;
-  const selected = farmList.find((f) => f.id === requested) ?? farmList[0] ?? null;
+  const selected = farmList.find((f) => String(f.id) === requested) ?? farmList[0] ?? null;
 
   const stageLabels: Record<GrowthStage, string> = {
     seedling: bundle.stages.seedling,
@@ -60,33 +64,44 @@ export default async function WeatherHistoryPage({
     );
   }
 
-  const rows = await query<HistoryItem>(
-    `SELECT id, farm_id, advisory_date, growth_stage, advice_key, advice_text,
-            severity, acknowledged, acted_upon
-     FROM weather_advisories WHERE farm_id = $1 AND account_id = $2
-     ORDER BY advisory_date DESC, id DESC LIMIT 20`,
-    [selected.id, session.accountId],
-  );
+  let rows: HistoryItem[] = [];
+  let nextCursor: string | null = null;
+  try {
+    const res = await backendFetch(
+      `/api/weather/history?farm_id=${encodeURIComponent(String(selected.id))}&limit=20`,
+    );
+    if (res.ok) {
+      const data = await res.json();
+      rows = (data?.items ?? []) as HistoryItem[];
+      nextCursor = data?.next_cursor ?? null;
+    }
+  } catch {
+    rows = [];
+  }
 
-  const farmOptions = farmList.map((f) => ({
-    id: f.id,
-    name: f.name,
-    cropLabel: capitalize(f.primary_crop ?? f.crops?.[0] ?? ""),
-    location: f.location,
-    district: f.district,
-  }));
+  const farmOptions = farmList.map((f) => {
+    const crops = Array.isArray(f.crops) ? f.crops : [];
+    const primary = f.primary_crop ?? crops[0] ?? "";
+    return {
+      id: String(f.id),
+      name: String(f.name ?? ""),
+      cropLabel: capitalize(String(primary)),
+      location: String(f.location ?? ""),
+      district: String(f.district ?? ""),
+    };
+  });
 
   return (
     <div className="pt-1">
       <PageHeader eyebrow={bundle.eyebrow} title={bundle.historyTitle} description={bundle.historySubtitle} />
       <div className="mt-5">
-        <FarmSelector farms={farmOptions} selectedId={selected.id} label={bundle.farmSelectorLabel} />
+        <FarmSelector farms={farmOptions} selectedId={String(selected.id)} label={bundle.farmSelectorLabel} />
       </div>
 
       <HistoryList
-        initialItems={rows ?? []}
-        initialCursor={null}
-        farmId={selected.id}
+        initialItems={rows}
+        initialCursor={nextCursor}
+        farmId={String(selected.id)}
         strings={{
           date: bundle.historyDate,
           severity: bundle.historySeverity,
