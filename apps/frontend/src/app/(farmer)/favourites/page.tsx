@@ -13,25 +13,15 @@ type CropOption = { id: string; name_en: string };
 export default async function FavouritesPage() {
   await requireSessionPage();
 
-  const [bundle, optionsRes] = await Promise.all([
+  const [bundle, options] = await Promise.all([
     getPricesBundle(),
-    backendFetch("/api/prices/options"),
+    backendFetch<{ crops?: CropOption[] }>("/api/prices/options"),
   ]);
-
-  let crops: CropOption[] = [];
-  if (optionsRes.ok) {
-    try {
-      const data = (await optionsRes.json()) as { crops?: CropOption[] };
-      crops = data.crops ?? [];
-    } catch {
-      crops = [];
-    }
-  }
 
   return (
     <div className="pt-1">
       <div className="mt-6">
-        <FavouritesClient bundle={bundle} crops={crops} />
+        <FavouritesClient bundle={bundle} crops={options?.crops ?? []} />
       </div>
     </div>
   );

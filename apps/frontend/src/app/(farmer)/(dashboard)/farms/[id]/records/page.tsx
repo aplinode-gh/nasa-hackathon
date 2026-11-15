@@ -19,11 +19,8 @@ export default async function FarmRecordsPage({
   const { id } = await params;
   let records: Array<Record<string, unknown>> = [];
   try {
-    const res = await backendFetch(`/api/farms/${encodeURIComponent(id)}/records?limit=100`);
-    if (res.ok) {
-      const data = await res.json();
-      records = Array.isArray(data) ? data : data?.records ?? [];
-    }
+    const data = await backendFetch<any>(`/api/farms/${encodeURIComponent(id)}/records?limit=100`);
+    records = Array.isArray(data) ? data : data?.records ?? [];
   } catch (err) {
     console.error("Error fetching farm records:", err);
   }
