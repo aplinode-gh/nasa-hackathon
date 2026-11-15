@@ -1,23 +1,35 @@
 import type { Metadata } from "next";
 import { requireSessionPage } from "@/lib/auth/guards";
 import { getPricesBundle } from "@/lib/i18n/server";
-import { query } from "@/lib/db";
+import { backendFetch } from "@/lib/backend";
 import AdminForm from "./admin-form";
 
 export const metadata: Metadata = {
-  title: "Manual Price Entry — Agropioo",
+  title: "Manual Price Entry — AgroAI",
 };
+
+type CropOption = { id: string; name_en: string };
+type MandiOption = { id: string; name_en: string; district?: string };
 
 export default async function AdminPricePage() {
   await requireSessionPage();
 
-  const [bundle, crops, mandis] = await Promise.all([
+  const [bundle, optionsRes] = await Promise.all([
     getPricesBundle(),
-    query<{ id: string; name_en: string }>(`select id, name_en from crops order by name_en`),
-    query<{ id: string; name_en: string; district: string }>(
-      `select id, name_en, district from mandis order by district, name_en`
-    ),
+    backendFetch("/api/prices/options"),
   ]);
+
+  let crops: CropOption[] = [];
+  let mandis: MandiOption[] = [];
+  if (optionsRes.ok) {
+    try {
+      const data = (await optionsRes.json()) as { crops?: CropOption[]; mandis?: MandiOption[] };
+      crops = data.crops ?? [];
+      mandis = data.mandis ?? [];
+    } catch {
+      // leave defaults
+    }
+  }
 
   return (
     <div className="pt-1">
@@ -29,7 +41,7 @@ export default async function AdminPricePage() {
         <p className="mt-2 text-agro-slate">Enter or correct today&apos;s mandi price for a crop and market.</p>
 
         <div className="mt-6 rounded-3xl border border-agro-sprout bg-white p-5 sm:p-6">
-          <AdminForm bundle={bundle} crops={crops ?? []} mandis={mandis ?? []} />
+          <AdminForm bundle={bundle} crops={crops} mandis={mandis} />
         </div>
       </div>
     </div>
