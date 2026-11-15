@@ -18,6 +18,7 @@ from app.models.profit_loss import (
     UpdateExpenseRequest,
     UpdateSeasonRequest,
 )
+from app.services.cacp import fetch_cacp_projections
 from app.services.profit_loss import (
     compute_break_even,
     compute_pl,
@@ -123,7 +124,12 @@ async def create_season(request: Request, session: dict = Depends(require_sessio
         if not season:
             return error_response("server_error", "Failed to create season", 500)
 
-        for projected in default_projected_costs(parsed.acres):
+        projections = await fetch_cacp_projections(parsed.crop_id, parsed.acres)
+        cacp_fallback = projections is None
+        if projections is None:
+            projections = default_projected_costs(parsed.acres)
+
+        for projected in projections:
             await execute(
                 """
                 INSERT INTO projected_costs (season_id, category, per_acre_cost_pkr, total_projected_pkr)
@@ -136,7 +142,7 @@ async def create_season(request: Request, session: dict = Depends(require_sessio
                 projected["total_projected_pkr"],
             )
 
-        return success({**to_jsonable(season), "cacp_fallback": True}, status_code=201)
+        return success({**to_jsonable(season), "cacp_fallback": cacp_fallback}, status_code=201)
     except Exception as err:
         msg = str(err)
         if "validation error" in msg.lower() or "Valid crop" in msg or "Invalid" in msg:
