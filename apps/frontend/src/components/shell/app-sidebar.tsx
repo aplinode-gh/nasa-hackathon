@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 import {
   BellIcon,
   BugIcon,
@@ -18,7 +19,7 @@ import {
   WeatherIcon,
   WheatIcon,
 } from "@/components/icons";
-import logoOnDark from "@/references/Agropioo-logo-footer.png";
+import logoOnDark from "@/references/AgroAI-logo-footer.png";
 import type { ShellBundle } from "./shell-bundle";
 
 /* Desktop (≥lg) sidebar for the farmer app: a dark forest ledger rail.
@@ -31,6 +32,8 @@ interface AppSidebarProps {
 
 export default function AppSidebar({ bundle }: AppSidebarProps) {
   const pathname = usePathname();
+  const router = useRouter();
+  const [isSigningOut, setIsSigningOut] = useState(false);
   const { nav, signOut, aria, productOf, builtForPakistan, alertsUnread } = bundle;
 
   const destinations = [
@@ -51,12 +54,26 @@ export default function AppSidebar({ bundle }: AppSidebarProps) {
     return pathname === href || pathname.startsWith(`${href}/`);
   }
 
+  async function handleSignOut() {
+    if (isSigningOut) return;
+    setIsSigningOut(true);
+    try {
+      await fetch("/api/auth/logout", { method: "POST" });
+    } catch {
+      // Ignore network errors and still route user to login.
+    } finally {
+      router.replace("/login");
+      router.refresh();
+      setIsSigningOut(false);
+    }
+  }
+
   return (
     <aside className="app-sidebar fixed inset-y-0 start-0 z-40 hidden w-64 flex-col bg-agro-forest px-4 py-6 text-white lg:flex">
       {/* Fixed top — logo + brand */}
       <div className="shrink-0">
         <Link href="/" className="inline-flex items-center px-2">
-          <Image src={logoOnDark} alt="Agropioo" className="h-11 w-auto" />
+          <Image src={logoOnDark} alt="AgroAI" className="h-11 w-auto" />
         </Link>
         <p className="mt-1 px-2 font-mono text-[0.65rem] uppercase tracking-[0.22em] text-white/50">
           {productOf}
@@ -104,13 +121,15 @@ export default function AppSidebar({ bundle }: AppSidebarProps) {
 
       {/* Fixed bottom — signout + brand, always visible */}
       <div className="shrink-0 space-y-3 pt-4">
-        <Link
-          href="/login"
-          className="flex min-h-11 items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+        <button
+          type="button"
+          onClick={handleSignOut}
+          disabled={isSigningOut}
+          className="flex min-h-11 w-full items-center gap-3 rounded-xl px-3 py-2.5 text-start text-sm font-medium text-white/70 transition-colors hover:bg-white/10 hover:text-white disabled:cursor-not-allowed disabled:opacity-70"
         >
           <LogOutIcon className="h-5 w-5 shrink-0" />
-          {signOut}
-        </Link>
+          {isSigningOut ? "..." : signOut}
+        </button>
         <p className="flex items-center gap-2 px-3 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-white/40">
           <SproutIcon size={14} className="shrink-0 text-agro-sprout/60" aria-hidden="true" />
           {builtForPakistan}
