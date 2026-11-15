@@ -1,9 +1,10 @@
+import "server-only";
+
+import { backendFetch } from "@/lib/backend";
+
 /**
- * Static UI build: access passes (JWTs) are disabled.
- *
- * The exported surface is kept so pages and layouts that read a pass continue
- * to type-check and render their neutral "no valid pass" state instead of
- * redirecting or erroring.
+ * Server-side pass helpers backed by FastAPI auth cookies.
+ * verify/reset pass validity is resolved via backend `/api/auth/pass/:kind`.
  */
 
 export type PassKind = "verify" | "reset" | "session";
@@ -28,22 +29,22 @@ export type PassClaims = {
 };
 
 export type PassStateRow = {
-  jti: string;
-  kind: "verify" | "reset";
-  email: string;
+  jti?: string;
+  kind?: "verify" | "reset";
+  email: string | null;
   account_id: string | null;
-  stage: "pending" | "code_verified";
-  wrong_total: number;
-  consumed_at: string | null;
-  dead_at: string | null;
-  expires_at: string;
+  stage: "pending" | "code_verified" | null;
+  wrong_total?: number;
+  consumed_at?: string | null;
+  dead_at?: string | null;
+  expires_at?: string | null;
 };
 
 export type SessionRow = {
   id: string;
   account_id: string;
-  expires_at: string;
-  revoked_at: string | null;
+  expires_at?: string | null;
+  revoked_at?: string | null;
 };
 
 export type VerifiedPass =
@@ -67,11 +68,11 @@ export async function signPassToken(
 
 export async function mintPass(
   kind: PassKind,
-  input: { accountId?: string; email: string },
+  _input: { accountId?: string; email: string },
 ): Promise<{ token: string; jti: string; expiresAt: Date }> {
   return {
     token: "",
-    jti: `static-${kind}`,
+    jti: `backend-${kind}`,
     expiresAt: new Date(Date.now() + PASS_TTL_SECONDS[kind] * 1000),
   };
 }
@@ -89,9 +90,54 @@ export async function readValidPass(
   kind: "session",
 ): Promise<Extract<VerifiedPass, { kind: "session" }> | null>;
 export async function readValidPass(
-  _kind: PassKind,
+  kind: PassKind,
 ): Promise<VerifiedPass | null> {
-  return null;
+  try {
+    if (kind === "session") {
+      const res = await backendFetch("/api/auth/session");
+      if (!res.ok) return null;
+      const data = (await res.json()) as { session?: { accountId?: string; email?: string } };
+      if (!data?.session?.accountId || !data?.session?.email) return null;
+      return {
+        kind: "session",
+        claims: {
+          sub: String(data.session.accountId),
+          email: String(data.session.email),
+          typ: "session",
+          jti: "",
+        },
+        row: {
+          id: "",
+          account_id: String(data.session.accountId),
+        },
+      };
+    }
+
+    const res = await backendFetch(`/api/auth/pass/${kind}`);
+    if (!res.ok) return null;
+    const data = (await res.json()) as {
+      valid?: boolean;
+      claims?: { sub?: string | null; email?: string | null; typ?: string; jti?: string | null };
+      row?: { stage?: "pending" | "code_verified" | null; account_id?: string | null; email?: string | null };
+    };
+    if (!data?.valid || !data.claims?.email) return null;
+
+    const claims: PassClaims = {
+      sub: String(data.claims.sub ?? ""),
+      email: String(data.claims.email),
+      typ: kind,
+      jti: String(data.claims.jti ?? ""),
+    };
+    const row: PassStateRow = {
+      kind,
+      email: data.row?.email ?? data.claims.email ?? null,
+      account_id: data.row?.account_id ?? null,
+      stage: data.row?.stage ?? null,
+    };
+    return { kind, claims, row } as VerifiedPass;
+  } catch {
+    return null;
+  }
 }
 
 export async function setPassCookie(): Promise<void> {
