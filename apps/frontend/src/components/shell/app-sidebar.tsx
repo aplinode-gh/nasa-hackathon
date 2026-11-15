@@ -19,7 +19,7 @@ import {
   WeatherIcon,
   WheatIcon,
 } from "@/components/icons";
-import logoOnDark from "@/references/AgroAI-logo-footer.png";
+import logoOnDark from "@/references/Agropioo-logo-footer.png";
 import type { ShellBundle } from "./shell-bundle";
 
 /* Desktop (≥lg) sidebar for the farmer app: a dark forest ledger rail.
