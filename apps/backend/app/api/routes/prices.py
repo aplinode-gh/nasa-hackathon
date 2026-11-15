@@ -328,6 +328,17 @@ async def get_predictions(request: Request, session: dict = Depends(require_sess
         return error_response("server_error", msg, 500)
 
 
+@router.get("/options")
+async def get_price_options(session: dict = Depends(require_session)):
+    """Return crop and mandi option lists for price/alert selectors."""
+    try:
+        crops = await query("SELECT id, name_en FROM crops ORDER BY name_en ASC")
+        mandis = await query("SELECT id, name_en FROM mandis ORDER BY name_en ASC")
+        return success({"crops": to_jsonable(crops or []), "mandis": to_jsonable(mandis or [])})
+    except Exception as err:
+        return error_response("server_error", str(err), 500)
+
+
 @router.get("/health")
 async def get_prices_health():
     sources = ["amis_pk", "samis_pk", "fmis_kp", "bmis_balochistan", "pbs_spi"]
