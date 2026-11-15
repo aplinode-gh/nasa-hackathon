@@ -144,10 +144,18 @@ async def get_weather_forecast(request: Request, session: dict = Depends(require
                     "farm_id": str(farm["id"]),
                     "farm_name": farm.get("name"),
                     "weather_data_unavailable": True,
+                    "source": "cached" if cached else "unavailable",
                     "today": to_jsonable(cached) if cached else None,
                     "days": [],
+                    "advisory_days": [],
+                    "raw_days": [],
+                    "hourly": [],
+                    "effective_crop": effective_crop,
                 }
             )
+
+        raw_days = to_jsonable(forecast.get("days") or [])
+        hourly = to_jsonable(forecast.get("hourly") or [])
 
         if not effective_crop:
             return success(
@@ -155,8 +163,13 @@ async def get_weather_forecast(request: Request, session: dict = Depends(require
                     "farm_id": str(farm["id"]),
                     "farm_name": farm.get("name"),
                     "weather_data_unavailable": False,
+                    "source": forecast.get("source", "live"),
                     "days": [],
+                    "advisory_days": [],
+                    "raw_days": raw_days,
+                    "hourly": hourly,
                     "today": None,
+                    "effective_crop": None,
                 }
             )
 
@@ -199,7 +212,13 @@ async def get_weather_forecast(request: Request, session: dict = Depends(require
                 "farm_id": str(farm["id"]),
                 "farm_name": farm.get("name"),
                 "weather_data_unavailable": False,
+                "source": forecast.get("source", "live"),
                 "days": to_jsonable(advisory_days),
+                "advisory_days": to_jsonable(advisory_days),
+                "raw_days": raw_days,
+                "hourly": hourly,
+                "today": to_jsonable(today_advice) if today_advice else None,
+                "effective_crop": effective_crop,
             }
         )
     except Exception as err:
