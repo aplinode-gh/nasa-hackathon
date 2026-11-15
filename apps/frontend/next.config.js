@@ -16,6 +16,7 @@ const withSerwist = withSerwistInit({
 const baseConfig = {
   experimental: {
     globalNotFound: true,
+    useOffline: true,
   },
   typescript: {
     ignoreBuildErrors: false,
