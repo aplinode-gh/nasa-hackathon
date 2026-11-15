@@ -2,16 +2,15 @@
 
 from __future__ import annotations
 
-import asyncio
 import json
 import os
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Any, AsyncIterator
 from uuid import uuid4
 
+import httpx
 from fastapi import APIRouter, Depends, File, Request, UploadFile
-from fastapi.responses import FileResponse, StreamingResponse
+from fastapi.responses import RedirectResponse, StreamingResponse
 
 from app.core.deps import require_session
 from app.core.http import error_response, read_json_body, success
@@ -31,9 +30,66 @@ SSE_HEADERS = {
     "Connection": "keep-alive",
 }
 
-UPLOAD_DIR = Path(__file__).resolve().parents[3] / "uploads" / "detect"
 MAX_UPLOAD_BYTES = 10 * 1024 * 1024
 HISTORY_LIMIT = 20
+
+CLOUDINARY_UPLOAD_URL = "https://api.cloudinary.com/v1_1/{cloud}/image/upload"
+
+
+def _cloudinary_configured() -> bool:
+    return bool(
+        os.getenv("CLOUDINARY_CLOUD_NAME")
+        and os.getenv("CLOUDINARY_API_KEY")
+        and os.getenv("CLOUDINARY_API_SECRET")
+    )
+
+
+async def _upload_to_cloudinary(data: bytes, account_id: str, filename: str) -> str:
+    """Upload image bytes to Cloudinary and return the secure URL."""
+    import base64
+    import hashlib
+    import time
+
+    cloud = os.getenv("CLOUDINARY_CLOUD_NAME", "")
+    api_key = os.getenv("CLOUDINARY_API_KEY", "")
+    api_secret = os.getenv("CLOUDINARY_API_SECRET", "")
+
+    timestamp = str(int(time.time()))
+    folder = f"scans/user_{account_id}"
+    public_id = f"scan_{uuid4().hex[:8]}"
+
+    # Signature: sort params (excluding file, api_key, resource_type) alphabetically
+    to_sign = f"folder={folder}&public_id={public_id}&timestamp={timestamp}{api_secret}"
+    signature = hashlib.sha1(to_sign.encode("utf-8")).hexdigest()
+
+    # data URI upload (no extra dependency needed)
+    mime = "image/jpeg"
+    lower = (filename or "").lower()
+    if lower.endswith(".png"):
+        mime = "image/png"
+    elif lower.endswith(".webp"):
+        mime = "image/webp"
+    data_uri = f"data:{mime};base64,{base64.b64encode(data).decode('ascii')}"
+
+    form = {
+        "file": data_uri,
+        "api_key": api_key,
+        "timestamp": timestamp,
+        "signature": signature,
+        "folder": folder,
+        "public_id": public_id,
+    }
+
+    async with httpx.AsyncClient(timeout=45.0) as client:
+        resp = await client.post(CLOUDINARY_UPLOAD_URL.format(cloud=cloud), data=form)
+        resp.raise_for_status()
+        payload = resp.json()
+
+    secure_url = payload.get("secure_url")
+    if not secure_url:
+        raise RuntimeError("Cloudinary upload returned no URL")
+    return secure_url
+
 
 
 def _scan_out(row: dict[str, Any]) -> dict[str, Any]:
@@ -129,19 +185,18 @@ async def analyze_scan(
         if diagnosis.get("noDiagnosis"):
             return success({"noDiagnosis": True})
 
+        if not _cloudinary_configured():
+            return error_response(
+                "server_error",
+                "Image storage is not configured. Please set CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET.",
+                503,
+            )
+
         scan_id = str(uuid4())
-        suffix = Path(image.filename or "scan.jpg").suffix.lower() or ".jpg"
-        if suffix not in (".jpg", ".jpeg", ".png", ".webp"):
-            suffix = ".jpg"
-
-        def _write() -> Path:
-            UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
-            target = UPLOAD_DIR / f"{scan_id}{suffix}"
-            target.write_bytes(data)
-            return target
-
-        target = await asyncio.to_thread(_write)
-        image_url = f"/api/detect/image/{scan_id}"
+        try:
+            image_url = await _upload_to_cloudinary(data, session["accountId"], image.filename or "scan.jpg")
+        except Exception as err:
+            return error_response("server_error", f"Image storage error: {err}", 503)
 
         row = await query_one(
             """
@@ -162,7 +217,7 @@ async def analyze_scan(
             diagnosis.get("rescanTiming") or "",
             diagnosis.get("caution") or "",
             image_url,
-            str(target),
+            None,
         )
         if not row:
             return error_response("server_error", "Failed to save scan", 500)
@@ -189,16 +244,27 @@ async def analyze_scan(
 @router.get("/image/{scan_id}")
 async def scan_image(scan_id: str, session: dict = Depends(require_session)):
     row = await query_one(
-        "SELECT image_path FROM detect_scans WHERE id = $1 AND account_id = $2",
+        "SELECT image_url, image_path FROM detect_scans WHERE id = $1 AND account_id = $2",
         scan_id,
         session["accountId"],
     )
-    if not row or not row.get("image_path"):
+    if not row:
         return error_response("not_found", "Image not found", 404)
-    path = Path(str(row["image_path"]))
-    if not path.exists():
-        return error_response("not_found", "Image not found", 404)
-    return FileResponse(path)
+
+    image_url = row.get("image_url")
+    if image_url and str(image_url).startswith("http"):
+        return RedirectResponse(url=str(image_url), status_code=307)
+
+    image_path = row.get("image_path")
+    if image_path:
+        from pathlib import Path
+        from fastapi.responses import FileResponse
+
+        path = Path(str(image_path))
+        if path.exists():
+            return FileResponse(path)
+
+    return error_response("not_found", "Image not found", 404)
 
 
 @router.get("/chats")
@@ -483,9 +549,13 @@ async def delete_scan(scan_id: str, session: dict = Depends(require_session)):
         image_path = scan.get("image_path")
         if image_path:
             try:
+                import asyncio
+                from pathlib import Path
+
                 await asyncio.to_thread(Path(str(image_path)).unlink, True)
             except Exception:
                 pass
+        # Cloudinary-hosted images are not deleted here (no public_id stored).
         return success({"deleted": True})
     except Exception as err:
         return error_response("server_error", str(err), 500)
