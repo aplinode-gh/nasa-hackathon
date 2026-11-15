@@ -1,5 +1,5 @@
 /**
- * Single source of truth for every language Agropioo serves (spec FR-1).
+ * Single source of truth for every language AgroAI serves (spec FR-1).
  * Everything that needs a locale identity — URLs, <html lang>, direction,
  * switcher labels, hreflang — reads from this registry so the emitted pair
  * of lang+dir can never disagree (spec FR-2).

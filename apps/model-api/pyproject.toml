@@ -1,7 +1,7 @@
 [project]
 name = "model-api"
 version = "0.0.0"
-description = "Agropioo crop-rotation model service"
+description = "AgroAI crop-rotation model service"
 requires-python = ">=3.11"
 dependencies = [
   "fastapi>=0.115",

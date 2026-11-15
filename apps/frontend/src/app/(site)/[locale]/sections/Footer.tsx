@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "@/references/Agropioo-logo-footer.png";
+import logo from "@/references/AgroAI-logo-footer.png";
 import { getDictionary } from "@/lib/i18n/server";
 import type { Locale } from "@/lib/i18n/config";
 
@@ -61,7 +61,7 @@ export default async function Footer({ hrefPrefix = "", locale }: { hrefPrefix?:
   const sectionHref = (anchor: string) => `${hrefPrefix}${anchor}`;
 
   const pageLinks = [
-    { label: t("nav.whyAgropioo").text, href: "/why-agropioo" },
+    { label: t("nav.whyAgroAI").text, href: "/why-agroai" },
     { label: t("nav.features").text, href: "/features" },
     { label: t("nav.howItWorks").text, href: "/how-it-works" },
     { label: t("nav.vision").text, href: "/vision" },
@@ -81,7 +81,7 @@ export default async function Footer({ hrefPrefix = "", locale }: { hrefPrefix?:
         <div className="grid gap-10 border-b border-white/10 pb-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-5">
             <a href={hrefPrefix ? "/" : "#top"} className="inline-flex items-center rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-agro-sprout">
-              <Image src={logo} alt="Agropioo" className="h-14 w-auto sm:h-16" />
+              <Image src={logo} alt="AgroAI" className="h-14 w-auto sm:h-16" />
             </a>
             <p className="mt-5 max-w-md text-sm leading-relaxed text-white/70 sm:text-base">
               {t("home.footer.tagline").text}
@@ -140,10 +140,10 @@ export default async function Footer({ hrefPrefix = "", locale }: { hrefPrefix?:
             <ul className="mt-4 space-y-3 text-sm text-white/70">
               <li>
                 <a
-                  href="mailto:hello@agropioo.com"
+                  href="mailto:hello@agroai.com"
                   className="transition-colors duration-200 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-agro-sprout"
                 >
-                  hello@agropioo.com
+                  hello@agroai.com
                 </a>
               </li>
               <li>{t("home.footer.country").text}</li>

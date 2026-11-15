@@ -16,6 +16,7 @@ from typing import Any
 
 import httpx
 
+from app.core.config import settings
 from app.services.ai.llm import get_llm_config
 from app.services.farms.constants import CROPS
 
@@ -222,16 +223,64 @@ async def _huggingface_diagnosis(data: bytes) -> dict[str, Any] | None:
         return None
 
 
+async def _model_api_diagnosis(data: bytes, filename: str = "") -> dict[str, Any] | None:
+    """Diagnose via apps/model-api vision model (no LLM API key required)."""
+    base = (settings.model_api_url or "").strip().rstrip("/")
+    if not base:
+        return None
+    mime = "image/jpeg"
+    name = (filename or "").lower()
+    if name.endswith(".png"):
+        mime = "image/png"
+    elif name.endswith(".webp"):
+        mime = "image/webp"
+    elif name.endswith(".jpg") or name.endswith(".jpeg"):
+        mime = "image/jpeg"
+    try:
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            resp = await client.post(
+                f"{base}/detect",
+                files={"file": (filename or "scan.jpg", data, mime)},
+            )
+            if resp.status_code >= 400:
+                return None
+            payload = resp.json()
+    except Exception:
+        return None
+
+    if not isinstance(payload, dict) or not payload.get("disease"):
+        return None
+    confidence = float(payload.get("confidence") or 0)
+    return {
+        "diseaseName": str(payload.get("disease_name") or payload.get("disease") or "Unknown condition"),
+        "confidence": max(0.0, min(1.0, confidence)),
+        "severity": payload.get("severity") if payload.get("severity") in ("watch", "treat_now", "clear") else "watch",
+        "crop": str(payload.get("crop") or ""),
+        "causes": str(payload.get("causes") or ""),
+        "steps": [str(s) for s in (payload.get("treatment") or payload.get("steps") or [])],
+        "rescanTiming": str(payload.get("rescan_timing") or ""),
+        "caution": str(payload.get("caution") or ""),
+    }
+
+
 async def diagnose_image(data: bytes, filename: str = "") -> dict[str, Any]:
     """Return the camelCase diagnosis payload consumed by the detect UI."""
+    # 1) Our own trained vision model via model-api (no external API key)
+    mapi = await _model_api_diagnosis(data, filename)
+    if mapi is not None:
+        return mapi
+
+    # 2) Optional hosted vision LLM (if a provider key is configured)
     vision = await _vision_diagnosis(data, filename)
     if vision is not None:
         return vision
 
+    # 3) Optional HuggingFace PlantVillage classifier (if keys are configured)
     hf = await _huggingface_diagnosis(data)
     if hf is not None:
         return hf
 
+    # 4) Final local deterministic fallback so the UI always gets a response
     picked = _pick(data, filename)
     digest = hashlib.sha256(data).digest()
     confidence = round(0.55 + (digest[1] / 255) * 0.35, 3)

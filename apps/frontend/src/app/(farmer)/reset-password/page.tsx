@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ResetPasswordForm from "./reset-password-form";
 
 export const metadata: Metadata = {
-  title: "Set a new password — Agropioo",
+  title: "Set a new password — AgroAI",
 };
 
 /* Step 3 of recovery. Access is server-gated in this folder's LAYOUT

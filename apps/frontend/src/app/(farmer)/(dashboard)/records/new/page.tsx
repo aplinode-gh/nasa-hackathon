@@ -4,7 +4,7 @@ import RecordForm from "./record-form";
 import { getFarmsBundle } from "@/lib/i18n/server";
 
 export const metadata: Metadata = {
-  title: "Log a field event — Agropioo",
+  title: "Log a field event — AgroAI",
 };
 
 export default async function NewRecordPage({

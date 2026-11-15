@@ -5,7 +5,7 @@ import DetectUpload from "./detect-upload";
 import type { FarmOption, ScanHistoryItem } from "./detect-types";
 
 export const metadata: Metadata = {
-  title: "Detect — Agropioo",
+  title: "Detect — AgroAI",
 };
 
 type FarmRow = { id: string; name: string; crops: unknown };

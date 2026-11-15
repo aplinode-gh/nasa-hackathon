@@ -16,7 +16,7 @@ export function FinalCta() {
             </h2>
             <p className="mx-auto mt-4 max-w-lg leading-relaxed text-agro-sprout">
               Early access opens soon for farmers across Pakistan. Leave your
-              email and we&rsquo;ll let you know when Agropioo is ready.
+              email and we&rsquo;ll let you know when AgroAI is ready.
             </p>
             <div className="mt-8">
               <EarlyAccessForm />

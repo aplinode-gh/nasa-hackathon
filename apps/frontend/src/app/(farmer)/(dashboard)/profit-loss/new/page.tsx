@@ -4,7 +4,7 @@ import { CROPS } from "@/lib/farms/constants";
 import NewSeasonClient from "./new-season-client";
 
 export const metadata: Metadata = {
-  title: "New season — Agropioo",
+  title: "New season — AgroAI",
 };
 
 type FarmRow = { id: string; name: string; crops: unknown };

@@ -5,13 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import logo from "@/references/Agropioo-logo-with-text.png";
+import logo from "@/references/AgroAI-logo-with-text.png";
 import { splitLocalePrefix } from "@/lib/i18n/logic";
 
 import { LanguageSwitcher } from "./language-switcher";
 
 export interface SiteHeaderStrings {
-  whyAgropioo: string;
+  whyAgroAI: string;
   features: string;
   howItWorks: string;
   vision: string;
@@ -74,7 +74,7 @@ export default function SiteHeader({
   }, [mobileMenuOpen]);
 
   const sections = [
-    { label: strings.whyAgropioo, anchor: "#why", selfHref: "/why-agropioo" },
+    { label: strings.whyAgroAI, anchor: "#why", selfHref: "/why-agroai" },
     { label: strings.features, anchor: "#features", selfHref: "/features" },
     { label: strings.howItWorks, anchor: "#journey", selfHref: "/how-it-works" },
     { label: strings.vision, anchor: "#vision", selfHref: "/vision" },
@@ -102,7 +102,7 @@ export default function SiteHeader({
           <Link href={homeHref} className="flex items-center">
             <Image
               src={logo}
-              alt="Agropioo"
+              alt="AgroAI"
               className="h-12 w-auto md:h-14"
               priority
               loading="eager"

@@ -32,6 +32,9 @@ class Settings(BaseSettings):
     ollama_host: str = "http://localhost:11434"
     ollama_embed_model: str = "nomic-embed-text"
 
+    # Vision model served by apps/model-api (disease detection)
+    model_api_url: str | None = None
+
     # Cron / ingest secrets
     prices_cron_secret: str | None = None
     cron_secret: str | None = None

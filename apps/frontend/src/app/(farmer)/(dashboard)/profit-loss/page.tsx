@@ -6,7 +6,7 @@ import { backendFetch } from "@/lib/backend";
 import SeasonCard from "@/components/profit-loss/season-card";
 
 export const metadata: Metadata = {
-  title: "Profit / Loss — Agropioo",
+  title: "Profit / Loss — AgroAI",
 };
 
 type SeasonRow = {

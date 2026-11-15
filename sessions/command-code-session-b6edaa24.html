@@ -369,7 +369,7 @@ import { query } from &quot;@/lib/db&quot;;
 import NewSeasonClient from &quot;./new-season-client&quot;;
 
 export const metadata: Metadata = {
-  title: &quot;New season â€” Agropioo&quot;,
+  title: &quot;New season â€” AgroAI&quot;,
 };
 
 export default async function NewSeasonPage() {
@@ -1714,7 +1714,7 @@ import { query } from &quot;@/lib/db&quot;;
 import SeasonDetailClient from &quot;./season-detail-client&quot;;
 
 export const metadata: Metadata = {
-  title: &quot;Season details â€” Agropioo&quot;,
+  title: &quot;Season details â€” AgroAI&quot;,
 };
 
 export default async function SeasonDetailPage({
@@ -3475,7 +3475,7 @@ async function fetchWithTimeout(url: string): Promise&lt;Response | null&gt; {
     const timer = setTimeout(() =&gt; controller.abort(), TIMEOUT_MS);
     const res = await fetch(url, {
       signal: controller.signal,
-      headers: { &quot;user-agent&quot;: &quot;Agropioo-PestScraper/1.0&quot; },
+      headers: { &quot;user-agent&quot;: &quot;AgroAI-PestScraper/1.0&quot; },
       cache: &quot;no-store&quot;,
     });
     clearTimeout(timer);
@@ -5652,7 +5652,7 @@ import { query } from &quot;@/lib/db&quot;;
 import SeasonCard from &quot;@/components/profit-loss/season-card&quot;;
 
 export const metadata: Metadata = {
-  title: &quot;Profit / Loss â€” Agropioo&quot;,
+  title: &quot;Profit / Loss â€” AgroAI&quot;,
 };
 
 type SeasonRow = {
@@ -7016,7 +7016,7 @@ import DetectUpload from &quot;./detect-upload&quot;;
 import type { FarmOption, ScanHistoryItem } from &quot;./detect-types&quot;;
 
 export const metadata: Metadata = {
-  title: &quot;Detect â€” Agropioo&quot;,
+  title: &quot;Detect â€” AgroAI&quot;,
 };
 
 const LIMIT = 20;
@@ -10582,7 +10582,7 @@ export async function getAppControlBundle(): Promise&lt;AppControlBundle&gt; {
 /** Flat prop bundle for the client SiteHeader (functions can&#39;t cross the RSC boundary). */
 export function siteHeaderStrings(t: Translator) {
   return {
-    whyAgropioo: t(&quot;nav.whyAgropioo&quot;).text,
+    whyAgroAI: t(&quot;nav.whyAgroAI&quot;).text,
     features: t(&quot;nav.features&quot;).text,
     howItWorks: t(&quot;nav.howItWorks&quot;).text,
     vision: t(&quot;nav.vision&quot;).text,
@@ -12530,7 +12530,7 @@ export function createDetectAgent(context: {
         ? &quot;Watch&quot;
         : &quot;Clear&quot;;
 
-  const instructions = `You are Agropioo Detect â€” a crop disease specialist for Pakistani farmers.
+  const instructions = `You are AgroAI Detect â€” a crop disease specialist for Pakistani farmers.
 
 ## Detection context
 - Disease: ${context.diseaseName}
@@ -13841,7 +13841,7 @@ import { query } from &quot;@/lib/db&quot;;
 import { computeFarmHealth } from &quot;@/lib/farms/health&quot;;
 
 export const metadata: Metadata = {
-  title: &quot;Farms â€” Agropioo&quot;,
+  title: &quot;Farms â€” AgroAI&quot;,
 };
 
 const healthChip = {
@@ -13992,7 +13992,7 @@ export type SessionContext = {
 
 const DEMO_SESSION: SessionContext = {
   accountId: &quot;demo-account&quot;,
-  email: &quot;farmer@demo.agropioo.app&quot;,
+  email: &quot;farmer@demo.agroai.app&quot;,
 };
 
 /** Protected pages always resolve to the demo session. */
@@ -17857,7 +17857,7 @@ export async function getAppControlBundle(): Promise&lt;AppControlBundle&gt; {
 /** Flat prop bundle for the client SiteHeader (functions can&#39;t cross the RSC boundary). */
 export function siteHeaderStrings(t: Translator) {
   return {
-    whyAgropioo: t(&quot;nav.whyAgropioo&quot;).text,
+    whyAgroAI: t(&quot;nav.whyAgroAI&quot;).text,
     features: t(&quot;nav.features&quot;).text,
     howItWorks: t(&quot;nav.howItWorks&quot;).text,
     vision: t(&quot;nav.vision&quot;).text,
@@ -18200,7 +18200,7 @@ import DetectUpload from &quot;./detect-upload&quot;;
 import type { FarmOption, ScanHistoryItem } from &quot;./detect-types&quot;;
 
 export const metadata: Metadata = {
-  title: &quot;Detect â€” Agropioo&quot;,
+  title: &quot;Detect â€” AgroAI&quot;,
 };
 
 const LIMIT = 20;
@@ -18354,7 +18354,7 @@ import { query } from &quot;@/lib/db&quot;;
 import SeasonCard from &quot;@/components/profit-loss/season-card&quot;;
 
 export const metadata: Metadata = {
-  title: &quot;Profit / Loss â€” Agropioo&quot;,
+  title: &quot;Profit / Loss â€” AgroAI&quot;,
 };
 
 type SeasonRow = {
@@ -19932,7 +19932,7 @@ export function createDetectAgent(context: {
         ? &quot;Watch&quot;
         : &quot;Clear&quot;;
 
-  const instructions = `You are Agropioo Detect â€” a crop disease specialist for Pakistani farmers.
+  const instructions = `You are AgroAI Detect â€” a crop disease specialist for Pakistani farmers.
 
 ## Detection context
 - Disease: ${context.diseaseName}

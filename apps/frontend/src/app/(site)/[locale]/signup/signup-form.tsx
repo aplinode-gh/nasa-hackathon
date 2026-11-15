@@ -9,8 +9,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import type { z } from "zod";
 import { signupSchema } from "@/lib/validation/auth";
 import { splitLocalePrefix } from "@/lib/i18n/logic";
-import logoOnDark from "@/references/Agropioo-logo-footer.png";
-import logoOnLight from "@/references/Agropioo-logo-withoutbg-text.png";
+import logoOnDark from "@/references/AgroAI-logo-footer.png";
+import logoOnLight from "@/references/AgroAI-logo-withoutbg-text.png";
 
 export type SignupErrorCopy = {
   nameRequired: string;
@@ -179,7 +179,7 @@ export default function SignupForm({ copy }: { copy: SignupCopy }) {
 
         <div className="relative">
           <Link href={prefix ? prefix : "/"} className="inline-flex items-center">
-            <Image src={logoOnDark} alt="Agropioo" className="h-14 w-auto" />
+            <Image src={logoOnDark} alt="AgroAI" className="h-14 w-auto" />
           </Link>
           <p className="mt-2 font-mono text-xs uppercase tracking-[0.22em] text-agro-sprout/80">
             {copy.productOf}
@@ -237,7 +237,7 @@ export default function SignupForm({ copy }: { copy: SignupCopy }) {
       <main className="flex flex-col bg-white px-5 py-8 sm:px-10 lg:px-14 xl:px-20">
         <div className="flex items-center justify-between lg:hidden">
           <Link href={prefix ? prefix : "/"} className="inline-flex items-center">
-            <Image src={logoOnLight} alt="Agropioo" className="h-12 w-auto" />
+            <Image src={logoOnLight} alt="AgroAI" className="h-12 w-auto" />
           </Link>
         </div>
 

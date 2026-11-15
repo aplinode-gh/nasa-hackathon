@@ -14,7 +14,7 @@
 import { MAX_PENDING_WRITES } from "./types";
 import type { QueuedWrite, WriteRecord } from "./types";
 
-const DB_NAME = "agropioo-offline";
+const DB_NAME = "agroai-offline";
 const DB_VERSION = 1;
 const STORE_NAME = "writes";
 

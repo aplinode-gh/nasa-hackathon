@@ -22,6 +22,12 @@ REQUIRED_FILES = [
     "models/target_spec.json",
 ]
 
+# Optional multimodal vision artifacts (disease detection + image context).
+VISION_FILES = [
+    "vision/disease_model.joblib",
+    "vision/disease_meta.json",
+]
+
 
 def _required_models(artifact_dir: Path) -> list[str]:
     models = sorted((artifact_dir / "models").glob("*_q*.json"))
@@ -43,6 +49,11 @@ def build_bundle(artifact_dir: Path, out_dir: Path, force: bool = False) -> dict
         )
 
     wanted = REQUIRED_FILES + targets
+    # Vision is optional (multimodal disease/context model) but included when trained.
+    for name in VISION_FILES:
+        if (artifact_dir / name).exists():
+            wanted.append(name)
+
     missing = [name for name in wanted if not (artifact_dir / name).exists()]
     if missing:
         raise SystemExit("Missing required artifacts:\n  " + "\n  ".join(missing))

@@ -3,7 +3,7 @@ import PageHeader from "@/components/shell/page-header";
 import NotificationsList from "./notifications-list";
 
 export const metadata: Metadata = {
-  title: "Notifications — Agropioo",
+  title: "Notifications — AgroAI",
 };
 
 export default async function NotificationsPage() {

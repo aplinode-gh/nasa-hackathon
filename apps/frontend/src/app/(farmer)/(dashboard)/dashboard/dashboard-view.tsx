@@ -24,7 +24,7 @@ import type { Locale } from "@/lib/i18n/config";
 import type { DashboardBundle } from "./dashboard-bundle";
 import DashboardPricesWidget, { type WidgetCropPrice } from "@/components/prices/dashboard-prices-widget";
 
-const CHECKLIST_DISMISS_KEY = "agropioo-checklist-dismissed";
+const CHECKLIST_DISMISS_KEY = "agroai-checklist-dismissed";
 
 const topAlerts: Array<{
   id: string;

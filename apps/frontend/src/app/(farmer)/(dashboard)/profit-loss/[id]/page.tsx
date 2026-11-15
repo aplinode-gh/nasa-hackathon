@@ -5,7 +5,7 @@ import { backendFetch } from "@/lib/backend";
 import SeasonDetailClient from "./season-detail-client";
 
 export const metadata: Metadata = {
-  title: "Season details — Agropioo",
+  title: "Season details — AgroAI",
 };
 
 type SeasonDetail = {

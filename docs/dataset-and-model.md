@@ -1,6 +1,6 @@
 # Pakistan Climate Dataset & Forecast Model
 
-This is the data and machine-learning side of the Agropioo / NASA Space Apps
+This is the data and machine-learning side of the AgroAI / NASA Space Apps
 "Field Shift" entry. It collects NASA Earth observations for 24 agricultural
 sites across Pakistan, cleans them, engineers the indicators the challenge asks
 for, and trains models that answer questions about next-season conditions.

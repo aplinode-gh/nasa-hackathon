@@ -20,7 +20,7 @@ export function PakistanFirst() {
           Ready for the world.
         </h2>
         <p className="mx-auto mt-6 max-w-xl leading-relaxed text-agro-slate">
-          Agropioo starts with Pakistan&rsquo;s crops, climates, and farming
+          AgroAI starts with Pakistan&rsquo;s crops, climates, and farming
           practices — refined through real farmer feedback — before growing into
           new countries, languages, and conditions.
         </p>
