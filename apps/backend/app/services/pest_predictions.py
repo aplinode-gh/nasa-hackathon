@@ -110,10 +110,14 @@ def _historical_factor(incidence: list[dict[str, Any]], pest: str) -> int:
     return min(total, 25)
 
 
-async def score_risk(input_data: dict[str, Any]) -> list[dict[str, Any]]:
+async def score_risk(
+    input_data: dict[str, Any],
+    incidence: list[dict[str, Any]] | None = None,
+) -> list[dict[str, Any]]:
     stage_key = _normalize_stage(input_data["growth_stage"])
     stage_vuln = STAGE_VULNERABILITY.get(stage_key, 0.5)
-    incidence = await get_latest_incidence(input_data["province"], input_data["district"], input_data["crop"])
+    if incidence is None:
+        incidence = await get_latest_incidence(input_data["province"], input_data["district"], input_data["crop"])
 
     results = []
     for day in input_data["forecast"]:
