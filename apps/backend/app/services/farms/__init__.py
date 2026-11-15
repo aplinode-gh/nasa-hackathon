@@ -1,1 +1,0 @@
-"""Farm domain helpers."""

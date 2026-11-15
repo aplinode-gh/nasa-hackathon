@@ -1,141 +1,137 @@
-# NasaHackathon — AgroAI UI
+# Agropioo
 
-AgroAI farm-intelligence interface and API, presented as part of the
-**NASA Space Apps Challenge**. The frontend is a Next.js app that proxies
-`/api` requests to a FastAPI backend; the backend owns auth, database access,
-profit/loss, disease detection, pest forecasting, and other feature APIs.
+AI-powered smart agriculture platform built for Pakistani farmers — a personal
+multi-agent agriculture advisor, digital farm records, disease detection, mandi
+price tracking, weather advisories, crop recommendations, pest prediction, and
+profit/loss tracking, all in the farmer's own language (8 locales, with RTL).
 
-## Local development (frontend + backend)
+> Pakistan-first. Designed to expand to local crops, climates, and languages
+> worldwide. See [PROJECT_SUMMARY](./docs/PROJECT_SUMMARY.txt).
 
-1. **Backend (FastAPI)**
-   ```sh
-   cd apps/backend
-   python -m venv .venv
-   # Windows PowerShell: .venv\Scripts\Activate.ps1
-   pip install -r requirements.txt
-   copy .env.example .env
-   uvicorn app.main:app --reload --port 8000
-   ```
-   Configure `DATABASE_URL`, `JWT_SECRET`, CORS/email/provider vars in `apps/backend/.env` as needed. See `apps/backend/README.md` for migrations and module env vars.
+**Builders:** Sheikh Mohammad Ahmed (Team Lead), Mustafa Shahzad (Co-Creator) · Aplinode.
 
-2. **Frontend (Next.js)**
-   ```sh
-   npm install
-   copy apps\frontend\.env.example apps\frontend\.env.local
-   npx nx dev frontend
-   ```
-   `BACKEND_URL` (default `http://localhost:8000`) is used by Next.js rewrites and server-side API fetches. In dev the frontend runs on `http://localhost:3000` and forwards `/api/*` to the backend.
-
-3. **Production/PWA check**
-   ```sh
-   npx nx build frontend
-   npx nx start frontend
-   ```
-   The service worker (`public/sw.js`) is generated during production builds (Serwist), so offline/install behavior should be verified against the production server.
-
-Frontend pages are being migrated from local static stubs to backend-backed data/services; some screens may still show fallback/empty states if APIs or data are unavailable.
+**Demo Video:** [Click Here](https://youtu.be/KzR7_XsakdQ?si=o3REP5N6hPw_Ltc1)
 
 ---
 
-# Nx Workspace
+## Tech stack
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+| Layer | Technology |
+|---|---|
+| Full-stack framework | Next.js 16 (Route Handlers only — no Express) |
+| Frontend | React 19 (Server Components by default) |
+| Styling | Tailwind CSS v4 (brand tokens `--color-agro-*`) |
+| Maps | Leaflet + React-Leaflet + Photon geocoding |
+| Offline / PWA | Serwist + IndexedDB |
+| Backend / API | Next.js Route Handlers (66 endpoints, 14 domains) |
+| Database | Neon Lakebase Postgres + pgvector |
+| Auth | bcryptjs + jose JWT (httpOnly/Secure/SameSite cookies) + OTP |
+| AI orchestration | @openai/agents — 8 specialized agents |
+| LLM | OpenAI (`gpt-4o-mini`) |
+| RAG embeddings | Ollama `nomic-embed-text` (768-dim, local) |
+| Disease detection | TensorFlow.js + HuggingFace (38 classes) |
+| Image storage | Cloudinary |
+| Weather | OpenWeather API |
+| Email | nodemailer + SMTP |
+| Validation | Zod (every route-handler input) + react-hook-form |
+| Tests | Vitest (unit/integration) · Playwright (E2E) |
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+---
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/next?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+## Quick start
 
-## Run tasks
-
-To run the dev server for your app, use:
-
-```sh
-npx nx dev frontend
+```bash
+npm install
+cp .env.example .env.local   # then fill required values
+npm run dev                  # http://localhost:3000
 ```
 
-To create a production bundle:
+### Required environment (see `.env.example`)
 
-```sh
-npx nx build frontend
+- `DATABASE_URL` / `DATABASE_URL_UNPOOLED` — Neon Lakebase Postgres
+- `JWT_SECRET` — ≥16-char signing key
+- `OPENAI_API_KEY` — advisor LLM
+- `OLLAMA_HOST` + `OLLAMA_EMBED_MODEL` — local embeddings (`npm run seed:knowledge`)
+- `HUGGINGFACE_API_KEY` — disease-detection model
+- `CLOUDINARY_*` — scan image storage
+- `OPENWEATHER_API_KEY` — weather forecasts
+- `SMTP_*` + `EMAIL_FROM` — email (optional; demo mode shows OTP on-screen)
+- Cron secrets for `prices/ingest`, `cron/predict-prices`, `pest-prediction`, `advisor`
+
+### Seeding & scripts
+
+```bash
+npm run seed:knowledge   # embed 21 knowledge docs into pgvector (needs Ollama)
+npm run sync:translations # upsert i18n keys for all 8 locales into Neon
+npm run scrape:prices     # ingest live mandi prices from 5 gov sources
+npm test                  # Vitest
 ```
 
-To see all available targets to run for a project, run:
+---
 
-```sh
-npx nx show project frontend
+## Project structure
+
+```text
+app/
+├── [locale]/                  # marketing pages (/en, /ur, /pa, ...)
+├── (farmer)/                  # authenticated farmer app
+│   ├── (dashboard)/           # /dashboard, /farms, /advisor, /detect, /prices, ...
+│   └── ...
+├── api/                       # Route Handlers (14 domains)
+lib/                            # 100+ modules (agents, ML, scrapers, validation)
+├── advisor/                    # 8-agent orchestrator + RAG
+├── crops/                      # recommendation engine + 16 soil profiles
+├── prices/                     # 5-government-source scrapers + prediction
+├── weather/                    # OpenWeather + AI advisory
+├── pest/                       # outbreak prediction
+├── detect/                     # disease detection (HuggingFace + TF.js)
+└── validation/                 # Zod schemas per domain
+data/advisor-knowledge/        # 21 agricultural knowledge docs
+db/migrations/                 # 16 migrations (pgvector for RAG)
+catalog/                       # UI strings per locale (synced to DB)
+components/                    # shared UI
+tests/                         # spec + acceptance tests
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+---
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## Architecture notes
 
-## Add new projects
+- **No separate backend.** Every API endpoint is a Next.js Route Handler; the client
+  never touches the database directly (Client → Route Handler → Neon).
+- **One shared DB client:** `lib/db.ts`. No ad-hoc clients.
+- **Zod validates every route-handler input** (query params and body) before data
+  reaches the database.
+- **Uniform errors:** every handler returns `{ error: { code, message } }`.
+- **Per-IP rate limiting** on auth routes (signup, login, forgot-password).
+- **Demo mode** (`DEMO_MODE=true`): renders the OTP verification code on-screen when
+  SMTP is unconfigured, so you can sign in without an email provider.
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
+---
 
-Use the plugin's generator to create new projects.
+## Localization
 
-To generate a new application, use:
+- Translations live in the Neon `translations` table (admin-editable) — not hardcoded
+  dictionaries.
+- 8 locales: `en`, `ur`, `pa`, `ps`, `sd`, `skr`, `bal`, `hno`.
+- Visible language switcher in the nav across all pages (marketing, signup, login,
+  farmer app).
+- Urdu and Pashto render RTL with mirrored layout; Nastaliq typography for Urdu.
+- Sync catalog keys to the DB: `npm run sync:translations`.
 
-```sh
-npx nx g @nx/next:app demo
-```
+---
 
-To generate a new library, use:
+## Out of scope (per constitution)
 
-```sh
-npx nx g @nx/react:lib mylib
-```
+Voice input/output, carbon-credit tracking, expert
+agronomist role, community forum, SMS alerts, and hardware/IoT.
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+---
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## Docs
 
-## Set up CI!
-
-### Step 1
-
-To connect to Nx Cloud, run the following command:
-
-```sh
-npx nx connect
-```
-
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
-
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-### Step 2
-
-Use the following command to configure a CI workflow for your workspace:
-
-```sh
-npx nx g ci-workflow
-```
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/nx-api/next?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [Project Documentation](./docs/Agropioo_Project_Documentation.md)
+- [Tech Stack](./docs/Agropioo_Tech_Stack.md)
+- [Features](./docs/Agropioo_features.md)
+- [Hackathon Submission](./docs/hackathon-submission.md)
+- Specs: `specs/` · ADRs: `adrs/`
