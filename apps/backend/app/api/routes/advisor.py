@@ -17,18 +17,14 @@ from app.core.serialization import to_jsonable
 from app.db.session import execute, query, query_one
 from app.models.advisor import AdvisorChatRequest, CreateConversationRequest, RenameConversationRequest
 from app.services.advisor import (
-    MAX_CONTEXT_MESSAGES,
-    build_system_prompt,
     check_language_consistency,
     estimate_tokens,
     generate_and_save_summary,
-    get_current_season_info,
     load_conversation_history,
-    load_farms,
-    load_recent_summaries,
-    load_user_profile,
-    stream_openai_chat,
 )
+from app.services.advisors import build_advisor_agents, build_farmer_context
+from app.services.ai.agent import stream_agent
+from app.services.ai.guardrails import check_input_allowed, finalize_output, sanitize_input
 
 router = APIRouter(prefix="/advisor", tags=["advisor"])
 
@@ -194,9 +190,13 @@ async def advisor_chat(request: Request, session: dict = Depends(require_session
 
         body = await read_json_body(request)
         parsed = AdvisorChatRequest.model_validate(body or {})
-        message = parsed.message.strip()
+        message = sanitize_input(parsed.message).strip()
         if estimate_tokens(message) > 2000:
             return error_response("validation_error", "Your message is too long. Please keep it under 2000 characters.", 422)
+
+        allowed, guardrail_message = check_input_allowed(message)
+        if not allowed:
+            return error_response("validation_error", guardrail_message, 422)
 
         conversation_id = await _ensure_conversation(session["accountId"], parsed.conversationId, message)
         if not conversation_id:
@@ -213,22 +213,9 @@ async def advisor_chat(request: Request, session: dict = Depends(require_session
                 return error_response("not_found", "Conversation not found.", 404)
 
         history_text = await load_conversation_history(conversation_id)
-        profile, farms, recent_summaries = await asyncio_gather_profile(session["accountId"], conversation_id)
-        season_info = get_current_season_info()
+        context = await build_farmer_context(session["accountId"], conversation_id, history_text)
+        agents = build_advisor_agents(context)
         now = datetime.now(timezone.utc)
-
-        context = {
-            "accountId": session["accountId"],
-            "farmerName": profile.get("fullName"),
-            "language": "en",
-            "farms": farms,
-            "currentSeason": season_info.get("season"),
-            "seasonPhase": season_info.get("phase"),
-            "currentDate": now.strftime("%B %d, %Y"),
-            "district": profile.get("district"),
-            "recentSummaries": recent_summaries,
-        }
-        system_prompt = build_system_prompt(context)
 
         async def event_stream() -> AsyncIterator[bytes]:
             accumulated = ""
@@ -239,7 +226,7 @@ async def advisor_chat(request: Request, session: dict = Depends(require_session
                 if finished:
                     return
                 finished = True
-                cleaned = check_language_consistency(output_text)
+                cleaned = finalize_output(check_language_consistency(output_text))
                 try:
                     await execute(
                         """
@@ -266,16 +253,31 @@ async def advisor_chat(request: Request, session: dict = Depends(require_session
                 opening = json.dumps({"type": "conversation", "id": conversation_id})
                 yield f"data: {opening}\n\n".encode("utf-8")
 
-                async for delta in stream_openai_chat(system_prompt, history_text, message):
-                    accumulated += delta
-                    payload = json.dumps({"type": "text", "delta": delta})
-                    yield f"data: {payload}\n\n".encode("utf-8")
-
-                cleaned_output = check_language_consistency(accumulated)
-                await finish(cleaned_output)
-                done_payload = json.dumps({"type": "done", "output": cleaned_output})
-                yield f"data: {done_payload}\n\n".encode("utf-8")
-            except Exception as err:
+                async for event in stream_agent(agents, "Triage", message, history_text):
+                    event_type = event.get("type")
+                    if event_type == "text":
+                        accumulated += str(event.get("delta") or "")
+                        payload = json.dumps({"type": "text", "delta": event.get("delta") or ""})
+                        yield f"data: {payload}\n\n".encode("utf-8")
+                    elif event_type == "handoff":
+                        payload = json.dumps({"type": "handoff", "agent": event.get("agent")})
+                        yield f"data: {payload}\n\n".encode("utf-8")
+                    elif event_type == "done":
+                        output = finalize_output(check_language_consistency(str(event.get("output") or accumulated)))
+                        await finish(output)
+                        done_payload = json.dumps({"type": "done", "output": output})
+                        yield f"data: {done_payload}\n\n".encode("utf-8")
+                    elif event_type == "error":
+                        await finish(accumulated)
+                        error_payload = json.dumps(
+                            {
+                                "type": "error",
+                                "message": event.get("message")
+                                or "Advisor service is temporarily unavailable. Please try again in a moment.",
+                            }
+                        )
+                        yield f"data: {error_payload}\n\n".encode("utf-8")
+            except Exception:
                 await finish(accumulated)
                 error_payload = json.dumps(
                     {"type": "error", "message": "Advisor service is temporarily unavailable. Please try again in a moment."}
@@ -290,11 +292,3 @@ async def advisor_chat(request: Request, session: dict = Depends(require_session
         if "validation error" in msg.lower() or "Enter a message" in msg:
             return error_response("validation_error", msg, 422)
         return error_response("server_error", "Advisor service is temporarily unavailable. Please try again in a moment.", 503)
-
-
-async def asyncio_gather_profile(account_id: str, conversation_id: str):
-    # Sequential awaits keep dependencies simple and avoid extra task plumbing.
-    profile = await load_user_profile(account_id)
-    farms = await load_farms(account_id)
-    summaries = await load_recent_summaries(account_id, conversation_id)
-    return profile, farms, summaries

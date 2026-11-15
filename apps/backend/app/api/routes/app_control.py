@@ -21,13 +21,14 @@ from app.models.app_control import (
     RenameAppControlConversationRequest,
 )
 from app.services.app_control import (
-    build_app_control_system_prompt,
     estimate_tokens,
     generate_and_save_summary,
     load_conversation_history,
     normalize_output,
-    stream_openai_chat,
 )
+from app.services.ai.agent import stream_agent
+from app.services.ai.guardrails import sanitize_input
+from app.services.app_control_agent import build_app_control_agent
 
 router = APIRouter(prefix="/app-control", tags=["app-control"])
 
@@ -242,6 +243,7 @@ async def app_control_chat(request: Request, session: dict = Depends(require_ses
             return error_response("rate_limited", "You've used this feature a lot today. Try again later.", 429)
 
         message, requested_conversation_id, attachments = await _extract_chat_input(request)
+        message = sanitize_input(message).strip()
         if not message:
             return error_response("validation_error", "Message is required.", 422)
         if estimate_tokens(message) > 2000:
@@ -262,12 +264,8 @@ async def app_control_chat(request: Request, session: dict = Depends(require_ses
 
         current_path, page_state = _parse_page_context(request)
         history_text = await load_conversation_history(conversation_id)
-        system_prompt = await build_app_control_system_prompt(
-            session["accountId"],
-            conversation_id,
-            current_path=current_path,
-            page_state=page_state,
-        )
+        agent = build_app_control_agent(session["accountId"], current_path, page_state)
+        agents = {"AppControl": agent}
         now = datetime.now(timezone.utc)
 
         async def event_stream() -> AsyncIterator[bytes]:
@@ -312,15 +310,30 @@ async def app_control_chat(request: Request, session: dict = Depends(require_ses
                 opening = json.dumps({"type": "conversation", "id": conversation_id})
                 yield f"data: {opening}\n\n".encode("utf-8")
 
-                async for delta in stream_openai_chat(system_prompt, history_text, message):
-                    accumulated += delta
-                    payload = json.dumps({"type": "text", "delta": delta})
-                    yield f"data: {payload}\n\n".encode("utf-8")
-
-                cleaned_output = normalize_output(accumulated)
-                await finish(cleaned_output)
-                done_payload = json.dumps({"type": "done", "output": cleaned_output})
-                yield f"data: {done_payload}\n\n".encode("utf-8")
+                async for event in stream_agent(agents, "AppControl", message, history_text):
+                    event_type = event.get("type")
+                    if event_type == "text":
+                        accumulated += str(event.get("delta") or "")
+                        payload = json.dumps({"type": "text", "delta": event.get("delta") or ""})
+                        yield f"data: {payload}\n\n".encode("utf-8")
+                    elif event_type in ("navigation_button", "action_card"):
+                        payload = json.dumps({"type": event_type, **{k: v for k, v in event.items() if k != "type"}})
+                        yield f"data: {payload}\n\n".encode("utf-8")
+                    elif event_type == "done":
+                        cleaned_output = normalize_output(str(event.get("output") or accumulated))
+                        await finish(cleaned_output)
+                        done_payload = json.dumps({"type": "done", "output": cleaned_output})
+                        yield f"data: {done_payload}\n\n".encode("utf-8")
+                    elif event_type == "error":
+                        await finish(accumulated)
+                        error_payload = json.dumps(
+                            {
+                                "type": "error",
+                                "message": event.get("message")
+                                or "App control is temporarily unavailable. Please try again in a moment.",
+                            }
+                        )
+                        yield f"data: {error_payload}\n\n".encode("utf-8")
             except Exception:
                 await finish(accumulated)
                 error_payload = json.dumps(
