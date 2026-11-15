@@ -287,7 +287,7 @@ async def advisor_chat(request: Request, session: dict = Depends(require_session
         return StreamingResponse(event_stream(), headers=SSE_HEADERS)
     except Exception as err:
         msg = str(err)
-        if "OPENAI_API_KEY" in msg:
+        if "OPENAI_API_KEY" in msg or "LLM_API_KEY" in msg:
             return error_response("server_error", "Advisor service is temporarily unavailable. Please try again in a moment.", 503)
         if "validation error" in msg.lower() or "Enter a message" in msg:
             return error_response("validation_error", msg, 422)

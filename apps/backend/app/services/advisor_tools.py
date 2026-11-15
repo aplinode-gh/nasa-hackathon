@@ -11,6 +11,7 @@ import httpx
 from app.core.serialization import parse_json_field
 from app.db.session import query, query_one
 from app.services.ai.agent import Tool
+from app.services.ai.llm import get_embedding_config
 from app.services.crops.catalogue import get_compatibility_by_crop, get_crops_by_season_and_budget, resolve_soil_type
 from app.services.crops.scoring import rank_candidates
 from app.services.farms.weather import fetch_current_weather
@@ -777,19 +778,18 @@ async def _search_knowledge_base(args: dict[str, Any]) -> str:
     category = args.get("category")
 
     rows: list[dict[str, Any]] = []
-    api_key = os.getenv("OPENAI_API_KEY")
-    if api_key:
+    embedding = get_embedding_config()
+    if embedding.api_key or "localhost" in embedding.base_url or "127.0.0.1" in embedding.base_url:
         try:
-            base_url = (os.getenv("OPENAI_BASE_URL") or "https://api.openai.com/v1").rstrip("/")
             async with httpx.AsyncClient(timeout=20.0) as client:
                 response = await client.post(
-                    f"{base_url}/embeddings",
-                    headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-                    json={"model": os.getenv("EMBEDDING_MODEL") or "text-embedding-3-small", "input": search_query},
+                    f"{embedding.base_url}/embeddings",
+                    headers=embedding.headers,
+                    json={"model": embedding.model, "input": search_query},
                 )
                 response.raise_for_status()
-                embedding = response.json()["data"][0]["embedding"]
-            vector = "[" + ",".join(str(value) for value in embedding) + "]"
+                vector_data = response.json()["data"][0]["embedding"]
+            vector = "[" + ",".join(str(value) for value in vector_data) + "]"
             rows = await query(
                 "SELECT * FROM advisor_search_similar($1::vector, $2, $3)",
                 vector,

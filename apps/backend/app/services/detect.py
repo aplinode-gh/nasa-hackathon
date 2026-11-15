@@ -16,6 +16,7 @@ from typing import Any
 
 import httpx
 
+from app.services.ai.llm import get_llm_config
 from app.services.farms.constants import CROPS
 
 DIAGNOSES: list[dict[str, Any]] = [
@@ -112,12 +113,11 @@ def _pick(data: bytes, filename: str) -> dict[str, Any]:
 
 
 async def _vision_diagnosis(data: bytes, filename: str) -> dict[str, Any] | None:
-    api_key = os.getenv("OPENAI_API_KEY")
-    if not api_key:
+    config = get_llm_config("detect")
+    is_local = "localhost" in config.base_url or "127.0.0.1" in config.base_url
+    if not config.api_key and not is_local:
         return None
 
-    base_url = (os.getenv("OPENAI_BASE_URL") or "https://api.openai.com/v1").rstrip("/")
-    model = os.getenv("DETECT_MODEL") or "gpt-4o-mini"
     mime = "image/jpeg"
     if filename.lower().endswith(".png"):
         mime = "image/png"
@@ -132,7 +132,7 @@ async def _vision_diagnosis(data: bytes, filename: str) -> dict[str, Any] | None
         "If the image is not a plant leaf, return {\"noDiagnosis\": true}."
     )
     payload = {
-        "model": model,
+        "model": config.model,
         "messages": [
             {
                 "role": "user",
@@ -148,8 +148,8 @@ async def _vision_diagnosis(data: bytes, filename: str) -> dict[str, Any] | None
     try:
         async with httpx.AsyncClient(timeout=45.0) as client:
             resp = await client.post(
-                f"{base_url}/chat/completions",
-                headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+                f"{config.base_url}/chat/completions",
+                headers=config.headers,
                 json=payload,
             )
             resp.raise_for_status()

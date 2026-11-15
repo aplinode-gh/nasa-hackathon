@@ -6,6 +6,7 @@ import json
 from typing import Any
 
 from app.services.ai.agent import AgentDef
+from app.services.ai.llm import get_llm_config
 from app.services.app_control_tools import NAVIGATION_ALLOWLIST, build_app_control_tools
 
 
@@ -61,4 +62,5 @@ Guidelines:
         name="AppControl",
         instructions=instructions,
         tools=list(tools.values()),
+        model=get_llm_config("app_control").model,
     )

@@ -11,6 +11,7 @@ import httpx
 
 from app.core.serialization import parse_json_field
 from app.db.session import query, query_one
+from app.services.ai.llm import get_llm_config
 
 
 MAX_INPUT_TOKENS_ESTIMATE = 2000
@@ -177,25 +178,21 @@ def build_system_prompt(context: dict[str, Any]) -> str:
 
 async def stream_openai_chat(system_prompt: str, history_text: str, user_message: str) -> AsyncIterator[str]:
     """Stream assistant text deltas from OpenAI-compatible chat completions API."""
-    api_key = os.getenv("OPENAI_API_KEY")
-    if not api_key:
-        raise RuntimeError("OPENAI_API_KEY is not configured")
+    config = get_llm_config()
+    is_local = "localhost" in config.base_url or "127.0.0.1" in config.base_url
+    if not config.api_key and not is_local:
+        raise RuntimeError("LLM_API_KEY or OPENAI_API_KEY is not configured")
 
-    base_url = (os.getenv("OPENAI_BASE_URL") or "https://api.openai.com/v1").rstrip("/")
-    model = os.getenv("ADVISOR_MODEL") or "gpt-4o-mini"
-    url = f"{base_url}/chat/completions"
+    url = f"{config.base_url}/chat/completions"
 
     messages = [{"role": "system", "content": system_prompt}]
     if history_text:
         messages.append({"role": "user", "content": f"Conversation so far:\n{history_text}"})
     messages.append({"role": "user", "content": user_message})
 
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json",
-    }
+    headers = config.headers
     payload = {
-        "model": model,
+        "model": config.model,
         "messages": messages,
         "stream": True,
         "temperature": 0.4,
@@ -248,16 +245,15 @@ def check_language_consistency(text: str) -> str:
 
 async def generate_and_save_summary(conversation_id: str, farmer_message: str, advisor_output: str) -> None:
     """Generate a short conversation summary when model credentials are available."""
-    api_key = os.getenv("OPENAI_API_KEY")
-    if not api_key or not advisor_output:
+    config = get_llm_config("summary")
+    is_local = "localhost" in config.base_url or "127.0.0.1" in config.base_url
+    if (not config.api_key and not is_local) or not advisor_output:
         return
 
-    base_url = (os.getenv("OPENAI_BASE_URL") or "https://api.openai.com/v1").rstrip("/")
-    model = os.getenv("ADVISOR_MODEL") or "gpt-4o-mini"
-    url = f"{base_url}/chat/completions"
-    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+    url = f"{config.base_url}/chat/completions"
+    headers = config.headers
     payload = {
-        "model": model,
+        "model": config.model,
         "messages": [
             {
                 "role": "system",

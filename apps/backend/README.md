@@ -81,9 +81,13 @@ guardrails are in `app/services/ai/guardrails.py`.
 (navigation, summaries, record CRUD with confirmation) and emits navigation
 buttons/action cards over SSE.
 
-The runtime uses OpenAI-compatible chat completions (`OPENAI_API_KEY`,
-`OPENAI_BASE_URL`, `ADVISOR_MODEL`). Without a key the endpoints return a
-service-unavailable response; deterministic fallbacks remain for detection.
+The runtime uses OpenAI-compatible chat completions and is provider-agnostic.
+Point it at your own model server with `LLM_BASE_URL`, `LLM_API_KEY`, and
+`LLM_MODEL`; `OPENAI_*` and `ADVISOR_MODEL` remain supported as fallbacks.
+Per-feature overrides: `APP_CONTROL_MODEL`, `DETECT_MODEL`, `SUMMARY_MODEL`.
+Embeddings can use `EMBEDDING_BASE_URL` / `EMBEDDING_API_KEY` /
+`EMBEDDING_MODEL` or inherit the LLM provider. Keyless local endpoints
+(`localhost`/`127.0.0.1`) are accepted without an Authorization header.
 
 ## Scheduled jobs
 

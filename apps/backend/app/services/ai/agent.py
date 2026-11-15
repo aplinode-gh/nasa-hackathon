@@ -15,6 +15,8 @@ from typing import Any, AsyncIterator, Awaitable, Callable
 
 import httpx
 
+from app.services.ai.llm import get_llm_config
+
 MAX_STEPS = 8
 ToolHandler = Callable[[dict[str, Any]], Awaitable[str]]
 
@@ -44,6 +46,7 @@ class AgentDef:
     tools: list[Tool] = field(default_factory=list)
     handoffs: list[str] = field(default_factory=list)
     handoff_description: str = ""
+    model: str | None = None
 
 
 def _handoff_tool_name(agent_name: str) -> str:
@@ -91,16 +94,15 @@ def _tool_schemas(agents: dict[str, AgentDef], agent: AgentDef) -> list[dict[str
 async def _stream_chat(
     messages: list[dict[str, Any]],
     tools: list[dict[str, Any]],
+    model_override: str | None = None,
 ) -> AsyncIterator[tuple[str, Any]]:
     """Stream one model turn, yielding ('text', delta) and ('tool', call) events."""
-    api_key = os.getenv("OPENAI_API_KEY")
-    if not api_key:
-        raise RuntimeError("OPENAI_API_KEY is not configured")
+    config = get_llm_config()
+    if not config.api_key and "localhost" not in config.base_url and "127.0.0.1" not in config.base_url:
+        raise RuntimeError("LLM_API_KEY or OPENAI_API_KEY is not configured")
 
-    base_url = (os.getenv("OPENAI_BASE_URL") or "https://api.openai.com/v1").rstrip("/")
-    model = os.getenv("ADVISOR_MODEL") or "gpt-4o-mini"
     payload: dict[str, Any] = {
-        "model": model,
+        "model": model_override or config.model,
         "messages": messages,
         "stream": True,
         "temperature": 0.4,
@@ -109,9 +111,8 @@ async def _stream_chat(
         payload["tools"] = tools
         payload["tool_choice"] = "auto"
 
-    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
     async with httpx.AsyncClient(timeout=90.0) as client:
-        async with client.stream("POST", f"{base_url}/chat/completions", headers=headers, json=payload) as resp:
+        async with client.stream("POST", f"{config.base_url}/chat/completions", headers=config.headers, json=payload) as resp:
             resp.raise_for_status()
             async for line in resp.aiter_lines():
                 if not line or not line.startswith("data:"):
@@ -192,7 +193,7 @@ async def stream_agent(
             text_parts: list[str] = []
             tool_calls: dict[int, dict[str, Any]] = {}
 
-            async for kind, value in _stream_chat(messages, schemas):
+            async for kind, value in _stream_chat(messages, schemas, current.model):
                 if kind == "text":
                     text_parts.append(value)
                     yield {"type": "text", "delta": value}
