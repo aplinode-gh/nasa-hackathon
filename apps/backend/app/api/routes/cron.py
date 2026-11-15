@@ -9,11 +9,30 @@ from fastapi import APIRouter, Request
 
 from app.core.http import error_response, success
 from app.db.session import execute, query
+from app.services.pest_predictions import run_all as run_pest_predictions
 from app.services.prices.forecast import forecast_prices
 
 router = APIRouter(prefix="/cron", tags=["cron"])
 
 CROP_LIMIT = 20
+
+
+@router.post("/pest-prediction")
+async def pest_prediction(request: Request):
+    """Generate 7-day pest risk predictions and alerts for every active farm."""
+    try:
+        secret = os.getenv("PEST_CRON_SECRET")
+        if not secret:
+            return error_response("MISCONFIGURED", "PEST_CRON_SECRET not set", 500)
+
+        auth = request.headers.get("authorization") or ""
+        if auth != f"Bearer {secret}":
+            return error_response("UNAUTHORIZED", "Invalid cron secret", 401)
+
+        result = await run_pest_predictions()
+        return success({"ok": True, **result})
+    except Exception as err:
+        return error_response("server_error", str(err), 500)
 
 
 @router.post("/predict-prices")

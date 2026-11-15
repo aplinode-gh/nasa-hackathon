@@ -36,6 +36,7 @@ class Settings(BaseSettings):
     prices_cron_secret: str | None = None
     cron_secret: str | None = None
     advisor_cron_secret: str | None = None
+    pest_cron_secret: str | None = None
 
     # Misc
     next_public_app_url: str = "http://localhost:3000"

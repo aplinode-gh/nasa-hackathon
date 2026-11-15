@@ -172,11 +172,65 @@ async def _vision_diagnosis(data: bytes, filename: str) -> dict[str, Any] | None
         return None
 
 
+def _label_to_diagnosis(label: str, score: float) -> dict[str, Any]:
+    clean = label.replace("___", " - ").replace("_", " ").strip()
+    parts = label.split("___")
+    crop = (parts[0] if parts else "").replace("_", " ").strip().lower()
+    disease = (parts[1] if len(parts) > 1 else parts[0]).replace("_", " ").strip()
+    healthy = "healthy" in disease.lower()
+    severity = "clear" if healthy else ("treat_now" if score >= 0.7 else "watch")
+    return {
+        "diseaseName": "Healthy leaf" if healthy else disease.title(),
+        "confidence": round(float(score), 3),
+        "severity": severity,
+        "crop": crop,
+        "causes": "Detected by the PlantVillage vision model. Confirm symptoms in the field before treating.",
+        "steps": [
+            "Inspect several plants in the field to confirm the diagnosis.",
+            "Consult the local extension officer or agri shop for a recommended treatment.",
+            "Re-scan in 5-7 days to track progress.",
+        ],
+        "rescanTiming": "Rescan in 5-7 days.",
+        "caution": "Always follow label instructions when applying any chemical.",
+        "modelLabel": clean,
+    }
+
+
+async def _huggingface_diagnosis(data: bytes) -> dict[str, Any] | None:
+    """Optional PlantVillage classifier via the HuggingFace inference API."""
+    api_key = os.getenv("HUGGINGFACE_API_KEY")
+    model = os.getenv("HUGGINGFACE_MODEL")
+    if not api_key or not model:
+        return None
+    try:
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            response = await client.post(
+                f"https://api-inference.huggingface.co/models/{model}",
+                headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/octet-stream"},
+                content=data,
+            )
+            response.raise_for_status()
+            payload = response.json()
+        if not isinstance(payload, list) or not payload:
+            return None
+        top = max(payload, key=lambda item: float(item.get("score") or 0))
+        score = float(top.get("score") or 0)
+        if score < 0.2:
+            return None
+        return _label_to_diagnosis(str(top.get("label") or ""), score)
+    except Exception:
+        return None
+
+
 async def diagnose_image(data: bytes, filename: str = "") -> dict[str, Any]:
     """Return the camelCase diagnosis payload consumed by the detect UI."""
     vision = await _vision_diagnosis(data, filename)
     if vision is not None:
         return vision
+
+    hf = await _huggingface_diagnosis(data)
+    if hf is not None:
+        return hf
 
     picked = _pick(data, filename)
     digest = hashlib.sha256(data).digest()

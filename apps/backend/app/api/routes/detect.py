@@ -18,7 +18,7 @@ from app.core.http import error_response, read_json_body, success
 from app.core.serialization import parse_json_field, to_jsonable
 from app.db.session import execute, query, query_one
 from app.models.detect import CreateDetectChatRequest, DetectChatRequest, SaveScanRequest
-from app.services.advisor import stream_openai_chat
+from app.services.ai.agent import AgentDef, stream_agent
 from app.services.detect import diagnose_image, fallback_chat_reply
 
 router = APIRouter(prefix="/detect", tags=["detect"])
@@ -334,13 +334,22 @@ async def detect_chat(request: Request, session: dict = Depends(require_session)
             "Give practical, safe advice. Be concise. Do not invent lab results."
         )
 
+        agent = AgentDef(name="Detect", instructions=system_prompt)
+        agents = {"Detect": agent}
+
         async def event_stream() -> AsyncIterator[bytes]:
             accumulated = ""
             try:
                 if os.getenv("OPENAI_API_KEY"):
-                    async for delta in stream_openai_chat(system_prompt, history_text, message):
-                        accumulated += delta
-                        yield f"data: {json.dumps({'type': 'text', 'delta': delta})}\n\n".encode("utf-8")
+                    async for event in stream_agent(agents, "Detect", message, history_text):
+                        if event.get("type") == "text":
+                            delta = str(event.get("delta") or "")
+                            accumulated += delta
+                            yield f"data: {json.dumps({'type': 'text', 'delta': delta})}\n\n".encode("utf-8")
+                        elif event.get("type") == "done":
+                            accumulated = str(event.get("output") or accumulated)
+                        elif event.get("type") == "error":
+                            raise RuntimeError(str(event.get("message") or "detect chat failed"))
                 else:
                     accumulated = fallback_chat_reply(diagnosis)
                     for chunk in accumulated.split(" "):
