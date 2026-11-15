@@ -226,6 +226,61 @@ async def list_chats(session: dict = Depends(require_session)):
         return error_response("server_error", str(err), 500)
 
 
+@router.get("/chats/{chat_id}")
+async def get_chat(chat_id: str, session: dict = Depends(require_session)):
+    try:
+        chat = await query_one(
+            "SELECT id, title, scan_id, updated_at FROM detect_chats WHERE id = $1 AND account_id = $2",
+            chat_id,
+            session["accountId"],
+        )
+        if not chat:
+            return error_response("not_found", "Chat not found", 404)
+
+        scan = None
+        if chat.get("scan_id"):
+            row = await query_one(
+                """
+                SELECT id, disease_name, confidence, severity, crop, causes, treatment_steps,
+                       rescan_timing, caution, image_url, created_at
+                FROM detect_scans WHERE id = $1
+                """,
+                chat["scan_id"],
+            )
+            if row:
+                scan = _scan_out(row)
+
+        return success(
+            {
+                "chat": {
+                    "id": str(chat["id"]),
+                    "title": chat.get("title"),
+                    "scanId": str(chat["scan_id"]) if chat.get("scan_id") else None,
+                    "updatedAt": chat.get("updated_at"),
+                },
+                "scan": scan,
+            }
+        )
+    except Exception as err:
+        return error_response("server_error", str(err), 500)
+
+
+@router.delete("/chats/{chat_id}")
+async def delete_chat(chat_id: str, session: dict = Depends(require_session)):
+    try:
+        chat = await query_one(
+            "SELECT id FROM detect_chats WHERE id = $1 AND account_id = $2",
+            chat_id,
+            session["accountId"],
+        )
+        if not chat:
+            return error_response("not_found", "Chat not found", 404)
+        await execute("DELETE FROM detect_chats WHERE id = $1 AND account_id = $2", chat_id, session["accountId"])
+        return success({"deleted": True})
+    except Exception as err:
+        return error_response("server_error", str(err), 500)
+
+
 @router.post("/chats")
 async def create_chat(request: Request, session: dict = Depends(require_session)):
     try:
