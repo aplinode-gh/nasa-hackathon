@@ -27,7 +27,7 @@ import type { DashboardBundle } from "./dashboard-bundle";
 import DashboardPricesWidget, { type WidgetCropPrice } from "@/components/prices/dashboard-prices-widget";
 import PestRiskWidget from "@/components/pest/PestRiskWidget";
 
-const CHECKLIST_DISMISS_KEY = "agro ai-checklist-dismissed";
+const CHECKLIST_DISMISS_KEY = "agropioo-checklist-dismissed";
 
 const topAlerts: Array<{
   id: string;

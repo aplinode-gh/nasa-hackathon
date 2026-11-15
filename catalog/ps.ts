@@ -1,8 +1,8 @@
-﻿import type { CatalogKey } from "./en.ts";
+import type { CatalogKey } from "./en.ts";
 
 /** Pashto (پښتو) — AI-translated. RTL language. */
 export const ps: Partial<Record<CatalogKey, string>> = {
-  "nav.whyagro ai": "اګروپیو طور ته ایاست؟",
+  "nav.whyAgropioo": "اګروپیو طور ته ایاست؟",
   "nav.features": "ځانګړتیاوې",
   "nav.howItWorks": "دا څنګه کارووي",
   "nav.vision": "موږ سره ویسون",

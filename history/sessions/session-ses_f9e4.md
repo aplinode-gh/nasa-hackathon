@@ -38,7 +38,7 @@ Now let me commit in atomic units. Starting with the language mixing fix:
 ```json
 {
   "command": "git add lib/advisor/context.ts && git commit -m \"fix(advisor): strengthen language consistency rules in system prompts\n\n- Add CRITICAL RULES section for language handling in triage and context\n- Enforce 100% single-language responses per message\n- Explicit ban on mid-sentence language switching\n- Allow only technical terms (GPS, pH, NPK) as exceptions\n- Add pre-response validation instruction to check language consistency\"",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -68,7 +68,7 @@ PowerShell doesn't support `&&` - I need to use `;` or separate commands.
 ```json
 {
   "command": "git add lib/advisor/context.ts; git commit -m \"fix(advisor): strengthen language consistency rules in system prompts\"",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -93,7 +93,7 @@ Now let me commit the streaming language filter.
 ```json
 {
   "command": "git add lib/advisor/streaming.ts; git commit -m \"fix(advisor): add post-processing language consistency filter\"",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -118,7 +118,7 @@ Now the crop advisor improvements.
 ```json
 {
   "command": "git add lib/advisor/agents/crop-advisor.ts; git commit -m \"feat(advisor): improve crop advice with identification, action steps, localization\"",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -143,7 +143,7 @@ Weather advisor improvements.
 ```json
 {
   "command": "git add lib/advisor/agents/weather-agent.ts; git commit -m \"feat(advisor): make weather advice more actionable with decision matrix\"",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -168,7 +168,7 @@ Prices advisor improvements.
 ```json
 {
   "command": "git add lib/advisor/agents/prices-agent.ts; git commit -m \"feat(advisor): add sell/hold decision framework and transport cost estimates\"",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -193,7 +193,7 @@ Now the guardrails.
 ```json
 {
   "command": "git add lib/advisor/guardrails.ts; git commit -m \"feat(advisor): add production-grade guardrails\n\n- Prompt injection detection (role-play, system extraction, jailbreaks)\n- Input sanitization (zero-width chars, repeated chars)\n- Language consistency output guardrail\n- Safety boundary guardrail (dangerous dosage detection)\n- Output length guardrail with absurd-length blocking\n- Exported guardrail bundles for easy agent integration\"",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -218,7 +218,7 @@ Now update the triage agent to use the new guardrails.
 ```json
 {
   "command": "git add lib/advisor/agents/triage.ts; git commit -m \"refactor(advisor): integrate guardrail bundles into triage agent\"",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -243,7 +243,7 @@ Farm data security hardening.
 ```json
 {
   "command": "git add lib/advisor/tools/farm-data.ts; git commit -m \"fix(advisor): add defense-in-depth farm ownership check in records query\n\n- Verify farm belongs to logged-in farmer before querying records\n- Add f.account_id check to JOIN for belt-and-suspenders security\n- Return clear error message when farm not found or unauthorized\"",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -268,7 +268,7 @@ Chat route hardening.
 ```json
 {
   "command": "git add app/api/advisor/chat/route.ts; git commit -m \"feat(advisor): harden chat route with token budgets and dual rate limiting\n\n- Add per-account rate limiting (50/hour) alongside per-IP (30/hour)\n- Add token estimation for cost monitoring and input length validation\n- Add maxTurns=10 to agent run to prevent infinite loops\n- Add structured error logging for agent run failures\n- Add token usage logging for cost tracking\"",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -293,7 +293,7 @@ Now the handoff agent.
 ```json
 {
   "command": "git add lib/advisor/agents/handoff-agent.ts; git commit -m \"feat(advisor): add human agronomist handoff agent\n\n- Structured escalation to extension officer / Kissan helpline\n- Warm tone that validates the farmer's question\n- Clear next steps: local extension office, 0800-15000 helpline, WhatsApp photos\n- Photo guidance for expert consultation\n- Interim actions to prevent problem worsening while waiting\"",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -321,13 +321,13 @@ Now integrate the handoff agent into the triage:
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\lib\\advisor\\agents\\triage.ts"
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\lib\\advisor\\agents\\triage.ts"
 }
 ```
 
 **Output:**
 ```
-<path>C:\Users\dell\Music\hackathons\agro ai-hackathon\lib\advisor\agents\triage.ts</path>
+<path>C:\Users\dell\Music\hackathons\agropioo-hackathon\lib\advisor\agents\triage.ts</path>
 <type>file</type>
 <content>
 1: import { Agent, handoff } from "@openai/agents";
@@ -357,7 +357,7 @@ Now integrate the handoff agent into the triage:
 25: 
 26:   const cropCalendar = getCropCalendar(ctx.currentMonth, ctx.currentSeason);
 27: 
-28:   const baseInstructions = `You are agro ai Advisor — a trusted farming companion for Pakistani farmers.
+28:   const baseInstructions = `You are agropioo Advisor — a trusted farming companion for Pakistani farmers.
 29: 
 30: ## Your personality
 31: - Warm and encouraging in greetings and transitions — you genuinely care about the farmer's success
@@ -467,7 +467,7 @@ Now let me add the handoff agent to the triage agent.
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\lib\\advisor\\agents\\triage.ts",
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\lib\\advisor\\agents\\triage.ts",
   "newString": "import { Agent, handoff } from \"@openai/agents\";\nimport { createCropAdvisorAgent } from \"./crop-advisor\";\nimport { createWeatherAgent } from \"./weather-agent\";\nimport { createFarmDataAgent } from \"./farm-data-agent\";\nimport { createPricesAgent } from \"./prices-agent\";\nimport { createSchemesAgent } from \"./schemes-agent\";\nimport { createHandoffAgent } from \"./handoff-agent\";\nimport { farmingOnlyGuardrail, advisorInputGuardrails, advisorOutputGuardrails } from \"../guardrails\";\nimport { searchKnowledgeBase } from \"../tools/knowledge-base\";\nimport { createConversationMemoryTool } from \"../tools/conversation-memory\";\nimport { advisorModel } from \"../model\";\nimport type { FarmerContext } from \"../context\";\nimport { getCropCalendar } from \"../context\";",
   "oldString": "import { Agent, handoff } from \"@openai/agents\";\nimport { createCropAdvisorAgent } from \"./crop-advisor\";\nimport { createWeatherAgent } from \"./weather-agent\";\nimport { createFarmDataAgent } from \"./farm-data-agent\";\nimport { createPricesAgent } from \"./prices-agent\";\nimport { createSchemesAgent } from \"./schemes-agent\";\nimport { farmingOnlyGuardrail, advisorInputGuardrails, advisorOutputGuardrails } from \"../guardrails\";\nimport { searchKnowledgeBase } from \"../tools/knowledge-base\";\nimport { createConversationMemoryTool } from \"../tools/conversation-memory\";\nimport { advisorModel } from \"../model\";\nimport type { FarmerContext } from \"../context\";\nimport { getCropCalendar } from \"../context\";"
 }
@@ -491,7 +491,7 @@ Now add the handoff agent creation and handoff to it.
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\lib\\advisor\\agents\\triage.ts",
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\lib\\advisor\\agents\\triage.ts",
   "newString": "  const cropAdvisor = createCropAdvisorAgent();\n  const weatherAdvisor = createWeatherAgent();\n  const farmDataAdvisor = createFarmDataAgent(ctx.accountId);\n  const pricesAdvisor = createPricesAgent();\n  const schemesAdvisor = createSchemesAgent();\n  const handoffAdvisor = createHandoffAgent();\n  const conversationMemory = createConversationMemoryTool(ctx.accountId);",
   "oldString": "  const cropAdvisor = createCropAdvisorAgent();\n  const weatherAdvisor = createWeatherAgent();\n  const farmDataAdvisor = createFarmDataAgent(ctx.accountId);\n  const pricesAdvisor = createPricesAgent();\n  const schemesAdvisor = createSchemesAgent();\n  const conversationMemory = createConversationMemoryTool(ctx.accountId);"
 }
@@ -515,7 +515,7 @@ Now update the routing rules to include the handoff agent and add it to the hand
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\lib\\advisor\\agents\\triage.ts",
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\lib\\advisor\\agents\\triage.ts",
   "newString": "## Routing rules\n1. If the farmer asks about their own farm data, records, or \"how are my farms\" → handoff to Farm Data Advisor\n2. If the farmer asks about weather/rain/temperature → handoff to Weather Advisor\n3. If the farmer asks about mandi prices or market rates → handoff to Prices Advisor\n4. If the farmer asks about government schemes or subsidies → handoff to Schemes Advisor\n5. If the farmer asks about crop disease, pests, fertilizer, livestock health, or general crop/livestock management → handoff to Crop Advisor\n6. If you cannot confidently answer a question (unknown disease, complex diagnosis, safety-critical dosage) → handoff to Agronomist Handoff for expert escalation\n7. If the farmer explicitly asks for an expert, agronomist, or extension officer → handoff to Agronomist Handoff\n8. If the query combines multiple topics, route to the most relevant specialist (they can use tools from other domains)\n9. For greetings, general conversation about farming, or simple questions → answer directly yourself",
   "oldString": "## Routing rules\n1. If the farmer asks about their own farm data, records, or \"how are my farms\" → handoff to Farm Data Advisor\n2. If the farmer asks about weather/rain/temperature → handoff to Weather Advisor\n3. If the farmer asks about mandi prices or market rates → handoff to Prices Advisor\n4. If the farmer asks about government schemes or subsidies → handoff to Schemes Advisor\n5. If the farmer asks about crop disease, pests, fertilizer, livestock health, or general crop/livestock management → handoff to Crop Advisor\n6. If the query combines multiple topics, route to the most relevant specialist (they can use tools from other domains)\n7. For greetings, general conversation about farming, or simple questions → answer directly yourself"
 }
@@ -539,7 +539,7 @@ Now add the handoff agent to the handoffs list.
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\lib\\advisor\\agents\\triage.ts",
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\lib\\advisor\\agents\\triage.ts",
   "newString": "    handoffs: [\n      handoff(cropAdvisor),\n      handoff(weatherAdvisor),\n      handoff(farmDataAdvisor),\n      handoff(pricesAdvisor),\n      handoff(schemesAdvisor),\n      handoff(handoffAdvisor),\n    ],",
   "oldString": "    handoffs: [\n      handoff(cropAdvisor),\n      handoff(weatherAdvisor),\n      handoff(farmDataAdvisor),\n      handoff(pricesAdvisor),\n      handoff(schemesAdvisor),\n    ],"
 }
@@ -564,7 +564,7 @@ Now commit this change.
 ```json
 {
   "command": "git add lib/advisor/agents/triage.ts; git commit -m \"feat(advisor): integrate handoff agent into triage routing\n\n- Add handoff agent for expert escalation scenarios\n- Route unknown diseases and safety-critical questions to handoff\n- Support explicit farmer requests for human experts\n- Add routing rule for complex diagnoses needing physical inspection\"",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -589,7 +589,7 @@ Now let me push all the commits.
 ```json
 {
   "command": "git push origin feat/advisor-upgrades",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -597,9 +597,9 @@ Now let me push all the commits.
 ```
 remote: 
 remote: Create a pull request for 'feat/advisor-upgrades' on GitHub by visiting:        
-remote:      https://github.com/sheikh-mohammad/agro ai-hackathon/pull/new/feat/advisor-upgrades        
+remote:      https://github.com/sheikh-mohammad/agropioo-hackathon/pull/new/feat/advisor-upgrades        
 remote: 
-To https://github.com/sheikh-mohammad/agro ai-hackathon
+To https://github.com/sheikh-mohammad/agropioo-hackathon
  * [new branch]      feat/advisor-upgrades -> feat/advisor-upgrades
 
 ```
@@ -743,13 +743,13 @@ Now expanding the knowledge base. Let me check what exists and add more articles
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\data\\advisor-knowledge"
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\data\\advisor-knowledge"
 }
 ```
 
 **Output:**
 ```
-<path>C:\Users\dell\Music\hackathons\agro ai-hackathon\data\advisor-knowledge</path>
+<path>C:\Users\dell\Music\hackathons\agropioo-hackathon\data\advisor-knowledge</path>
 <type>directory</type>
 <entries>
 chickpea.md
@@ -918,7 +918,7 @@ Let me create the knowledge base articles. I'll create them in parallel for effi
 ```json
 {
   "content": "# Sunflower — Complete Crop Guide for Pakistan\n\n## Overview\nSunflower is an important oilseed crop in Pakistan, grown on approximately 0.3 million hectares. It is cultivated in both Kharif (summer) and Rabi (winter) seasons. Pakistan produces about 0.6 million tons of sunflower seed annually. Major varieties include S-278, S-6162, S-6171, and Hybrid-6620.\n\n## Crop Calendar\n\n### Sowing\n- **Kharif sowing:** May–June (after wheat harvest)\n- **Rabi sowing:** September–October (early sowing preferred)\n- **Seed rate:** 8–10 kg per hectare (approximately 3–4 kg per acre)\n- **Seed treatment:** Thiram at 2.5g per kg seed before sowing\n- **Spacing:** Row-to-row 60 cm, plant-to-plant 30 cm\n\n### Key Growth Stages\n| Stage | Days After Sowing | Critical Management |\n|---|---|---|\n| Germination | 7–10 | Ensure adequate soil moisture |\n| Vegetative | 15–40 | Weed management, first irrigation |\n| Bud formation | 40–55 | Second irrigation, phosphorus application |\n| Flowering | 55–75 | Critical water need, avoid stress |\n| Seed filling | 75–100 | Third irrigation, monitor for diseases |\n| Maturity | 100–120 | Harvest when back of head turns yellow |\n\n### Irrigation Schedule\n1. **First irrigation:** 20–25 days after sowing (vegetative stage)\n2. **Second irrigation:** 40–45 days (bud formation)\n3. **Third irrigation:** 60–65 days (flowering)\n4. **Fourth irrigation:** 80–85 days (seed filling) — if needed\n\nApply 50–60 mm per irrigation. Sunflower is drought-tolerant but yields significantly with timely irrigation.\n\n## Fertilizer Schedule (per acre)\n| Nutrient | Basal (at sowing) | Top-dress |\n|---|---|---|\n| Nitrogen | 20 kg (45 kg Urea) | 20 kg at bud stage |\n| Phosphorus | 30 kg (65 kg DAP) | — |\n| Potassium | 15 kg (25 kg SOP) | — |\n\nTotal NPK: 40-30-15 kg per acre. Apply zinc sulphate 10 kg/acre if soil is zinc-deficient.\n\n## Major Diseases\n\n### Alternaria Leaf Spot\n- **Symptoms:** Brown to dark spots with concentric rings on leaves\n- **Favorable conditions:** Warm (25–30°C), humid weather\n- **Management:** Spray Mancozeb 75% WP at 2.5g/L water at first appearance\n\n### Rust\n- **Symptoms:** Small brown pustules on leaves, stems, and bracts\n- **Favorable conditions:** Cool, humid weather\n- **Management:** Spray Propiconazole 25% EC at 1ml/L water\n\n### Head Rot\n- **Symptoms:** Rotting of the flower head, white fungal growth\n- **Favorable conditions:** High humidity during flowering\n- **Management:** Ensure good drainage, avoid overhead irrigation\n\n## Major Pests\n\n### Sunflower Moth\n- **Symptoms:** Larvae bore into flower head, feed on developing seeds\n- **Management:** Spray Chlorpyrifos 40% EC at 2ml/L when moths are seen\n\n### Aphids\n- **Symptoms:** Sucking sap from leaves, sticky honeydew secretion\n- **Management:** Spray Imidacloprid 17.8% SL at 0.3ml/L water\n\n### Caterpillars (Semilooper, Defoliator)\n- **Symptoms:** Defoliation, feeding on leaves and stems\n- **Management:** Spray Emamectin benzoate 5% SG at 0.4g/L water\n\n## Harvesting and Storage\n- Harvest when back of flower head turns yellow-brown\n- Cut heads and dry in sun for 5–7 days\n- Thresh by beating heads with sticks\n- Store seeds in moisture-proof bags at <8% moisture\n- Expected yield: 15–20 maunds per acre (600–800 kg/acre)\n\n## Economic Considerations\n- Seed cost: Rs 800–1,200 per kg (hybrid) or Rs 400–600 (open-pollinated)\n- Input cost per acre: Rs 25,000–35,000 (including seed, fertilizer, pesticide, labor)\n- Expected revenue: Rs 40,000–60,000 per acre at Rs 5,000–6,000/maund\n- Oil extraction rate: 38–42%\n",
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\data\\advisor-knowledge\\sunflower.md"
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\data\\advisor-knowledge\\sunflower.md"
 }
 ```
 
@@ -941,7 +941,7 @@ Now let me create the groundnut article.
 ```json
 {
   "content": "# Groundnut (Peanut) — Complete Crop Guide for Pakistan\n\n## Overview\nGroundnut is an important oilseed and food crop in Pakistan, grown on approximately 0.15 million hectares. It is a Kharif season crop, primarily cultivated in Punjab (Cholistan, Thal) and Sindh (Tharparkar, Sanghar). Varieties include BARI-2000, BARI-2001, and local landraces.\n\n## Crop Calendar\n\n### Sowing\n- **Optimal window:** May–June (after last expected frost, soil temperature >20°C)\n- **Seed rate:** 80–100 kg per hectare (approximately 30–40 kg per acre)\n- **Seed treatment:** Thiram + Rhizobium inoculant\n- **Spacing:** Row-to-row 30 cm, plant-to-plant 15 cm\n\n### Key Growth Stages\n| Stage | Days After Sowing | Critical Management |\n|---|---|---|\n| Germination | 10–15 | Uniform moisture critical |\n| Vegetative | 15–40 | First hoeing, weed management |\n| Flowering | 40–55 | Pegging stage — loose soil needed |\n| Pod filling | 55–80 | Critical water need |\n| Maturity | 80–100 | Reduce irrigation, harvest timing |\n\n### Irrigation Schedule\n1. **First irrigation:** 20–25 days after sowing\n2. **Second irrigation:** 40–45 days (flowering)\n3. **Third irrigation:** 60–65 days (pod filling)\n4. **Fourth irrigation:** 75–80 days (if needed)\n\nApply 40–50 mm per irrigation. Avoid waterlogging — groundnut is sensitive to excess moisture.\n\n## Fertilizer Schedule (per acre)\n| Nutrient | Basal (at sowing) | Top-dress |\n|---|---|---|\n| Nitrogen | 10 kg (22 kg Urea) | — (fixes own N via Rhizobium) |\n| Phosphorus | 25 kg (55 kg DAP) | — |\n| Potassium | 15 kg (25 kg SOP) | — |\n\nTotal NPK: 10-25-15 kg per acre. Apply gypsum (calcium sulphate) at 200 kg/acre during pegging stage for better pod development.\n\n## Major Diseases\n\n### Collar Rot\n- **Symptoms:** Browning and rotting at soil line, plant wilting\n- **Favorable conditions:** Warm, wet soil\n- **Management:** Seed treatment with Carboxin+Thiram, avoid waterlogging\n\n### Cercospora Leaf Spot\n- **Symptoms:** Small brown spots with yellow halos on leaves\n- **Favorable conditions:** Warm, humid weather\n- **Management:** Spray Mancozeb 75% WP at 2.5g/L water\n\n### Rust\n- **Symptoms:** Small brown pustules on leaves and pods\n- **Management:** Spray Propiconazole 25% EC at 1ml/L water\n\n## Major Pests\n\n### Pod Borer (Helicoverpa)\n- **Symptoms:** Larvae bore into pods, feed on developing kernels\n- **Management:** Spray Emamectin benzoate 5% SG at 0.4g/L at flowering\n\n### White Grub\n- **Symptoms:** Root damage, plant wilting and death\n- **Management:** Apply Chlorpyrifos 40% EC drenching at sowing\n\n### Thrips\n- **Symptoms:** Leaf curling, silvering, sticky honeydew\n- **Management:** Spray Imidacloprid 17.8% SL at 0.3ml/L\n\n## Harvesting and Storage\n- Harvest when 70% of pods turn brown inside\n- Uproot plants, stack upside down for 3–5 days to dry\n- Thresh by beating or mechanical threshing\n- Dry seeds to <8% moisture before storage\n- Store in gunny bags in cool, dry place\n- Expected yield: 15–25 maunds per acre (600–1000 kg/acre)\n\n## Economic Considerations\n- Seed cost: Rs 200–300 per kg\n- Input cost per acre: Rs 20,000–30,000\n- Expected revenue: Rs 45,000–75,000 per acre at Rs 6,000–8,000/maund\n- Oil extraction rate: 40–45%\n",
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\data\\advisor-knowledge\\groundnut.md"
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\data\\advisor-knowledge\\groundnut.md"
 }
 ```
 
@@ -964,7 +964,7 @@ Now let me create the mung bean article.
 ```json
 {
   "content": "# Mung Bean (Moong) — Complete Crop Guide for Pakistan\n\n## Overview\nMung bean is an important pulse crop in Pakistan, grown on approximately 0.3 million hectares. It is cultivated in both Kharif (summer) and Rabi (winter) seasons. Pakistan produces about 0.2 million tons annually. Mung is valued for its protein content (24%) and ability to fix atmospheric nitrogen.\n\n## Crop Calendar\n\n### Sowing\n- **Kharif sowing:** May–June (after wheat harvest)\n- **Rabi sowing:** September–October (early sowing preferred)\n- **Seed rate:** 20–25 kg per hectare (approximately 8–10 kg per acre)\n- **Seed treatment:** Thiram at 2.5g per kg seed\n- **Spacing:** Row-to-row 30 cm, plant-to-plant 10 cm\n\n### Key Growth Stages\n| Stage | Days After Sowing | Critical Management |\n|---|---|---|\n| Germination | 5–7 | Uniform moisture |\n| Vegetative | 10–30 | Weed management |\n| Flowering | 30–45 | Critical water need |\n| Pod filling | 45–60 | Avoid water stress |\n| Maturity | 60–75 | Harvest timing critical |\n\n### Irrigation Schedule\n1. **First irrigation:** 15–20 days after sowing\n2. **Second irrigation:** 35–40 days (flowering)\n3. **Third irrigation:** 50–55 days (pod filling) — if needed\n\nMung is relatively drought-tolerant but yields significantly more with 2–3 irrigations.\n\n## Fertilizer Schedule (per acre)\n| Nutrient | Basal (at sowing) | Top-dress |\n|---|---|---|\n| Nitrogen | 5 kg (11 kg Urea) | — (fixes own N) |\n| Phosphorus | 20 kg (44 kg DAP) | — |\n| Potassium | 10 kg (17 kg SOP) | — |\n\nTotal NPK: 5-20-10 kg per acre. Inoculate seed with Rhizobium for better nitrogen fixation.\n\n## Major Diseases\n\n### Yellow Mosaic Virus\n- **Symptoms:** Bright yellow patches on leaves, stunted growth\n- **Vector:** Whitefly (Bemisia tabaci)\n- **Management:** Control whitefly with Imidacloprid, remove infected plants\n\n### Cercospora Leaf Spot\n- **Symptoms:** Brown spots with gray centers on leaves\n- **Management:** Spray Mancozeb 75% WP at 2.5g/L water\n\n### Root Rot\n- **Symptoms:** Wilting, brown roots, plant death\n- **Favorable conditions:** Waterlogged soil\n- **Management:** Ensure proper drainage, treat seed with Thiram\n\n## Major Pests\n\n### Pod Borer (Helicoverpa)\n- **Symptoms:** Larvae feed on developing pods\n- **Management:** Spray Emamectin benzoate 5% SG at 0.4g/L at flowering\n\n### Aphids\n- **Symptoms:** Sucking sap, leaf curling, sticky honeydew\n- **Management:** Spray Imidacloprid 17.8% SL at 0.3ml/L\n\n### Whitefly\n- **Symptoms:** Sucking sap, transmits yellow mosaic virus\n- **Management:** Spray Diafenthiuron 50% WP at 1.2g/L\n\n## Harvesting and Storage\n- Harvest when 80% of pods turn brown/black\n- Cut plants at base, stack for 3–5 days to dry\n- Thresh by beating or mechanical threshing\n- Clean and store in moisture-proof bags\n- Expected yield: 8–12 maunds per acre (320–480 kg/acre)\n\n## Economic Considerations\n- Seed cost: Rs 150–250 per kg\n- Input cost per acre: Rs 15,000–20,000\n- Expected revenue: Rs 40,000–60,000 per acre at Rs 10,000–12,000/maund\n- Important rotation crop — fixes nitrogen, improves soil health\n",
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\data\\advisor-knowledge\\mung.md"
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\data\\advisor-knowledge\\mung.md"
 }
 ```
 
@@ -987,7 +987,7 @@ Now let me create a practical how-to guide for fertilizer application.
 ```json
 {
   "content": "# Practical Guide: Fertilizer Application in Pakistan\n\n## Overview\nThis guide provides practical, step-by-step instructions for fertilizer application for major Pakistani crops. Always use soil test results when available. When soil test is not available, follow general recommendations for your crop and region.\n\n## General Principles\n\n### When to Apply\n- **Basal fertilizer (DAP, SOP):** At sowing time, mixed with seed drill or broadcast before last plowing\n- **Top-dress nitrogen (Urea):** At the recommended growth stage, not before\n- **Avoid fertilizing:** During strong winds (>15 km/h), during rain, or when soil is waterlogged\n\n### How to Apply\n- **Urea:** Broadcast on moist soil, then irrigate within 24 hours or apply before expected rain\n- **DAP:** Place 5 cm below seed level in furrow, not directly touching seed\n- **SOP:** Broadcast and mix with soil, or apply through irrigation water\n\n### Safety Precautions\n- Wear gloves when handling fertilizers\n- Wash hands thoroughly after application\n- Store fertilizers in dry, covered area away from food and drinking water\n- Keep away from children and livestock\n\n## Crop-Specific Recommendations\n\n### Wheat (Rabi season)\n| Nutrient | Basal (at sowing) | Top-dress (at CRI) |\n|---|---|---|\n| Nitrogen | 30 kg/acre (65 kg Urea) | 30 kg/acre (65 kg Urea) |\n| Phosphorus | 35 kg/acre (76 kg DAP) | — |\n| Potassium | 15 kg/acre (25 kg SOP) | — |\n\n**Timing:** Basal at sowing, top-dress at first irrigation (CRI stage, 20–25 days after sowing)\n**Tip:** Split nitrogen into 2 doses — basal + CRI — for best results\n\n### Cotton (Kharif season)\n| Nutrient | Basal (at sowing) | Top-dress (at square formation) |\n|---|---|---|\n| Nitrogen | 30 kg/acre (65 kg Urea) | 30 kg/acre (65 kg Urea) |\n| Phosphorus | 25 kg/acre (55 kg DAP) | — |\n| Potassium | 15 kg/acre (25 kg SOP) | — |\n\n**Timing:** Basal at sowing, top-dress at square formation (45–50 days after sowing)\n**Tip:** Cotton responds well to foliar application of micronutrients (Zinc, Boron)\n\n### Rice (Kharif season)\n| Nutrient | Basal (at transplanting) | Top-dress 1 | Top-dress 2 |\n|---|---|---|---|\n| Nitrogen | 25 kg/acre (55 kg Urea) | 25 kg/acre (55 kg Urea) at tillering | 25 kg/acre (55 kg Urea) at panicle initiation |\n| Phosphorus | 25 kg/acre (55 kg DAP) | — | — |\n| Potassium | 15 kg/acre (25 kg SOP) | — | — |\n\n**Timing:** Basal at transplanting, top-dress at tillering (25–30 days) and panicle initiation (55–60 days)\n**Tip:** Apply Urea to standing water in paddy — do not drain before application\n\n### Sugarcane (Annual crop)\n| Nutrient | Basal (at planting) | Top-dress 1 | Top-dress 2 |\n|---|---|---|---|\n| Nitrogen | 40 kg/acre (87 kg Urea) | 40 kg/acre (87 kg Urea) at 60 days | 40 kg/acre (87 kg Urea) at 120 days |\n| Phosphorus | 30 kg/acre (65 kg DAP) | — | — |\n| Potassium | 20 kg/acre (33 kg SOP) | — | — |\n\n**Timing:** Basal at planting, top-dress at 60 and 120 days\n**Tip:** Sugarcane is a heavy feeder — do not skip nitrogen applications\n\n## Common Mistakes to Avoid\n1. **Over-application of Urea:** Causes lodging, delayed maturity, and disease susceptibility\n2. **Applying to dry soil:** Fertilizer won't reach roots — always apply to moist soil or irrigate after\n3. **Ignoring phosphorus:** DAP is critical for root development — don't skip it\n4. **Wrong timing:** Top-dressing nitrogen too late wastes fertilizer and reduces yield\n5. **Uneven application:** Use broadcast or seed drill for uniform distribution\n\n## Cost Estimates (PKR per acre)\n| Fertilizer | Bag (50kg) Price | Application Rate | Cost/Acre |\n|---|---|---|---|\n| Urea | Rs 2,800–3,200 | 130 kg/acre (wheat) | Rs 7,300–8,300 |\n| DAP | Rs 8,000–9,000 | 76 kg/acre (wheat) | Rs 12,200–13,600 |\n| SOP | Rs 5,000–6,000 | 25 kg/acre (wheat) | Rs 2,500–3,000 |\n\n*Prices are approximate and vary by region and season*\n\n## Micronutrients\n### Zinc Sulphate\n- **When:** Basal application\n- **Rate:** 10–15 kg/acre\n- **Crops:** Rice, wheat, cotton\n- **Signs of deficiency:** Stunted growth, small leaves, white rust in rice\n\n### Borax\n- **When:** At sowing or foliar spray at flowering\n- **Rate:** 5–10 kg/acre (soil) or 2g/L water (foliar)\n- **Crops:** Cotton, sunflower, mustard\n- **Signs of deficiency:** Poor flowering, hollow stem, cracked pods\n",
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\data\\advisor-knowledge\\fertilizer-guide.md"
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\data\\advisor-knowledge\\fertilizer-guide.md"
 }
 ```
 
@@ -1010,7 +1010,7 @@ Now let me create a practical guide for pesticide spraying.
 ```json
 {
   "content": "# Practical Guide: Pesticide Spraying in Pakistan\n\n## Overview\nThis guide provides practical instructions for safe and effective pesticide application. Always read the product label before use. Follow the recommended dosage — more is NOT better and can harm crops, beneficial insects, and your health.\n\n## Safety First — Personal Protective Equipment (PPE)\n\n### Mandatory PPE\n- **Clothing:** Full-sleeve shirt, long pants, closed-toe shoes\n- **Hands:** Chemical-resistant gloves (nitrile or rubber)\n- **Face:** Mask or respirator (N95 minimum, half-face respirator for concentrates)\n- **Eyes:** Safety goggles (especially for liquid concentrates)\n- **Head:** Cap or hat\n\n### During Spraying\n- Do not eat, drink, or smoke while spraying\n- Stay upwind of the spray drift\n- Avoid spraying in strong winds (>15 km/h)\n- Take breaks every 30–45 minutes\n- If you feel dizzy or nauseous, stop immediately, move to fresh air, and wash\n\n### After Spraying\n- Wash all PPE thoroughly with soap and water\n- Bathe and change clothes before eating or sleeping\n- Wash spray equipment thoroughly\n- Store pesticides in original containers, locked away from children and livestock\n\n## When to Spray — Timing Matters\n\n### Best Time of Day\n- **Early morning (6–9 AM):** Best for most sprays — low wind, moderate temperature, dew helps absorption\n- **Late afternoon (4–6 PM):** Second best — cooler temperatures, less evaporation\n- **Avoid midday (11 AM–3 PM):** High temperature causes rapid evaporation and reduced effectiveness\n\n### Weather Conditions\n| Condition | Spray? | Reason |\n|---|---|---|\n| Wind < 10 km/h | YES | Ideal conditions |\n| Wind 10–15 km/h | CAUTION | Spray drift risk, use larger droplets |\n| Wind > 15 km/h | NO | Spray will drift to neighboring crops |\n| Temperature > 35°C | AVOID | Chemical evaporates too fast |\n| Temperature < 15°C | AVOID | Insects are less active, reduced uptake |\n| Rain expected within 4 hours | NO | Washoff before absorption |\n| Humidity > 80% | YES | Good for systemic pesticides |\n\n### Crop Stage Considerations\n- **Avoid spraying during flowering** when possible — kills pollinators\n- **Avoid spraying close to harvest** — follow pre-harvest interval (PHI) on label\n- **Spray in morning when bees are inactive** — bees start foraging at ~9 AM\n\n## How to Mix Pesticides\n\n### Step-by-Step\n1. Fill spray tank halfway with clean water\n2. Add the required amount of pesticide concentrate\n3. Mix thoroughly for 2–3 minutes\n4. Fill the rest of the tank with water\n5. Mix again for 1–2 minutes\n6. Calibrate sprayer before use\n\n### Important Rules\n- **Never mix different pesticides** unless label specifically allows it\n- **Never use food containers** for mixing or storing pesticides\n- **Mix only the amount needed** — don't store leftover mixed spray\n- **Use clean water** — dirty or saline water can reduce effectiveness\n\n## Spray Equipment Calibration\n\n### Knapsack Sprayer (Most Common)\n- **Capacity:** 15–20 liters\n- **Nozzle:** Flat fan, 1.0–1.5 mm orifice\n- **Pressure:** 20–30 PSI (pump 30–40 strokes)\n- **Speed:** Walk at steady pace, ~4 km/h\n- **Coverage:** 15–20 liters covers 1 acre (depending on crop density)\n\n### Calibration Check\n1. Fill tank with plain water\n2. Spray a measured area (e.g., 1/10 acre)\n3. Measure water used\n4. Calculate: Tank capacity ÷ water used per 1/10 acre = total area per tank\n\n## Common Pesticides Used in Pakistan\n\n### Insecticides\n| Product | Active Ingredient | Target Pests | Rate/Acre |\n|---|---|---|---|\n| Confidor 20% SL | Imidacloprid | Aphids, whitefly, jassid | 200ml in 200L water |\n| Corigan 40% EC | Chlorpyrifos | Bollworm, stem borer | 500ml in 200L water |\n| Decis 2.5% EC | Deltamethrin | Bollworm, caterpillars | 200ml in 200L water |\n|udo 5% SG | Emamectin benzoate | Pod borer, bollworm | 80g in 200L water |\n\n### Fungicides\n| Product | Active Ingredient | Target Diseases | Rate/Acre |\n|---|---|---|---|\n| Dithane M-45 | Mancozeb 75% WP | Leaf spots, blight | 500g in 200L water |\n| Ridomil Gold | Metalaxyl + Mancozeb | Downy mildew, Pythium | 500g in 200L water |\n| Score 25% EC | Difenoconazole | Rust, powdery mildew | 200ml in 200L water |\n\n## Pre-Harvest Intervals (PHI)\n| Crop | Minimum Days Before Harvest |\n|---|---|\n| Wheat | 15 days |\n| Cotton | 10 days |\n| Rice | 15 days |\n| Vegetables | 7–14 days (varies by product) |\n| Fruits | 7–21 days (varies by product) |\n\n**Always check the product label for the specific PHI**\n\n## Integrated Pest Management (IPM)\n1. **Scout first:** Check crop regularly — don't spray on schedule, spray when needed\n2. **Identify correctly:** Know the pest before choosing the pesticide\n3. **Use biological control:** Encourage natural predators (ladybugs, parasitic wasps)\n4. **Rotate chemicals:** Alternate between different chemical groups to prevent resistance\n5. **Use threshold levels:** Not every pest requires spraying — economic threshold levels exist\n6. **Cultural practices:** Crop rotation, resistant varieties, proper spacing reduce pest pressure\n\n## Emergency — If Poisoned\n- **Skin contact:** Remove contaminated clothing, wash with soap and water for 15 minutes\n- **Eye contact:** Rinse with clean water for 15 minutes, seek medical help\n- **Inhaled:** Move to fresh air, keep warm, seek medical help if symptoms persist\n- **Swallowed:** Do NOT induce vomiting, sip water, seek immediate medical help\n- **Bring the pesticide container** to the doctor/hospital\n",
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\data\\advisor-knowledge\\pesticide-guide.md"
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\data\\advisor-knowledge\\pesticide-guide.md"
 }
 ```
 
@@ -1033,7 +1033,7 @@ Now let me create a regional farming guide for Pakistan's major agricultural zon
 ```json
 {
   "content": "# Regional Farming Guide — Pakistan\n\n## Overview\nPakistan's agriculture varies significantly by region due to climate, soil, water availability, and farming traditions. This guide covers the major agricultural zones with region-specific advice.\n\n## Punjab — The Breadbasket\n\n### Central Punjab (Faisalabad, Sahiwal, Lahore, Gujranwala)\n- **Climate:** Semi-arid, hot summers (40–45°C), mild winters (5–15°C)\n- **Soil:** Alluvial, fertile, well-drained\n- **Water:** Canal irrigation + tube wells (groundwater declining)\n- **Major crops:** Wheat, cotton, rice, sugarcane, maize\n- **Key challenges:** Water table decline, urbanization encroaching farmland\n\n**Regional advice:**\n- Wheat sowing: November 1–20 optimal\n- Cotton: Prefer Bt varieties for bollworm resistance\n- Rice: Avoid flood irrigation — use raised bed or SRI method to save water\n- Monitor for whitefly in cotton (peak: July–August)\n\n### Southern Punjab (Multan, Bahawalpur, D.G. Khan, Rajanpur)\n- **Climate:** Arid, extreme heat (45–50°C), low rainfall (<200mm)\n- **Soil:** Sandy loam to loam, some saline areas\n- **Water:** Canal irrigation, tube wells (saline groundwater in some areas)\n- **Major crops:** Cotton, wheat, sugarcane, mango, citrus\n- **Key challenges:** Heat stress, salinity, waterlogging in low-lying areas\n\n**Regional advice:**\n- Cotton sowing: April 15–May 15 (avoid late sowing)\n- Mango: Apply potassium for fruit quality in saline soils\n- Use gypsum for saline/alkaline soil reclamation\n- Heat-tolerant wheat varieties recommended (Faisalabad-08, Galaxy-13)\n\n### Northern Punjab (Sialkot, Jhelum, Rawalpindi, Murree)\n- **Climate:** Sub-humid, moderate summers (35–40°C), cold winters (0–10°C)\n- **Soil:** Loam to clay loam, well-drained foothills\n- **Water:** Canal + rain-fed (barani) areas\n- **Major crops:** Wheat, rice, maize, vegetables, citrus\n- **Key challenges:** Flooding in monsoon, hailstorms in spring\n\n**Regional advice:**\n- Barani wheat: Sow October 15–November 10 (earlier than irrigated areas)\n- Rice: Basmati varieties preferred, transplanting in June\n- Vegetables: High-value opportunity for Sialkot, Gujranwala markets\n- Protect standing crops from hailstorms (March–April)\n\n## Sindh — The Indus Delta\n\n### Upper Sindh (Sukkur, Larkana, Jacobabad)\n- **Climate:** Arid, extreme heat (48–52°C — hottest in Pakistan), low rainfall\n- **Soil:** Alluvial, some saline/sodic patches\n- **Water:** Canal irrigation (Indus river system)\n- **Major crops:** Rice, cotton, wheat, sugarcane, dates\n- **Key challenges:** Extreme heat, waterlogging, salinity\n\n**Regional advice:**\n- Rice: Preferred crop — use IRRI-6 or Super Basmati varieties\n- Cotton: Heat-tolerant varieties essential, sow by May end\n- Dates: Major cash crop in Larkana/Khairpur — Deglet Nool and Aseel varieties\n- Address waterlogging through proper drainage\n\n### Lower Sindh (Hyderabad, Thatta, Badin)\n- **Climate:** Arid to semi-arid, moderate heat, coastal influence\n- **Soil:** Sandy, saline in coastal areas\n- **Water:** Canal + rain-fed in some areas\n- **Major crops:** Rice, cotton, wheat, mango, fisheries\n- **Key challenges:** Salinity, cyclone risk, limited irrigation\n\n**Regional advice:**\n- Salt-tolerant rice varieties recommended (KS-282, KS-132)\n- Mango: Sindhri variety — world-class quality\n- Use drip irrigation for vegetables in saline areas\n- Coastal areas: brackish water management is critical\n\n## Khyber Pakhtunkhwa — The Highland Farms\n\n### Peshawar Valley and Lowlands\n- **Climate:** Semi-arid, hot summers (40–42°C), cold winters (2–8°C)\n- **Soil:** Loam to clay loam, fertile valleys\n- **Water:** Canal + tube wells, some rain-fed\n- **Major crops:** Wheat, maize, sugarcane, tobacco, vegetables\n- **Key challenges:** Limited water, terraced farming constraints\n\n**Regional advice:**\n- Wheat: Sow 1–2 weeks earlier than Punjab (October 20–November 10)\n- Maize: Major crop — use hybrid varieties for higher yield\n- Tobacco: Flue-cured variety — specialized knowledge needed\n- Vegetables: High-value opportunity for Peshawar and Swat markets\n\n### Malakand and Hazara Divisions\n- **Climate:** Sub-humid, cool summers, cold winters with snowfall\n- **Soil:** Mountain soils, variable fertility\n- **Water:** Rain-fed + limited canal, snowmelt-fed streams\n- **Major crops:** Wheat, maize, rice, fruits (apple, pear, walnut)\n- **Key challenges:** Short growing season, frost risk, limited mechanization\n\n**Regional advice:**\n- Short-duration wheat varieties essential (120–130 days)\n- Fruits: High-value orchard crops — apple, pear, walnut, apricot\n- Terracing and water conservation critical\n- Frost protection: Irrigate before cold nights\n\n## Balochistan — The Frontier\n\n### Quetta and Surrounding Areas\n- **Climate:** Arid, extreme temperature variation (40°C summer, -5°C winter)\n- **Soil:** Rocky, shallow, variable fertility\n- **Water:** Rain-fed + limited tube wells\n- **Major crops:** Wheat, barley, fruits (apple, grape, pomegranate, almond)\n- **Key challenges:** Water scarcity, limited infrastructure, frost\n\n**Regional advice:**\n- Apple: Major cash crop — Kharak, Chitral, and Ornamental varieties\n- Pomegranate: Drought-tolerant, excellent for dry areas\n- Wheat: Rain-fed (15–20 maunds/acre) — supplemental irrigation doubles yield\n- Water harvesting: Build small dams and check dams for rainwater storage\n\n### Lasbela and Coastal Areas\n- **Climate:** Arid, hot, coastal humidity\n- **Soil:** Sandy, saline\n- **Water:** Limited canal, tube wells (saline groundwater)\n- **Major crops:** Dates, mango, vegetables, fisheries\n- **Key challenges:** Salinity, water scarcity, heat\n\n**Regional advice:**\n- Dates: Excellent for Lasbela — Bermi and Aziz varieties\n- Drip irrigation essential for vegetable production\n- Use salt-tolerant crop varieties\n- Coastal fisheries: Major livelihood source\n\n## General Regional Tips\n\n### Water Conservation (All Regions)\n- Use drip or sprinkler irrigation where possible\n- Line canals to reduce seepage losses\n- Practice rainwater harvesting\n- Schedule irrigation based on crop need, not calendar\n\n### Soil Health (All Regions)\n- Get soil tested every 2–3 years\n- Add organic matter (compost, farmyard manure) annually\n- Practice crop rotation — legumes after cereals\n- Avoid over-tillage — conserve soil structure\n\n### Market Access\n- Know your nearest mandi and its price trends\n- Use transport cost in sell decisions\n- Consider value addition (grading, cleaning, packaging) before sale\n- Connect with buyer networks for better prices\n",
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\data\\advisor-knowledge\\regional-guide.md"
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\data\\advisor-knowledge\\regional-guide.md"
 }
 ```
 
@@ -1056,7 +1056,7 @@ Now let me commit these knowledge base additions.
 ```json
 {
   "command": "git add data/advisor-knowledge/sunflower.md data/advisor-knowledge/groundnut.md data/advisor-knowledge/mung.md data/advisor-knowledge/fertilizer-guide.md data/advisor-knowledge/pesticide-guide.md data/advisor-knowledge/regional-guide.md; git commit -m \"feat(advisor): expand knowledge base with new crops and practical guides\n\n- Add sunflower crop guide (oilseed crop)\n- Add groundnut crop guide (peanut/groundnut)\n- Add mung bean crop guide (pulse crop)\n- Add practical fertilizer application guide (crop-specific rates, timing, costs)\n- Add practical pesticide spraying guide (safety, timing, equipment, IPM)\n- Add regional farming guide (Punjab, Sindh, KPK, Balochistan specific advice)\"",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -1216,7 +1216,7 @@ Now let me enhance the proactive alerts in the triage agent's system prompt to b
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\lib\\advisor\\agents\\triage.ts",
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\lib\\advisor\\agents\\triage.ts",
   "offset": 78,
   "limit": 25
 }
@@ -1224,7 +1224,7 @@ Now let me enhance the proactive alerts in the triage agent's system prompt to b
 
 **Output:**
 ```
-<path>C:\Users\dell\Music\hackathons\agro ai-hackathon\lib\advisor\agents\triage.ts</path>
+<path>C:\Users\dell\Music\hackathons\agropioo-hackathon\lib\advisor\agents\triage.ts</path>
 <type>file</type>
 <content>
 78: - The language preference is: ${ctx.language}
@@ -1270,7 +1270,7 @@ Let me enhance the proactive alerts section to be more specific and comprehensiv
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\lib\\advisor\\agents\\triage.ts",
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\lib\\advisor\\agents\\triage.ts",
   "newString": "## Proactive alerts — Always check and mention\nOn EVERY response, proactively scan for and mention relevant alerts from these categories:\n\n### Irrigation alerts\n- Calculate days since last irrigation record vs. crop-specific interval\n- Example: \"Your wheat on [farm] was irrigated 18 days ago — for CRI stage, irrigation is due every 15-20 days. You should irrigate within the next 2 days.\"\n\n### Pest/disease scouting alerts\n- Cross-reference current month + crop stage with seasonal pest calendar\n- Example: \"It's July and your cotton is at square formation — peak jassid and thrips risk. Scout your cotton field this week.\"\n\n### Weather-crop conflicts\n- If weather forecast conflicts with planned activities, warn immediately\n- Example: \"You mentioned planning to spray — rain is forecast tomorrow morning. Delay your spray to avoid washoff.\"\n\n### Overdue actions\n- Flag any farming activities that appear overdue based on timing\n- Example: \"You haven't logged any fertilizer application this season. For wheat at tillering stage, top-dress nitrogen is critical.\"\n\n### Seasonal urgency\n- Warn about time-sensitive windows\n- Example: \"This is the last week for optimal wheat sowing — every day after November 20 reduces yield by ~15-20 kg/ha.\"\n\n### Input reminders\n- Suggest inputs that are typically needed at the current crop stage\n- Example: \"Your cotton is at flowering stage — consider a foliar application of zinc for better boll development.\"\n\n**Format alerts as:** ⚠️ [Alert type]: [specific action needed] [by when] [for which farm if known]",
   "oldString": "## Proactive alerts\nIf you notice from farm data, weather, or seasonal calendar that something needs attention, mention it even if the farmer didn't ask. Examples:\n- \"I notice your wheat was sown 10 days ago — the first irrigation (CRI stage) is coming up in about 10 days.\"\n- \"It's peak yellow rust season in ${ctx.district} — make sure you're scouting regularly.\"\n- \"Your last irrigation on [farm name] was 15 days ago — might be overdue.\""
 }
@@ -1295,7 +1295,7 @@ Now let me commit this change.
 ```json
 {
   "command": "git add lib/advisor/agents/triage.ts; git commit -m \"feat(advisor): enhance proactive alerts with structured categories\n\n- Add irrigation alerts with timing calculations\n- Add pest/disease scouting alerts based on crop stage and season\n- Add weather-crop conflict warnings\n- Add overdue action detection\n- Add seasonal urgency warnings\n- Add input reminders for current crop stage\n- Format alerts as structured ⚠️ blocks with action, timing, and farm\"",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -1320,13 +1320,13 @@ Now let me push all the commits and update the todo list.
 ```json
 {
   "command": "git push origin feat/advisor-upgrades",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
 **Output:**
 ```
-To https://github.com/sheikh-mohammad/agro ai-hackathon
+To https://github.com/sheikh-mohammad/agropioo-hackathon
    ae0a1cf..5d0e5c4  feat/advisor-upgrades -> feat/advisor-upgrades
 
 ```
@@ -1470,7 +1470,7 @@ Let me run the lint and build checks.
 {
   "command": "npm run lint 2>&1 | head -50",
   "timeout": 60000,
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -1502,24 +1502,24 @@ PowerShell doesn't have `head`. Let me run lint without piping.
 {
   "command": "npm run lint",
   "timeout": 120000,
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
 **Output:**
 ```
 
-> agro ai@0.1.0 lint
+> agropioo@0.1.0 lint
 > eslint
 
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\app\(farmer)\(dashboard)\crops\crops-client.tsx
+C:\Users\dell\Music\hackathons\agropioo-hackathon\app\(farmer)\(dashboard)\crops\crops-client.tsx
   682:42  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-explicit-any
   692:25  warning  Compilation Skipped: Use of incompatible library
 
 This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\app\(farmer)\(dashboard)\crops\crops-client.tsx:692:25
+C:\Users\dell\Music\hackathons\agropioo-hackathon\app\(farmer)\(dashboard)\crops\crops-client.tsx:692:25
   690 |   });
   691 |
 > 692 |   const watchedFarmId = watch("farmId");
@@ -1528,27 +1528,27 @@ C:\Users\dell\Music\hackathons\agro ai-hackathon\app\(farmer)\(dashboard)\crops\
   694 |   const watchedYear = watch("targetYear");
   695 |   const watchedBudget = watch("budgetBracket");  react-hooks/incompatible-library
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\app\(farmer)\(dashboard)\dashboard\dashboard-view.tsx
+C:\Users\dell\Music\hackathons\agropioo-hackathon\app\(farmer)\(dashboard)\dashboard\dashboard-view.tsx
   88:3  warning  Do not use `window.location.href` to navigate to internal Next.js pages. Use `redirect()` in the render phase, or `useRouter().push()` in Client Components' event handlers instead. See: https://nextjs.org/docs/messages/no-location-assign-relative-destination  @next/next/no-location-assign-relative-destination
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\app\(farmer)\(dashboard)\detect\detect-chat.tsx
+C:\Users\dell\Music\hackathons\agropioo-hackathon\app\(farmer)\(dashboard)\detect\detect-chat.tsx
   262:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
   378:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\app\(farmer)\(dashboard)\detect\detect-upload.tsx
+C:\Users\dell\Music\hackathons\agropioo-hackathon\app\(farmer)\(dashboard)\detect\detect-upload.tsx
    39:3   warning  'nextCursor' is defined but never used                                                                                                                                                                                                                                                   @typescript-eslint/no-unused-vars
   175:9   warning  Do not use `window.location.href` to navigate to internal Next.js pages. Use `redirect()` in the render phase, or `useRouter().push()` in Client Components' event handlers instead. See: https://nextjs.org/docs/messages/no-location-assign-relative-destination                       @next/next/no-location-assign-relative-destination
   487:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\app\(farmer)\(dashboard)\detect\diagnosis-card.tsx
+C:\Users\dell\Music\hackathons\agropioo-hackathon\app\(farmer)\(dashboard)\detect\diagnosis-card.tsx
   42:9  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\app\(farmer)\(dashboard)\farms\new\farm-form.tsx
+C:\Users\dell\Music\hackathons\agropioo-hackathon\app\(farmer)\(dashboard)\farms\new\farm-form.tsx
   1045:27  warning  Compilation Skipped: Use of incompatible library
 
 This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\app\(farmer)\(dashboard)\farms\new\farm-form.tsx:1045:27
+C:\Users\dell\Music\hackathons\agropioo-hackathon\app\(farmer)\(dashboard)\farms\new\farm-form.tsx:1045:27
   1043 |         selected={selectedCrops}
   1044 |         onToggle={(crop) => {
 > 1045 |           const current = watch("crops") || [];
@@ -1557,17 +1557,17 @@ C:\Users\dell\Music\hackathons\agro ai-hackathon\app\(farmer)\(dashboard)\farms\
   1047 |             setValue("crops", current.filter((c) => c !== crop));
   1048 |           } else {  react-hooks/incompatible-library
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\app\(farmer)\(dashboard)\notifications\notifications-list.tsx
+C:\Users\dell\Music\hackathons\agropioo-hackathon\app\(farmer)\(dashboard)\notifications\notifications-list.tsx
   12:7  warning  'severityChip' is assigned a value but never used  @typescript-eslint/no-unused-vars
   18:7  warning  'severityWord' is assigned a value but never used  @typescript-eslint/no-unused-vars
   24:7  warning  'kindIcon' is assigned a value but never used      @typescript-eslint/no-unused-vars
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\app\(farmer)\(dashboard)\records\new\record-form.tsx
+C:\Users\dell\Music\hackathons\agropioo-hackathon\app\(farmer)\(dashboard)\records\new\record-form.tsx
   49:24  warning  Compilation Skipped: Use of incompatible library
 
 This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\app\(farmer)\(dashboard)\records\new\record-form.tsx:49:24
+C:\Users\dell\Music\hackathons\agropioo-hackathon\app\(farmer)\(dashboard)\records\new\record-form.tsx:49:24
   47 |   });
   48 |
 > 49 |   const selectedType = watch('type');
@@ -1576,12 +1576,12 @@ C:\Users\dell\Music\hackathons\agro ai-hackathon\app\(farmer)\(dashboard)\record
   51 |
   52 |   useEffect(() => {  react-hooks/incompatible-library
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\app\(site)\[locale]\signup\signup-form.tsx
+C:\Users\dell\Music\hackathons\agropioo-hackathon\app\(site)\[locale]\signup\signup-form.tsx
   125:20  warning  Compilation Skipped: Use of incompatible library
 
 This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\app\(site)\[locale]\signup\signup-form.tsx:125:20
+C:\Users\dell\Music\hackathons\agropioo-hackathon\app\(site)\[locale]\signup\signup-form.tsx:125:20
   123 |   });
   124 |
 > 125 |   const password = watch("password");
@@ -1590,52 +1590,52 @@ C:\Users\dell\Music\hackathons\agro ai-hackathon\app\(site)\[locale]\signup\sign
   127 |
   128 |   const errorText = (message?: string) =>  react-hooks/incompatible-library
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\lib\advisor\agents\handoff-agent.ts
+C:\Users\dell\Music\hackathons\agropioo-hackathon\lib\advisor\agents\handoff-agent.ts
   53:164  error  Parsing error: '}' expected
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\lib\advisor\agents\triage.ts
+C:\Users\dell\Music\hackathons\agropioo-hackathon\lib\advisor\agents\triage.ts
   8:10  warning  'farmingOnlyGuardrail' is defined but never used  @typescript-eslint/no-unused-vars
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\lib\prices\scrapers\drift-detector.test.ts
+C:\Users\dell\Music\hackathons\agropioo-hackathon\lib\prices\scrapers\drift-detector.test.ts
   4:0  error  Parsing error: Merge conflict marker encountered
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\lib\prices\scrapers\post.test.ts
+C:\Users\dell\Music\hackathons\agropioo-hackathon\lib\prices\scrapers\post.test.ts
   1:0  error  Parsing error: Merge conflict marker encountered
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\lib\prices\scrapers\selectors.test.ts
+C:\Users\dell\Music\hackathons\agropioo-hackathon\lib\prices\scrapers\selectors.test.ts
   2:0  error  Parsing error: Merge conflict marker encountered
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\lib\weather\ai-advisory.ts
+C:\Users\dell\Music\hackathons\agropioo-hackathon\lib\weather\ai-advisory.ts
   4:10  warning  'query' is defined but never used  @typescript-eslint/no-unused-vars
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\scripts\scrape-prices\drift-detector.ts
+C:\Users\dell\Music\hackathons\agropioo-hackathon\scripts\scrape-prices\drift-detector.ts
   1:0  error  Parsing error: Merge conflict marker encountered
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\scripts\scrape-prices\holiday-check.ts
+C:\Users\dell\Music\hackathons\agropioo-hackathon\scripts\scrape-prices\holiday-check.ts
   1:0  error  Parsing error: Merge conflict marker encountered
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\scripts\scrape-prices\index.ts
+C:\Users\dell\Music\hackathons\agropioo-hackathon\scripts\scrape-prices\index.ts
   28:28  warning  'DriftInputs' is defined but never used  @typescript-eslint/no-unused-vars
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\scripts\scrape-prices\post.ts
+C:\Users\dell\Music\hackathons\agropioo-hackathon\scripts\scrape-prices\post.ts
   1:0  error  Parsing error: Merge conflict marker encountered
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\scripts\scrape-prices\selectors.ts
+C:\Users\dell\Music\hackathons\agropioo-hackathon\scripts\scrape-prices\selectors.ts
   24:0  error  Parsing error: Merge conflict marker encountered
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\scripts\scrape-prices\sources\amis.ts
+C:\Users\dell\Music\hackathons\agropioo-hackathon\scripts\scrape-prices\sources\amis.ts
   15:10  warning  'SELECTORS' is defined but never used  @typescript-eslint/no-unused-vars
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\scripts\scrape-prices\sources\bmis.ts
+C:\Users\dell\Music\hackathons\agropioo-hackathon\scripts\scrape-prices\sources\bmis.ts
   14:10  warning  'SELECTORS' is defined but never used  @typescript-eslint/no-unused-vars
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\scripts\scrape-prices\sources\fmis-kp.ts
+C:\Users\dell\Music\hackathons\agropioo-hackathon\scripts\scrape-prices\sources\fmis-kp.ts
   16:10  warning  'SELECTORS' is defined but never used  @typescript-eslint/no-unused-vars
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\scripts\scrape-prices\sources\pbs-spi.ts
+C:\Users\dell\Music\hackathons\agropioo-hackathon\scripts\scrape-prices\sources\pbs-spi.ts
   19:10  warning  'SELECTORS' is defined but never used  @typescript-eslint/no-unused-vars
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\scripts\scrape-prices\sources\samis.ts
+C:\Users\dell\Music\hackathons\agropioo-hackathon\scripts\scrape-prices\sources\samis.ts
   15:10  warning  'SELECTORS' is defined but never used  @typescript-eslint/no-unused-vars
 
 ✖ 31 problems (9 errors, 22 warnings)
@@ -1662,7 +1662,7 @@ Let me fix the lint errors in my code:
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\lib\\advisor\\agents\\handoff-agent.ts",
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\lib\\advisor\\agents\\handoff-agent.ts",
   "offset": 48,
   "limit": 10
 }
@@ -1670,7 +1670,7 @@ Let me fix the lint errors in my code:
 
 **Output:**
 ```
-<path>C:\Users\dell\Music\hackathons\agro ai-hackathon\lib\advisor\agents\handoff-agent.ts</path>
+<path>C:\Users\dell\Music\hackathons\agropioo-hackathon\lib\advisor\agents\handoff-agent.ts</path>
 <type>file</type>
 <content>
 48: - "Take 2-3 photos: one of the whole plant, one close-up of the affected area, one of the leaf underside"
@@ -1697,13 +1697,13 @@ The issue is the backtick at the end of the string. Let me check the full file t
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\lib\\advisor\\agents\\handoff-agent.ts"
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\lib\\advisor\\agents\\handoff-agent.ts"
 }
 ```
 
 **Output:**
 ```
-<path>C:\Users\dell\Music\hackathons\agro ai-hackathon\lib\advisor\agents\handoff-agent.ts</path>
+<path>C:\Users\dell\Music\hackathons\agropioo-hackathon\lib\advisor\agents\handoff-agent.ts</path>
 <type>file</type>
 <content>
 1: import { Agent } from "@openai/agents";
@@ -1784,7 +1784,7 @@ The error "'}' expected" at line 53 column 164 suggests the parser is getting co
 ```json
 {
   "content": "import { Agent } from \"@openai/agents\";\nimport { searchKnowledgeBase } from \"../tools/knowledge-base\";\nimport { advisorModel } from \"../model\";\n\n/**\n * Handoff agent that activates when the AI cannot confidently answer.\n * Provides structured escalation to a human agronomist/extension officer.\n */\nexport function createHandoffAgent() {\n  return new Agent({\n    name: \"Agronomist Handoff\",\n    model: advisorModel(),\n    handoffDescription: \"Handles cases where the AI advisor cannot confidently answer -- complex disease identification, unknown symptoms, safety-critical dosages, or when the farmer explicitly requests a human expert.\",\n    instructions: [\n      \"You are a helpful assistant that guides the farmer to expert human help.\",\n      \"You appear when the AI advisor lacks verified information or when the farmer needs personalized expert consultation.\",\n      \"\",\n      \"## Your role\",\n      \"You are NOT the expert -- you are a warm, supportive bridge to a human agronomist. Your job is to:\",\n      \"1. Acknowledge the farmer's question respectfully\",\n      \"2. Explain why this needs expert attention (without making the farmer feel dismissed)\",\n      \"3. Give them clear next steps to get help\",\n      \"4. Reassure them that getting expert help is the smart thing to do\",\n      \"\",\n      \"## When to activate\",\n      \"- Complex or unknown disease/pest that cannot be identified from description\",\n      \"- Chemical dosage questions where wrong advice could cause harm\",\n      \"- The farmer explicitly asks for an expert or agronomist\",\n      \"- Situations requiring physical inspection of crops/soil\",\n      \"- Livestock health emergencies\",\n      \"\",\n      \"## Response structure\",\n      'Don\\'t say: \"I can\\'t help with this\" or \"I don\\'t know\"',\n      'Do say: \"This is an important question and deserves expert attention. Here is how to get the best help:\"',\n      \"\",\n      \"## Clear next steps for the farmer\",\n      \"1. Local Extension Officer: Your nearest Agriculture Extension office in [district] can send an officer to inspect your field. Visit them with photos and a soil sample if possible.\",\n      \"2. Kissan Helpline: Call the Kissan Helpline at 0800-15000 (free) for immediate guidance from agricultural experts.\",\n      \"3. WhatsApp with photos: Take clear photos of the affected plants (leaf front and back, stems, soil) and share them with your local Agriculture Department WhatsApp group.\",\n      \"4. Online consultation: You can book a video consultation with a certified agronomist through the Agriculture Department portal.\",\n      \"\",\n      \"## Tone\",\n      \"- Warm and encouraging -- the farmer did the right thing by asking\",\n      \"- Specific and actionable -- don't just say consult an expert, give them the path\",\n      \"- Localized -- mention their district's extension office if known\",\n      '- Reassuring -- \"Many farmers face this same issue and get good help quickly\"',\n      \"\",\n      \"## Photo guidance\",\n      \"When suggesting photos for the expert:\",\n      \"- Take 2-3 photos: one of the whole plant, one close-up of the affected area, one of the leaf underside\",\n      \"- Make sure the photos are in good light so the expert can see the details\",\n      \"- Include a coin or your finger for scale so the expert can judge the size of spots/lesions\",\n      \"\",\n      \"## Follow-up\",\n      'Always end with: \"In the meantime, if you notice [specific interim action], that can help prevent the problem from getting worse while you wait for expert advice.\"',\n    ].join(\"\\n\"),\n  });\n}\n",
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\lib\\advisor\\agents\\handoff-agent.ts"
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\lib\\advisor\\agents\\handoff-agent.ts"
 }
 ```
 
@@ -1806,7 +1806,7 @@ Now let me fix the unused import in triage.ts.
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\lib\\advisor\\agents\\triage.ts",
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\lib\\advisor\\agents\\triage.ts",
   "newString": "import { advisorInputGuardrails, advisorOutputGuardrails } from \"../guardrails\";",
   "oldString": "import { farmingOnlyGuardrail, advisorInputGuardrails, advisorOutputGuardrails } from \"../guardrails\";"
 }
@@ -1832,7 +1832,7 @@ Now let me run lint again to check if my issues are fixed.
 {
   "command": "npm run lint -- --quiet 2>&1 | Select-String -Pattern \"advisor\"",
   "timeout": 120000,
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -1855,7 +1855,7 @@ No advisor-related lint errors. The remaining errors are in other files (merge c
 ```json
 {
   "command": "git add lib/advisor/agents/handoff-agent.ts lib/advisor/agents/triage.ts; git commit -m \"fix(advisor): fix lint errors in handoff agent and triage imports\"",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -1881,13 +1881,13 @@ Now let me push the fix.
 ```json
 {
   "command": "git push origin feat/advisor-upgrades",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
 **Output:**
 ```
-To https://github.com/sheikh-mohammad/agro ai-hackathon
+To https://github.com/sheikh-mohammad/agropioo-hackathon
    5d0e5c4..2dca14b  feat/advisor-upgrades -> feat/advisor-upgrades
 
 ```
@@ -2566,12 +2566,12 @@ neon neon-auth domain delete <domain> # remove one you no longer use
 
 If the workspace isn't linked, pass `--project-id <id>` (and `--branch <id|name>`) explicitly. For local development, `neon neon-auth domain allow-localhost` manages whether `localhost` is permitted. Register the domain before pointing users at the new URL, so they never hit the `invalid domain` error.
 
-Base directory for this skill: C:\Users\dell\Music\hackathons\agro ai-hackathon\.agents\skills\neon
+Base directory for this skill: C:\Users\dell\Music\hackathons\agropioo-hackathon\.agents\skills\neon
 Relative paths in this skill (e.g., scripts/, reference/) are relative to this base directory.
 Note: file list is sampled.
 
 <skill_files>
-<file>C:\Users\dell\Music\hackathons\agro ai-hackathon\.agents\skills\neon\references\claimable-neon.md</file>
+<file>C:\Users\dell\Music\hackathons\agropioo-hackathon\.agents\skills\neon\references\claimable-neon.md</file>
 </skill_files>
 </skill_content>
 ```
@@ -2612,7 +2612,7 @@ Let me try listing projects without org_id or check the environment for Neon con
 ```json
 {
   "command": "if (Test-Path .neon) { Get-Content .neon } else { Write-Output \"No .neon file found\" }",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -2636,7 +2636,7 @@ Let me check the .env file for Neon configuration.
 ```json
 {
   "command": "if (Test-Path .env) { Get-Content .env | Select-String -Pattern \"NEON|DATABASE_URL\" } else { Write-Output \"No .env file found\" }",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -2667,7 +2667,7 @@ I can see the Neon database URL. Let me check if there's a Neon project ID in th
 ```json
 {
   "command": "if (Test-Path .env) { Get-Content .env | Select-String -Pattern \"NEON\" } else { Write-Output \"No .env file found\" }",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -2698,7 +2698,7 @@ Let me check the .env.example for any Neon project ID variables.
 ```json
 {
   "command": "if (Test-Path .env.example) { Get-Content .env.example | Select-String -Pattern \"NEON\" } else { Write-Output \"No .env.example file found\" }",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -2748,7 +2748,7 @@ Let me try searching for the project by a different query.
 **Input:**
 ```json
 {
-  "query": "agro ai"
+  "query": "agropioo"
 }
 ```
 
@@ -2757,19 +2757,19 @@ Let me try searching for the project by a different query.
 [
   {
     "id": "project:bitter-dream-03311921",
-    "title": "agro ai Hackathon",
+    "title": "agropioo Hackathon",
     "url": "https://console.neon.tech/app/projects/bitter-dream-03311921",
     "type": "project"
   },
   {
     "id": "org:org-nameless-bar-34383623",
-    "title": "agro ai",
+    "title": "agropioo",
     "url": "https://console.neon.tech/app/org-nameless-bar-34383623/projects",
     "type": "organization"
   },
   {
     "id": "project:bitter-dream-03311921",
-    "title": "agro ai Hackathon",
+    "title": "agropioo Hackathon",
     "url": "https://console.neon.tech/app/projects/bitter-dream-03311921",
     "type": "project"
   }
@@ -2817,7 +2817,7 @@ Found it. The project ID is `bitter-dream-03311921`. Let me list the branches to
     "created_at": "2026-08-28T19:55:48Z",
     "updated_at": "2026-09-02T15:54:05Z",
     "created_by": {
-      "name": "agro ai",
+      "name": "agropioo",
       "image": "https://lh3.googleusercontent.com/a/ACg8ocKKvCeLjrAM1MtQZ9_NNckBxOw1O3AJIp-fTFXiIszJ-y048N8=s96-c"
     },
     "init_source": "parent-data"
@@ -3017,13 +3017,13 @@ The database schema looks good. Now I need to seed the knowledge base with the n
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\scripts\\seed-knowledge.ts"
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\scripts\\seed-knowledge.ts"
 }
 ```
 
 **Output:**
 ```
-<path>C:\Users\dell\Music\hackathons\agro ai-hackathon\scripts\seed-knowledge.ts</path>
+<path>C:\Users\dell\Music\hackathons\agropioo-hackathon\scripts\seed-knowledge.ts</path>
 <type>file</type>
 <content>
 1: /**
@@ -3285,7 +3285,7 @@ The seed script uses the DATABASE_URL from .env to connect to Neon and insert th
 ```json
 {
   "command": "try { $response = Invoke-WebRequest -Uri \"http://localhost:11434/api/tags\" -UseBasicParsing -TimeoutSec 5; Write-Output \"Ollama is running: $($response.Content)\" } catch { Write-Output \"Ollama is not running or not accessible\" }",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -3309,7 +3309,7 @@ Ollama is not running. I need to start it first. Let me check if it's installed 
 ```json
 {
   "command": "Get-Command ollama -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -3332,7 +3332,7 @@ Ollama is not installed or not in PATH. Let me check if it's installed in a comm
 ```json
 {
   "command": "if (Test-Path \"C:\\Users\\dell\\AppData\\Local\\Programs\\Ollama\\ollama.exe\") { Write-Output \"Found at: C:\\Users\\dell\\AppData\\Local\\Programs\\Ollama\\ollama.exe\" } elseif (Test-Path \"C:\\Program Files\\Ollama\\ollama.exe\") { Write-Output \"Found at: C:\\Program Files\\Ollama\\ollama.exe\" } else { Write-Output \"Ollama not found in common locations\" }",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -3485,13 +3485,13 @@ Let me modify the seed script to use OpenAI embeddings:
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\scripts\\seed-knowledge.ts"
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\scripts\\seed-knowledge.ts"
 }
 ```
 
 **Output:**
 ```
-<path>C:\Users\dell\Music\hackathons\agro ai-hackathon\scripts\seed-knowledge.ts</path>
+<path>C:\Users\dell\Music\hackathons\agropioo-hackathon\scripts\seed-knowledge.ts</path>
 <type>file</type>
 <content>
 1: /**
@@ -3774,7 +3774,7 @@ I'll create a new seed script using OpenAI embeddings and apply the necessary da
 ```json
 {
   "content": "/**\n * Seeds the advisor knowledge base using OpenAI embeddings.\n * Reads markdown articles from data/advisor-knowledge/, chunks them,\n * embeds via OpenAI text-embedding-3-small (1536-dim), and inserts\n * into Neon advisor_knowledge_documents + advisor_knowledge_chunks.\n *\n * Idempotent: deletes existing advisor KB rows before re-seeding.\n *\n * Requires: DATABASE_URL + OPENAI_API_KEY\n * Run: node --experimental-strip-types --env-file-if-exists=.env scripts/seed-knowledge-openai.ts\n */\nimport { readdir, readFile } from \"node:fs/promises\";\nimport { join, basename, extname } from \"node:path\";\nimport { query, queryOne } from \"../lib/db.ts\";\n\nconst KB_DIR = join(import.meta.dirname, \"..\", \"data\", \"advisor-knowledge\");\nconst OPENAI_API_KEY = process.env.OPENAI_API_KEY;\nconst OPENAI_BASE_URL = process.env.OPENAI_BASE_URL ?? \"https://api.openai.com/v1\";\nconst EMBEDDING_MODEL = \"text-embedding-3-small\";\nconst EMBEDDING_DIM = 1536;\nconst CHUNK_SIZE = 800;\nconst CHUNK_OVERLAP = 80;\n\nif (!OPENAI_API_KEY) {\n  console.error(\"OPENAI_API_KEY is required. Set it in .env or environment.\");\n  process.exit(1);\n}\n\ninterface Article {\n  filename: string;\n  title: string;\n  content: string;\n  cropType: string | null;\n  category: \"disease\" | \"agronomy\" | \"fertilizer\" | \"scheme\" | \"general\";\n}\n\nfunction detectCategory(filename: string, content: string): Article[\"category\"] {\n  const name = filename.toLowerCase();\n  if (name === \"schemes\" || name === \"schemes.md\") return \"scheme\";\n  if (content.includes(\"# Government\") || content.includes(\"# Scheme\")) return \"scheme\";\n  if (name.includes(\"fertilizer\") || name.includes(\"pesticide\")) return \"fertilizer\";\n  return \"agronomy\";\n}\n\nfunction detectCropType(filename: string): string | null {\n  const name = basename(filename, extname(filename)).toLowerCase();\n  const cropMap: Record<string, string> = {\n    wheat: \"wheat\",\n    cotton: \"cotton\",\n    rice: \"rice\",\n    sugarcane: \"sugarcane\",\n    maize: \"maize\",\n    potato: \"potato\",\n    onion: \"onion\",\n    tomato: \"tomato\",\n    chickpea: \"chickpea\",\n    gram: \"chickpea\",\n    lentil: \"lentil\",\n    mungbean: \"mungbean\",\n    mung: \"mungbean\",\n    soybean: \"soybean\",\n    sunflower: \"sunflower\",\n    groundnut: \"groundnut\",\n    canola: \"canola\",\n    rapeseed: \"canola\",\n    mango: \"mango\",\n    citrus: \"citrus\",\n    kinnow: \"citrus\",\n    banana: \"banana\",\n    poultry: \"poultry\",\n    chicken: \"poultry\",\n    dairy: \"dairy\",\n    cattle: \"dairy\",\n    buffalo: \"dairy\",\n    livestock: \"livestock\",\n    goat: \"goat\",\n  };\n  return cropMap[name] ?? null;\n}\n\nfunction splitIntoChunks(text: string): string[] {\n  const sections = text.split(/\\n(?=#{1,3}\\s)/);\n  const chunks: string[] = [];\n  let current = \"\";\n\n  for (const section of sections) {\n    const trimmed = section.trim();\n    if (!trimmed) continue;\n\n    if (current.length + trimmed.length > CHUNK_SIZE && current.length > 0) {\n      chunks.push(current.trim());\n      const overlap = current.slice(-CHUNK_OVERLAP);\n      current = overlap + \"\\n\\n\" + trimmed;\n    } else {\n      current = current ? current + \"\\n\\n\" + trimmed : trimmed;\n    }\n  }\n\n  if (current.trim()) {\n    chunks.push(current.trim());\n  }\n\n  return chunks;\n}\n\nasync function embedChunks(chunks: string[]): Promise<number[][]> {\n  const batchSize = 100;\n  const allEmbeddings: number[][] = [];\n\n  for (let i = 0; i < chunks.length; i += batchSize) {\n    const batch = chunks.slice(i, i + batchSize);\n    const batchNum = Math.floor(i / batchSize) + 1;\n    const totalBatches = Math.ceil(chunks.length / batchSize);\n    console.log(`  Embedding batch ${batchNum}/${totalBatches} (${batch.length} chunks) via OpenAI ${EMBEDDING_MODEL}...`);\n\n    const response = await fetch(`${OPENAI_BASE_URL}/embeddings`, {\n      method: \"POST\",\n      headers: {\n        \"Content-Type\": \"application/json\",\n        \"Authorization\": `Bearer ${OPENAI_API_KEY}`,\n      },\n      body: JSON.stringify({\n        model: EMBEDDING_MODEL,\n        input: batch,\n        dimensions: EMBEDDING_DIM,\n      }),\n    });\n\n    if (!response.ok) {\n      const errText = await response.text();\n      throw new Error(`OpenAI embedding error (${response.status}): ${errText}`);\n    }\n\n    const data = await response.json() as { data: Array<{ embedding: number[] }> };\n    if (!Array.isArray(data.data) || data.data.length !== batch.length) {\n      throw new Error(`OpenAI returned ${data.data?.length} embeddings for ${batch.length} inputs`);\n    }\n    for (const item of data.data) allEmbeddings.push(item.embedding);\n  }\n\n  return allEmbeddings;\n}\n\nasync function main() {\n  console.log(\"=== Advisor Knowledge Base Seeder (OpenAI) ===\\n\");\n\n  // 1. Read markdown files\n  const files = (await readdir(KB_DIR)).filter(f => f.endsWith(\".md\"));\n  if (files.length === 0) {\n    console.error(`No .md files found in ${KB_DIR}`);\n    process.exit(1);\n  }\n  console.log(`Found ${files.length} article(s): ${files.join(\", \")}\\n`);\n\n  const articles: Article[] = [];\n  for (const file of files) {\n    const content = await readFile(join(KB_DIR, file), \"utf-8\");\n    const titleMatch = content.match(/^#\\s+(.+)$/m);\n    articles.push({\n      filename: file,\n      title: titleMatch?.[1] ?? basename(file, \".md\"),\n      content,\n      cropType: detectCropType(file),\n      category: detectCategory(file, content),\n    });\n  }\n\n  // 2. Chunk articles\n  interface ChunkData {\n    article: Article;\n    content: string;\n    index: number;\n  }\n\n  const allChunks: ChunkData[] = [];\n  for (const article of articles) {\n    const chunks = splitIntoChunks(article.content);\n    console.log(`  ${article.title}: ${chunks.length} chunks`);\n    chunks.forEach((chunk, i) => {\n      allChunks.push({ article, content: `# ${article.title}\\n\\n${chunk}`, index: i });\n    });\n  }\n  console.log(`\\nTotal: ${allChunks.length} chunks to embed\\n`);\n\n  // 3. Embed all chunks\n  console.log(\"Generating embeddings via OpenAI...\");\n  const embeddings = await embedChunks(allChunks.map(c => c.content));\n  console.log(`Done. ${embeddings.length} embeddings generated (${EMBEDDING_DIM}-dim).\\n`);\n\n  // 4. Insert into Neon\n  console.log(\"Clearing existing knowledge base...\");\n  await query(`DELETE FROM advisor_knowledge_chunks WHERE id IS NOT NULL`);\n  await query(`DELETE FROM advisor_knowledge_documents WHERE id IS NOT NULL`);\n\n  console.log(\"Inserting documents...\");\n  const docIdMap = new Map<string, string>();\n  for (const article of articles) {\n    const row = await queryOne<{ id: string }>(\n      `INSERT INTO advisor_knowledge_documents (title, content, crop_type, category, source)\n       VALUES ($1, $2, $3, $4, $5)\n       RETURNING id`,\n      [article.title, article.content, article.cropType, article.category, `data/advisor-knowledge/${article.filename}`]\n    );\n    if (!row) {\n      console.error(`Error inserting document ${article.title}`);\n      process.exit(1);\n    }\n    docIdMap.set(article.title, row.id);\n  }\n\n  console.log(\"Inserting chunks with embeddings...\");\n  for (let i = 0; i < allChunks.length; i += 50) {\n    const batch = allChunks.slice(i, i + 50);\n    const values: unknown[] = [];\n    const placeholders: string[] = [];\n    let idx = 1;\n    for (let j = 0; j < batch.length; j++) {\n      const chunk = batch[j];\n      const documentId = docIdMap.get(chunk.article.title);\n      if (!documentId) {\n        console.error(`Missing document id for ${chunk.article.title}`);\n        process.exit(1);\n      }\n      placeholders.push(`($${idx}, $${idx + 1}, $${idx + 2}::vector, $${idx + 3})`);\n      values.push(documentId, chunk.content, `[${embeddings[i + j].join(\",\")}]`, chunk.index);\n      idx += 4;\n    }\n\n    try {\n      await query(\n        `INSERT INTO advisor_knowledge_chunks (document_id, content, embedding, chunk_index)\n         VALUES ${placeholders.join(\", \")}`,\n        values\n      );\n    } catch (error) {\n      const message = error instanceof Error ? error.message : String(error);\n      console.error(`Error inserting chunk batch:`, message);\n      process.exit(1);\n    }\n    console.log(`  Inserted ${Math.min(i + 50, allChunks.length)}/${allChunks.length} chunks`);\n  }\n\n  console.log(\"\\n=== Seeding complete ===\");\n  console.log(`  ${articles.length} documents`);\n  console.log(`  ${allChunks.length} chunks with embeddings`);\n  process.exit(0);\n}\n\nmain().catch(err => {\n  console.error(\"Seeder failed:\", err);\n  process.exit(1);\n});\n",
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\scripts\\seed-knowledge-openai.ts"
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\scripts\\seed-knowledge-openai.ts"
 }
 ```
 
@@ -3799,7 +3799,7 @@ Now create a migration to update the vector dimension from 768 to 1536:
 ```json
 {
   "content": "-- Migration 0012: Upgrade knowledge base embeddings from Ollama (768-dim) to OpenAI (1536-dim)\n-- This migration updates the vector column, index, and search function to support\n-- text-embedding-3-small (1536 dimensions) for better search quality.\n\n-- 1. Drop existing index and column constraints\nDROP INDEX IF EXISTS idx_chunks_embedding;\nALTER TABLE advisor_knowledge_chunks DROP COLUMN IF EXISTS embedding;\n\n-- 2. Add new 1536-dimension embedding column\nALTER TABLE advisor_knowledge_chunks ADD COLUMN embedding vector(1536);\n\n-- 3. Recreate IVFFlat index for cosine similarity search\n-- lists = 100 is reasonable for small-to-medium datasets\nCREATE INDEX idx_chunks_embedding\n  ON advisor_knowledge_chunks\n  USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);\n\n-- 4. Update the search function to use 1536-dim vectors\nCREATE OR REPLACE FUNCTION advisor_search_similar(\n  query_embedding  vector(1536),\n  match_count      int     DEFAULT 5,\n  match_threshold  float   DEFAULT 0.7\n)\nRETURNS TABLE (\n  chunk_id       uuid,\n  content        text,\n  document_title text,\n  crop_type      text,\n  category       text,\n  source         text,\n  similarity     float\n)\nLANGUAGE sql\nSTABLE\nAS $$\n  SELECT\n    c.id           AS chunk_id,\n    c.content,\n    d.title        AS document_title,\n    d.crop_type,\n    d.category,\n    d.source,\n    1 - (c.embedding <=> query_embedding) AS similarity\n  FROM advisor_knowledge_chunks c\n  JOIN advisor_knowledge_documents d ON d.id = c.document_id\n  WHERE c.embedding IS NOT NULL\n    AND 1 - (c.embedding <=> query_embedding) > match_threshold\n  ORDER BY c.embedding <=> query_embedding\n  LIMIT match_count;\n$$;\n",
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\db\\migrations\\0012_upgrade-embeddings-openai.sql"
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\db\\migrations\\0012_upgrade-embeddings-openai.sql"
 }
 ```
 
@@ -3823,13 +3823,13 @@ Now update the knowledge base tool to use OpenAI embeddings for queries:
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\lib\\advisor\\tools\\knowledge-base.ts"
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\lib\\advisor\\tools\\knowledge-base.ts"
 }
 ```
 
 **Output:**
 ```
-<path>C:\Users\dell\Music\hackathons\agro ai-hackathon\lib\advisor\tools\knowledge-base.ts</path>
+<path>C:\Users\dell\Music\hackathons\agropioo-hackathon\lib\advisor\tools\knowledge-base.ts</path>
 <type>file</type>
 <content>
 1: import OpenAI from "openai";
@@ -3943,7 +3943,7 @@ Now I need to update the knowledge base tool to use OpenAI embeddings instead of
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\lib\\advisor\\tools\\knowledge-base.ts",
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\lib\\advisor\\tools\\knowledge-base.ts",
   "newString": "import OpenAI from \"openai\";\nimport { tool } from \"@openai/agents\";\nimport { z } from \"zod\";\nimport { query as dbQuery } from \"@/lib/db\";\n\nlet openaiClient: OpenAI | null = null;\n\nexport function getOpenAI(): OpenAI {\n  if (!openaiClient) {\n    openaiClient = new OpenAI({\n      apiKey: process.env.OPENAI_API_KEY,\n      baseURL: process.env.OPENAI_BASE_URL,\n    });\n  }\n  return openaiClient;\n}\n\n// Query embeddings use OpenAI text-embedding-3-small (1536-dim) to match\n// the vectors stored by scripts/seed-knowledge-openai.ts.\nconst EMBEDDING_MODEL = \"text-embedding-3-small\";\nconst EMBEDDING_DIM = 1536;\n\nexport const searchKnowledgeBase = tool({\n  name: \"search_knowledge_base\",\n  description:\n    \"Search the farming knowledge base for verified information about crop diseases, agronomy practices, fertilizer schedules, and government schemes. Use this for any farming question that needs expert-verified answers. Returns the most relevant articles and passages.\",\n  parameters: z.object({\n    query: z.string().describe(\"The farming question or topic to search for, in English\"),\n    cropType: z.string().optional().describe(\"Filter by crop type (wheat, cotton, rice, sugarcane, maize)\"),\n    category: z.enum([\"disease\", \"agronomy\", \"fertilizer\", \"scheme\", \"general\"]).optional().describe(\"Filter by category\"),\n  }),\n  async execute({ query, cropType, category }) {\n    let queryEmbedding: number[];\n    try {\n      const client = getOpenAI();\n      const response = await client.embeddings.create({\n        model: EMBEDDING_MODEL,\n        input: query,\n        dimensions: EMBEDDING_DIM,\n      });\n      queryEmbedding = response.data[0].embedding;\n    } catch {\n      return \"Knowledge base search is unavailable (embedding service not reachable). Answer from your general farming knowledge and suggest the farmer consult a local extension officer for specific advice.\";\n    }\n\n    // Search via Postgres function\n    const vectorLiteral = `[${queryEmbedding.join(\",\")}]`;\n    const data = await dbQuery<{\n      content: string;\n      document_title: string;\n      crop_type: string | null;\n      category: string;\n      source: string | null;\n      similarity: number;\n    }>(\n      `SELECT * FROM advisor_search_similar($1::vector, $2, $3)`,\n      [vectorLiteral, 5, 0.4]\n    );\n\n    if (data.length === 0) {\n      return \"No relevant information found in the knowledge base for this query. Suggest the farmer consult a local extension officer for this specific question.\";\n    }\n\n    // Filter by crop type and category if specified\n    let results = data as Array<{\n      content: string;\n      document_title: string;\n      crop_type: string | null;\n      category: string;\n      source: string | null;\n      similarity: number;\n    }>;\n\n    if (cropType) {\n      const filtered = results.filter(r => r.crop_type === cropType);\n      if (filtered.length > 0) results = filtered;\n    }\n\n    if (category) {\n      const filtered = results.filter(r => r.category === category);\n      if (filtered.length > 0) results = filtered;\n    }\n\n    const formatted = results.map(r => {\n      let header = `## ${r.document_title}`;\n      if (r.source) header += ` (Source: ${r.source})`;\n      return `${header}\\n${r.content}`;\n    }).join(\"\\n\\n---\\n\\n\");\n\n    return `Knowledge base results (use ONLY this information for your response):\\n\\n${formatted}`;\n  },\n});",
   "oldString": "import OpenAI from \"openai\";\nimport { tool } from \"@openai/agents\";\nimport { z } from \"zod\";\nimport { query as dbQuery } from \"@/lib/db\";\n\nlet openaiClient: OpenAI | null = null;\n\nexport function getOpenAI(): OpenAI {\n  if (!openaiClient) {\n    openaiClient = new OpenAI({\n      apiKey: process.env.OPENAI_API_KEY,\n      baseURL: process.env.OPENAI_BASE_URL,\n    });\n  }\n  return openaiClient;\n}\n\n// Query embeddings are generated locally via Ollama so they match the vectors\n// stored by scripts/seed-knowledge.ts (same model + dimension as the table).\nconst OLLAMA_HOST = process.env.OLLAMA_HOST ?? \"http://localhost:11434\";\nconst EMBEDDING_MODEL = process.env.OLLAMA_EMBED_MODEL ?? \"nomic-embed-text\";\n\nexport const searchKnowledgeBase = tool({\n  name: \"search_knowledge_base\",\n  description:\n    \"Search the farming knowledge base for verified information about crop diseases, agronomy practices, fertilizer schedules, and government schemes. Use this for any farming question that needs expert-verified answers. Returns the most relevant articles and passages.\",\n  parameters: z.object({\n    query: z.string().describe(\"The farming question or topic to search for, in English\"),\n    cropType: z.string().optional().describe(\"Filter by crop type (wheat, cotton, rice, sugarcane, maize)\"),\n    category: z.enum([\"disease\", \"agronomy\", \"fertilizer\", \"scheme\", \"general\"]).optional().describe(\"Filter by category\"),\n  }),\n  async execute({ query, cropType, category }) {\n    let queryEmbedding: number[];\n    try {\n      const embedRes = await fetch(`${OLLAMA_HOST}/api/embed`, {\n        method: \"POST\",\n        headers: { \"Content-Type\": \"application/json\" },\n        body: JSON.stringify({ model: EMBEDDING_MODEL, input: [query] }),\n      });\n      if (!embedRes.ok) throw new Error(`ollama embed ${embedRes.status}`);\n      const json = (await embedRes.json()) as { embeddings: number[][] };\n      queryEmbedding = json.embeddings[0];\n    } catch {\n      return \"Knowledge base search is unavailable (local embedding model not reachable). Answer from your general farming knowledge and suggest the farmer consult a local extension officer for specific advice.\";\n    }\n\n    // Search via Postgres function\n    const vectorLiteral = `[${queryEmbedding.join(\",\")}]`;\n    const data = await dbQuery<{\n      content: string;\n      document_title: string;\n      crop_type: string | null;\n      category: string;\n      source: string | null;\n      similarity: number;\n    }>(\n      `SELECT * FROM advisor_search_similar($1::vector, $2, $3)`,\n      [vectorLiteral, 5, 0.4]\n    );\n\n    if (data.length === 0) {\n      return \"No relevant information found in the knowledge base for this query. Suggest the farmer consult a local extension officer for this specific question.\";\n    }\n\n    // Filter by crop type and category if specified\n    let results = data as Array<{\n      content: string;\n      document_title: string;\n      crop_type: string | null;\n      category: string;\n      source: string | null;\n      similarity: number;\n    }>;\n\n    if (cropType) {\n      const filtered = results.filter(r => r.crop_type === cropType);\n      if (filtered.length > 0) results = filtered;\n    }\n\n    if (category) {\n      const filtered = results.filter(r => r.category === category);\n      if (filtered.length > 0) results = filtered;\n    }\n\n    const formatted = results.map(r => {\n      let header = `## ${r.document_title}`;\n      if (r.source) header += ` (Source: ${r.source})`;\n      return `${header}\\n${r.content}`;\n    }).join(\"\\n\\n---\\n\\n\");\n\n    return `Knowledge base results (use ONLY this information for your response):\\n\\n${formatted}`;\n  },\n});"
 }
@@ -4117,15 +4117,15 @@ Now run the seed script to populate the knowledge base:
 {
   "command": "node --experimental-strip-types --env-file-if-exists=.env scripts/seed-knowledge-openai.ts",
   "timeout": 300000,
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
 **Output:**
 ```
-(node:20700) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/dell/Music/hackathons/agro ai-hackathon/scripts/seed-knowledge-openai.ts is not specified and it doesn't parse as CommonJS.
+(node:20700) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/dell/Music/hackathons/agropioo-hackathon/scripts/seed-knowledge-openai.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
-To eliminate this warning, add "type": "module" to C:\Users\dell\Music\hackathons\agro ai-hackathon\package.json.
+To eliminate this warning, add "type": "module" to C:\Users\dell\Music\hackathons\agropioo-hackathon\package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
 === Advisor Knowledge Base Seeder (OpenAI) ===
 
@@ -4159,9 +4159,9 @@ Generating embeddings via OpenAI...
   Embedding batch 1/3 (100 chunks) via OpenAI text-embedding-3-small...
 Seeder failed: Error: OpenAI embedding error (400): {"error":{"message":"property 'dimensions' is unsupported","type":"invalid_request_error"}}
 
-    at embedChunks (file:///C:/Users/dell/Music/hackathons/agro ai-hackathon/scripts/seed-knowledge-openai.ts:131:13)
+    at embedChunks (file:///C:/Users/dell/Music/hackathons/agropioo-hackathon/scripts/seed-knowledge-openai.ts:131:13)
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
-    at async main (file:///C:/Users/dell/Music/hackathons/agro ai-hackathon/scripts/seed-knowledge-openai.ts:187:22)
+    at async main (file:///C:/Users/dell/Music/hackathons/agropioo-hackathon/scripts/seed-knowledge-openai.ts:187:22)
 Assertion failed: !(handle->flags & UV_HANDLE_CLOSING), file src\win\async.c, line 76
 
 ```
@@ -4181,7 +4181,7 @@ Let me fix the seed script - remove the unsupported `dimensions` parameter:
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\scripts\\seed-knowledge-openai.ts",
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\scripts\\seed-knowledge-openai.ts",
   "newString": "    const response = await fetch(`${OPENAI_BASE_URL}/embeddings`, {\n      method: \"POST\",\n      headers: {\n        \"Content-Type\": \"application/json\",\n        \"Authorization\": `Bearer ${OPENAI_API_KEY}`,\n      },\n      body: JSON.stringify({\n        model: EMBEDDING_MODEL,\n        input: batch,\n      }),\n    });",
   "oldString": "    const response = await fetch(`${OPENAI_BASE_URL}/embeddings`, {\n      method: \"POST\",\n      headers: {\n        \"Content-Type\": \"application/json\",\n        \"Authorization\": `Bearer ${OPENAI_API_KEY}`,\n      },\n      body: JSON.stringify({\n        model: EMBEDDING_MODEL,\n        input: batch,\n        dimensions: EMBEDDING_DIM,\n      }),\n    });"
 }
@@ -4205,10 +4205,10 @@ _Thinking:_
 Let me carefully analyze the conversation to create a comprehensive summary.
 
 ## Objective
-- Improve the AI chat advisor agent in the agro ai hackathon project — enhance response quality, add guardrails, expand knowledge base, and harden security/data isolation.
+- Improve the AI chat advisor agent in the agropioo hackathon project — enhance response quality, add guardrails, expand knowledge base, and harden security/data isolation.
 
 ## Important Details
-- Project: `C:\Users\dell\Music\hackathons\agro ai-hackathon` — Next.js app using OpenAI Agents SDK
+- Project: `C:\Users\dell\Music\hackathons\agropioo-hackathon` — Next.js app using OpenAI Agents SDK
 - Branch: `feat/advisor-upgrades` (created from `main`, pushed to origin)
 - LLM: `gpt-4o-mini` via `ADVISOR_MODEL` env var; embeddings via Ollama `nomic-embed-text`
 - Neon project: `bitter-dream-03311921`, production branch `br-late-lab-aevd11fr`
@@ -4284,7 +4284,7 @@ Let me also update the knowledge-base.ts tool to remove the dimensions parameter
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\lib\\advisor\\tools\\knowledge-base.ts",
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\lib\\advisor\\tools\\knowledge-base.ts",
   "newString": "      const response = await client.embeddings.create({\n        model: EMBEDDING_MODEL,\n        input: query,\n      });",
   "oldString": "      const response = await client.embeddings.create({\n        model: EMBEDDING_MODEL,\n        input: query,\n        dimensions: EMBEDDING_DIM,\n      });"
 }
@@ -4308,7 +4308,7 @@ Now let me also remove the unused EMBEDDING_DIM constant from knowledge-base.ts.
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\lib\\advisor\\tools\\knowledge-base.ts",
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\lib\\advisor\\tools\\knowledge-base.ts",
   "newString": "// Query embeddings use OpenAI text-embedding-3-small (1536-dim) to match\n// the vectors stored by scripts/seed-knowledge-openai.ts.\nconst EMBEDDING_MODEL = \"text-embedding-3-small\";",
   "oldString": "// Query embeddings use OpenAI text-embedding-3-small (1536-dim) to match\n// the vectors stored by scripts/seed-knowledge-openai.ts.\nconst EMBEDDING_MODEL = \"text-embedding-3-small\";\nconst EMBEDDING_DIM = 1536;"
 }
@@ -4336,15 +4336,15 @@ Now run the seed script again:
 {
   "command": "node --experimental-strip-types --env-file-if-exists=.env scripts/seed-knowledge-openai.ts",
   "timeout": 300000,
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
 **Output:**
 ```
-(node:18008) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/dell/Music/hackathons/agro ai-hackathon/scripts/seed-knowledge-openai.ts is not specified and it doesn't parse as CommonJS.
+(node:18008) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/dell/Music/hackathons/agropioo-hackathon/scripts/seed-knowledge-openai.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
-To eliminate this warning, add "type": "module" to C:\Users\dell\Music\hackathons\agro ai-hackathon\package.json.
+To eliminate this warning, add "type": "module" to C:\Users\dell\Music\hackathons\agropioo-hackathon\package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
 === Advisor Knowledge Base Seeder (OpenAI) ===
 
@@ -4378,9 +4378,9 @@ Generating embeddings via OpenAI...
   Embedding batch 1/3 (100 chunks) via OpenAI text-embedding-3-small...
 Seeder failed: Error: OpenAI embedding error (404): {"error":{"message":"The model `text-embedding-3-small` does not exist or you do not have access to it.","type":"invalid_request_error","code":"model_not_found"}}
 
-    at embedChunks (file:///C:/Users/dell/Music/hackathons/agro ai-hackathon/scripts/seed-knowledge-openai.ts:130:13)
+    at embedChunks (file:///C:/Users/dell/Music/hackathons/agropioo-hackathon/scripts/seed-knowledge-openai.ts:130:13)
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
-    at async main (file:///C:/Users/dell/Music/hackathons/agro ai-hackathon/scripts/seed-knowledge-openai.ts:186:22)
+    at async main (file:///C:/Users/dell/Music/hackathons/agropioo-hackathon/scripts/seed-knowledge-openai.ts:186:22)
 
 ```
 
@@ -4407,13 +4407,13 @@ The model isn't available on your OpenAI provider. Let me check your `.env` to s
 **Output:**
 ```
 Found 4 matches
-C:\Users\dell\Music\hackathons\agro ai-hackathon\.env.example:
+C:\Users\dell\Music\hackathons\agropioo-hackathon\.env.example:
   Line 25: OPENAI_API_KEY=
 
   Line 26: OPENAI_BASE_URL=https://api.openai.com/v1
 
 
-C:\Users\dell\Music\hackathons\agro ai-hackathon\.env:
+C:\Users\dell\Music\hackathons\agropioo-hackathon\.env:
   Line 7: OPENAI_API_KEY=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
 
   Line 14: OPENAI_BASE_URL=https://api.groq.com/openai/v1
@@ -4443,7 +4443,7 @@ You're using Groq (`api.groq.com`), which doesn't support embeddings. Let me che
 ```json
 {
   "command": "$headers = @{ \"Authorization\" = \"Bearer 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\"; \"Content-Type\" = \"application/json\" }; try { $response = Invoke-WebRequest -Uri \"https://api.groq.com/openai/v1/models\" -Headers $headers -UseBasicParsing -TimeoutSec 10; $data = $response.Content | ConvertFrom-Json; $data.data | Where-Object { $_.id -match \"embed\" } | Select-Object id | Format-Table -AutoSize } catch { Write-Output \"Error: $_\" }",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -4468,7 +4468,7 @@ Let me check if there's a free embedding service we can use. Actually, the simpl
 ```json
 {
   "command": "$headers = @{ \"Authorization\" = \"Bearer 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\"; \"Content-Type\" = \"application/json\" }; try { $response = Invoke-WebRequest -Uri \"https://api.groq.com/openai/v1/models\" -Headers $headers -UseBasicParsing -TimeoutSec 10; $data = $response.Content | ConvertFrom-Json; Write-Output \"Available models:\"; $data.data | ForEach-Object { $_.id } | Sort-Object } catch { Write-Output \"Error: $_\" }",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
@@ -4517,7 +4517,7 @@ Groq doesn't have embedding models. Let me use Jina AI's free embedding API (1M 
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\scripts\\seed-knowledge-openai.ts",
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\scripts\\seed-knowledge-openai.ts",
   "newString": "/**\n * Seeds the advisor knowledge base using Jina AI free embeddings.\n * Reads markdown articles from data/advisor-knowledge/, chunks them,\n * embeds via Jina Embeddings v3 (1024-dim), and inserts into Neon\n * advisor_knowledge_documents + advisor_knowledge_chunks.\n *\n * Idempotent: deletes existing advisor KB rows before re-seeding.\n *\n * Requires: DATABASE_URL (Jina API key not needed for free tier)\n * Run: node --experimental-strip-types --env-file-if-exists=.env scripts/seed-knowledge-openai.ts\n */\nimport { readdir, readFile } from \"node:fs/promises\";\nimport { join, basename, extname } from \"node:path\";\nimport { query, queryOne } from \"../lib/db.ts\";\n\nconst KB_DIR = join(import.meta.dirname, \"..\", \"data\", \"advisor-knowledge\");\nconst JINA_API_URL = \"https://api.jina.ai/v1/embeddings\";\nconst EMBEDDING_MODEL = \"jina-embeddings-v3\";\nconst EMBEDDING_DIM = 1024;\nconst CHUNK_SIZE = 800;\nconst CHUNK_OVERLAP = 80;",
   "oldString": "/**\n * Seeds the advisor knowledge base using OpenAI embeddings.\n * Reads markdown articles from data/advisor-knowledge/, chunks them,\n * embeds via OpenAI text-embedding-3-small (1536-dim), and inserts\n * into Neon advisor_knowledge_documents + advisor_knowledge_chunks.\n *\n * Idempotent: deletes existing advisor KB rows before re-seeding.\n *\n * Requires: DATABASE_URL + OPENAI_API_KEY\n * Run: node --experimental-strip-types --env-file-if-exists=.env scripts/seed-knowledge-openai.ts\n */\nimport { readdir, readFile } from \"node:fs/promises\";\nimport { join, basename, extname } from \"node:path\";\nimport { query, queryOne } from \"../lib/db.ts\";\n\nconst KB_DIR = join(import.meta.dirname, \"..\", \"data\", \"advisor-knowledge\");\nconst OPENAI_API_KEY = process.env.OPENAI_API_KEY;\nconst OPENAI_BASE_URL = process.env.OPENAI_BASE_URL ?? \"https://api.openai.com/v1\";\nconst EMBEDDING_MODEL = \"text-embedding-3-small\";\nconst EMBEDDING_DIM = 1536;\nconst CHUNK_SIZE = 800;\nconst CHUNK_OVERLAP = 80;\n\nif (!OPENAI_API_KEY) {\n  console.error(\"OPENAI_API_KEY is required. Set it in .env or environment.\");\n  process.exit(1);\n}"
 }
@@ -4541,7 +4541,7 @@ Now let me update the embedding function to use Jina AI's API.
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\scripts\\seed-knowledge-openai.ts",
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\scripts\\seed-knowledge-openai.ts",
   "newString": "async function embedChunks(chunks: string[]): Promise<number[][]> {\n  const batchSize = 100;\n  const allEmbeddings: number[][] = [];\n\n  for (let i = 0; i < chunks.length; i += batchSize) {\n    const batch = chunks.slice(i, i + batchSize);\n    const batchNum = Math.floor(i / batchSize) + 1;\n    const totalBatches = Math.ceil(chunks.length / batchSize);\n    console.log(`  Embedding batch ${batchNum}/${totalBatches} (${batch.length} chunks) via Jina AI...`);\n\n    const response = await fetch(JINA_API_URL, {\n      method: \"POST\",\n      headers: {\n        \"Content-Type\": \"application/json\",\n      },\n      body: JSON.stringify({\n        model: EMBEDDING_MODEL,\n        input: batch,\n        dimensions: EMBEDDING_DIM,\n      }),\n    });\n\n    if (!response.ok) {\n      const errText = await response.text();\n      throw new Error(`Jina embedding error (${response.status}): ${errText}`);\n    }\n\n    const data = await response.json() as { data: Array<{ embedding: number[] }> };\n    if (!Array.isArray(data.data) || data.data.length !== batch.length) {\n      throw new Error(`Jina returned ${data.data?.length} embeddings for ${batch.length} inputs`);\n    }\n    for (const item of data.data) allEmbeddings.push(item.embedding);\n  }\n\n  return allEmbeddings;\n}",
   "oldString": "async function embedChunks(chunks: string[]): Promise<number[][]> {\n  const batchSize = 100;\n  const allEmbeddings: number[][] = [];\n\n  for (let i = 0; i < chunks.length; i += batchSize) {\n    const batch = chunks.slice(i, i + batchSize);\n    const batchNum = Math.floor(i / batchSize) + 1;\n    const totalBatches = Math.ceil(chunks.length / batchSize);\n    console.log(`  Embedding batch ${batchNum}/${totalBatches} (${batch.length} chunks) via OpenAI ${EMBEDDING_MODEL}...`);\n\n    const response = await fetch(`${OPENAI_BASE_URL}/embeddings`, {\n      method: \"POST\",\n      headers: {\n        \"Content-Type\": \"application/json\",\n        \"Authorization\": `Bearer ${OPENAI_API_KEY}`,\n      },\n      body: JSON.stringify({\n        model: EMBEDDING_MODEL,\n        input: batch,\n      }),\n    });\n\n    if (!response.ok) {\n      const errText = await response.text();\n      throw new Error(`OpenAI embedding error (${response.status}): ${errText}`);\n    }\n\n    const data = await response.json() as { data: Array<{ embedding: number[] }> };\n    if (!Array.isArray(data.data) || data.data.length !== batch.length) {\n      throw new Error(`OpenAI returned ${data.data?.length} embeddings for ${batch.length} inputs`);\n    }\n    for (const item of data.data) allEmbeddings.push(item.embedding);\n  }\n\n  return allEmbeddings;\n}"
 }
@@ -4687,7 +4687,7 @@ Now update the knowledge-base.ts tool to use 1024 dimensions.
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\lib\\advisor\\tools\\knowledge-base.ts",
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\lib\\advisor\\tools\\knowledge-base.ts",
   "newString": "import OpenAI from \"openai\";\nimport { tool } from \"@openai/agents\";\nimport { z } from \"zod\";\nimport { query as dbQuery } from \"@/lib/db\";\n\n// Query embeddings use Jina AI free tier (1024-dim) to match\n// the vectors stored by scripts/seed-knowledge-openai.ts.\nconst JINA_API_URL = \"https://api.jina.ai/v1/embeddings\";\nconst EMBEDDING_MODEL = \"jina-embeddings-v3\";\nconst EMBEDDING_DIM = 1024;\n\nexport const searchKnowledgeBase = tool({\n  name: \"search_knowledge_base\",\n  description:\n    \"Search the farming knowledge base for verified information about crop diseases, agronomy practices, fertilizer schedules, and government schemes. Use this for any farming question that needs expert-verified answers. Returns the most relevant articles and passages.\",\n  parameters: z.object({\n    query: z.string().describe(\"The farming question or topic to search for, in English\"),\n    cropType: z.string().optional().describe(\"Filter by crop type (wheat, cotton, rice, sugarcane, maize)\"),\n    category: z.enum([\"disease\", \"agronomy\", \"fertilizer\", \"scheme\", \"general\"]).optional().describe(\"Filter by category\"),\n  }),\n  async execute({ query, cropType, category }) {\n    let queryEmbedding: number[];\n    try {\n      const response = await fetch(JINA_API_URL, {\n        method: \"POST\",\n        headers: { \"Content-Type\": \"application/json\" },\n        body: JSON.stringify({\n          model: EMBEDDING_MODEL,\n          input: [query],\n          dimensions: EMBEDDING_DIM,\n        }),\n      });\n      if (!response.ok) throw new Error(`jina embed ${response.status}`);\n      const json = (await response.json()) as { data: Array<{ embedding: number[] }> };\n      queryEmbedding = json.data[0].embedding;\n    } catch {\n      return \"Knowledge base search is unavailable (embedding service not reachable). Answer from your general farming knowledge and suggest the farmer consult a local extension officer for specific advice.\";\n    }",
   "oldString": "import OpenAI from \"openai\";\nimport { tool } from \"@openai/agents\";\nimport { z } from \"zod\";\nimport { query as dbQuery } from \"@/lib/db\";\n\nlet openaiClient: OpenAI | null = null;\n\nexport function getOpenAI(): OpenAI {\n  if (!openaiClient) {\n    openaiClient = new OpenAI({\n      apiKey: process.env.OPENAI_API_KEY,\n      baseURL: process.env.OPENAI_BASE_URL,\n    });\n  }\n  return openaiClient;\n}\n\n// Query embeddings use OpenAI text-embedding-3-small (1536-dim) to match\n// the vectors stored by scripts/seed-knowledge-openai.ts.\nconst EMBEDDING_MODEL = \"text-embedding-3-small\";\n\nexport const searchKnowledgeBase = tool({\n  name: \"search_knowledge_base\",\n  description:\n    \"Search the farming knowledge base for verified information about crop diseases, agronomy practices, fertilizer schedules, and government schemes. Use this for any farming question that needs expert-verified answers. Returns the most relevant articles and passages.\",\n  parameters: z.object({\n    query: z.string().describe(\"The farming question or topic to search for, in English\"),\n    cropType: z.string().optional().describe(\"Filter by crop type (wheat, cotton, rice, sugarcane, maize)\"),\n    category: z.enum([\"disease\", \"agronomy\", \"fertilizer\", \"scheme\", \"general\"]).optional().describe(\"Filter by category\"),\n  }),\n  async execute({ query, cropType, category }) {\n    let queryEmbedding: number[];\n    try {\n      const client = getOpenAI();\n      const response = await client.embeddings.create({\n        model: EMBEDDING_MODEL,\n        input: query,\n      });\n      queryEmbedding = response.data[0].embedding;\n    } catch {\n      return \"Knowledge base search is unavailable (embedding service not reachable). Answer from your general farming knowledge and suggest the farmer consult a local extension officer for specific advice.\";\n    }"
 }
@@ -4711,7 +4711,7 @@ Now let me also update the migration file to use 1024 dimensions.
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon\\db\\migrations\\0012_upgrade-embeddings-openai.sql",
+  "filePath": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon\\db\\migrations\\0012_upgrade-embeddings-openai.sql",
   "newString": "-- Migration 0012: Upgrade knowledge base embeddings to Jina AI (1024-dim)\n-- This migration updates the vector column, index, and search function to support\n-- Jina Embeddings v3 (1024 dimensions) for better search quality.\n\n-- 1. Drop existing index and column constraints\nDROP INDEX IF EXISTS idx_chunks_embedding;\nALTER TABLE advisor_knowledge_chunks DROP COLUMN IF EXISTS embedding;\n\n-- 2. Add new 1024-dimension embedding column\nALTER TABLE advisor_knowledge_chunks ADD COLUMN embedding vector(1024);\n\n-- 3. Recreate IVFFlat index for cosine similarity search\n-- lists = 100 is reasonable for small-to-medium datasets\nCREATE INDEX idx_chunks_embedding\n  ON advisor_knowledge_chunks\n  USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);\n\n-- 4. Update the search function to use 1024-dim vectors\nCREATE OR REPLACE FUNCTION advisor_search_similar(\n  query_embedding  vector(1024),\n  match_count      int     DEFAULT 5,\n  match_threshold  float   DEFAULT 0.7\n)\nRETURNS TABLE (\n  chunk_id       uuid,\n  content        text,\n  document_title text,\n  crop_type      text,\n  category       text,\n  source         text,\n  similarity     float\n)\nLANGUAGE sql\nSTABLE\nAS $$\n  SELECT\n    c.id           AS chunk_id,\n    c.content,\n    d.title        AS document_title,\n    d.crop_type,\n    d.category,\n    d.source,\n    1 - (c.embedding <=> query_embedding) AS similarity\n  FROM advisor_knowledge_chunks c\n  JOIN advisor_knowledge_documents d ON d.id = c.document_id\n  WHERE c.embedding IS NOT NULL\n    AND 1 - (c.embedding <=> query_embedding) > match_threshold\n  ORDER BY c.embedding <=> query_embedding\n  LIMIT match_count;\n$$;",
   "oldString": "-- Migration 0012: Upgrade knowledge base embeddings from Ollama (768-dim) to OpenAI (1536-dim)\n-- This migration updates the vector column, index, and search function to support\n-- text-embedding-3-small (1536 dimensions) for better search quality.\n\n-- 1. Drop existing index and column constraints\nDROP INDEX IF EXISTS idx_chunks_embedding;\nALTER TABLE advisor_knowledge_chunks DROP COLUMN IF EXISTS embedding;\n\n-- 2. Add new 1536-dimension embedding column\nALTER TABLE advisor_knowledge_chunks ADD COLUMN embedding vector(1536);\n\n-- 3. Recreate IVFFlat index for cosine similarity search\n-- lists = 100 is reasonable for small-to-medium datasets\nCREATE INDEX idx_chunks_embedding\n  ON advisor_knowledge_chunks\n  USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);\n\n-- 4. Update the search function to use 1536-dim vectors\nCREATE OR REPLACE FUNCTION advisor_search_similar(\n  query_embedding  vector(1536),\n  match_count      int     DEFAULT 5,\n  match_threshold  float   DEFAULT 0.7\n)\nRETURNS TABLE (\n  chunk_id       uuid,\n  content        text,\n  document_title text,\n  crop_type      text,\n  category       text,\n  source         text,\n  similarity     float\n)\nLANGUAGE sql\nSTABLE\nAS $$\n  SELECT\n    c.id           AS chunk_id,\n    c.content,\n    d.title        AS document_title,\n    d.crop_type,\n    d.category,\n    d.source,\n    1 - (c.embedding <=> query_embedding) AS similarity\n  FROM advisor_knowledge_chunks c\n  JOIN advisor_knowledge_documents d ON d.id = c.document_id\n  WHERE c.embedding IS NOT NULL\n    AND 1 - (c.embedding <=> query_embedding) > match_threshold\n  ORDER BY c.embedding <=> query_embedding\n  LIMIT match_count;\n$$;"
 }
@@ -4739,15 +4739,15 @@ Now run the seed script:
 {
   "command": "node --experimental-strip-types --env-file-if-exists=.env scripts/seed-knowledge-openai.ts",
   "timeout": 300000,
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 
 **Output:**
 ```
-(node:21148) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/dell/Music/hackathons/agro ai-hackathon/scripts/seed-knowledge-openai.ts is not specified and it doesn't parse as CommonJS.
+(node:21148) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/dell/Music/hackathons/agropioo-hackathon/scripts/seed-knowledge-openai.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
-To eliminate this warning, add "type": "module" to C:\Users\dell\Music\hackathons\agro ai-hackathon\package.json.
+To eliminate this warning, add "type": "module" to C:\Users\dell\Music\hackathons\agropioo-hackathon\package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
 === Advisor Knowledge Base Seeder (OpenAI) ===
 
@@ -4780,9 +4780,9 @@ Total: 246 chunks to embed
 Generating embeddings via OpenAI...
   Embedding batch 1/3 (100 chunks) via Jina AI...
 Seeder failed: Error: Jina embedding error (401): {"detail":"Authentication required. Provide your API key via the Authorization header: 'Authorization: Bearer <api-key>'. Get your API key at https://jina.ai/api-dashboard/key-manager.","request_id":"3bfccafdf584896df840d02067806276","code":"AUTH_MISSING_API_KEY"}
-    at embedChunks (file:///C:/Users/dell/Music/hackathons/agro ai-hackathon/scripts/seed-knowledge-openai.ts:124:13)
+    at embedChunks (file:///C:/Users/dell/Music/hackathons/agropioo-hackathon/scripts/seed-knowledge-openai.ts:124:13)
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
-    at async main (file:///C:/Users/dell/Music/hackathons/agro ai-hackathon/scripts/seed-knowledge-openai.ts:180:22)
+    at async main (file:///C:/Users/dell/Music/hackathons/agropioo-hackathon/scripts/seed-knowledge-openai.ts:180:22)
 Assertion failed: !(handle->flags & UV_HANDLE_CLOSING), file src\win\async.c, line 76
 
 ```
@@ -4807,7 +4807,7 @@ Jina requires an API key now. Let me use Hugging Face's free inference API inste
 ```json
 {
   "command": "$body = '{\"inputs\": \"test embedding\", \"parameters\": {\"options\": {\"wait_for_model\": true}}}'; try { $response = Invoke-WebRequest -Uri \"https://api-inference.huggingface.co/models/sentence-transformers/all-MiniLM-L6-v2\" -Method POST -Body $body -ContentType \"application/json\" -UseBasicParsing -TimeoutSec 15; Write-Output \"HF API works: $($response.Content.Substring(0, [Math]::Min(200, $response.Content.Length)))\" } catch { Write-Output \"HF API error: $($_.Exception.Message)\" }",
-  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agro ai-hackathon"
+  "workdir": "C:\\Users\\dell\\Music\\hackathons\\agropioo-hackathon"
 }
 ```
 

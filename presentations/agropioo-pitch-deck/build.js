@@ -12,8 +12,8 @@ const F = { serif: "Playfair Display", body: "DM Sans", mono: "Geist Mono" };
 
 const pptx = new pptxgen();
 pptx.layout = "LAYOUT_16x9";
-pptx.author = "agro ai";
-pptx.title = "agro ai — AI Agriculture Advisor for Pakistan";
+pptx.author = "agropioo";
+pptx.title = "agropioo — AI Agriculture Advisor for Pakistan";
 
 const W = 10, H = 5.625;
 const A = require("path").join(__dirname, "assets");
@@ -71,7 +71,7 @@ function accentBar(s, x, y, w, color = "canopy") {
 function footer(s, idx, dark = false) {
   const c = dark ? "sprout" : "cloud";
   furrow(s, dark);
-  s.addText("agro ai  ·  Built for Pakistan", { x: 0.5, y: H - 0.5, w: 4, h: 0.3, fontFace: F.mono, fontSize: 8, color: C[c], charSpacing: 1 });
+  s.addText("agropioo  ·  Built for Pakistan", { x: 0.5, y: H - 0.5, w: 4, h: 0.3, fontFace: F.mono, fontSize: 8, color: C[c], charSpacing: 1 });
   s.addText(String(idx).padStart(2, "0"), { x: W - 1.0, y: H - 0.5, w: 0.6, h: 0.3, fontFace: F.mono, fontSize: 9, color: C[c], align: "right" });
 }
 
@@ -413,11 +413,11 @@ body(s, "An agriculture that respects tradition and scales with technology — a
 // CTA button
 s.addShape("roundRect", { x: 0.78, y: 4.45, w: 2.6, h: 0.5, rectRadius: 0.25, fill: { color: C.canopy }, line: { type: "none" } });
 s.addText("Get early access", { x: 0.78, y: 4.53, w: 2.6, h: 0.35, align: "center", fontFace: F.body, fontSize: 13, bold: true, color: C.paper });
-s.addText("agro ai · by Aplinode", { x: 6.6, y: 4.65, w: 2.9, h: 0.3, fontFace: F.mono, fontSize: 9, color: C.cloud, align: "right", charSpacing: 1 });
+s.addText("agropioo · by Aplinode", { x: 6.6, y: 4.65, w: 2.9, h: 0.3, fontFace: F.mono, fontSize: 9, color: C.cloud, align: "right", charSpacing: 1 });
 footer(s, 14);
 
 
 // ── Write PPTX ─────────────────────────────────────────────────────────
-pptx.writeFile({ fileName: require("path").join(__dirname, "agro ai-Pitch-Deck.pptx") })
+pptx.writeFile({ fileName: require("path").join(__dirname, "agropioo-Pitch-Deck.pptx") })
   .then(() => console.log("DECK SAVED"))
   .catch((e) => { console.error("SAVE ERR", e); process.exit(1); });

@@ -56,7 +56,7 @@ advertise skr/hno/bal, so sniffing misroutes exactly our audience; a dismissible
 ## 4. Repo fit (what this feature lands on)
 
 - **Routes today:** `/` (fully `"use client"` page composing 10 landing sections),
-  `/features`, `/how-it-works`, `/vision`, `/why-agro ai` (server sections),
+  `/features`, `/how-it-works`, `/vision`, `/why-agropioo` (server sections),
   `/login` + `/signup` (client forms in server shells), `GET /api/health`.
   One root layout only; `<html lang="en">` hardcoded at `app/layout.tsx:36`;
   header/footer included per-page, not layout-level.

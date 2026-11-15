@@ -5,7 +5,7 @@ import { getPricesBundle } from "@/lib/i18n/server";
 import FavouritesClient from "./favourites-client";
 
 export const metadata: Metadata = {
-  title: "Favourite Crops — agro ai",
+  title: "Favourite Crops — agropioo",
 };
 
 export default async function FavouritesPage() {

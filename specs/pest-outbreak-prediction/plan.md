@@ -5,7 +5,7 @@
 
 ## Summary
 
-Build a pest outbreak prediction feature within the existing agro ai Next.js app. A daily TypeScript-based cron job scrapes provincial government agriculture websites, runs a rule-based pest risk model per farm using weather forecast + crop + growth stage + district, stores 7-day predictions in Postgres, and triggers in-app + email alerts when risk exceeds 70%. The dashboard shows a pest risk widget; a dedicated `/pest` page shows a 7-day forecast; a history view shows past predictions and alerts.
+Build a pest outbreak prediction feature within the existing agropioo Next.js app. A daily TypeScript-based cron job scrapes provincial government agriculture websites, runs a rule-based pest risk model per farm using weather forecast + crop + growth stage + district, stores 7-day predictions in Postgres, and triggers in-app + email alerts when risk exceeds 70%. The dashboard shows a pest risk widget; a dedicated `/pest` page shows a 7-day forecast; a history view shows past predictions and alerts.
 
 ## Technical Context
 

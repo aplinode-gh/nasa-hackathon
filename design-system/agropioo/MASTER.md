@@ -6,7 +6,7 @@
 
 ---
 
-**Project:** agro ai
+**Project:** agropioo
 **Generated:** 2026-08-22 14:00:51
 **Category:** Agriculture/Farm Tech
 

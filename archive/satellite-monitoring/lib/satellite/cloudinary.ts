@@ -31,7 +31,7 @@ export async function uploadNdviImage(
       .upload_stream(
         {
           public_id: publicId,
-          folder: "agro ai",
+          folder: "agropioo",
           resource_type: "image",
           type: "upload",
           overwrite: true,

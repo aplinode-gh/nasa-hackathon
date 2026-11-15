@@ -13,7 +13,7 @@ import { query } from "@/lib/db";
 import { computeFarmHealth } from "@/lib/farms/health";
 
 export const metadata: Metadata = {
-  title: "Farms — agro ai",
+  title: "Farms — agropioo",
 };
 
 const healthChip = {

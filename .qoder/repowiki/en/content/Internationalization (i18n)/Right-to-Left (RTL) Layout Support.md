@@ -28,7 +28,7 @@
 10. [Appendices](#appendices)
 
 ## Introduction
-This document explains how agro ai detects RTL languages and switches the application between left-to-right (LTR) and right-to-left (RTL) layouts dynamically. It covers:
+This document explains how agropioo detects RTL languages and switches the application between left-to-right (LTR) and right-to-left (RTL) layouts dynamically. It covers:
 - Locale detection and direction assignment from a single registry
 - Server-side HTML lang/dir emission for correct browser behavior
 - Client-side language switching with full page reload to ensure fonts and direction update reliably
@@ -39,7 +39,7 @@ This document explains how agro ai detects RTL languages and switches the applic
 - Testing strategies and common pitfalls to avoid
 
 ## Project Structure
-agro ai’s internationalization and RTL support are centered around:
+agropioo’s internationalization and RTL support are centered around:
 - A locale registry that defines each language’s code, URL slug, BCP 47 tag, and text direction
 - Next.js route segments under app/(site)/[locale] that render per-locale pages
 - A global layout that sets <html lang> and <html dir>, and attaches font variables only when needed
@@ -336,7 +336,7 @@ Common issues and resolutions:
 - [layout.tsx:75-80](file://app/(site)/[locale]/layout.tsx#L75-L80)
 
 ## Conclusion
-agro ai’s RTL implementation centers on a single locale registry, server-side HTML attribute emission, and Tailwind logical utilities for automatic mirroring. Arabic-script typography is handled with a split strategy for display and UI text, with fonts loaded only when needed. Client-side switching preserves query/hash and ensures reliable direction updates through full navigation. By following these patterns—logical properties, fallback isolation, and careful typography—you can build RTL-compatible components that remain accessible, performant, and visually consistent across languages.
+agropioo’s RTL implementation centers on a single locale registry, server-side HTML attribute emission, and Tailwind logical utilities for automatic mirroring. Arabic-script typography is handled with a split strategy for display and UI text, with fonts loaded only when needed. Client-side switching preserves query/hash and ensures reliable direction updates through full navigation. By following these patterns—logical properties, fallback isolation, and careful typography—you can build RTL-compatible components that remain accessible, performant, and visually consistent across languages.
 
 ## Appendices
 

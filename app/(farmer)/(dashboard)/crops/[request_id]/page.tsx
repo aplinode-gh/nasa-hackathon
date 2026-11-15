@@ -9,7 +9,7 @@ interface PageProps {
 }
 
 export const metadata: Metadata = {
-  title: "Recommendation detail — agro ai",
+  title: "Recommendation detail — agropioo",
 };
 
 export default async function CropRecommendationDetailPage({ params }: PageProps) {

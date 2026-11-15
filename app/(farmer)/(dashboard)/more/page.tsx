@@ -14,7 +14,7 @@ import {
 } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "More tools — agro ai",
+  title: "More tools — agropioo",
 };
 
 const primaryTools = [

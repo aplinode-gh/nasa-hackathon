@@ -17,7 +17,7 @@
 - [language-switcher.tsx](file://components/language-switcher.tsx)
 - [site-hero.tsx](file://app/(site)/[locale]/sections/Hero.tsx)
 - [site-footer.tsx](file://app/(site)/[locale]/sections/Footer.tsx)
-- [MASTER.md](file://design-system/agro ai/MASTER.md)
+- [MASTER.md](file://design-system/agropioo/MASTER.md)
 </cite>
 
 ## Table of Contents
@@ -33,14 +33,14 @@
 10. Appendices
 
 ## Introduction
-This document provides a comprehensive component library guide for agro ai’s reusable UI components. It covers shell navigation (sidebar, bottom tab bar, page headers), authentication flows (login shells, OTP verification, stepper progress), and marketing site sections (hero, features, footer). For each component, you will find visual behavior, props/attributes, events, customization options, responsive patterns, accessibility notes, Tailwind CSS integration guidance, and usage examples via code snippet paths.
+This document provides a comprehensive component library guide for agropioo’s reusable UI components. It covers shell navigation (sidebar, bottom tab bar, page headers), authentication flows (login shells, OTP verification, stepper progress), and marketing site sections (hero, features, footer). For each component, you will find visual behavior, props/attributes, events, customization options, responsive patterns, accessibility notes, Tailwind CSS integration guidance, and usage examples via code snippet paths.
 
 ## Project Structure
-agro ai organizes UI into focused directories:
+agropioo organizes UI into focused directories:
 - Shell components under components/shell provide app chrome for the farmer dashboard.
 - Auth components under components/auth implement shared authentication UX patterns.
 - Marketing site components live both as shared components (components/*) and localized pages under app/(site)/[locale]/sections.
-- Design tokens and style rules are documented in design-system/agro ai/MASTER.md.
+- Design tokens and style rules are documented in design-system/agropioo/MASTER.md.
 
 ```mermaid
 graph TB
@@ -97,7 +97,7 @@ I --> |"localized"| J
 - [language-switcher.tsx:1-120](file://components/language-switcher.tsx#L1-L120)
 - [site-hero.tsx:1-141](file://app/(site)/[locale]/sections/Hero.tsx#L1-L141)
 - [site-footer.tsx:1-185](file://app/(site)/[locale]/sections/Footer.tsx#L1-L185)
-- [MASTER.md:15-73](file://design-system/agro ai/MASTER.md#L15-L73)
+- [MASTER.md:15-73](file://design-system/agropioo/MASTER.md#L15-L73)
 
 ## Core Components
 This section summarizes the purpose, props, events, and usage patterns for each core component.
@@ -584,7 +584,7 @@ Common issues and resolutions:
 - [bottom-tab-bar.tsx:26-28](file://components/shell/bottom-tab-bar.tsx#L26-L28)
 
 ## Conclusion
-agro ai’s component library provides a cohesive, accessible, and responsive UI foundation across shell, authentication, and marketing contexts. By leveraging shared design tokens, consistent patterns, and thoughtful accessibility, teams can compose complex experiences quickly while maintaining brand integrity and performance.
+agropioo’s component library provides a cohesive, accessible, and responsive UI foundation across shell, authentication, and marketing contexts. By leveraging shared design tokens, consistent patterns, and thoughtful accessibility, teams can compose complex experiences quickly while maintaining brand integrity and performance.
 
 [No sources needed since this section summarizes without analyzing specific files]
 
@@ -613,5 +613,5 @@ agro ai’s component library provides a cohesive, accessible, and responsive UI
 - Anti-patterns: Avoid emojis as icons, invisible focus states, and low contrast text.
 
 **Section sources**
-- [MASTER.md:15-73](file://design-system/agro ai/MASTER.md#L15-L73)
-- [MASTER.md:185-216](file://design-system/agro ai/MASTER.md#L185-L216)
+- [MASTER.md:15-73](file://design-system/agropioo/MASTER.md#L15-L73)
+- [MASTER.md:185-216](file://design-system/agropioo/MASTER.md#L185-L216)

@@ -7,7 +7,7 @@ import { query } from "@/lib/db";
 import SeasonCard from "@/components/profit-loss/season-card";
 
 export const metadata: Metadata = {
-  title: "Profit / Loss — agro ai",
+  title: "Profit / Loss — agropioo",
 };
 
 type SeasonRow = {

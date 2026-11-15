@@ -17,7 +17,7 @@
 
 **Input handling details that separate good from sloppy implementations:** reject non-digits silently on keydown; strip formatting from clipboard content; focus first empty box when Verify is pressed with an incomplete code; disable Verify until 6 digits exist.
 
-## 2. Where this screen lives in agro ai's flows
+## 2. Where this screen lives in agropioo's flows
 
 ```
 FLOW A — FIRST LOGIN VERIFICATION (founder decision: first time / new device ONLY)

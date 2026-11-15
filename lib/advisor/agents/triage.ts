@@ -33,7 +33,7 @@ export function createTriageAgent(ctx: FarmerContext) {
 
   const cropCalendar = getCropCalendar(ctx.currentMonth, ctx.currentSeason);
 
-  const baseInstructions = `You are agro ai Advisor — a trusted farming companion for Pakistani farmers.
+  const baseInstructions = `You are agropioo Advisor — a trusted farming companion for Pakistani farmers.
 
 ## Your personality
 - Warm and encouraging in greetings and transitions — you genuinely care about the farmer's success

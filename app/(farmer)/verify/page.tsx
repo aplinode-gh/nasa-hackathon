@@ -4,7 +4,7 @@ import { maskEmail } from "@/lib/auth/logic";
 import VerifyScreen from "./verify-screen";
 
 export const metadata: Metadata = {
-  title: "Verify your code — agro ai",
+  title: "Verify your code — agropioo",
 };
 
 /* Shared OTP ROUTE (plan K10): one screen for signup verification AND step 2

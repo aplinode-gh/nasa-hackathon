@@ -9,7 +9,7 @@
 
 ## Goal
 
-Every user of agro ai — a visitor on the public site, someone signing up, or a
+Every user of agropioo — a visitor on the public site, someone signing up, or a
 farmer inside the logged-in app — can read, navigate, and act in any of the eight
 constitutional languages (English plus Urdu, Punjabi–Shahmukhi, Pashto, Sindhi,
 Saraiki, Balochi, Hindko), with correct right-to-left presentation, culturally
@@ -27,7 +27,7 @@ advisor reply.
    redirects.
 4. First visit with no stored choice shows a dismissible **اردو میں دیکھیں** chip;
    dismissing it keeps it dismissed.
-5. A user on `/skr/why-agro ai` picks English → `/why-agro ai`, same path, context
+5. A user on `/skr/why-agropioo` picks English → `/why-agropioo`, same path, context
    preserved.
 6. `/login` (no prefix) with `agro_locale=ur` still renders English (URLs decide on
    public pages); the switcher highlights اردو.
@@ -107,7 +107,7 @@ advisor reply.
   directional icons); non-directional imagery (logo, photos, checkmarks, search,
   numerals, crop-health dots) does not. *(L14)*
 - FR-19 [S] Mixed-direction content inside RTL — prices, phones, Latin tokens
-  ("agro ai", "NDVI"), dates — reads correctly with adjacent punctuation on the
+  ("agropioo", "NDVI"), dates — reads correctly with adjacent punctuation on the
   right side. *(L15)*
 - FR-20 [S] Free-text inputs auto-detect typed direction; email/password/phone stay
   LTR even on RTL pages. *(L16)*
@@ -234,8 +234,8 @@ advisor reply.
 - [ ] AC-02 `/ur/login`, `/pa/features`, `/sd/signup` emit matching `lang`+`dir`;
       `/login` emits `en`/ltr.
 - [ ] AC-03 Cookie=ur + `/features` → English, switcher highlights اردو, click →
-      `/ur/features`. Switching `/skr/why-agro ai#vision` → English lands on
-      `/why-agro ai#vision`. `/xx/features` → 404.
+      `/ur/features`. Switching `/skr/why-agropioo#vision` → English lands on
+      `/why-agropioo#vision`. `/xx/features` → 404.
 - [ ] AC-04 Deleting one DB value makes only that segment fall back (isolated
       `lang=en`); restoring shows it next request. Coverage test enforces ×8.
 - [ ] AC-05 English pages: no visual regression except switcher/chip; chip appears

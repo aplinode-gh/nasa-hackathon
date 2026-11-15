@@ -25,7 +25,7 @@
 9. [Conclusion](#conclusion)
 
 ## Introduction
-This document describes agro ai’s PostgreSQL database schema used by the JWT-based authentication system. It covers the users, sessions, verification_codes, and pass_states tables, including field definitions, constraints, indexes, primary keys, foreign keys, and how these tables participate in authentication flows such as login, signup, password reset, and logout. It also explains security-sensitive fields like password_hash and code_hash and their storage characteristics.
+This document describes agropioo’s PostgreSQL database schema used by the JWT-based authentication system. It covers the users, sessions, verification_codes, and pass_states tables, including field definitions, constraints, indexes, primary keys, foreign keys, and how these tables participate in authentication flows such as login, signup, password reset, and logout. It also explains security-sensitive fields like password_hash and code_hash and their storage characteristics.
 
 ## Project Structure
 The authentication-related database schema is defined in Supabase migrations under supabase/migrations. The runtime logic that reads/writes these tables lives in Next.js Route Handlers and shared libraries for token handling and pure decision logic.
@@ -366,4 +366,4 @@ Common issues and where to inspect:
 - [route.ts (signup):70-102](file://app/api/auth/signup/route.ts#L70-L102)
 
 ## Conclusion
-agro ai’s authentication schema centers on four core tables—users, pass_states, verification_codes, and sessions—augmented by indexes and constraints that enforce data integrity and performance. Security-sensitive fields are stored as hashes (password_hash via bcrypt, code_hash via SHA-256), ensuring no plaintext secrets persist. The state-backed JWT model couples cryptographic tokens with durable rows to enable robust features like per-pass attempt accounting, last-code-wins semantics, and per-session revocation. Together, these components provide a secure, auditable foundation for login, signup, password reset, and session management.
+agropioo’s authentication schema centers on four core tables—users, pass_states, verification_codes, and sessions—augmented by indexes and constraints that enforce data integrity and performance. Security-sensitive fields are stored as hashes (password_hash via bcrypt, code_hash via SHA-256), ensuring no plaintext secrets persist. The state-backed JWT model couples cryptographic tokens with durable rows to enable robust features like per-pass attempt accounting, last-code-wins semantics, and per-session revocation. Together, these components provide a secure, auditable foundation for login, signup, password reset, and session management.

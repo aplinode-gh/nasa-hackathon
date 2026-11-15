@@ -2,7 +2,7 @@
 
 ## Goal
 
-Give farmers complete hands-free, eyes-free control of the agro ai app. A farmer speaks naturally in their regional language from any page; the app listens, understands intent, performs the requested action anywhere in the app (fetching data, creating records, navigating, or answering questions), and speaks the answer back. No reading, no tapping, no literacy barrier.
+Give farmers complete hands-free, eyes-free control of the agropioo app. A farmer speaks naturally in their regional language from any page; the app listens, understands intent, performs the requested action anywhere in the app (fetching data, creating records, navigating, or answering questions), and speaks the answer back. No reading, no tapping, no literacy barrier.
 
 ## User Scenarios
 

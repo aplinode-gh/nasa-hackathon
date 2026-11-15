@@ -24,10 +24,10 @@
 9. Conclusion
 
 ## Introduction
-This document defines production monitoring for agro ai, an agricultural platform serving rural users. It covers health check endpoints, performance metrics collection, error tracking strategies, logging best practices, structured logging formats, log aggregation setup, application monitoring (Sentry), analytics integration, user experience monitoring, database query performance monitoring, API response time tracking, infrastructure health checks, alerting strategies, incident response procedures, and production debugging techniques tailored to the platform’s context.
+This document defines production monitoring for agropioo, an agricultural platform serving rural users. It covers health check endpoints, performance metrics collection, error tracking strategies, logging best practices, structured logging formats, log aggregation setup, application monitoring (Sentry), analytics integration, user experience monitoring, database query performance monitoring, API response time tracking, infrastructure health checks, alerting strategies, incident response procedures, and production debugging techniques tailored to the platform’s context.
 
 ## Project Structure
-agro ai is a Next.js application with server-side route handlers under app/api. Health and authentication routes implement consistent error handling and rate limiting. Database access uses Supabase via a shared client module. Rate limiting is implemented in-process for single-instance deployments.
+agropioo is a Next.js application with server-side route handlers under app/api. Health and authentication routes implement consistent error handling and rate limiting. Database access uses Supabase via a shared client module. Rate limiting is implemented in-process for single-instance deployments.
 
 ```mermaid
 graph TB
@@ -262,4 +262,4 @@ App --> Zod["zod"]
 - [supabase.ts:6-31](file://lib/supabase.ts#L6-L31)
 
 ## Conclusion
-agro ai implements a solid foundation for production monitoring through a health endpoint, standardized error responses, and robust authentication safeguards. To fully operationalize monitoring, integrate structured logging, metrics collection, error tracking (e.g., Sentry), analytics, and alerting tailored to rural user contexts. Prioritize low-latency paths, resilient database checks, and clear observability signals to maintain reliability and trust for farmers and stakeholders.
+agropioo implements a solid foundation for production monitoring through a health endpoint, standardized error responses, and robust authentication safeguards. To fully operationalize monitoring, integrate structured logging, metrics collection, error tracking (e.g., Sentry), analytics, and alerting tailored to rural user contexts. Prioritize low-latency paths, resilient database checks, and clear observability signals to maintain reliability and trust for farmers and stakeholders.

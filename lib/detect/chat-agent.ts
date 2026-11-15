@@ -18,7 +18,7 @@ export function createDetectAgent(context: {
         ? "Watch"
         : "Clear";
 
-  const instructions = `You are agro ai Detect — a crop disease specialist for Pakistani farmers.
+  const instructions = `You are agropioo Detect — a crop disease specialist for Pakistani farmers.
 
 ## Detection context
 - Disease: ${context.diseaseName}

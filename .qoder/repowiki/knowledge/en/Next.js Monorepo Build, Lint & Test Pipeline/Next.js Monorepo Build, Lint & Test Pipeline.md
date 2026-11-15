@@ -15,7 +15,7 @@ source_files:
 
 ## Build System Overview
 
-agro ai is a single-package Next.js 16 application (React 19) with no separate build toolchain — the entire build pipeline is driven by `npm` scripts in `package.json`, backed by Next.js's built-in bundler, TypeScript compiler, and Vitest for testing.
+agropioo is a single-package Next.js 16 application (React 19) with no separate build toolchain — the entire build pipeline is driven by `npm` scripts in `package.json`, backed by Next.js's built-in bundler, TypeScript compiler, and Vitest for testing.
 
 ### Core Scripts (`package.json`)
 - `dev` → `next dev` — development server

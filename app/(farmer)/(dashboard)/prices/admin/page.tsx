@@ -5,7 +5,7 @@ import { query } from "@/lib/db";
 import AdminForm from "./admin-form";
 
 export const metadata: Metadata = {
-  title: "Manual Price Entry — agro ai",
+  title: "Manual Price Entry — agropioo",
 };
 
 export default async function AdminPricePage() {

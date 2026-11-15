@@ -27,10 +27,10 @@
 10. Appendices
 
 ## Introduction
-This guide helps new developers set up the agro ai development environment, run the app locally, and understand how the marketing site and farmer application are organized. It covers Node.js requirements, installing dependencies with npm/yarn/pnpm/bun, configuring Supabase and email settings, applying database migrations, starting the development server, and verifying that everything works. It also includes a first-time contributor workflow for authentication flows and basic development tasks.
+This guide helps new developers set up the agropioo development environment, run the app locally, and understand how the marketing site and farmer application are organized. It covers Node.js requirements, installing dependencies with npm/yarn/pnpm/bun, configuring Supabase and email settings, applying database migrations, starting the development server, and verifying that everything works. It also includes a first-time contributor workflow for authentication flows and basic development tasks.
 
 ## Project Structure
-agro ai is a Next.js App Router project with two main areas:
+agropioo is a Next.js App Router project with two main areas:
 - Marketing site under app/(site): localized pages and sections for features, vision, and onboarding.
 - Farmer application under app/(farmer): authenticated dashboard, farms, records, advisor chat, prices, weather, notifications, and settings.
 
@@ -295,7 +295,7 @@ Verification steps:
 - [.env.example:1-21](file://.env.example#L1-L21)
 
 ## Conclusion
-You now have the essentials to set up agro ai locally, configure Supabase and email, apply migrations, and run the development server. Use the health endpoint and authentication flows to verify your setup. Explore the marketing site and farmer application routes to understand the separation of concerns and begin contributing confidently.
+You now have the essentials to set up agropioo locally, configure Supabase and email, apply migrations, and run the development server. Use the health endpoint and authentication flows to verify your setup. Explore the marketing site and farmer application routes to understand the separation of concerns and begin contributing confidently.
 
 [No sources needed since this section summarizes without analyzing specific files]
 

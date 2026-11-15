@@ -1,6 +1,6 @@
 SECTION 1 — PROBLEM STATEMENT AND PROPOSED SOLUTION
 
-Pakistan's 45 million farmers make decisions through tradition and memory. 30–40% of crops are lost annually to preventable disease, wasted water, and bad timing. Extension services reach fewer than 5% of farmers. agro ai is an AI agriculture advisor that knows each farmer's farm, crop, weather, and history — and tells them what to do and when, in Urdu, Punjabi, Pashto, or Sindhi.
+Pakistan's 45 million farmers make decisions through tradition and memory. 30–40% of crops are lost annually to preventable disease, wasted water, and bad timing. Extension services reach fewer than 5% of farmers. agropioo is an AI agriculture advisor that knows each farmer's farm, crop, weather, and history — and tells them what to do and when, in Urdu, Punjabi, Pashto, or Sindhi.
 
 
 SECTION 2 — DETAILED PROJECT DESCRIPTION

@@ -26,10 +26,10 @@
 9. [Conclusion](#conclusion)
 
 ## Introduction
-This document explains agro ai’s data access patterns built on Supabase using a dual client pattern: a per-request anon client for normal operations and an admin client reserved for trusted server-side maintenance tasks. It covers security boundaries, query strategies, error handling, transaction-like flows, caching considerations, performance monitoring, and troubleshooting database connectivity.
+This document explains agropioo’s data access patterns built on Supabase using a dual client pattern: a per-request anon client for normal operations and an admin client reserved for trusted server-side maintenance tasks. It covers security boundaries, query strategies, error handling, transaction-like flows, caching considerations, performance monitoring, and troubleshooting database connectivity.
 
 ## Project Structure
-agro ai is a Next.js application that uses Route Handlers to perform all database operations server-side with Supabase. The key layers are:
+agropioo is a Next.js application that uses Route Handlers to perform all database operations server-side with Supabase. The key layers are:
 - Client factories: centralized Supabase clients (anon and service-role).
 - API routes: HTTP endpoints that validate input, enforce rate limits, and call Supabase.
 - Auth utilities: pass minting/validation, code issuance, and session logic backed by Postgres tables defined in migrations.
@@ -371,4 +371,4 @@ Supa --> DB["PostgreSQL"]
 - [supabase/migrations/0002_auth.sql:7-60](file://supabase/migrations/0002_auth.sql#L7-L60)
 
 ## Conclusion
-agro ai implements a robust data access layer centered on a dual Supabase client pattern, clear security boundaries, and standardized error handling. Authentication flows are backed by Postgres for mutable state, ensuring resilience and auditability. Query strategies and indexes optimize performance, while rate limiting protects endpoints. For production scaling, consider distributed rate limiting and application-level caching for hot data.
+agropioo implements a robust data access layer centered on a dual Supabase client pattern, clear security boundaries, and standardized error handling. Authentication flows are backed by Postgres for mutable state, ensuring resilience and auditability. Query strategies and indexes optimize performance, while rate limiting protects endpoints. For production scaling, consider distributed rate limiting and application-level caching for hot data.

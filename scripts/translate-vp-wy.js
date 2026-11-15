@@ -56,7 +56,7 @@ const translations = [
   ['"vp.principles.c6Desc": "Motion and layout that feel organic — growth, never machinery."', '"vp.principles.c6Desc": "حرڪت ۽ ليآؤٽ جي قَدري احساس — وڌاڻ، ڪبھي مشينري نه."'],
   ['"vp.principles.motto": "Soil and signal — growing together"', '"vp.principles.motto": "مٹي ۽ نشان — ھڪٿي وڌي"'],
   // Why page
-  ['"wy.hero.eyebrow": "Why agro ai"', '"wy.hero.eyebrow": "agro ai ڇو"'],
+  ['"wy.hero.eyebrow": "Why agropioo"', '"wy.hero.eyebrow": "agropioo ڇو"'],
   ['"wy.hero.titleLead": "Where soil meets"', '"wy.hero.titleLead": "مٹي ملائي"'],
   ['"wy.hero.titleAccent": "signal"', '"wy.hero.titleAccent": "نشان"'],
   ['"wy.hero.ctaPrimary": "Get early access"', '"wy.hero.ctaPrimary": "EARLY access حاصل ڪريو"'],

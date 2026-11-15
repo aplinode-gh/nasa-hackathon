@@ -27,7 +27,7 @@
 10. [Appendices](#appendices)
 
 ## Introduction
-This document explains agro ai’s authentication UI components and how they are used across login, signup, password recovery, and email verification flows. It focuses on:
+This document explains agropioo’s authentication UI components and how they are used across login, signup, password recovery, and email verification flows. It focuses on:
 - Auth shell for consistent layout
 - OTP verification component for 6-digit code entry
 - Stepper for multi-step progress
@@ -425,7 +425,7 @@ Accessibility tips:
 - [reset-password-form.tsx:53-58](file://app/(farmer)/reset-password/reset-password-form.tsx#L53-L58)
 
 ## Conclusion
-agro ai’s authentication UI leverages reusable components to deliver a consistent, accessible, and responsive experience across login, signup, and password recovery flows. The auth shell standardizes layout, OTP verification centralizes code entry logic, stepper guides users through recovery steps, and member bounce ensures reliable navigation. Integration with React Hook Form and Zod guarantees strong validation and type safety. Following these patterns will help extend authentication flows while maintaining consistency and quality.
+agropioo’s authentication UI leverages reusable components to deliver a consistent, accessible, and responsive experience across login, signup, and password recovery flows. The auth shell standardizes layout, OTP verification centralizes code entry logic, stepper guides users through recovery steps, and member bounce ensures reliable navigation. Integration with React Hook Form and Zod guarantees strong validation and type safety. Following these patterns will help extend authentication flows while maintaining consistency and quality.
 
 [No sources needed since this section summarizes without analyzing specific files]
 

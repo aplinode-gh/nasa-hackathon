@@ -9,16 +9,16 @@ source_files:
     - postcss.config.mjs
     - package.json
     - docs/brand-colors.md
-    - design-system/agro ai/MASTER.md
+    - design-system/agropioo/MASTER.md
     - components/EarlyAccessForm.tsx
     - components/Features.tsx
 ---
 
 ## What system/approach is used
 
-agro ai uses **Tailwind CSS v4** (via `@tailwindcss/postcss` in `postcss.config.mjs`) with the new `@import "tailwindcss"` single-import syntax. There is no separate `tailwind.config.js`; all styling configuration lives in a single global stylesheet (`app/globals.css`) using Tailwind v4's `@theme` and `@theme inline` blocks. Components are styled exclusively with utility classes — there is no SCSS, Sass, or component-scoped CSS framework.
+agropioo uses **Tailwind CSS v4** (via `@tailwindcss/postcss` in `postcss.config.mjs`) with the new `@import "tailwindcss"` single-import syntax. There is no separate `tailwind.config.js`; all styling configuration lives in a single global stylesheet (`app/globals.css`) using Tailwind v4's `@theme` and `@theme inline` blocks. Components are styled exclusively with utility classes — there is no SCSS, Sass, or component-scoped CSS framework.
 
-The project also ships a human-readable **Design System Master File** at `design-system/agro ai/MASTER.md` that documents color tokens, typography, spacing, shadows, component specs, style guidelines, anti-patterns, and a pre-delivery checklist. This file acts as the design-spec reference for contributors; it is not consumed by the build but guides implementation.
+The project also ships a human-readable **Design System Master File** at `design-system/agropioo/MASTER.md` that documents color tokens, typography, spacing, shadows, component specs, style guidelines, anti-patterns, and a pre-delivery checklist. This file acts as the design-spec reference for contributors; it is not consumed by the build but guides implementation.
 
 ## Key files and packages
 
@@ -30,7 +30,7 @@ The project also ships a human-readable **Design System Master File** at `design
   - Maps semantic font families via `@theme inline`: `--font-sans` → DM Sans, `--font-display` → Playfair, `--font-mono` → Geist Mono.
   - Defines global styles: body background/text, focus-visible ring, selection color, smooth scroll, section scroll-margin, `.eyebrow` label class, `.field-ticket` mask, keyframe animations (`rise-in`, `drift`, `draw-line`, `marquee`), scroll-driven reveal via `animation-timeline: view()`, and a `prefers-reduced-motion` block that disables motion.
 - `docs/brand-colors.md` — developer reference documenting every token, its hex, role, accessible contrast ratios, and working rules (e.g., gold CTA must use dark text due to contrast).
-- `design-system/agro ai/MASTER.md` — design-spec document covering palette, typography, spacing, shadows, button/card/input/modal specs, anti-patterns, and delivery checklist.
+- `design-system/agropioo/MASTER.md` — design-spec document covering palette, typography, spacing, shadows, button/card/input/modal specs, anti-patterns, and delivery checklist.
 - `components/` — all UI components (e.g., `EarlyAccessForm.tsx`, `Features.tsx`, `Hero.tsx`, `Footer.tsx`, `Nav.tsx`, `SiteHeader.tsx`, `Logo.tsx`, `icons.tsx`, `language-switcher.tsx`, `suggestion-chip.tsx`) consume the Tailwind tokens directly via utility classes.
 
 ## Architecture and conventions
@@ -57,6 +57,6 @@ Observed conventions (descriptive):
 Enforced or documented rules (from authoritative sources):
 - `docs/brand-colors.md` states: *"never inline hex values in components. Reference tokens via the generated classes or `var(--color-agro-*)`. If you need a value that is not a token, add it to the `@theme` block first."*
 - `docs/brand-colors.md` mandates light-mode contrast ratios of at least 4.5:1 for body text and specifies which color pairs fail (e.g., white-on-gold fails ~2.3:1, so gold CTAs must use dark text).
-- `design-system/agro ai/MASTER.md` lists anti-patterns to avoid: emojis as icons, missing `cursor:pointer`, layout-shifting hovers, low contrast, instant state changes, invisible focus states, and ignoring `prefers-reduced-motion`.
+- `design-system/agropioo/MASTER.md` lists anti-patterns to avoid: emojis as icons, missing `cursor:pointer`, layout-shifting hovers, low contrast, instant state changes, invisible focus states, and ignoring `prefers-reduced-motion`.
 - `MASTER.md` pre-delivery checklist requires: consistent icon set (Heroicons/Lucide), hover transitions (150–300ms), visible focus states, `prefers-reduced-motion` respected, responsive testing at 375/768/1024/1440px, no horizontal scroll on mobile.
 - `app/globals.css` includes a `prefers-reduced-motion` block that disables scroll smoothing and all animations, enforcing motion accessibility.

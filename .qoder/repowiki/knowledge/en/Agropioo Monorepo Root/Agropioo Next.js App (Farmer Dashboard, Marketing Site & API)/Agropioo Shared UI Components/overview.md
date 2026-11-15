@@ -1,1 +1,1 @@
-Reusable React/Next.js components for the agro ai marketing pages, farmer app shell, and authentication flows, built with Tailwind CSS and a shared design token system.
+Reusable React/Next.js components for the agropioo marketing pages, farmer app shell, and authentication flows, built with Tailwind CSS and a shared design token system.

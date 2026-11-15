@@ -1,4 +1,4 @@
-# agro ai
+# agropioo
 
 AI-powered smart agriculture platform built for Pakistani farmers — a personal
 multi-agent agriculture advisor, digital farm records, disease detection, mandi
@@ -130,8 +130,8 @@ agronomist role, community forum, SMS alerts, and hardware/IoT.
 
 ## Docs
 
-- [Project Documentation](./docs/agro ai_Project_Documentation.md)
-- [Tech Stack](./docs/agro ai_Tech_Stack.md)
-- [Features](./docs/agro ai_features.md)
+- [Project Documentation](./docs/agropioo_Project_Documentation.md)
+- [Tech Stack](./docs/agropioo_Tech_Stack.md)
+- [Features](./docs/agropioo_features.md)
 - [Hackathon Submission](./docs/hackathon-submission.md)
 - Specs: `specs/` · ADRs: `adrs/`

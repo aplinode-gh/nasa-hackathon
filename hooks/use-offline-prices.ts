@@ -2,7 +2,7 @@
 
 import { useEffect, useCallback } from "react";
 
-const STORAGE_PREFIX = "agro ai:prices:";
+const STORAGE_PREFIX = "agropioo:prices:";
 const TTL_MS = 6 * 60 * 60 * 1000; // 6 hours
 
 type CacheEntry<T> = {

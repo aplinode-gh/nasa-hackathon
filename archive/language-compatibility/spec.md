@@ -5,7 +5,7 @@
 
 ## Goal
 
-agro ai claims to be Pakistan-first, but today every word of its UI is hardcoded
+agropioo claims to be Pakistan-first, but today every word of its UI is hardcoded
 English. This feature makes the entire public experience work in English plus the seven
 constitutional Pakistani languages — Urdu, Punjabi, Pashto, Sindhi, Saraiki, Balochi,
 Hindko — with correct right-to-left presentation, culturally authentic typography, and a
@@ -25,8 +25,8 @@ to read, navigate, and sign up entirely in Saraiki.
 4. A first-time visitor with no stored choice sees a small dismissible chip offering
    **اردو میں دیکھیں**; tapping it takes them to the Urdu homepage; dismissing it keeps
    it dismissed on every later visit.
-5. A user on `/skr/why-agro ai` opens the switcher and picks **English**. They end up
-   on `/why-agro ai` (the unprefixed English page), scrolled context preserved by path,
+5. A user on `/skr/why-agropioo` opens the switcher and picks **English**. They end up
+   on `/why-agropioo` (the unprefixed English page), scrolled context preserved by path,
    never dumped on the homepage.
 6. Someone visits `/login` (no prefix) while their cookie remembers Urdu. They see
    English — URLs decide language — and the switcher highlights Urdu as their last
@@ -52,7 +52,7 @@ to read, navigate, and sign up entirely in Saraiki.
   independent logic — and the emitted pair always agrees (e.g. `pa-Arab` ⇒ `rtl`).
 
 **Routing (hybrid model)**
-- FR-3 All marketing pages (`/`, why-agro ai, features, how-it-works, vision) and all
+- FR-3 All marketing pages (`/`, why-agropioo, features, how-it-works, vision) and all
   auth pages (signup, login; forgot/reset when they exist) exist in eight locale
   variants. Prefixed variants live under `/{slug}/…` and are directly linkable,
   crawlable, and refresh-safe.
@@ -99,7 +99,7 @@ to read, navigate, and sign up entirely in Saraiki.
   borders and rounded corners on the logical start/end. Non-directional imagery (logo,
   photos, checkmarks, search icons, numerals) does not mirror.
 - FR-15 Mixed-direction content inside RTL text — prices, phone numbers, Latin tokens
-  like "agro ai"/"NDVI", dates — renders in correct reading order with adjacent
+  like "agropioo"/"NDVI", dates — renders in correct reading order with adjacent
   punctuation on the correct side, everywhere it appears.
 - FR-16 Free-text inputs (names, farm/chat text) auto-detect typed direction;
   email/password/phone inputs stay left-to-right even on RTL pages.
@@ -196,8 +196,8 @@ to read, navigate, and sign up entirely in Saraiki.
       (`ur`/rtl, `pa-Arab`/rtl, `sd`/rtl); `/login` emits `en`/ltr.
 - [ ] AC-3 With cookie=ur, visiting `/features` renders English; switcher highlights
       اردو; clicking اردو goes to `/ur/features`.
-- [ ] AC-4 Switching from `/skr/why-agro ai#vision` to English lands on
-      `/why-agro ai#vision`.
+- [ ] AC-4 Switching from `/skr/why-agropioo#vision` to English lands on
+      `/why-agropioo#vision`.
 - [ ] AC-5 `/xx/features` returns 404; `/ur/nonexistent` returns a 404 presented in Urdu
       chrome or plain — never an English page masquerading.
 - [ ] AC-6 Deleting one Saraiki value in the DB makes only that segment render English

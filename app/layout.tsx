@@ -65,14 +65,14 @@ export function generateStaticParams() {
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "agro ai — AI-Powered Farm Intelligence Platform",
+  title: "agropioo — AI-Powered Farm Intelligence Platform",
   description:
-    "agro ai unites an AI advisor, market price intelligence, and digital farm records on one platform. Built for Pakistan.",
+    "agropioo unites an AI advisor, market price intelligence, and digital farm records on one platform. Built for Pakistan.",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "agro ai",
+    title: "agropioo",
   },
   formatDetection: {
     telephone: false,

@@ -441,7 +441,7 @@ const sdEnglishFixes = {
   'home.footer.disclaimer': 'ڊسڪليمر',
   'home.footer.contactHeading': 'رابطو ڪريو',
   'home.footer.country': 'پاکستان',
-  'home.footer.copyright': '© {year} agro ai. سڀ حقون محفوظ آهن.',
+  'home.footer.copyright': '© {year} agropioo. سڀ حقون محفوظ آهن.',
   'home.footer.motto': 'پاکستان لاءِ بڻايل · دنيا لاءِ تيار',
 };
 

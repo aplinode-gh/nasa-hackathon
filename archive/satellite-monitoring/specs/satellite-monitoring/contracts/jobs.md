@@ -143,7 +143,7 @@ jobs:
 ```
 
 **Required GitHub Actions secrets:**
-- `APP_URL` — the deployed app URL (e.g. `https://agro ai.vercel.app`)
+- `APP_URL` — the deployed app URL (e.g. `https://agropioo.vercel.app`)
 - `CRON_SECRET` — matches the `CRON_SECRET` env var in the deployment
 
 ---

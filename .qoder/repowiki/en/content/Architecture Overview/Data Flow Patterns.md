@@ -31,10 +31,10 @@
 9. Conclusion
 
 ## Introduction
-This document explains how data flows through the agro ai application between client components, Next.js API routes, and the Supabase database. It covers request/response patterns, error handling, authentication via a dual client pattern (anon vs service-role), rate limiting, verification codes, session cookies, and UI loading states. It also outlines where real-time updates could be integrated and how to implement optimistic UI safely.
+This document explains how data flows through the agropioo application between client components, Next.js API routes, and the Supabase database. It covers request/response patterns, error handling, authentication via a dual client pattern (anon vs service-role), rate limiting, verification codes, session cookies, and UI loading states. It also outlines where real-time updates could be integrated and how to implement optimistic UI safely.
 
 ## Project Structure
-agro ai is a Next.js app with:
+agropioo is a Next.js app with:
 - Client pages and components under app/(farmer) for authenticated farmer features and app/(site) for marketing pages.
 - Server-side API routes under app/api that enforce validation, rate limits, and secure database access.
 - Shared libraries under lib for HTTP helpers, Supabase clients, auth pass management, validation schemas, and code issuance.
@@ -402,4 +402,4 @@ Common issues and where to inspect:
 - [app/api/auth/forgot-password/route.ts:29-44](file://app/api/auth/forgot-password/route.ts#L29-L44)
 
 ## Conclusion
-agro ai enforces a secure, predictable data flow: client components submit validated requests to Next.js API routes, which perform rate limiting, authentication checks, and controlled database access via Supabase. Sessions and verification flows are managed through httpOnly JWT-backed passes with live state checks. Error responses are uniform, enabling robust client handling. For production readiness, integrate real-time updates carefully, adopt optimistic UI with rollback, and continue leveraging server-side guards and rate limits to protect sensitive operations.
+agropioo enforces a secure, predictable data flow: client components submit validated requests to Next.js API routes, which perform rate limiting, authentication checks, and controlled database access via Supabase. Sessions and verification flows are managed through httpOnly JWT-backed passes with live state checks. Error responses are uniform, enabling robust client handling. For production readiness, integrate real-time updates carefully, adopt optimistic UI with rollback, and continue leveraging server-side guards and rate limits to protect sensitive operations.

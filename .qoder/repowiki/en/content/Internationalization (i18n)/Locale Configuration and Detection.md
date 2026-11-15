@@ -28,10 +28,10 @@
 9. Conclusion
 
 ## Introduction
-This document explains agro ai’s locale configuration and detection system. It covers the supported locales, how translations are organized and loaded, how user language preference is determined from URL prefixes and cookies, fallback behavior when translations are missing, handling unsupported locales, and guidance for extending the system with new locales or custom detection logic. It also addresses performance considerations for locale switching and caching strategies.
+This document explains agropioo’s locale configuration and detection system. It covers the supported locales, how translations are organized and loaded, how user language preference is determined from URL prefixes and cookies, fallback behavior when translations are missing, handling unsupported locales, and guidance for extending the system with new locales or custom detection logic. It also addresses performance considerations for locale switching and caching strategies.
 
 ## Project Structure
-agro ai uses a hybrid localization strategy:
+agropioo uses a hybrid localization strategy:
 - Marketing pages use Next.js route segments under app/(site)/[locale] to produce localized URLs.
 - A lightweight proxy rewrites bare English paths internally so that /features becomes /en/features without changing the browser URL.
 - The client language switcher persists the user’s choice in a cookie and navigates to the same content path under the selected locale prefix.
@@ -302,7 +302,7 @@ Catalog --> UI
 - [next.config.ts:1-12](file://next.config.ts#L1-L12)
 
 ## Conclusion
-agro ai’s localization system centers on a clear, maintainable registry of locales, robust path parsing, and a server-side dictionary loader that blends build-time catalogs with runtime database overrides. The hybrid routing approach provides localized URLs for marketing pages while keeping the application simple. Fallbacks ensure resilience, and the client switcher offers a straightforward way for users to choose their preferred language. Extending the system involves adding a new locale entry, creating a catalog file, and optionally enabling database-driven translations.
+agropioo’s localization system centers on a clear, maintainable registry of locales, robust path parsing, and a server-side dictionary loader that blends build-time catalogs with runtime database overrides. The hybrid routing approach provides localized URLs for marketing pages while keeping the application simple. Fallbacks ensure resilience, and the client switcher offers a straightforward way for users to choose their preferred language. Extending the system involves adding a new locale entry, creating a catalog file, and optionally enabling database-driven translations.
 
 [No sources needed since this section summarizes without analyzing specific files]
 

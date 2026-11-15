@@ -21,7 +21,7 @@ export default function GlobalNotFound() {
         href="/"
         className="mt-8 inline-flex h-12 items-center justify-center rounded-lg bg-agro-canopy px-6 text-sm font-semibold text-white transition-colors hover:bg-agro-forest"
       >
-        Back to agro ai home
+        Back to agropioo home
       </Link>
     </div>
   );

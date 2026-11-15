@@ -1,1 +1,1 @@
-Next.js App Router route group that renders the authenticated farmer dashboard shell plus sign-in, OTP verify, and password-reset flows for the agro ai mobile-first web app.
+Next.js App Router route group that renders the authenticated farmer dashboard shell plus sign-in, OTP verify, and password-reset flows for the agropioo mobile-first web app.

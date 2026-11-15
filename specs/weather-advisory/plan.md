@@ -5,7 +5,7 @@
 
 ## Summary
 
-Build a weather advisory feature within the existing agro ai Next.js app that turns OpenWeatherMap forecast data into daily farming recommendations and critical alerts. Farmers register crops, sowing dates, farm area, and farm details; the system determines growth stage, fetches forecasts, generates personalized advice per farm, and delivers alerts via email and in-app notifications. Advisory history is tracked per farm.
+Build a weather advisory feature within the existing agropioo Next.js app that turns OpenWeatherMap forecast data into daily farming recommendations and critical alerts. Farmers register crops, sowing dates, farm area, and farm details; the system determines growth stage, fetches forecasts, generates personalized advice per farm, and delivers alerts via email and in-app notifications. Advisory history is tracked per farm.
 
 ## Technical Context
 

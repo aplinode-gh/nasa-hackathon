@@ -27,7 +27,7 @@
 9. Conclusion
 
 ## Introduction
-This document explains agro ai’s authentication-related UI components that power sign-in, password recovery, and OTP verification flows. It focuses on:
+This document explains agropioo’s authentication-related UI components that power sign-in, password recovery, and OTP verification flows. It focuses on:
 - Auth Shell: a reusable layout wrapper for auth screens with brand panel and form area.
 - OTP Verify: a secure, accessible 6-digit code input with auto-focus, paste handling, validation feedback, resend cooldown, and attempt limiting.
 - Stepper: a three-step progress indicator used during password recovery to communicate flow state.
@@ -400,7 +400,7 @@ Common issues and resolutions:
 - [copy.ts:4-15](file://lib/auth/copy.ts#L4-L15)
 
 ## Conclusion
-agro ai’s authentication UI separates concerns effectively:
+agropioo’s authentication UI separates concerns effectively:
 - AuthShell standardizes layout and branding across flows.
 - OtpVerify delivers a robust, accessible OTP experience with strong UX and security controls.
 - Stepper clarifies multi-step processes for users.

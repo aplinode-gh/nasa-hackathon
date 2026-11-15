@@ -1,20 +1,20 @@
-# agro ai Brand Identity
+# agropioo Brand Identity
 
 ## Parent Company
 
 **Aplinode** — [http://aplinode.com](http://aplinode.com)  
-agro ai is a child product of Aplinode, built to bring intelligent, accessible agriculture technology to farmers starting in Pakistan and expanding globally.
+agropioo is a child product of Aplinode, built to bring intelligent, accessible agriculture technology to farmers starting in Pakistan and expanding globally.
 
 ---
 
 ## Brand Essence
 
-**Name:** agro ai  
+**Name:** agropioo  
 **Category:** Smart Agriculture / AgTech / AI Farming Advisor  
 **Primary Market:** Pakistan  
 **Future Vision:** Global adaptation for local crops, climates, languages, and practices.
 
-agro ai exists at the intersection of **soil and signal** — where farmland meets data. The brand communicates:
+agropioo exists at the intersection of **soil and signal** — where farmland meets data. The brand communicates:
 
 - **Growth:** Living crops, healthy land, prosperous farmers.
 - **Intelligence:** AI recommendations grounded in local weather, history, and crop science.
@@ -26,7 +26,7 @@ agro ai exists at the intersection of **soil and signal** — where farmland mee
 
 ## Logo
 
-The agro ai logo is a single organic droplet containing three ideas:
+The agropioo logo is a single organic droplet containing three ideas:
 
 1. **A sprouting seedling** at the center — growth and agriculture.
 2. **Circuit traces** on the left — AI, data, and technology.
@@ -47,11 +47,11 @@ The droplet shape also evokes water, life, and sustenance.
 
 ## Color Palette
 
-Colors are extracted from the agro ai logo and extended into a complete, accessible system.
+Colors are extracted from the agropioo logo and extended into a complete, accessible system.
 
 ### Primary Greens
 
-These greens are the core of the agro ai identity. They should dominate the experience.
+These greens are the core of the agropioo identity. They should dominate the experience.
 
 | Token | Hex | Role |
 |-------|-----|------|
@@ -100,7 +100,7 @@ Used to ground the interface in the feeling of soil, harvest, and sun.
 
 ## Typography
 
-agro ai's typography balances **human warmth** with **technical clarity**.
+agropioo's typography balances **human warmth** with **technical clarity**.
 
 ### Typefaces
 
@@ -205,7 +205,7 @@ agro ai's typography balances **human warmth** with **technical clarity**.
 
 ## Application Checklist
 
-When creating agro ai UI or marketing materials:
+When creating agropioo UI or marketing materials:
 
 - [ ] Use the primary green palette as the dominant color family.
 - [ ] Pair a humanist serif display with a clean sans-serif body.
@@ -216,4 +216,4 @@ When creating agro ai UI or marketing materials:
 
 ---
 
-*This brand identity is derived from the agro ai logo and product documentation. Update as the product evolves.*
+*This brand identity is derived from the agropioo logo and product documentation. Update as the product evolves.*

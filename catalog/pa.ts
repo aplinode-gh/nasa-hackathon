@@ -2,7 +2,7 @@ import type { CatalogKey } from "./en.ts";
 
 /** Punjabi (پنجابی) — based on Urdu reference. RTL language. */
 export const pa: Partial<Record<CatalogKey, string>> = {
-  "nav.whyagro ai": "اگروپیو کیوں؟",
+  "nav.whyAgropioo": "اگروپیو کیوں؟",
   "nav.features": "خصوصیات",
   "nav.howItWorks": "یہ کیسے کام کرتا ہے",
   "nav.vision": "ہمارا وژن",

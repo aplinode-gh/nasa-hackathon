@@ -9,7 +9,7 @@
 - [demo-data.ts](file://app/(farmer)/(dashboard)/notifications/demo-data.ts)
 - [CoreFeatures.tsx](file://app/(site)/[locale]/sections/CoreFeatures.tsx)
 - [IntelligenceSuite.tsx](file://app/(site)/[locale]/features/sections/IntelligenceSuite.tsx)
-- [agro ai_features.md](file://docs/agro ai_features.md)
+- [agropioo_features.md](file://docs/agropioo_features.md)
 </cite>
 
 ## Table of Contents
@@ -25,7 +25,7 @@
 10. Appendices
 
 ## Introduction
-This document explains agro ai’s weather intelligence feature as implemented in the current codebase. It covers:
+This document explains agropioo’s weather intelligence feature as implemented in the current codebase. It covers:
 - Hyperlocal weather forecasting via location switching
 - Agricultural alerts and notifications tied to weather events
 - Demo data structures for weather and alerts
@@ -279,7 +279,7 @@ Recommended checks:
 - [notifications-list.tsx:32-53](file://app/(farmer)/(dashboard)/notifications/notifications-list.tsx#L32-L53)
 
 ## Conclusion
-agro ai’s weather intelligence feature currently demonstrates hyperlocal forecasting, actionable agricultural tips, and unified alerts through a clean, accessible UI built on typed demo data. The structure supports straightforward migration to live weather APIs, offline caching, and background sync to serve farmers reliably in rural areas with intermittent connectivity.
+agropioo’s weather intelligence feature currently demonstrates hyperlocal forecasting, actionable agricultural tips, and unified alerts through a clean, accessible UI built on typed demo data. The structure supports straightforward migration to live weather APIs, offline caching, and background sync to serve farmers reliably in rural areas with intermittent connectivity.
 
 [No sources needed since this section summarizes without analyzing specific files]
 
@@ -305,7 +305,7 @@ The project documentation outlines a PWA-oriented approach including service wor
 - Reducing data usage and improving resilience in spotty networks
 
 **Section sources**
-- [agro ai_features.md:345-355](file://docs/agro ai_features.md#L345-L355)
+- [agropioo_features.md:345-355](file://docs/agropioo_features.md#L345-L355)
 
 ### Accessibility Notes
 - Semantic headings and landmarks improve screen reader navigation.

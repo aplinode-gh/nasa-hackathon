@@ -30,7 +30,7 @@
 10. Appendices
 
 ## Introduction
-This document explains agro ai’s JWT-based authentication system end-to-end: user registration, email verification via a shared OTP screen, password-only login with 7-day sessions, and a three-step password recovery flow. It covers the custom pass-based authentication using jose for JWTs, bcryptjs for password hashing, Supabase for user storage, secure cookie handling, rate limiting, guard functions for route protection, and how to implement protected routes and handle authentication state in React components.
+This document explains agropioo’s JWT-based authentication system end-to-end: user registration, email verification via a shared OTP screen, password-only login with 7-day sessions, and a three-step password recovery flow. It covers the custom pass-based authentication using jose for JWTs, bcryptjs for password hashing, Supabase for user storage, secure cookie handling, rate limiting, guard functions for route protection, and how to implement protected routes and handle authentication state in React components.
 
 ## Project Structure
 The authentication system is implemented as Next.js App Router Route Handlers under app/api/auth, supported by reusable libraries in lib/auth and lib/validation, and a shared OTP UI component. Server-side guards live in layouts and handler choke points. The database schema is managed through Supabase migrations.
@@ -409,7 +409,7 @@ Common issues and resolutions:
 - [otp-verify.tsx:168-184](file://components/auth/otp-verify.tsx#L168-L184)
 
 ## Conclusion
-agro ai’s authentication system combines state-backed JWTs, secure cookies, robust rate limiting, and strict pass isolation to deliver a secure, user-friendly experience. The shared OTP screen streamlines verification for both signup and password recovery, while guards and middleware ensure consistent protection across pages and APIs. The design supports multiple simultaneous sessions, safe logout behavior, and strong enumeration resistance.
+agropioo’s authentication system combines state-backed JWTs, secure cookies, robust rate limiting, and strict pass isolation to deliver a secure, user-friendly experience. The shared OTP screen streamlines verification for both signup and password recovery, while guards and middleware ensure consistent protection across pages and APIs. The design supports multiple simultaneous sessions, safe logout behavior, and strong enumeration resistance.
 
 [No sources needed since this section summarizes without analyzing specific files]
 

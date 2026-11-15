@@ -25,7 +25,7 @@
 9. [Conclusion](#conclusion)
 
 ## Introduction
-This document specifies the agro ai login endpoint POST /api/auth/login. It covers request validation, password verification with timing-safe comparison, dual-path authentication for verified and unverified accounts, rate limiting by IP and email, JWT session cookie management, verification code issuance for unverified users, redirect behavior, error handling patterns, and security considerations such as dummy hash usage to prevent enumeration.
+This document specifies the agropioo login endpoint POST /api/auth/login. It covers request validation, password verification with timing-safe comparison, dual-path authentication for verified and unverified accounts, rate limiting by IP and email, JWT session cookie management, verification code issuance for unverified users, redirect behavior, error handling patterns, and security considerations such as dummy hash usage to prevent enumeration.
 
 ## Project Structure
 The login endpoint is implemented as a Next.js Route Handler that:

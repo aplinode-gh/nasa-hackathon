@@ -1,6 +1,6 @@
 schema_version: 1
 module_path: app/shared_components
-title: agro ai Shared UI Components
+title: agropioo Shared UI Components
 scope:
     - components/
 source_files: []

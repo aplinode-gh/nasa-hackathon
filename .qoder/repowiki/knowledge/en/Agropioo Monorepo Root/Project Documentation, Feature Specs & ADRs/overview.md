@@ -1,1 +1,1 @@
-Central repository for the agro ai project's design docs, per-feature spec/plan/research artifacts following a Spec-Driven Development workflow, and architectural decision records.
+Central repository for the agropioo project's design docs, per-feature spec/plan/research artifacts following a Spec-Driven Development workflow, and architectural decision records.

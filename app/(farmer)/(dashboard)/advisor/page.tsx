@@ -3,7 +3,7 @@ import AdvisorChat from "./advisor-chat";
 import { getAdvisorBundle, getAppLocale } from "@/lib/i18n/server";
 
 export const metadata: Metadata = {
-  title: "Advisor — agro ai",
+  title: "Advisor — agropioo",
 };
 
 interface AdvisorPageProps {

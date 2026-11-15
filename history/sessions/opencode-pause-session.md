@@ -56,228 +56,228 @@ Here is the complete inventory of all marketing/landing page files in this proje
 
 ## 1. HOME PAGE (Landing Page Entry Point)
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\page.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\page.tsx`**
 - Server component: the home page entry. Loads locale/dictionary, checks optional session, renders `HomeContent`.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\home-content.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\home-content.tsx`**
 - Client-side assembly of the full landing page. Composes: `SiteHeader`, `Hero`, `CapabilityTicker`, `Problem`, `Solution`, `CoreFeatures`, `FeatureMatrix`, `FarmerJourney`, `Vision`, `TargetUsers`, `CTA`, `Footer`.
 
 ---
 
 ## 2. MARKETING SITE LAYOUT & PAGES
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\layout.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\layout.tsx`**
 - Root layout for all marketing pages. Sets `<html lang/dir>`, theme color metadata, renders `SuggestionChip` for English-only visitors, and `OfflineProviders`.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\why-agro ai\page.tsx`**
-- "Why agro ai" landing page. Sections: WhyHero, Origin, Differentiators, Lifecycle, ValueProp, WhoFor, CTA, Footer.
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\why-agropioo\page.tsx`**
+- "Why agropioo" landing page. Sections: WhyHero, Origin, Differentiators, Lifecycle, ValueProp, WhoFor, CTA, Footer.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\features\page.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\features\page.tsx`**
 - "Features" landing page. Sections: FeaturesHero, IntelligenceSuite, FieldAndMarket, VoiceAccess, ManageGrow, CTA, Footer. References "VoiceAccess" -- voice and AI feature demos.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\how-it-works\page.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\how-it-works\page.tsx`**
 - "How It Works" landing page. Sections: HiwHero, SetupFarm, AskFlow, GuidanceEngine, RecordRemember, SeasonLoop, CTA, Footer.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\vision\page.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\vision\page.tsx`**
 - "Vision" landing page. Sections: VisionHero, Beliefs, Horizons, Outcomes, Principles, CTA, Footer.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\[...rest]\page.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\[...rest]\page.tsx`**
 - Catch-all route: returns `notFound()` for any unmatched locale-prefixed path.
 
 ---
 
 ## 3. HOME PAGE SECTIONS (shared home page building blocks)
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\sections\Hero.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\Hero.tsx`**
 - Main hero with headline, subtitle, CTA buttons, farmer image, and animated reading cards (crop health 92%, weather 24C, soil 65%).
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\sections\CapabilityTicker.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\CapabilityTicker.tsx`**
 - Scrolling marquee ticker listing: Crop Doctor, Mandi Prices, Weather Advisories, Farm Records, Advisory Languages, Pest Alerts, Offline SMS.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\sections\Problem.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\Problem.tsx`**
 - Dark-background "Why" section listing three farmer problems on dark forest background.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\sections\Solution.tsx`**
-- Three solution cards with icons, each answering a question about what agro ai does.
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\Solution.tsx`**
+- Three solution cards with icons, each answering a question about what agropioo does.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\sections\CoreFeatures.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\CoreFeatures.tsx`**
 - **KEY FILE** -- Four feature cards with demo content:
   - **AI Agriculture Advisor** card with mock chat conversation (user asks about wheat leaves, advisor responds with causes). Contains `"Module 01"` badge text and a voice input mock button. Has "Roman Urdu" badge label.
   - **Digital Farm Record** card showing irrigation/fertiliser/pesticide log entries.
   - **Guidance in your language** card with 7 Pakistani languages in RTL.
   - **Weather-Aware Guidance** card with 5-day forecast mock.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\sections\FeatureMatrix.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\FeatureMatrix.tsx`**
 - Three-tier feature comparison matrix (T1/T2/T3) showing progressive feature unlock tiers.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\sections\FarmerJourney.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\FarmerJourney.tsx`**
 - Six-step numbered timeline showing the farmer's journey from setup through harvest.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\sections\Vision.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\Vision.tsx`**
 - Two-column layout: "Pakistan first" card (green bg) and "Ready for the world" card (dark bg).
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\sections\TargetUsers.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\TargetUsers.tsx`**
 - Three cards showing target user segments with icons.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\sections\CTA.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\CTA.tsx`**
 - Dark CTA section with email signup form.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\sections\CtaForm.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\CtaForm.tsx`**
 - Client-side email capture form (used in CTA sections).
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\sections\Footer.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\Footer.tsx`**
 - Full site footer with logo, social icons (FB, IG, X, LinkedIn, YouTube), page links, legal links, contact info, copyright.
 
 ---
 
 ## 4. FEATURES PAGE SECTIONS
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\features\sections\FeaturesHero.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\features\sections\FeaturesHero.tsx`**
 - Hero for features page. Contains mock dashboard tiles and a "Voice Ready" badge with language list.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\features\sections\IntelligenceSuite.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\features\sections\IntelligenceSuite.tsx`**
 - Four AI feature cards:
   - **AI Crop Doctor** -- mock disease detection with leaf illustration, disease name, match score, severity.
   - **Pest Outbreak Prediction** -- bar chart mock showing pest risk peaking on Saturday.
   - **Weather-Aware Advisory** -- irrigation delay advisory with rain alert and water-saved metric (~35%).
   - **Crop Recommendation** -- ranked crop list with scores (wheat 92, rice 78, cotton 65).
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\features\sections\FieldAndMarket.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\features\sections\FieldAndMarket.tsx`**
 - Three cards: Satellite NDVI heatmap mock, Mandi Price Predictor trend chart, Profit/Loss ledger mock.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\features\sections\VoiceAccess.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\features\sections\VoiceAccess.tsx`**
 - **KEY FILE** -- Dark-background section with:
   - Voice chatbot mock (user sends message, advisor replies) with voice input button.
   - Phone call mode mock (greeting, heard, call-ended transcript).
   - Offline + SMS fallback mock (network offline, queued message, SMS delivery stamp).
   - Six Urdu-script language chips.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\features\sections\ManageGrow.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\features\sections\ManageGrow.tsx`**
 - Four cards: Farm Record diary timeline, Government Scheme matcher checklist, Carbon Credits (CO2 + credit value), Community Forum mock thread.
 
 ---
 
 ## 5. HOW-IT-WORKS PAGE SECTIONS
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\how-it-works\sections\HiwHero.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\how-it-works\sections\HiwHero.tsx`**
 - Hero with step-route map (6 numbered stops connected by dashed lines).
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\how-it-works\sections\SetupFarm.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\how-it-works\sections\SetupFarm.tsx`**
 - Step 01: Farm setup mock showing district, crop, sowing date, land size fields.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\how-it-works\sections\AskFlow.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\how-it-works\sections\AskFlow.tsx`**
 - Step 02: Question pipeline mock -- user question checked against crop, district, weather, history context chips, then AI answer.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\how-it-works\sections\GuidanceEngine.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\how-it-works\sections\GuidanceEngine.tsx`**
 - Step 03: Four-check guidance engine (weather, precision, local knowledge, language) plus safety disclaimer.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\how-it-works\sections\RecordRemember.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\how-it-works\sections\RecordRemember.tsx`**
 - Step 04: Farm recorder mock with quick-action chips (Irrigation, Fertiliser, etc.) and saved records list.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\how-it-works\sections\SeasonLoop.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\how-it-works\sections\SeasonLoop.tsx`**
 - Step 05: Circular SVG diagram showing the season loop (Ask -> Guidance -> Record -> Learn -> Improve).
 
 ---
 
-## 6. WHY-agro ai PAGE SECTIONS
+## 6. WHY-agropioo PAGE SECTIONS
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\why-agro ai\sections\WhyHero.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\why-agropioo\sections\WhyHero.tsx`**
 - Hero with SVG furrow/soil illustration, seedling droplet, circuit traces, "SOIL SIGNAL SEASON DATA" labels.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\why-agro ai\sections\Origin.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\why-agropioo\sections\Origin.tsx`**
 - Dark section showing three gap cards (time, data, global) on dark background.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\why-agro ai\sections\Differentiators.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\why-agropioo\sections\Differentiators.tsx`**
 - Six cards: Personalised AI, Languages (6 Urdu-script chips), Farm Memory, Weather-Aware, One Platform, Pakistan-First banner.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\why-agro ai\sections\Lifecycle.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\why-agropioo\sections\Lifecycle.tsx`**
 - (Not read -- lifecycle/season story section.)
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\why-agro ai\sections\ValueProp.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\why-agropioo\sections\ValueProp.tsx`**
 - (Not read -- value proposition section.)
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\why-agro ai\sections\WhoFor.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\why-agropioo\sections\WhoFor.tsx`**
 - (Not read -- target audience section.)
 
 ---
 
 ## 7. VISION PAGE SECTIONS
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\vision\sections\VisionHero.tsx`**, **`Beliefs.tsx`**, **`Horizons.tsx`**, **`Outcomes.tsx`**, **`Principles.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\vision\sections\VisionHero.tsx`**, **`Beliefs.tsx`**, **`Horizons.tsx`**, **`Outcomes.tsx`**, **`Principles.tsx`**
 - Vision page sub-sections (not individually read).
 
 ---
 
 ## 8. NAVIGATION / HEADER COMPONENTS
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\components\SiteHeader.tsx`**
-- **Primary marketing site header** (used on all site pages). Sticky header with logo image, nav links (Why agro ai, Features, How It Works, Vision), language switcher, Sign In / Sign Up / Get Early Access buttons. Mobile sidebar drawer with same links + session-aware state.
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\SiteHeader.tsx`**
+- **Primary marketing site header** (used on all site pages). Sticky header with logo image, nav links (Why agropioo, Features, How It Works, Vision), language switcher, Sign In / Sign Up / Get Early Access buttons. Mobile sidebar drawer with same links + session-aware state.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\components\Nav.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\Nav.tsx`**
 - **Legacy/alternate nav** (older version). Fixed header with Logo, Features link, How it works link, Get early access CTA. Mobile hamburger menu.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\components\Logo.tsx`**
-- Logo component: renders `/logo.png` image + "agro ai" text in brand font.
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\Logo.tsx`**
+- Logo component: renders `/logo.png` image + "agropioo" text in brand font.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\components\language-switcher.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\language-switcher.tsx`**
 - Client-side language switcher dropdown. Lists all 8 locales with native names, persists choice to cookie, triggers full page reload for locale switch.
 
 ---
 
 ## 9. FOOTER / CTA COMPONENTS
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\components\Footer.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\Footer.tsx`**
 - **Legacy footer** (used by old Hero/Features/Journey components). Simple footer with logo, links, Aplinode credit.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\components\FinalCta.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\FinalCta.tsx`**
 - **Legacy CTA section** with dark forest background, "Be first in the field" headline, EarlyAccessForm.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\components\EarlyAccessForm.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\EarlyAccessForm.tsx`**
 - Client-side email capture form with validation, success state. Used in the legacy FinalCta.
 
 ---
 
 ## 10. MARKETING / DEMO CONTENT COMPONENTS
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\components\Hero.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\Hero.tsx`**
 - **Legacy hero section** (used by old landing page). "AI Agriculture Advisor" badge, "Ask anything about your crop" headline, logo illustration with FurrowMotif, "Launching first in Pakistan - Six local languages" text.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\components\Features.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\Features.tsx`**
 - **Legacy features section** with four cards: AI Agriculture Advisor (mock chat: "When should I irrigate my wheat?"), Digital Farm Record (7 activity chips), Guidance in your language (6 languages), Weather-Aware Guidance (delay irrigation advisory).
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\components\Journey.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\Journey.tsx`**
 - **Legacy how-it-works section** with 4 numbered steps (Add farm, Ask AI, Get guidance, Record activity).
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\components\PakistanFirst.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\PakistanFirst.tsx`**
 - **Legacy Pakistan-first section** with "Built for Pakistan. Ready for the world." headline and 6 language chips.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\components\FurrowMotif.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\FurrowMotif.tsx`**
 - Decorative SVG motif of agricultural furrow rows, used in Hero and FinalCta. Two tones: "field" (colored) and "ghost" (white/transparent).
 
 ---
 
 ## 11. LOCALE / I18N SUPPORT COMPONENTS
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\components\set-html-attributes.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\set-html-attributes.tsx`**
 - Client component that sets `<html lang>` and `<html dir>` for RTL support.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\components\suggestion-chip.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\suggestion-chip.tsx`**
 - One-time dismissible "View in Urdu" chip at the bottom of English pages (spec FR-20).
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\components\latin-inline.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\latin-inline.tsx`**
 - Bidi isolation wrapper for Latin text fragments within RTL content.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\components\icons.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\components\icons.tsx`**
 - Shared SVG icon set used across all marketing and app components.
 
 ---
 
 ## 12. AUTH PAGES (Marketing Funnel)
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\login\page.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\login\page.tsx`**
 - Login page with LanguageSwitcher, error messages, and login form.
 
-**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\signup\page.tsx`**
+**`C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\signup\page.tsx`**
 - Signup page with LanguageSwitcher, profile mock showing "Roman Urdu" as language value, and multi-step form.
 
 ---
@@ -412,7 +412,7 @@ The farmer app lives in two route groups:
 
 ### 1. `/onboarding` — `app/(farmer)/onboarding/page.tsx`
 - **Not a multi-step onboarding.** It is a single-page language picker: 8 language buttons (en, ur, pa, ps, sd, sk, bal, hi), a "Continue as {language}" button.
-- On continue it writes the choice to `localStorage` (`agro ai-language`) and does `router.replace("/dashboard")`. No farm creation, no profile step.
+- On continue it writes the choice to `localStorage` (`agropioo-language`) and does `router.replace("/dashboard")`. No farm creation, no profile step.
 - Pure client component; no DB writes; language is NOT persisted to the account.
 
 ### 2. `/dashboard` — `app/(farmer)/(dashboard)/dashboard/page.tsx` + `dashboard-view.tsx`
@@ -516,13 +516,13 @@ Let me read the key files to understand what's in them. Let me start with the ho
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\app\\(site)\\[locale]\\sections\\CoreFeatures.tsx"
+  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\app\\(site)\\[locale]\\sections\\CoreFeatures.tsx"
 }
 ```
 
 **Output:**
 ```
-<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\sections\CoreFeatures.tsx</path>
+<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\CoreFeatures.tsx</path>
 <type>file</type>
 <content>
 1: import { localized } from "@/lib/i18n/localized";
@@ -826,13 +826,13 @@ Let me read the key files to understand what's in them. Let me start with the ho
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\app\\(site)\\[locale]\\home-content.tsx"
+  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\app\\(site)\\[locale]\\home-content.tsx"
 }
 ```
 
 **Output:**
 ```
-<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\home-content.tsx</path>
+<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\home-content.tsx</path>
 <type>file</type>
 <content>
 1: import SiteHeader from "@/components/SiteHeader";
@@ -910,14 +910,14 @@ Given the size, let me read the catalog en.ts home.features section.
 ```json
 {
   "pattern": "home.features.",
-  "path": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\catalog\\en.ts"
+  "path": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\catalog\\en.ts"
 }
 ```
 
 **Output:**
 ```
 Found 100 matches (more matches available)
-C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\bal.ts:
+C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\bal.ts:
   Line 65:   "home.features.eyebrow": "پلیٹ فارم کے اندر",
 
   Line 66:   "home.features.titleA": "متعدد انجن،",
@@ -1005,7 +1005,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\bal
   Line 107:   "home.features.moreLink": "پلیٹ فارم مسلسل بڑھ رہا ہے — مکمل صلاحیتوں کا مجموعہ دیکھیں",
 
 
-C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\hno.ts:
+C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\hno.ts:
   Line 65:   "home.features.eyebrow": "پلیٹ فارم کے اندر",
 
   Line 66:   "home.features.titleA": "متعدد انجن،",
@@ -1093,7 +1093,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\hno
   Line 107:   "home.features.moreLink": "پلیٹ فارم مسلسل بڑھ رہا ہے — مکمل صلاحیتوں کا مجموعہ دیکھیں",
 
 
-C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\en.ts:
+C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\en.ts:
   Line 67:   "home.features.eyebrow": "Inside the platform",
 
   Line 68:   "home.features.titleA": "Multiple engines,",
@@ -1110,7 +1110,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\en.
 
   Line 74:   "home.features.advisorBadge": "Roman Urdu",
 
-  Line 75:   "home.features.advisorMockAria": "Example conversation with the agro ai advisor about yellowing wheat leaves",
+  Line 75:   "home.features.advisorMockAria": "Example conversation with the agropioo advisor about yellowing wheat leaves",
 
   Line 76:   "home.features.advisorUserMsg": "Meri gandum ki pattiyan peeli ho rahi hain — kya karoon?",
 
@@ -1197,7 +1197,7 @@ The user says "isme ai man voice se realted cheezen hata do" = remove AI-voice-r
 
 Given the significant scope and the constitution's emphasis, I think I should ask ONE clarifying question about scope before making large changes across many pages. The user wants me to reconcile everything, which is a big rewrite. Let me confirm the specific set of built features to feature and whether to keep the multi-page structure.
 
-Actually, let me just proceed — the user has been clear and direct. I'll make the changes systematically. But this is genuinely large (home + features + how-it-works + why-agro ai + vision across many section files + 9 catalog files + Neon translations per the constitution).
+Actually, let me just proceed — the user has been clear and direct. I'll make the changes systematically. But this is genuinely large (home + features + how-it-works + why-agropioo + vision across many section files + 9 catalog files + Neon translations per the constitution).
 
 Hmm, the constitution requires translation keys for all 8 locales in the Neon `translations` table for new strings. That's a big requirement. But given the user is asking for a marketing reconciliation and the strings largely exist, I'll update catalogs and note the Neon sync.
 
@@ -1222,13 +1222,13 @@ Actually, let me just get to work on the clear-cut home page items the user expl
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\app\\(site)\\[locale]\\sections\\Hero.tsx"
+  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\app\\(site)\\[locale]\\sections\\Hero.tsx"
 }
 ```
 
 **Output:**
 ```
-<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\sections\Hero.tsx</path>
+<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\Hero.tsx</path>
 <type>file</type>
 <content>
 1: import Image from "next/image";
@@ -1382,13 +1382,13 @@ Actually, let me just get to work on the clear-cut home page items the user expl
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\app\\(site)\\[locale]\\sections\\CapabilityTicker.tsx"
+  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\app\\(site)\\[locale]\\sections\\CapabilityTicker.tsx"
 }
 ```
 
 **Output:**
 ```
-<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\sections\CapabilityTicker.tsx</path>
+<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\CapabilityTicker.tsx</path>
 <type>file</type>
 <content>
 1: import { localized } from "@/lib/i18n/localized";
@@ -1455,13 +1455,13 @@ Actually, let me just get to work on the clear-cut home page items the user expl
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\app\\(site)\\[locale]\\sections\\Solution.tsx"
+  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\app\\(site)\\[locale]\\sections\\Solution.tsx"
 }
 ```
 
 **Output:**
 ```
-<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\sections\Solution.tsx</path>
+<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\Solution.tsx</path>
 <type>file</type>
 <content>
 1: import { localized } from "@/lib/i18n/localized";
@@ -1585,7 +1585,7 @@ Let me ask a focused question.
 {
   "questions": [
     {
-      "question": "Isko poori tarah reconcile karna hai (home + features + how-it-works + why-agro ai + vision saari pages), ya pehle sirf home page par focus karein? Built features (Weather, Pest, Crops, Profit/Loss, Prices predictions/alerts, Detect) ko UI mein laana hai — but how detailed?",
+      "question": "Isko poori tarah reconcile karna hai (home + features + how-it-works + why-agropioo + vision saari pages), ya pehle sirf home page par focus karein? Built features (Weather, Pest, Crops, Profit/Loss, Prices predictions/alerts, Detect) ko UI mein laana hai — but how detailed?",
       "header": "Scope of changes",
       "options": [
         {
@@ -1594,7 +1594,7 @@ Let me ask a focused question.
         },
         {
           "label": "Saari pages ek saath",
-          "description": "Home + features + how-it-works + why-agro ai + vision sab ek saath update karein."
+          "description": "Home + features + how-it-works + why-agropioo + vision sab ek saath update karein."
         },
         {
           "label": "Sirf voice/Roman Urdu hatao",
@@ -1608,7 +1608,7 @@ Let me ask a focused question.
 
 **Output:**
 ```
-User has answered your questions: "Isko poori tarah reconcile karna hai (home + features + how-it-works + why-agro ai + vision saari pages), ya pehle sirf home page par focus karein? Built features (Weather, Pest, Crops, Profit/Loss, Prices predictions/alerts, Detect) ko UI mein laana hai — but how detailed?"="home page sab se pehle aur brand color theme wagira chnage nhi karana". You can now continue with the user's answers in mind.
+User has answered your questions: "Isko poori tarah reconcile karna hai (home + features + how-it-works + why-agropioo + vision saari pages), ya pehle sirf home page par focus karein? Built features (Weather, Pest, Crops, Profit/Loss, Prices predictions/alerts, Detect) ko UI mein laana hai — but how detailed?"="home page sab se pehle aur brand color theme wagira chnage nhi karana". You can now continue with the user's answers in mind.
 ```
 
 ---
@@ -1653,7 +1653,7 @@ Let me read the home.features and home.ticker catalog en.ts section fully.
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\catalog\\en.ts",
+  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\catalog\\en.ts",
   "offset": 60,
   "limit": 130
 }
@@ -1661,7 +1661,7 @@ Let me read the home.features and home.ticker catalog en.ts section fully.
 
 **Output:**
 ```
-<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\en.ts</path>
+<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\en.ts</path>
 <type>file</type>
 <content>
 60:   "home.solution.card1Answer": "Clear, specific advice for this field, this week.",
@@ -1679,7 +1679,7 @@ Let me read the home.features and home.ticker catalog en.ts section fully.
 72:   "home.features.advisorTitle": "AI agriculture advisor",
 73:   "home.features.advisorTopics": "Irrigation · fertiliser · pest & disease · harvest",
 74:   "home.features.advisorBadge": "Roman Urdu",
-75:   "home.features.advisorMockAria": "Example conversation with the agro ai advisor about yellowing wheat leaves",
+75:   "home.features.advisorMockAria": "Example conversation with the agropioo advisor about yellowing wheat leaves",
 76:   "home.features.advisorUserMsg": "Meri gandum ki pattiyan peeli ho rahi hain — kya karoon?",
 77:   "home.features.advisorReplyTitle": "Peeli pattiyan — do common causes:",
 78:   "home.features.advisorReplyCause1": "Water stress",
@@ -1789,7 +1789,7 @@ Let me read the home.features and home.ticker catalog en.ts section fully.
 182:   "home.users.tagline": "Designed for farmers first — growing with the ecosystem",
 183:   "home.cta.eyebrow": "Early access",
 184:   "home.cta.title": "Bring your farm onto the platform",
-185:   "home.cta.subtitle": "Join the farmers making better decisions with agro ai — starting in Pakistan, growing worldwide.",
+185:   "home.cta.subtitle": "Join the farmers making better decisions with agropioo — starting in Pakistan, growing worldwide.",
 186:   "home.cta.success": "You're on the list. We'll be in touch when your region opens.",
 187:   "home.cta.emailLabel": "Email address",
 188:   "home.cta.fineprint": "No spam. Unsubscribe anytime.",
@@ -1854,13 +1854,13 @@ Let me read the remaining home files and catalog keys. Let me read FeatureMatrix
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\app\\(site)\\[locale]\\sections\\FeatureMatrix.tsx"
+  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\app\\(site)\\[locale]\\sections\\FeatureMatrix.tsx"
 }
 ```
 
 **Output:**
 ```
-<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\sections\FeatureMatrix.tsx</path>
+<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\FeatureMatrix.tsx</path>
 <type>file</type>
 <content>
 1: import { localized } from "@/lib/i18n/localized";
@@ -2008,13 +2008,13 @@ Let me read the remaining home files and catalog keys. Let me read FeatureMatrix
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\app\\(site)\\[locale]\\sections\\FarmerJourney.tsx"
+  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\app\\(site)\\[locale]\\sections\\FarmerJourney.tsx"
 }
 ```
 
 **Output:**
 ```
-<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\app\(site)\[locale]\sections\FarmerJourney.tsx</path>
+<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\app\(site)\[locale]\sections\FarmerJourney.tsx</path>
 <type>file</type>
 <content>
 1: import { localized } from "@/lib/i18n/localized";
@@ -2091,7 +2091,7 @@ Let me read the remaining home files and catalog keys. Let me read FeatureMatrix
 **Input:**
 ```json
 {
-  "path": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\catalog\\en.ts",
+  "path": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\catalog\\en.ts",
   "pattern": "home.ticker."
 }
 ```
@@ -2099,7 +2099,7 @@ Let me read the remaining home files and catalog keys. Let me read FeatureMatrix
 **Output:**
 ```
 Found 64 matches
-C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\bal.ts:
+C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\bal.ts:
   Line 33:   "home.ticker.ariaLabel": "اگروپیو پلیٹ فارم کی صلاحیتیں",
 
   Line 34:   "home.ticker.cropDoctor": "اے آئی فصل ڈاکٹر",
@@ -2117,8 +2117,8 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\bal
   Line 41:   "home.ticker.offlineSms": "آف لائن سہولت + ایس ایم ایس",
 
 
-C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\en.ts:
-  Line 36:   "home.ticker.ariaLabel": "agro ai platform capabilities",
+C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\en.ts:
+  Line 36:   "home.ticker.ariaLabel": "agropioo platform capabilities",
 
   Line 37:   "home.ticker.cropDoctor": "AI crop doctor",
 
@@ -2135,7 +2135,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\en.
   Line 43:   "home.ticker.offlineSms": "Offline-first + SMS",
 
 
-C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\hno.ts:
+C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\hno.ts:
   Line 33:   "home.ticker.ariaLabel": "اگروپیو پلیٹ فارم کی صلاحیتیں",
 
   Line 34:   "home.ticker.cropDoctor": "اے آئی فصل ڈاکٹر",
@@ -2153,7 +2153,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\hno
   Line 41:   "home.ticker.offlineSms": "آف لائن سہولت + ایس ایم ایس",
 
 
-C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\ps.ts:
+C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\ps.ts:
   Line 33:   "home.ticker.ariaLabel": "اګروپیو پلیټفارم توانایي",
 
   Line 34:   "home.ticker.cropDoctor": "AI د کشت ډاکټر",
@@ -2171,7 +2171,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\ps.
   Line 41:   "home.ticker.offlineSms": "آفلاین + SMS",
 
 
-C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\pa.ts:
+C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\pa.ts:
   Line 33:   "home.ticker.ariaLabel": "اگروپیو پلیٹ فارم کی صلاحیتیں",
 
   Line 34:   "home.ticker.cropDoctor": "اے آئی فصل ڈاکٹر",
@@ -2189,8 +2189,8 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\pa.
   Line 41:   "home.ticker.offlineSms": "آف لائن سہولت + ایس ایم ایس",
 
 
-C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\sd.ts:
-  Line 33:   "home.ticker.ariaLabel": "agro ai پليٽ فارم جا قابلية",
+C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\sd.ts:
+  Line 33:   "home.ticker.ariaLabel": "agropioo پليٽ فارم جا قابلية",
 
   Line 34:   "home.ticker.cropDoctor": "AI فصل ڊاڪٽر",
 
@@ -2207,7 +2207,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\sd.
   Line 41:   "home.ticker.offlineSms": "آفلاين پهرين + SMS",
 
 
-C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\skr.ts:
+C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\skr.ts:
   Line 32:   "home.ticker.ariaLabel": "اگروپیو پلیٹ فارم دیاں صلاحیتیں",
 
   Line 33:   "home.ticker.cropDoctor": "اے آئی فصل ڈاکٹر",
@@ -2225,7 +2225,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\skr
   Line 40:   "home.ticker.offlineSms": "آف لائن سہولت + ایس ایم ایس",
 
 
-C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\ur.ts:
+C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\ur.ts:
   Line 33:   "home.ticker.ariaLabel": "اگروپیو پلیٹ فارم کی صلاحیتیں",
 
   Line 34:   "home.ticker.cropDoctor": "اے آئی فصل ڈاکٹر",
@@ -2432,7 +2432,7 @@ Let me grep for home.hero.* and home.problem.*.
 **Input:**
 ```json
 {
-  "path": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\catalog\\en.ts",
+  "path": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\catalog\\en.ts",
   "pattern": "home.hero\\.|home.problem\\.|home.ticker\\."
 }
 ```
@@ -2440,7 +2440,7 @@ Let me grep for home.hero.* and home.problem.*.
 **Output:**
 ```
 Found 100 matches (more matches available)
-C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\en.ts:
+C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\en.ts:
   Line 24:   "home.hero.eyebrow": "AI-powered farm intelligence platform",
 
   Line 25:   "home.hero.titleLead": "Intelligence For",
@@ -2451,7 +2451,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\en.
 
   Line 28:   "home.hero.ctaSecondary": "See how it works",
 
-  Line 29:   "home.hero.imageAlt": "Farmer using agro ai on a tablet in the field",
+  Line 29:   "home.hero.imageAlt": "Farmer using agropioo on a tablet in the field",
 
   Line 30:   "home.hero.readingCrop": "Crop health",
 
@@ -2465,7 +2465,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\en.
 
   Line 35:   "home.hero.noteOptimal": "Optimal",
 
-  Line 36:   "home.ticker.ariaLabel": "agro ai platform capabilities",
+  Line 36:   "home.ticker.ariaLabel": "agropioo platform capabilities",
 
   Line 37:   "home.ticker.cropDoctor": "AI crop doctor",
 
@@ -2502,7 +2502,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\en.
   Line 53:   "home.problem.kicker": "The cost of guessing is paid at harvest",
 
 
-C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\ps.ts:
+C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\ps.ts:
   Line 21:   "home.hero.eyebrow": "مصنوعی هوښه پر بڼه د ځمکی هوښه پلیټفارم",
 
   Line 22:   "home.hero.titleLead": "تر اټکل لپاره",
@@ -2564,7 +2564,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\ps.
   Line 51:   "home.problem.kicker": "د ډاګه نقصان په ټولونګي کې ادایي شي",
 
 
-C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\ur.ts:
+C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\ur.ts:
   Line 21:   "home.hero.eyebrow": "مصنوعی ذہانت پر مبنی فارم انٹیلیجنس پلیٹ فارم",
 
   Line 22:   "home.hero.titleLead": "اسمارٹ کاشتکاری کے لیے",
@@ -2626,7 +2626,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\ur.
   Line 51:   "home.problem.kicker": "اندازے کی قیمت کٹائی پر چکتی ہے",
 
 
-C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\hno.ts:
+C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\hno.ts:
   Line 21:   "home.hero.eyebrow": "مصنوعی ذہانت پر مبنی فارم انٹیلیجنس پلیٹ فارم",
 
   Line 22:   "home.hero.titleLead": "اسمارٹ کاشتکاری کے لیے",
@@ -2988,7 +2988,7 @@ Let me check the coverage test and one locale file to understand translation req
 
 **Output:**
 ```
-C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\scripts\check-coverage.cjs
+C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\scripts\check-coverage.cjs
 ```
 
 **Tool: read**
@@ -2996,7 +2996,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\scripts\che
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\catalog\\ur.ts",
+  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\catalog\\ur.ts",
   "limit": 130,
   "offset": 20
 }
@@ -3004,7 +3004,7 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\scripts\che
 
 **Output:**
 ```
-<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\ur.ts</path>
+<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\ur.ts</path>
 <type>file</type>
 <content>
 20:   "common.productOfAplinode": "اپلینوڈ کی پروڈکٹ",
@@ -3161,13 +3161,13 @@ Let me check the coverage test and the sync script quickly.
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\scripts\\check-coverage.cjs"
+  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\scripts\\check-coverage.cjs"
 }
 ```
 
 **Output:**
 ```
-<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\scripts\check-coverage.cjs</path>
+<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\scripts\check-coverage.cjs</path>
 <type>file</type>
 <content>
 1: const fs = require('fs');
@@ -3217,8 +3217,8 @@ Let me check the coverage test and the sync script quickly.
 
 **Output:**
 ```
-C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\scripts\sync-translations.mts
-C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\scripts\sync-locale-keys.cjs
+C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\scripts\sync-translations.mts
+C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\scripts\sync-locale-keys.cjs
 ```
 
 ---
@@ -3230,13 +3230,13 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\scripts\syn
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\scripts\\sync-translations.mts"
+  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\scripts\\sync-translations.mts"
 }
 ```
 
 **Output:**
 ```
-<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\scripts\sync-translations.mts</path>
+<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\scripts\sync-translations.mts</path>
 <type>file</type>
 <content>
 1: /**
@@ -3326,13 +3326,13 @@ C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\scripts\syn
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\scripts\\sync-locale-keys.cjs"
+  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\scripts\\sync-locale-keys.cjs"
 }
 ```
 
 **Output:**
 ```
-<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\scripts\sync-locale-keys.cjs</path>
+<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\scripts\sync-locale-keys.cjs</path>
 <type>file</type>
 <content>
 1: const fs = require('fs');
@@ -3450,7 +3450,7 @@ Let me do these edits one by one with the edit tool. I must have read en.ts alre
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\catalog\\en.ts",
+  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\catalog\\en.ts",
   "limit": 45,
   "offset": 20
 }
@@ -3458,11 +3458,11 @@ Let me do these edits one by one with the edit tool. I must have read en.ts alre
 
 **Output:**
 ```
-<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agro ai-hackathon\catalog\en.ts</path>
+<path>C:\Users\User\OneDrive\Desktop\Ali-Baba-Halathon-3\agropioo-hackathon\catalog\en.ts</path>
 <type>file</type>
 <content>
 20:   "notFound.body": "The page you are looking for does not exist or may have moved.",
-21:   "notFound.backHome": "Back to agro ai home",
+21:   "notFound.backHome": "Back to agropioo home",
 22:   "common.builtForPakistan": "Built for Pakistan",
 23:   "common.productOfAplinode": "A product of Aplinode",
 24:   "home.hero.eyebrow": "AI-powered farm intelligence platform",
@@ -3470,14 +3470,14 @@ Let me do these edits one by one with the edit tool. I must have read en.ts alre
 26:   "home.hero.titleAccent": "Smarter Farming",
 27:   "home.hero.subtitle": "One platform that unites an AI advisor, satellite monitoring, market prices, and your farm's records — turning data into clear decisions, in the language you speak.",
 28:   "home.hero.ctaSecondary": "See how it works",
-29:   "home.hero.imageAlt": "Farmer using agro ai on a tablet in the field",
+29:   "home.hero.imageAlt": "Farmer using agropioo on a tablet in the field",
 30:   "home.hero.readingCrop": "Crop health",
 31:   "home.hero.readingWeather": "Weather",
 32:   "home.hero.readingSoil": "Soil moisture",
 33:   "home.hero.noteExcellent": "Excellent",
 34:   "home.hero.noteClearSky": "Clear sky",
 35:   "home.hero.noteOptimal": "Optimal",
-36:   "home.ticker.ariaLabel": "agro ai platform capabilities",
+36:   "home.ticker.ariaLabel": "agropioo platform capabilities",
 37:   "home.ticker.cropDoctor": "AI crop doctor",
 38:   "home.ticker.mandiPrices": "Mandi price intelligence",
 39:   "home.ticker.weatherAdvisories": "Weather-aware advisories",
@@ -3534,7 +3534,7 @@ Now I'll update the English catalog. Starting with the hero subtitle (remove sat
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\catalog\\en.ts",
+  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\catalog\\en.ts",
   "oldString": "\"home.hero.subtitle\": \"One platform that unites an AI advisor, satellite monitoring, market prices, and your farm's records — turning data into clear decisions, in the language you speak.\",",
   "newString": "\"home.hero.subtitle\": \"One platform that unites an AI crop advisor, disease detection, mandi prices, and weather and pest alerts — turning your farm's records into clear decisions, in the language you speak.\","
 }
@@ -3554,7 +3554,7 @@ Edit applied successfully.
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\catalog\\en.ts",
+  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\catalog\\en.ts",
   "newString": "\"home.ticker.pestAlerts\": \"Pest outbreak alerts\",\n  \"home.ticker.cropRecommendation\": \"Crop recommendations\",\n  \"home.ticker.profitLoss\": \"Profit & loss ledger\",",
   "oldString": "\"home.ticker.pestAlerts\": \"Pest outbreak alerts\",\n  \"home.ticker.offlineSms\": \"Offline-first + SMS\","
 }
@@ -3576,9 +3576,9 @@ Now the advisor card — remove the Roman Urdu badge, remove voice references, m
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\catalog\\en.ts",
-  "newString": "\"home.features.advisorTopics\": \"Irrigation · fertiliser · pest & disease · harvest\",\n  \"home.features.advisorMockAria\": \"Example conversation with the agro ai advisor about yellowing wheat leaves\",\n  \"home.features.advisorUserMsg\": \"My wheat leaves are turning yellow — what should I do?\",\n  \"home.features.advisorReplyTitle\": \"Yellowing leaves — two common causes:\",\n  \"home.features.advisorReplyCause1\": \"Water stress\",\n  \"home.features.advisorReplyCause1Rest\": \"— irrigate in the cool hours, before 9 AM.\",\n  \"home.features.advisorReplyCause2\": \"Nitrogen shortage\",\n  \"home.features.advisorReplyCause2Rest\": \"— check the oldest leaves first; feed urea if needed.\",\n  \"home.features.advisorReplyFooter\": \"If you see yellow streaks under the leaves, send a photo — I'll diagnose the disease for you.\",\n  \"home.features.advisorInputPlaceholder\": \"Type your question…\",",
-  "oldString": "\"home.features.advisorTopics\": \"Irrigation · fertiliser · pest & disease · harvest\",\n  \"home.features.advisorBadge\": \"Roman Urdu\",\n  \"home.features.advisorMockAria\": \"Example conversation with the agro ai advisor about yellowing wheat leaves\",\n  \"home.features.advisorUserMsg\": \"Meri gandum ki pattiyan peeli ho rahi hain — kya karoon?\",\n  \"home.features.advisorReplyTitle\": \"Peeli pattiyan — do common causes:\",\n  \"home.features.advisorReplyCause1\": \"Water stress\",\n  \"home.features.advisorReplyCause1Rest\": \"— irrigate in the cool hours, before 9 AM.\",\n  \"home.features.advisorReplyCause2\": \"Nitrogen shortage\",\n  \"home.features.advisorReplyCause2Rest\": \"— check the oldest leaves first; feed urea if needed.\",\n  \"home.features.advisorReplyFooter\": \"Agar pattiyon ke neeche peeli dhariyan nazar aayein, photo bhejein — main bimari ki tashkhees kar dunga.\",\n  \"home.features.advisorInputPlaceholder\": \"Apna sawal likhein ya bolein…\","
+  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\catalog\\en.ts",
+  "newString": "\"home.features.advisorTopics\": \"Irrigation · fertiliser · pest & disease · harvest\",\n  \"home.features.advisorMockAria\": \"Example conversation with the agropioo advisor about yellowing wheat leaves\",\n  \"home.features.advisorUserMsg\": \"My wheat leaves are turning yellow — what should I do?\",\n  \"home.features.advisorReplyTitle\": \"Yellowing leaves — two common causes:\",\n  \"home.features.advisorReplyCause1\": \"Water stress\",\n  \"home.features.advisorReplyCause1Rest\": \"— irrigate in the cool hours, before 9 AM.\",\n  \"home.features.advisorReplyCause2\": \"Nitrogen shortage\",\n  \"home.features.advisorReplyCause2Rest\": \"— check the oldest leaves first; feed urea if needed.\",\n  \"home.features.advisorReplyFooter\": \"If you see yellow streaks under the leaves, send a photo — I'll diagnose the disease for you.\",\n  \"home.features.advisorInputPlaceholder\": \"Type your question…\",",
+  "oldString": "\"home.features.advisorTopics\": \"Irrigation · fertiliser · pest & disease · harvest\",\n  \"home.features.advisorBadge\": \"Roman Urdu\",\n  \"home.features.advisorMockAria\": \"Example conversation with the agropioo advisor about yellowing wheat leaves\",\n  \"home.features.advisorUserMsg\": \"Meri gandum ki pattiyan peeli ho rahi hain — kya karoon?\",\n  \"home.features.advisorReplyTitle\": \"Peeli pattiyan — do common causes:\",\n  \"home.features.advisorReplyCause1\": \"Water stress\",\n  \"home.features.advisorReplyCause1Rest\": \"— irrigate in the cool hours, before 9 AM.\",\n  \"home.features.advisorReplyCause2\": \"Nitrogen shortage\",\n  \"home.features.advisorReplyCause2Rest\": \"— check the oldest leaves first; feed urea if needed.\",\n  \"home.features.advisorReplyFooter\": \"Agar pattiyon ke neeche peeli dhariyan nazar aayein, photo bhejein — main bimari ki tashkhees kar dunga.\",\n  \"home.features.advisorInputPlaceholder\": \"Apna sawal likhein ya bolein…\","
 }
 ```
 
@@ -3598,7 +3598,7 @@ Now update the language card description (remove "speak") and add new card keys 
 **Input:**
 ```json
 {
-  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agro ai-hackathon\\catalog\\en.ts",
+  "filePath": "C:\\Users\\User\\OneDrive\\Desktop\\Ali-Baba-Halathon-3\\agropioo-hackathon\\catalog\\en.ts",
   "newString": "\"home.features.languageDesc\": \"Type the way you speak — no technical English required.\",",
   "oldString": "\"home.features.languageDesc\": \"Speak or type the way you think — no technical English required.\","
 }

@@ -2,7 +2,7 @@ import type { CatalogKey } from "./en.ts";
 
 /** اردو — AI-drafted, founder-reviewed copy (plan D4). */
 export const ur: Partial<Record<CatalogKey, string>> = {
-  "nav.whyagro ai": "اگروپیو کیوں؟",
+  "nav.whyAgropioo": "اگروپیو کیوں؟",
   "nav.features": "خصوصیات",
   "nav.howItWorks": "یہ کیسے کام کرتا ہے",
   "nav.vision": "ہمارا وژن",

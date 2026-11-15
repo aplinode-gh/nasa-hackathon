@@ -1,4 +1,4 @@
-# agro ai — Built Feature Overview
+# agropioo — Built Feature Overview
 
 > **Project type:** Software-Only (no IoT, no hardware)
 > **Approach:** API-driven, AI/ML-powered, full-stack Next.js — Route Handlers only, no separate backend.
@@ -217,7 +217,7 @@ historical incidence, with escalation-aware alerts.
 
 ## Demo Flow (built features only)
 
-> "Meet Ali, a wheat farmer in Punjab. He opens agro ai on his phone..."
+> "Meet Ali, a wheat farmer in Punjab. He opens agropioo on his phone..."
 
 1. Picks Urdu at signup → onboards in Urdu → adds farm by drawing it on the map.
 2. Dashboard shows "What to do today": irrigate now; wheat at tillering stage.

@@ -7,7 +7,7 @@ import { type GrowthStage, type Severity } from "@/lib/weather/advisory";
 import FarmSelector from "@/components/weather/FarmSelector";
 import HistoryList, { type HistoryItem } from "@/components/weather/HistoryList";
 
-export const metadata: Metadata = { title: "Advisory history — agro ai" };
+export const metadata: Metadata = { title: "Advisory history — agropioo" };
 
 type FarmRow = { id: string; name: string; primary_crop: string | null; crops: string[]; location: string; district: string };
 

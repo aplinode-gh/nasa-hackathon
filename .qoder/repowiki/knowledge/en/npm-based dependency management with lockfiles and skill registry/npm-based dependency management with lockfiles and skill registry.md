@@ -32,7 +32,7 @@ For AI "skills" (documentation bundles consumed by Claude/Claude Code), the repo
 - **Single-root monorepo**: All application code shares one `package.json`; there are no per-package manifests or workspaces configured.
 - **Version strategy**: Runtime deps use caret ranges for patch/minor updates (e.g. `^5.9.1`, `^2.112.3`), while framework-level packages like `next` and `react` are pinned to exact versions to avoid breaking changes. Dev tooling similarly uses caret ranges.
 - **Lockfile-first**: The committed `package-lock.json` is the source of truth for installed versions; developers should regenerate it via `npm install` rather than hand-editing.
-- **No private registries or scoped packages**: No `.npmrc`, no `@agro ai/*` scope, no `GOPRIVATE` equivalents — all packages resolve against the public npm registry.
+- **No private registries or scoped packages**: No `.npmrc`, no `@agropioo/*` scope, no `GOPRIVATE` equivalents — all packages resolve against the public npm registry.
 - **No vendoring**: Dependencies are never checked into `node_modules/`; only the lockfile is versioned.
 - **Separation of concerns**: Tooling/editor dependencies under `.opencode/` are fully decoupled from the app's dependency graph.
 

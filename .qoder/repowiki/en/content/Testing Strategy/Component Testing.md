@@ -27,10 +27,10 @@
 10. [Appendices](#appendices)
 
 ## Introduction
-This document provides a comprehensive component testing guide for the agro ai Next.js application. It focuses on testing UI components, form components, and layout components using Vitest as the test runner and React testing utilities compatible with Next.js. It also covers mocking strategies for context providers, hooks, and external dependencies; examples for user interactions, state changes, and rendering; and guidelines for responsive behavior, accessibility, internationalization, server/client/mixed component architectures.
+This document provides a comprehensive component testing guide for the agropioo Next.js application. It focuses on testing UI components, form components, and layout components using Vitest as the test runner and React testing utilities compatible with Next.js. It also covers mocking strategies for context providers, hooks, and external dependencies; examples for user interactions, state changes, and rendering; and guidelines for responsive behavior, accessibility, internationalization, server/client/mixed component architectures.
 
 ## Project Structure
-agro ai uses Vitest for tests and currently includes unit tests under lib and catalog directories. The project contains several interactive client components (marked "use client") that require browser-like environments for DOM and navigation APIs during tests.
+agropioo uses Vitest for tests and currently includes unit tests under lib and catalog directories. The project contains several interactive client components (marked "use client") that require browser-like environments for DOM and navigation APIs during tests.
 
 ```mermaid
 graph TB

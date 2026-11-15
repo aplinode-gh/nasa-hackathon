@@ -84,7 +84,7 @@ describe("localeHref", () => {
 
 describe("switchedPathname", () => {
   it("re-slugs prefixed paths and never navigates home (FR-6)", () => {
-    expect(switchedPathname("/skr/why-agro ai", "en")).toBe("/why-agro ai");
+    expect(switchedPathname("/skr/why-agropioo", "en")).toBe("/why-agropioo");
     expect(switchedPathname("/ur/features", "sd")).toBe("/sd/features");
     expect(switchedPathname("/ur", "ps")).toBe("/ps");
   });

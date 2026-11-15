@@ -26,10 +26,10 @@
 10. Appendices
 
 ## Introduction
-This document explains the build configuration for agro ai, focusing on Next.js settings, PostCSS and Tailwind CSS integration, TypeScript compilation, ESLint rules, performance optimizations, asset bundling strategies, debugging techniques for build failures, and internationalization build-time considerations. It is intended to help developers understand how the project is built, how to customize it safely, and how to troubleshoot common issues.
+This document explains the build configuration for agropioo, focusing on Next.js settings, PostCSS and Tailwind CSS integration, TypeScript compilation, ESLint rules, performance optimizations, asset bundling strategies, debugging techniques for build failures, and internationalization build-time considerations. It is intended to help developers understand how the project is built, how to customize it safely, and how to troubleshoot common issues.
 
 ## Project Structure
-agro ai uses a modern Next.js 16 setup with:
+agropioo uses a modern Next.js 16 setup with:
 - A minimal Next.js configuration enabling an experimental routing feature for global not-found handling.
 - PostCSS configured to use the official Tailwind v4 plugin.
 - TypeScript configured with strict mode, path aliases, and incremental builds.
@@ -275,7 +275,7 @@ Common build issues and resolutions:
 - [postcss.config.mjs:1-8](file://postcss.config.mjs#L1-L8)
 
 ## Conclusion
-agro ai’s build configuration is intentionally minimal and focused:
+agropioo’s build configuration is intentionally minimal and focused:
 - Next.js experimental features enable robust routing behavior for localized apps.
 - PostCSS with Tailwind v4 delivers responsive utilities without heavy configuration.
 - TypeScript and ESLint enforce quality and performance best practices.

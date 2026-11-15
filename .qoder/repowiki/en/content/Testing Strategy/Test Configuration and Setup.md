@@ -27,10 +27,10 @@
 9. Conclusion
 
 ## Introduction
-This document explains how agro ai’s testing environment is configured and used with Vitest. It covers configuration options, environment setup, dependency mocking strategies, test organization and naming conventions, running tests, and guidance for continuous integration, reporting, and debugging. Where applicable, it references the actual files that implement or demonstrate these patterns.
+This document explains how agropioo’s testing environment is configured and used with Vitest. It covers configuration options, environment setup, dependency mocking strategies, test organization and naming conventions, running tests, and guidance for continuous integration, reporting, and debugging. Where applicable, it references the actual files that implement or demonstrate these patterns.
 
 ## Project Structure
-agro ai uses a Node-based Vitest setup with path aliases to simplify imports in tests. Tests are colocated next to their source modules using the .test.ts suffix and follow a consistent describe/it structure. The project includes unit tests for authentication logic, i18n formatting and routing logic, validation schemas, and catalog integrity checks.
+agropioo uses a Node-based Vitest setup with path aliases to simplify imports in tests. Tests are colocated next to their source modules using the .test.ts suffix and follow a consistent describe/it structure. The project includes unit tests for authentication logic, i18n formatting and routing logic, validation schemas, and catalog integrity checks.
 
 ```mermaid
 graph TB
@@ -332,6 +332,6 @@ Common issues and resolutions:
 - [rate-limit.test.ts:1-6](file://lib/auth/rate-limit.test.ts#L1-L6)
 
 ## Conclusion
-agro ai’s test suite is built around deterministic, fast, and isolated unit tests using Vitest in a Node environment. The configuration is minimal but effective, with clear include patterns and path aliases. Existing tests cover critical domains such as authentication logic, pass tokens, rate limiting, i18n, validation, and catalog integrity. By following the established patterns—explicit time inputs, environment-driven secrets, and colocated .test.ts files—you can extend coverage confidently and integrate smoothly into CI pipelines.
+agropioo’s test suite is built around deterministic, fast, and isolated unit tests using Vitest in a Node environment. The configuration is minimal but effective, with clear include patterns and path aliases. Existing tests cover critical domains such as authentication logic, pass tokens, rate limiting, i18n, validation, and catalog integrity. By following the established patterns—explicit time inputs, environment-driven secrets, and colocated .test.ts files—you can extend coverage confidently and integrate smoothly into CI pipelines.
 
 [No sources needed since this section summarizes without analyzing specific files]

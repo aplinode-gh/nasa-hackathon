@@ -5,14 +5,14 @@ export function Logo({ compact = false }: { compact?: boolean }) {
     <span className="inline-flex items-center gap-2.5">
       <Image
         src="/logo.png"
-        alt="agro ai logo"
+        alt="agropioo logo"
         width={36}
         height={36}
         className="h-9 w-9 object-contain"
       />
       {!compact && (
         <span className="font-display text-xl font-semibold tracking-tight text-agro-forest">
-          agro ai
+          agropioo
         </span>
       )}
     </span>

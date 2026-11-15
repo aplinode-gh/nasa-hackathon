@@ -15,7 +15,7 @@ SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USER=your-email@example.com
 SMTP_PASS=your-app-password
-SMTP_FROM=AgriPioo Notifications <no-reply@agro ai.pk>
+SMTP_FROM=AgriPioo Notifications <no-reply@agropioo.pk>
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 PRICES_CRON_SECRET=your-prices-ingest-bearer-token
 ```

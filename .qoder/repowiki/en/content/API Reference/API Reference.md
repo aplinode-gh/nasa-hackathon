@@ -33,7 +33,7 @@
 10. Appendices
 
 ## Introduction
-This document provides a comprehensive API reference for agro ai’s RESTful endpoints, focusing on authentication and account management flows: login, logout, signup, forgot password, code verification, password reset, and health check. It specifies HTTP methods, URL patterns, request/response schemas, headers, status codes, error formats, rate limiting policies, security considerations, input validation rules, and client implementation guidance for JavaScript/TypeScript applications.
+This document provides a comprehensive API reference for agropioo’s RESTful endpoints, focusing on authentication and account management flows: login, logout, signup, forgot password, code verification, password reset, and health check. It specifies HTTP methods, URL patterns, request/response schemas, headers, status codes, error formats, rate limiting policies, security considerations, input validation rules, and client implementation guidance for JavaScript/TypeScript applications.
 
 ## Project Structure
 The API is implemented as Next.js Route Handlers under app/api. Authentication endpoints are grouped by feature (auth, health). Shared utilities handle HTTP responses, validation schemas, rate limiting, pass/token handling, and code issuance/delivery.
@@ -526,7 +526,7 @@ Health["/api/health"] --> H["http.ts"]
 - [pass.ts:1-264](file://lib/auth/pass.ts#L1-L264)
 
 ## Conclusion
-agro ai’s authentication API provides a robust, secure, and consistent set of endpoints for user onboarding, verification, and session management. It enforces strong input validation, rate limiting, and secure token handling while maintaining predictable error responses and safe defaults for unknown entities. Clients should implement resilient error handling, respect rate limits, and manage cookies appropriately for seamless user experiences.
+agropioo’s authentication API provides a robust, secure, and consistent set of endpoints for user onboarding, verification, and session management. It enforces strong input validation, rate limiting, and secure token handling while maintaining predictable error responses and safe defaults for unknown entities. Clients should implement resilient error handling, respect rate limits, and manage cookies appropriately for seamless user experiences.
 
 [No sources needed since this section summarizes without analyzing specific files]
 

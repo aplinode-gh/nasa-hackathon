@@ -36,7 +36,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-2 border-t border-agro-sprout/60 pt-6 text-xs text-agro-slate sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 agro ai. Built for farmers.</p>
+          <p>© 2026 agropioo. Built for farmers.</p>
           <p>Made for farmers.</p>
         </div>
       </div>

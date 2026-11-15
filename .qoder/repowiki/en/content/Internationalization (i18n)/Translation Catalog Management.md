@@ -23,7 +23,7 @@
 10. Appendices
 
 ## Introduction
-This document explains how agro ai manages translation catalogs for multiple languages. It covers the catalog structure, key naming conventions, nested object usage, interpolation patterns, and best practices for adding and maintaining translations across English, Urdu, Punjabi, Sindhi, Saraiki, Balochi, Hindko, and Pashto. It also provides guidance on pluralization considerations and quality maintenance.
+This document explains how agropioo manages translation catalogs for multiple languages. It covers the catalog structure, key naming conventions, nested object usage, interpolation patterns, and best practices for adding and maintaining translations across English, Urdu, Punjabi, Sindhi, Saraiki, Balochi, Hindko, and Pashto. It also provides guidance on pluralization considerations and quality maintenance.
 
 ## Project Structure
 The translation system is organized under a single catalog directory with one file per language plus a central index that aggregates them. The English file acts as the source of truth and defines the complete set of keys. Other language files map those same keys to localized strings. A script synchronizes the catalog into a database so runtime content can be edited without redeploying code.
@@ -122,7 +122,7 @@ Examples of categories present in the English catalog include:
 - How-it-works pages and steps
 - Features detail tiles and mock UI strings
 - Vision beliefs, horizons, outcomes, principles
-- Why-agro ai page sections
+- Why-agropioo page sections
 - Authentication and account creation flows
 
 **Section sources**
@@ -225,7 +225,7 @@ Common issues and resolutions:
 - [scripts/sync-translations.mts](file://scripts/sync-translations.mts)
 
 ## Conclusion
-agro ai’s translation system is built around a clear source-of-truth model with strong typing and automated synchronization. By following the key naming conventions, mirroring keys across languages, and using placeholders for dynamic content, teams can maintain high-quality, consistent translations at scale. Regular syncs and coverage checks help ensure that both development and runtime experiences remain reliable.
+agropioo’s translation system is built around a clear source-of-truth model with strong typing and automated synchronization. By following the key naming conventions, mirroring keys across languages, and using placeholders for dynamic content, teams can maintain high-quality, consistent translations at scale. Regular syncs and coverage checks help ensure that both development and runtime experiences remain reliable.
 
 [No sources needed since this section summarizes without analyzing specific files]
 

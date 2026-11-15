@@ -2,7 +2,7 @@ import type { CatalogKey } from "./en.ts";
 
 /** Balochi (بلۏچی) — based on Urdu reference. RTL language. */
 export const bal: Partial<Record<CatalogKey, string>> = {
-  "nav.whyagro ai": "اگروپیو کیوں؟",
+  "nav.whyAgropioo": "اگروپیو کیوں؟",
   "nav.features": "خصوصیات",
   "nav.howItWorks": "یہ کیسے کام کرتا ہے",
   "nav.vision": "ہمارا وژن",

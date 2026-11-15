@@ -1,4 +1,4 @@
-﻿import "server-only";
+import "server-only";
 
 import { cache } from "react";
 import { cookies } from "next/headers";
@@ -1140,7 +1140,7 @@ export async function getAppControlBundle(): Promise<AppControlBundle> {
 /** Flat prop bundle for the client SiteHeader (functions can't cross the RSC boundary). */
 export function siteHeaderStrings(t: Translator) {
   return {
-    whyagro ai: t("nav.whyagro ai").text,
+    whyAgropioo: t("nav.whyAgropioo").text,
     features: t("nav.features").text,
     howItWorks: t("nav.howItWorks").text,
     vision: t("nav.vision").text,
