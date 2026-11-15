@@ -13,8 +13,10 @@ from typing import Any, AsyncIterator
 from agents import (
     Agent,
     AsyncOpenAI,
+    InputGuardrailTripwireTriggered,
     ModelSettings,
     OpenAIChatCompletionsModel,
+    OutputGuardrailTripwireTriggered,
     RunConfig,
     Runner,
     set_tracing_disabled,
@@ -160,5 +162,15 @@ async def stream_sdk_agent(
         if not isinstance(output, str):
             output = str(output)
         yield {"type": "done", "output": output}
+    except InputGuardrailTripwireTriggered:
+        yield {
+            "type": "error",
+            "message": "I'm here to help with farming questions. How can I assist with your crops or farm?",
+        }
+    except OutputGuardrailTripwireTriggered:
+        yield {
+            "type": "error",
+            "message": "Advisor service is temporarily unavailable. Please try again in a moment.",
+        }
     except Exception as err:
         yield {"type": "error", "message": str(err)}

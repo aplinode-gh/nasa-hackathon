@@ -496,7 +496,7 @@ def build_app_control_tools(account_id: str) -> dict[str, Tool]:
         ),
         plain(
             "handoff_to_advisor",
-            "Transfer the farmer to the Agropioo Advisor for detailed crop or disease advice.",
+            "Transfer the farmer to the AgroAI Advisor for detailed crop or disease advice.",
             _schema({}),
             _handoff,
         ),

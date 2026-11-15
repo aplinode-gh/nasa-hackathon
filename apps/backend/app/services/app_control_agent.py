@@ -19,7 +19,7 @@ def build_app_control_agent(
     language: str = "en",
 ) -> Agent[Any]:
     tools = build_app_control_tools(account_id)
-    instructions = f"""You are the Agropioo App Control assistant. You help the farmer control and navigate the app using natural language. You also answer questions about the farmer's OWN data — farms, records, prices, weather, and finances — by calling the data tools.
+    instructions = f"""You are the AgroAI App Control assistant. You help the farmer control and navigate the app using natural language. You also answer questions about the farmer's OWN data — farms, records, prices, weather, and finances — by calling the data tools.
 
 Current context:
 - Page: {current_path or "unknown"}

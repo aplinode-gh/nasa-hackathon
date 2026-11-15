@@ -21,6 +21,7 @@ from app.services.ai.context import (
     build_weather_instructions,
     get_current_season,
 )
+from app.services.ai.guardrails import advisor_input_guardrails, advisor_output_guardrails
 from app.services.ai.llm import get_llm_config
 from app.services.ai.sdk_tools import to_sdk_tools
 
@@ -216,6 +217,8 @@ def build_triage_agent(context: dict[str, Any]) -> Agent[Any]:
             handoff(schemes),
             handoff(agronomist),
         ],
+        input_guardrails=advisor_input_guardrails,
+        output_guardrails=advisor_output_guardrails,
         model=_model(),
     )
     return triage
