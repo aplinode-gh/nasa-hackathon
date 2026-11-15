@@ -22,9 +22,9 @@ from app.services.advisor import (
     generate_and_save_summary,
     load_conversation_history,
 )
-from app.services.advisors import build_advisor_agents, build_farmer_context
-from app.services.ai.agent import stream_agent
+from app.services.advisors import build_farmer_context, build_triage_agent
 from app.services.ai.guardrails import check_input_allowed, finalize_output, sanitize_input
+from app.services.ai.sdk_runtime import stream_sdk_agent
 
 router = APIRouter(prefix="/advisor", tags=["advisor"])
 
@@ -214,7 +214,7 @@ async def advisor_chat(request: Request, session: dict = Depends(require_session
 
         history_text = await load_conversation_history(conversation_id)
         context = await build_farmer_context(session["accountId"], conversation_id, history_text)
-        agents = build_advisor_agents(context)
+        triage_agent = build_triage_agent(context)
         now = datetime.now(timezone.utc)
 
         async def event_stream() -> AsyncIterator[bytes]:
@@ -253,7 +253,7 @@ async def advisor_chat(request: Request, session: dict = Depends(require_session
                 opening = json.dumps({"type": "conversation", "id": conversation_id})
                 yield f"data: {opening}\n\n".encode("utf-8")
 
-                async for event in stream_agent(agents, "Triage", message, history_text):
+                async for event in stream_sdk_agent(triage_agent, message, history=history_text):
                     event_type = event.get("type")
                     if event_type == "text":
                         accumulated += str(event.get("delta") or "")

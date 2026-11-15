@@ -1,13 +1,15 @@
-"""Advisor agent definitions and triage wiring."""
+"""Advisor agent definitions and triage wiring (OpenAI Agents SDK)."""
 
 from __future__ import annotations
 
 from datetime import datetime
 from typing import Any
 
+from agents import Agent, handoff
+
 from app.core.serialization import parse_json_field
 from app.db.session import query, query_one
-from app.services.ai.agent import AgentDef
+from app.services.advisor_tools import build_advisor_tools
 from app.services.ai.context import (
     build_crop_advisor_instructions,
     build_crop_recommendation_instructions,
@@ -19,7 +21,8 @@ from app.services.ai.context import (
     build_weather_instructions,
     get_current_season,
 )
-from app.services.advisor_tools import build_advisor_tools
+from app.services.ai.llm import get_llm_config
+from app.services.ai.sdk_tools import to_sdk_tools
 
 AGENT_KEYS = {
     "Crop Advisor": "crop_advisor",
@@ -100,110 +103,119 @@ async def build_farmer_context(
     }
 
 
-def build_advisor_agents(context: dict[str, Any]) -> dict[str, AgentDef]:
+def _model() -> str:
+    return get_llm_config().model
+
+
+def build_triage_agent(context: dict[str, Any]) -> Agent[Any]:
+    """Build the triage agent with specialist handoffs (Agents SDK)."""
     tools = build_advisor_tools(context["accountId"])
 
-    crop_advisor = AgentDef(
+    crop_advisor = Agent(
         name="Crop Advisor",
         instructions=build_crop_advisor_instructions(),
-        tools=[tools["search_knowledge_base"]],
+        tools=to_sdk_tools([tools["search_knowledge_base"]]),
         handoff_description=(
             "Handles crop diseases, pests, agronomy, fertilizer, seed treatment, irrigation scheduling, "
             "vegetables, fruits, pulses, and basic livestock health."
         ),
+        model=_model(),
     )
-    crop_recommendation = AgentDef(
+    crop_recommendation = Agent(
         name="Crop Recommendation Advisor",
         instructions=build_crop_recommendation_instructions(),
-        tools=[
-            tools["get_my_farms"],
-            tools["get_farm_details"],
-            tools["check_soil_crop_fit"],
-            tools["get_weather"],
-            tools["get_weather_forecast"],
-            tools["get_market_prices"],
-            tools["get_crop_candidates"],
-            tools["search_knowledge_base"],
-        ],
+        tools=to_sdk_tools(
+            [
+                tools["get_my_farms"],
+                tools["get_farm_details"],
+                tools["check_soil_crop_fit"],
+                tools["get_weather"],
+                tools["get_weather_forecast"],
+                tools["get_market_prices"],
+                tools["get_crop_candidates"],
+                tools["search_knowledge_base"],
+            ]
+        ),
         handoff_description=(
             "Handles what to plant, crop selection, seasonal planting advice, and crop rotation planning "
             "based on farm data, weather, and market prices."
         ),
+        model=_model(),
     )
-    weather = AgentDef(
+    weather = Agent(
         name="Weather Advisor",
         instructions=build_weather_instructions(),
-        tools=[tools["get_weather"], tools["get_weather_forecast"]],
+        tools=to_sdk_tools([tools["get_weather"], tools["get_weather_forecast"]]),
         handoff_description=(
             "Handles weather forecasts, rain, temperature, humidity, and spray windows for any district in Pakistan."
         ),
+        model=_model(),
     )
-    farm_data = AgentDef(
+    farm_data = Agent(
         name="Farm Data Advisor",
         instructions=build_farm_data_instructions(),
-        tools=[
-            tools["get_my_farms"],
-            tools["get_my_records"],
-            tools["get_farm_details"],
-            tools["check_soil_crop_fit"],
-            tools["get_my_weather_records"],
-            tools["get_my_farm_weather"],
-            tools["get_my_seasons"],
-            tools["get_season_expenses"],
-            tools["get_profit_loss_summary"],
-            tools["get_my_crop_recommendations"],
-            tools["get_farm_plan"],
-            tools["search_knowledge_base"],
-        ],
+        tools=to_sdk_tools(
+            [
+                tools["get_my_farms"],
+                tools["get_my_records"],
+                tools["get_farm_details"],
+                tools["check_soil_crop_fit"],
+                tools["get_my_weather_records"],
+                tools["get_my_farm_weather"],
+                tools["get_my_seasons"],
+                tools["get_season_expenses"],
+                tools["get_profit_loss_summary"],
+                tools["get_my_crop_recommendations"],
+                tools["get_farm_plan"],
+                tools["search_knowledge_base"],
+            ]
+        ),
         handoff_description=(
             "Handles the farmer's own farms, records, planting history, costs, live weather at their farms, "
             "profit/loss, and saved crop plans."
         ),
+        model=_model(),
     )
-    prices = AgentDef(
+    prices = Agent(
         name="Prices Advisor",
         instructions=build_prices_instructions(),
-        tools=[tools["get_market_prices"]],
+        tools=to_sdk_tools([tools["get_market_prices"]]),
         handoff_description="Handles mandi prices, market rates, crop selling advice, and price trends.",
+        model=_model(),
     )
-    schemes = AgentDef(
+    schemes = Agent(
         name="Schemes Advisor",
         instructions=build_schemes_instructions(),
-        tools=[tools["search_knowledge_base"]],
+        tools=to_sdk_tools([tools["search_knowledge_base"]]),
         handoff_description=(
             "Handles government schemes, subsidies, Kissan Card, loans, crop insurance, and support programs."
         ),
+        model=_model(),
     )
-    handoff = AgentDef(
+    agronomist = Agent(
         name="Agronomist Handoff",
         instructions=build_handoff_instructions(),
+        tools=[],
         handoff_description=(
             "Handles cases where the AI cannot confidently answer: complex disease identification, unknown symptoms, "
             "safety-critical dosages, or explicit requests for a human expert."
         ),
-    )
-    triage = AgentDef(
-        name="Triage",
-        instructions=build_triage_instructions(context),
-        tools=[tools["search_knowledge_base"], tools["search_past_conversations"]],
-        handoffs=[
-            "Crop Advisor",
-            "Crop Recommendation Advisor",
-            "Weather Advisor",
-            "Farm Data Advisor",
-            "Prices Advisor",
-            "Schemes Advisor",
-            "Agronomist Handoff",
-        ],
+        model=_model(),
     )
 
-    return {
-        crop_advisor.name: crop_advisor,
-        crop_recommendation.name: crop_recommendation,
-        weather.name: weather,
-        farm_data.name: farm_data,
-        prices.name: prices,
-        schemes.name: schemes,
-        handoff.name: handoff,
-        triage.name: triage,
-    }
+    triage = Agent(
+        name="Triage",
+        instructions=build_triage_instructions(context),
+        tools=to_sdk_tools([tools["search_knowledge_base"], tools["search_past_conversations"]]),
+        handoffs=[
+            handoff(crop_advisor),
+            handoff(crop_recommendation),
+            handoff(weather),
+            handoff(farm_data),
+            handoff(prices),
+            handoff(schemes),
+            handoff(agronomist),
+        ],
+        model=_model(),
+    )
+    return triage

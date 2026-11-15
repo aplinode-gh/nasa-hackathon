@@ -18,9 +18,10 @@ from app.core.http import error_response, read_json_body, success
 from app.core.serialization import parse_json_field, to_jsonable
 from app.db.session import execute, query, query_one
 from app.models.detect import CreateDetectChatRequest, DetectChatRequest, SaveScanRequest
-from app.services.ai.agent import AgentDef, stream_agent
 from app.services.ai.llm import get_llm_config, llm_configured
+from app.services.ai.sdk_runtime import stream_sdk_agent
 from app.services.detect import diagnose_image, fallback_chat_reply
+from agents import Agent
 
 router = APIRouter(prefix="/detect", tags=["detect"])
 
@@ -390,18 +391,17 @@ async def detect_chat(request: Request, session: dict = Depends(require_session)
             "Give practical, safe advice. Be concise. Do not invent lab results."
         )
 
-        agent = AgentDef(
+        agent = Agent(
             name="Detect",
             instructions=system_prompt,
             model=get_llm_config("detect").model,
         )
-        agents = {"Detect": agent}
 
         async def event_stream() -> AsyncIterator[bytes]:
             accumulated = ""
             try:
                 if llm_configured("detect"):
-                    async for event in stream_agent(agents, "Detect", message, history_text):
+                    async for event in stream_sdk_agent(agent, message, history=history_text, feature="detect"):
                         if event.get("type") == "text":
                             delta = str(event.get("delta") or "")
                             accumulated += delta
