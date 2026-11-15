@@ -1,18 +1,39 @@
-# NasaHackathon — Agropioo UI
+# NasaHackathon — AgroAI UI
 
-Agropioo farm-intelligence interface and API, presented as part of the
+AgroAI farm-intelligence interface and API, presented as part of the
 **NASA Space Apps Challenge**. The frontend is a Next.js app that proxies
-`/api` requests to a FastAPI backend; the backend owns the database schema,
-profit/loss calculator, disease detection, and pest forecasting modules.
-Screens still render built-in empty/fallback states when the backend is
-unavailable.
+`/api` requests to a FastAPI backend; the backend owns auth, database access,
+profit/loss, disease detection, pest forecasting, and other feature APIs.
 
-The interface is adapted from the Agropioo platform by Sheikh Mohammad Ahmed
-and Mustafa Shahzad (Aplinode). Run it with:
+## Local development (frontend + backend)
 
-```sh
-npx nx dev frontend
-```
+1. **Backend (FastAPI)**
+   ```sh
+   cd apps/backend
+   python -m venv .venv
+   # Windows PowerShell: .venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+   copy .env.example .env
+   uvicorn app.main:app --reload --port 8000
+   ```
+   Configure `DATABASE_URL`, `JWT_SECRET`, CORS/email/provider vars in `apps/backend/.env` as needed. See `apps/backend/README.md` for migrations and module env vars.
+
+2. **Frontend (Next.js)**
+   ```sh
+   npm install
+   copy apps\frontend\.env.example apps\frontend\.env.local
+   npx nx dev frontend
+   ```
+   `BACKEND_URL` (default `http://localhost:8000`) is used by Next.js rewrites and server-side API fetches. In dev the frontend runs on `http://localhost:3000` and forwards `/api/*` to the backend.
+
+3. **Production/PWA check**
+   ```sh
+   npx nx build frontend
+   npx nx start frontend
+   ```
+   The service worker (`public/sw.js`) is generated during production builds (Serwist), so offline/install behavior should be verified against the production server.
+
+Frontend pages are being migrated from local static stubs to backend-backed data/services; some screens may still show fallback/empty states if APIs or data are unavailable.
 
 ---
 
