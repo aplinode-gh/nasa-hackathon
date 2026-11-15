@@ -9,11 +9,10 @@ import {
 } from "@/components/icons";
 import { getFarmsBundle } from "@/lib/i18n/server";
 import { requireSessionPage } from "@/lib/auth/guards";
-import { query } from "@/lib/db";
-import { computeFarmHealth } from "@/lib/farms/health";
+import { backendFetch } from "@/lib/backend";
 
 export const metadata: Metadata = {
-  title: "Farms — Agropioo",
+  title: "Farms — AgroAI",
 };
 
 const healthChip = {
@@ -21,33 +20,12 @@ const healthChip = {
   watch: "border border-agro-canopy/30 bg-white text-agro-ink",
 } as const;
 
+type FarmListItem = Record<string, unknown> & { id: string; health?: string };
+
 export default async function FarmsPage() {
-  const session = await requireSessionPage();
+  await requireSessionPage();
   const bundle = await getFarmsBundle();
-  let farms: Array<Record<string, unknown>> = [];
-
-  try {
-    const rawFarms = await query<Record<string, unknown>>(
-      `SELECT * FROM farms WHERE account_id = $1 AND archived_at IS NULL ORDER BY created_at DESC`,
-      [session.accountId]
-    );
-
-    farms = await Promise.all(
-      rawFarms.map(async (farm) => {
-        const recent = await query<{ type: string; event_date: string }>(
-          `SELECT type, event_date FROM records WHERE farm_id = $1 ORDER BY event_date DESC LIMIT 5`,
-          [farm.id]
-        );
-
-        return {
-          ...farm,
-          health: computeFarmHealth(farm.growth_stages as Record<string, string>, recent),
-        };
-      })
-    );
-  } catch (err) {
-    console.error("Error fetching farms:", err);
-  }
+  const farms = (await backendFetch<FarmListItem[]>("/api/farms")) ?? [];
 
   return (
     <div className="pt-1">

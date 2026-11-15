@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import {
-  CloudRainIcon,
-} from "@/components/icons";
+import { CloudRainIcon } from "@/components/icons";
 import { getFarmsBundle } from "@/lib/i18n/server";
 import { requireSessionPage } from "@/lib/auth/guards";
-import { query } from "@/lib/db";
-import { computeFarmHealth } from "@/lib/farms/health";
+import { backendFetch } from "@/lib/backend";
 import FarmRecordsSection from "./farm-records-section";
 
 export const metadata: Metadata = {
-  title: "Farm details — Agropioo",
+  title: "Farm details — AgroAI",
 };
 
 const healthChip = {
@@ -18,49 +15,32 @@ const healthChip = {
   watch: "border border-white/30 bg-white/10 text-white",
 } as const;
 
+type FarmDetail = Record<string, unknown> & {
+  id: string;
+  health?: string;
+  recent_records?: Record<string, unknown>[];
+  lat?: number | null;
+  lng?: number | null;
+};
+
 export default async function FarmDetailPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const session = await requireSessionPage();
+  await requireSessionPage();
   const { id } = await params;
-  let farm: Record<string, unknown> | null = null;
-  try {
-    const rows = await query<Record<string, unknown>>(
-      `SELECT * FROM farms WHERE id = $1 AND account_id = $2 AND archived_at IS NULL`,
-      [id, session.accountId]
-    );
-    const data = rows[0] ?? null;
-
-    if (data) {
-      const recentRecords = await query<Record<string, unknown>>(
-        `SELECT * FROM records WHERE farm_id = $1 ORDER BY event_date DESC, created_at DESC LIMIT 6`,
-        [id]
-      );
-
-      const health = computeFarmHealth(data.growth_stages as Record<string, string>, recentRecords as { type: string; event_date: string }[]);
-
-      farm = {
-        ...data,
-        health,
-        recent_records: recentRecords,
-      };
-    }
-  } catch (err) {
-    console.error("Error fetching farm detail:", err);
-  }
+  const farm = await backendFetch<FarmDetail>(`/api/farms/${encodeURIComponent(id)}`);
   if (!farm) notFound();
 
   const bundle = await getFarmsBundle();
-  const f = farm as Record<string, unknown>;
+  const f = farm as FarmDetail;
 
   let weather: { temp_c: number | null; condition: string | null } | null = null;
-  if ((f.lat as number) != null && (f.lng as number) != null) {
-    try {
-      const weatherRes = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/weather/current?lat=${f.lat}&lng=${f.lng}`, { cache: 'no-store' });
-      if (weatherRes.ok) weather = await weatherRes.json();
-    } catch {}
+  if (f.lat != null && f.lng != null) {
+    weather = await backendFetch<{ temp_c: number | null; condition: string | null }>(
+      `/api/weather/current?lat=${encodeURIComponent(String(f.lat))}&lng=${encodeURIComponent(String(f.lng))}`,
+    );
   }
 
   return (
