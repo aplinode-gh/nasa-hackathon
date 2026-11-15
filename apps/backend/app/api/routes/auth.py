@@ -337,3 +337,35 @@ async def session(request: Request):
         )
     except Exception:
         return error_response("server_error", COPY["SERVER_ERROR"], 500)
+
+
+@router.get("/pass/{kind}")
+async def pass_status(kind: str, request: Request):
+    """Return validity and minimal state for verify/reset passes (for SSR guards)."""
+    try:
+        if kind not in ("verify", "reset"):
+            return error_response("validation_error", "Invalid pass kind", 422)
+        pass_data = await read_valid_pass(request, kind)  # type: ignore[arg-type]
+        if not pass_data:
+            return success({"valid": False})
+        claims = pass_data["claims"]
+        row = pass_data["row"]
+        return success(
+            {
+                "valid": True,
+                "kind": kind,
+                "claims": {
+                    "sub": getattr(claims, "sub", None),
+                    "email": getattr(claims, "email", None),
+                    "typ": getattr(claims, "typ", kind),
+                    "jti": getattr(claims, "jti", None),
+                },
+                "row": {
+                    "stage": row.get("stage"),
+                    "account_id": str(row.get("account_id")) if row.get("account_id") else None,
+                    "email": row.get("email"),
+                },
+            }
+        )
+    except Exception:
+        return error_response("server_error", COPY["SERVER_ERROR"], 500)
