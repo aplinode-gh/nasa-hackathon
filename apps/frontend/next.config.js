@@ -14,6 +14,7 @@ const withSerwist = withSerwistInit({
 
 /** @type {import('next').NextConfig} */
 const baseConfig = {
+  turbopack: {},
   experimental: {
     globalNotFound: true,
     useOffline: true,
