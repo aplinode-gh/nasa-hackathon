@@ -5,7 +5,7 @@ from __future__ import annotations
 import asyncio
 import json
 import smtplib
-from datetime import date
+from datetime import date, timedelta
 from email.message import EmailMessage
 from typing import Any
 
@@ -170,6 +170,9 @@ async def store_predictions(input_data: dict[str, Any], results: list[dict[str, 
     by_date = {str(day.get("date")): day for day in input_data["forecast"]}
     for result in results:
         snapshot = by_date.get(str(result["date"]))
+        prediction_date = result["date"]
+        if not isinstance(prediction_date, date):
+            prediction_date = date.fromisoformat(str(prediction_date))
         await execute(
             """
             INSERT INTO pest_predictions
@@ -187,7 +190,7 @@ async def store_predictions(input_data: dict[str, Any], results: list[dict[str, 
             """,
             input_data["farm_id"],
             input_data["account_id"],
-            result["date"],
+            prediction_date,
             result["riskScore"],
             result["predictedPest"],
             result["confidence"],
@@ -354,10 +357,17 @@ async def run_for_farm(farm: dict[str, Any]) -> dict[str, int]:
     from app.services.weather.service import get_forecast
 
     forecast = await get_forecast(float(farm["lat"]), float(farm["lng"]))
-    today = date.today().isoformat()
+    today = date.today()
     days = (forecast or {}).get("days") or [
-        {"date": today, "condition": "Clear", "temp_max": 30, "temp_min": 20, "precip_mm": 0, "humidity": 50}
-        for _ in range(7)
+        {
+            "date": (today + timedelta(days=offset)).isoformat(),
+            "condition": "Clear",
+            "temp_max": 30,
+            "temp_min": 20,
+            "precip_mm": 0,
+            "humidity": 50,
+        }
+        for offset in range(7)
     ]
 
     input_data = {
