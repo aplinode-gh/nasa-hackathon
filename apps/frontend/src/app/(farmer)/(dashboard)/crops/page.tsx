@@ -10,25 +10,17 @@ export const metadata: Metadata = {
 
 export default async function CropsPage() {
   await requireSessionPage();
-  const [bundle, farmsRes] = await Promise.all([
+  const [bundle, farmsData] = await Promise.all([
     getCropsBundle(),
-    backendFetch("/api/farms"),
+    backendFetch<any>("/api/farms"),
   ]);
 
-  let farms: Array<{ id: string; name: string; location: string }> = [];
-  if (farmsRes.ok) {
-    try {
-      const data = await farmsRes.json();
-      const list = Array.isArray(data) ? data : data?.farms ?? [];
-      farms = list.map((f: any) => ({
-        id: String(f.id),
-        name: String(f.name ?? ""),
-        location: String(f.location ?? ""),
-      }));
-    } catch {
-      farms = [];
-    }
-  }
+  const list = Array.isArray(farmsData) ? farmsData : farmsData?.farms ?? [];
+  const farms: Array<{ id: string; name: string; location: string }> = list.map((f: any) => ({
+    id: String(f.id),
+    name: String(f.name ?? ""),
+    location: String(f.location ?? ""),
+  }));
 
   return <CropsClient bundle={bundle} farms={farms} />;
 }

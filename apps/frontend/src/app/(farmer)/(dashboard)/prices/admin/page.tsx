@@ -14,22 +14,10 @@ type MandiOption = { id: string; name_en: string; district?: string };
 export default async function AdminPricePage() {
   await requireSessionPage();
 
-  const [bundle, optionsRes] = await Promise.all([
+  const [bundle, options] = await Promise.all([
     getPricesBundle(),
-    backendFetch("/api/prices/options"),
+    backendFetch<{ crops?: CropOption[]; mandis?: MandiOption[] }>("/api/prices/options"),
   ]);
-
-  let crops: CropOption[] = [];
-  let mandis: MandiOption[] = [];
-  if (optionsRes.ok) {
-    try {
-      const data = (await optionsRes.json()) as { crops?: CropOption[]; mandis?: MandiOption[] };
-      crops = data.crops ?? [];
-      mandis = data.mandis ?? [];
-    } catch {
-      // leave defaults
-    }
-  }
 
   return (
     <div className="pt-1">
@@ -41,7 +29,7 @@ export default async function AdminPricePage() {
         <p className="mt-2 text-agro-slate">Enter or correct today&apos;s mandi price for a crop and market.</p>
 
         <div className="mt-6 rounded-3xl border border-agro-sprout bg-white p-5 sm:p-6">
-          <AdminForm bundle={bundle} crops={crops} mandis={mandis} />
+          <AdminForm bundle={bundle} crops={options?.crops ?? []} mandis={options?.mandis ?? []} />
         </div>
       </div>
     </div>
