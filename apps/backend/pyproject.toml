@@ -1,4 +1,4 @@
-﻿[project]
+[project]
 name = "nasa-hackathon-backend"
 version = "0.1.0"
 description = "FastAPI backend service"
